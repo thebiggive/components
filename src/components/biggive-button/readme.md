@@ -18,6 +18,13 @@
 | `url`          | `url`           | URL                   | `string`  | `undefined`  |
 
 
+## Events
+
+| Event           | Description | Type                  |
+| --------------- | ----------- | --------------------- |
+| `doButtonClick` |             | `CustomEvent<string>` |
+
+
 ## Dependencies
 
 ### Used by
