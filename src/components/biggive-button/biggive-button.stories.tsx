@@ -42,7 +42,7 @@ const Template = args => `
       space-below="${args.spaceBelow}"
       colour-scheme="${args.colourScheme}"
       label="${args.label}"
-      url="${args.url}"
+      fn="${args.fn}"
       full-width=${args.fullWidth}
       size=${args.size}
       rounded=${args.rounded}
@@ -54,7 +54,7 @@ ButtonComponent.args = {
   spaceBelow: 0,
   colourScheme: 'primary',
   label: 'Donate now',
-  url: 'http://www.google.com',
+  fn: 'alert(124)',
   fullWidth: false,
   size: 'medium',
   rounded: false,

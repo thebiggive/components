@@ -10,19 +10,13 @@
 | Property       | Attribute       | Description           | Type      | Default      |
 | -------------- | --------------- | --------------------- | --------- | ------------ |
 | `colourScheme` | `colour-scheme` | Colour Scheme         | `string`  | `'primary'`  |
+| `fn`           | `fn`            | Function              | `string`  | `undefined`  |
 | `fullWidth`    | `full-width`    | Display full width    | `boolean` | `false`      |
 | `label`        | `label`         | Text                  | `string`  | `'Click me'` |
 | `rounded`      | `rounded`       | Rounded corners       | `boolean` | `false`      |
 | `size`         | `size`          | Size                  | `string`  | `'medium'`   |
 | `spaceBelow`   | `space-below`   | Space below component | `number`  | `1`          |
 | `url`          | `url`           | URL                   | `string`  | `undefined`  |
-
-
-## Events
-
-| Event           | Description | Type                  |
-| --------------- | ----------- | --------------------- |
-| `doButtonClick` |             | `CustomEvent<string>` |
 
 
 ## Dependencies

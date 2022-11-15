@@ -168,6 +168,10 @@ export namespace Components {
          */
         "colourScheme": string;
         /**
+          * Function
+         */
+        "fn": string;
+        /**
           * Display full width
          */
         "fullWidth": boolean;
@@ -936,10 +940,6 @@ export namespace Components {
         "videoUrl": string;
     }
 }
-export interface BiggiveButtonCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLBiggiveButtonElement;
-}
 export interface BiggiveCampaignCardFilterGridCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLBiggiveCampaignCardFilterGridElement;
@@ -1424,6 +1424,10 @@ declare namespace LocalJSX {
          */
         "colourScheme"?: string;
         /**
+          * Function
+         */
+        "fn"?: string;
+        /**
           * Display full width
          */
         "fullWidth"?: boolean;
@@ -1431,7 +1435,6 @@ declare namespace LocalJSX {
           * Text
          */
         "label"?: string;
-        "onDoButtonClick"?: (event: BiggiveButtonCustomEvent<string>) => void;
         /**
           * Rounded corners
          */
