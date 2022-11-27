@@ -6,9 +6,6 @@
   margin-bottom: $spacer-3;
   display: flex;
   flex-flow: row wrap;
-}
-
-.space-between {
   justify-content: space-between;
 }
 
@@ -16,25 +13,71 @@
   display: block;
 }
 
+
 .column-count-4 ::slotted(*) {
   width: calc( 100% / 4 );
   @include flex-container-column();
 }
+.column-count-4.column-gap-1 ::slotted(*) {  width: calc((100% / 4) - (($spacer-1 * 3) / 4 ))  }
+.column-count-4.column-gap-2 ::slotted(*) {  width: calc((100% / 4) - (($spacer-2 * 3) / 4 ))  }
+.column-count-4.column-gap-3 ::slotted(*) {  width: calc((100% / 4) - (($spacer-3 * 3) / 4 ))  }
+.column-count-4.column-gap-4 ::slotted(*) {  width: calc((100% / 4) - (($spacer-4 * 3) / 4 ))  }
+.column-count-4.column-gap-5 ::slotted(*) {  width: calc((100% / 4) - (($spacer-5 * 3) / 4 ))  }
+.column-count-4.column-gap-6 ::slotted(*) {  width: calc((100% / 4) - (($spacer-6 * 3) / 4 ))  }
+
+.column-count-4.child-filler-count-2.column-gap-1:after { content: ''; width: calc(50% - ($spacer-1 / 2)); }
+.column-count-4.child-filler-count-2.column-gap-2:after { content: ''; width: calc(50% - ($spacer-2 / 2)); }
+.column-count-4.child-filler-count-2.column-gap-3:after { content: ''; width: calc(50% - ($spacer-3 / 2)); }
+.column-count-4.child-filler-count-2.column-gap-4:after { content: ''; width: calc(50% - ($spacer-4 / 2)); }
+.column-count-4.child-filler-count-2.column-gap-5:after { content: ''; width: calc(50% - ($spacer-5 / 2)); }
+.column-count-4.child-filler-count-2.column-gap-6:after { content: ''; width: calc(50% - ($spacer-6 / 2)); }
+
+.column-count-4.child-filler-count-1.column-gap-1:after { content: ''; width: calc((100% / 4) - (($spacer-1 * 3) / 4 )); }
+.column-count-4.child-filler-count-1.column-gap-2:after { content: ''; width: calc((100% / 4) - (($spacer-2 * 3) / 4 )); }
+.column-count-4.child-filler-count-1.column-gap-3:after { content: ''; width: calc((100% / 4) - (($spacer-3 * 3) / 4 )); }
+.column-count-4.child-filler-count-1.column-gap-4:after { content: ''; width: calc((100% / 4) - (($spacer-4 * 3) / 4 )); }
+.column-count-4.child-filler-count-1.column-gap-5:after { content: ''; width: calc((100% / 4) - (($spacer-5 * 3) / 4 )); }
+.column-count-4.child-filler-count-1.column-gap-6:after { content: ''; width: calc((100% / 4) - (($spacer-6 * 3) / 4 )); }
+
+
+
 
 .column-count-3 ::slotted(*) {
   width: calc( 100% / 3 );
   @include flex-container-column();
 }
 
+.column-count-3.column-gap-1 ::slotted(*) {  width: calc((100% / 3) - (($spacer-1 * 2) / 3 ))  }
+.column-count-3.column-gap-2 ::slotted(*) {  width: calc((100% / 3) - (($spacer-2 * 2) / 3 ))  }
+.column-count-3.column-gap-3 ::slotted(*) {  width: calc((100% / 3) - (($spacer-3 * 2) / 3 ))  }
+.column-count-3.column-gap-4 ::slotted(*) {  width: calc((100% / 3) - (($spacer-4 * 2) / 3 ))  }
+.column-count-3.column-gap-5 ::slotted(*) {  width: calc((100% / 3) - (($spacer-5 * 2) / 3 ))  }
+.column-count-3.column-gap-6 ::slotted(*) {  width: calc((100% / 3) - (($spacer-6 * 2) / 3 ))  }
+
+.column-count-3.child-filler-count-1.column-gap-1:after { content: ''; width: calc((100% / 3) - (($spacer-1 * 2) / 3 )); }
+.column-count-3.child-filler-count-1.column-gap-2:after { content: ''; width: calc((100% / 3) - (($spacer-2 * 2) / 3 )); }
+.column-count-3.child-filler-count-1.column-gap-3:after { content: ''; width: calc((100% / 3) - (($spacer-3 * 2) / 3 )); }
+.column-count-3.child-filler-count-1.column-gap-4:after { content: ''; width: calc((100% / 3) - (($spacer-4 * 2) / 3 )); }
+.column-count-3.child-filler-count-1.column-gap-5:after { content: ''; width: calc((100% / 3) - (($spacer-5 * 2) / 3 )); }
+.column-count-3.child-filler-count-1.column-gap-6:after { content: ''; width: calc((100% / 3) - (($spacer-6 * 2) / 3 )); }
+
 .column-count-2 ::slotted(*) {
   width: calc( 100% / 2 );
   @include flex-container-column();
 }
 
+.column-count-2.column-gap-1 ::slotted(*) {  width: calc((100% / 2) - ($spacer-1 / 2 ))  }
+.column-count-2.column-gap-2 ::slotted(*) {  width: calc((100% / 2) - ($spacer-2 / 2 ))  }
+.column-count-2.column-gap-3 ::slotted(*) {  width: calc((100% / 2) - ($spacer-3 / 2 ))  }
+.column-count-2.column-gap-4 ::slotted(*) {  width: calc((100% / 2) - ($spacer-4 / 2 ))  }
+.column-count-2.column-gap-5 ::slotted(*) {  width: calc((100% / 2) - ($spacer-5 / 2 ))  }
+.column-count-2.column-gap-6 ::slotted(*) {  width: calc((100% / 2) - ($spacer-6 / 2 ))  }
+
 @media screen and (max-width: $screen-tablet-max) {
   .column-count-2 ::slotted(*),
   .column-count-3 ::slotted(*),
-  .column-count-4 ::slotted(*) {
+  .column-count-4 ::slotted(*),
+  .column-count-5 ::slotted(*) {
     width: calc( 50% - (($spacer-4 * 1) / 2));
   }
 }
@@ -42,7 +85,8 @@
 @media screen and (max-width: $screen-mobile-max) {
   .column-count-2 ::slotted(*),
   .column-count-3 ::slotted(*),
-  .column-count-4 ::slotted(*) {
+  .column-count-4 ::slotted(*),
+  .column-count-5 ::slotted(*) {
     width: 100%;
   }
 }

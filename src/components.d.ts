@@ -607,6 +607,10 @@ export namespace Components {
          */
         "columnCount": number;
         /**
+          * Gap between columns
+         */
+        "columnGap": number;
+        /**
           * Space below component
          */
         "spaceBelow": number;
@@ -2040,6 +2044,10 @@ declare namespace LocalJSX {
           * Number of columns in grid
          */
         "columnCount"?: number;
+        /**
+          * Gap between columns
+         */
+        "columnGap"?: number;
         /**
           * Space below component
          */
