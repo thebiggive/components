@@ -78,7 +78,7 @@ export class BiggiveImageFeature {
             <div class={'slug text-colour-' + this.slugColour}>{this.slug}</div>
             <h2 class={'title text-colour-' + this.mainTitleColour}>{this.mainTitle}</h2>
             <div class={'teaser text-colour-' + this.teaserColour}>{this.teaser}</div>
-            {this.buttonLabel != null && this.buttonUrl != null ? (
+            {this.buttonLabel != null && this.buttonUrl != null && this.buttonLabel != '' && this.buttonUrl != '' ? (
               <biggive-button colour-scheme={this.buttonColourScheme} url={this.buttonUrl} label={this.buttonLabel}></biggive-button>
             ) : null}
           </div>

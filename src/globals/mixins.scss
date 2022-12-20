@@ -439,6 +439,19 @@
   }
 }
 
+@mixin button-clear-black {
+  color: $colour-black;
+  background-color: transparent;
+  text-decoration: underline;
+  border: 0;
+  padding-left: 0;
+  padding-right: 0;
+  &:hover {
+    text-decoration: none;
+    background-color: transparent;
+  }
+}
+
 @mixin button-clear-brand-1 {
   color: $colour-brand-1;
   background-color: transparent;
@@ -572,7 +585,7 @@
 }
 
 @mixin button-tertiary {
-  color: $colour-white;
+  color: $colour-black;
   background-color: $colour-tertiary;
   border-color: $colour-tertiary;
   &:hover {
@@ -599,7 +612,7 @@
 }
 
 @mixin button-brand-3 {
-  color: $colour-white;
+  color: $colour-black;
   background-color: $colour-brand-3;
   border-color: $colour-brand-3;
   &:hover {
@@ -608,11 +621,11 @@
 }
 
 @mixin button-brand-4 {
-  color: $colour-white;
+  color: $colour-black;
   background-color: $colour-brand-4;
   border-color: $colour-brand-4;
   &:hover {
-    background-color: $colour-black;
+    background-color: $colour-white;
   }
 }
 
@@ -626,11 +639,11 @@
 }
 
 @mixin button-brand-6 {
-  color: $colour-white;
+  color: $colour-black;
   background-color: $colour-brand-6;
   border-color: $colour-brand-6;
   &:hover {
-    background-color: $colour-black;
+    background-color: $colour-white;
   }
 }
 

@@ -339,6 +339,10 @@ a {
     @include button-clear-tertiary();
 }
 
+.button-clear-black {
+    @include button-clear-black();
+}
+
 .button-clear-brand-1 {
     @include button-clear-brand-1();
 }

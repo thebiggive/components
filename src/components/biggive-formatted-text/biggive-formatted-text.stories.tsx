@@ -15,6 +15,13 @@ export default {
         options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
       },
     },
+    defaultLineHeight: {
+      name: 'Default line height',
+      control: {
+        type: 'select',
+        options: [100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200],
+      },
+    },
   },
 };
 
@@ -22,6 +29,7 @@ const Template = args => `
           <biggive-formatted-text
             space-below=${args.spaceBelow}
             default-text-colour="${args.defaultTextColour}"
+            default-line-height="${args.defaultLineHeight}"
             >
             <h2>Heading 2</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -51,4 +59,5 @@ export const FormattedTextComponent = Template.bind({});
 FormattedTextComponent.args = {
   spaceBelow: 0,
   defaultTextColour: 'primary',
+  defaultLineHeight: '110',
 };

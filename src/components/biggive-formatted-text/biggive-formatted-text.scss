@@ -27,5 +27,17 @@
   &.max-width-85 .sleeve { @include max-width-85(); }
   &.max-width-90 .sleeve { @include max-width-90(); }
   &.max-width-95 .sleeve { @include max-width-95(); }
+
+  &.line-height-100 { line-height: 140% }
+  &.line-height-110 { line-height: 160% }
+  &.line-height-120 { line-height: 180% }
+  &.line-height-130 { line-height: 200% }
+  &.line-height-140 { line-height: 220% }
+  &.line-height-150 { line-height: 240% }
+  &.line-height-160 { line-height: 260% }
+  &.line-height-170 { line-height: 280% }
+  &.line-height-180 { line-height: 300% }
+  &.line-height-190 { line-height: 320% }
+  &.line-height-200 { line-height: 340% }
 }
 

@@ -9,7 +9,7 @@
 
 | Property       | Attribute        | Description           | Type     | Default |
 | -------------- | ---------------- | --------------------- | -------- | ------- |
-| `height`       | `height`         | Image width           | `number` | `0`     |
+| `height`       | `height`         | Image height          | `number` | `0`     |
 | `imageAltText` | `image-alt-text` | Image alt text tag.   | `string` | `''`    |
 | `imageUrl`     | `image-url`      | Full URL of a image.  | `string` | `''`    |
 | `sizeUnit`     | `size-unit`      | Size unit             | `string` | `'px'`  |

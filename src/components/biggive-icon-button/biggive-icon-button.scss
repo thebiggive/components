@@ -1,0 +1,86 @@
+:host {
+  display: contents; 
+}
+
+.container {
+  @include standard-font();
+  a {
+    @include font-size-large();
+    padding: 10px 55px 10px 75px;
+    background-color: $colour-white;
+    color: $colour-black;
+    font-weight: bold;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    transition: all ease-in-out 0.5s;
+    cursor: pointer;
+    background-image: url('/assets/images/biggive-double-triangle-primary.svg');
+    background-position: 30px center;
+    background-size: 30px auto;
+    background-repeat: no-repeat;
+    position: relative;
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 30px;
+      width: 10px;
+      height: 100%;
+      background-image: url('/assets/images/arrow-right-black.svg');
+      background-position: center center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    &.background-colour-primary { background-color: $colour-primary; }
+    &.background-colour-secondary { background-color: $colour-secondary; }
+    &.background-colour-tertiary { background-color: $colour-tertiary; }
+    &.background-colour-black { background-color: $colour-black; }
+    &.background-colour-white { background-color: $colour-white; }
+    &.background-colour-brand-1 { background-color: $colour-brand-1; }
+    &.background-colour-brand-2 { background-color: $colour-brand-2; }
+    &.background-colour-brand-3 { background-color: $colour-brand-3; }
+    &.background-colour-brand-4 { background-color: $colour-brand-4; }
+    &.background-colour-brand-5 { background-color: $colour-brand-5; }
+    &.background-colour-brand-6 { background-color: $colour-brand-6; }
+  
+    &.text-colour-primary { color: $colour-primary; }
+    &.text-colour-secondary { color: $colour-secondary; }
+    &.text-colour-tertiary { color: $colour-tertiary; }
+    &.text-colour-black { color: $colour-black; }
+    &.text-colour-white { color: $colour-white; }
+    &.text-colour-brand-1 { color: $colour-brand-1; }
+    &.text-colour-brand-2 { color: $colour-brand-2; }
+    &.text-colour-brand-3 { color: $colour-brand-3; }
+    &.text-colour-brand-4 { color: $colour-brand-4; }
+    &.text-colour-brand-5 { color: $colour-brand-5; }
+    &.text-colour-brand-6 { color: $colour-brand-6; }
+  }
+
+
+  &.icon-colour-primary a { background-image: url('/assets/images/biggive-double-triangle-primary.svg'); }
+  &.icon-colour-secondary a { background-image: url('/assets/images/biggive-double-triangle-secondary.svg'); }
+  &.icon-colour-tertiary a { background-image: url('/assets/images/biggive-double-triangle-tertiary.svg'); }
+  &.icon-colour-black a { background-image: url('/assets/images/biggive-double-triangle-black.svg'); }
+  &.icon-colour-white a { background-image: url('/assets/images/biggive-double-triangle-white.svg'); }
+  &.icon-colour-brand-1 a { background-image: url('/assets/images/biggive-double-triangle-brand-1.svg'); }
+  &.icon-colour-brand-2 a { background-image: url('/assets/images/biggive-double-triangle-brand-2.svg'); }
+  &.icon-colour-brand-3 a { background-image: url('/assets/images/biggive-double-triangle-brand-3.svg'); }
+  &.icon-colour-brand-4 a { background-image: url('/assets/images/biggive-double-triangle-brand-4.svg'); }
+  &.icon-colour-brand-5 a { background-image: url('/assets/images/biggive-double-triangle-brand-5.svg'); }
+  &.icon-colour-brand-6 a { background-image: url('/assets/images/biggive-double-triangle-brand-6.svg'); }
+
+  &.arrow-colour-primary a span:after { background-image: url('/assets/images/arrow-right-primary.svg'); }
+  &.arrow-colour-secondary a span:after { background-image: url('/assets/images/arrow-right-secondary.svg'); }
+  &.arrow-colour-tertiary a span:after {background-image: url('/assets/images/arrow-right-tertiary.svg'); }
+  &.arrow-colour-black a span:after {background-image: url('/assets/images/arrow-right-black.svg'); }
+  &.arrow-colour-white a span:after {background-image: url('/assets/images/arrow-right-white.svg'); }
+  &.arrow-colour-brand-1 a span:after {background-image: url('/assets/images/arrow-right-brand-1.svg'); }
+  &.arrow-colour-brand-2 a span:after {background-image: url('/assets/images/arrow-right-brand-2.svg'); }
+  &.arrow-colour-brand-3 a span:after {background-image: url('/assets/images/arrow-right-brand-3.svg'); }
+  &.arrow-colour-brand-4 a span:after {background-image: url('/assets/images/arrow-right-brand-4.svg'); }
+  &.arrow-colour-brand-5 a span:after {background-image: url('/assets/images/arrow-right-brand-5.svg'); }
+  &.arrow-colour-brand-6 a span:after { background-image: url('/assets/images/arrow-right-brand-6.svg'); }
+
+}

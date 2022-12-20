@@ -32,7 +32,7 @@ export class BiggiveImage {
   @Prop() width: number = 0;
 
   /**
-   * Image width
+   * Image height
    */
   @Prop() height: number = 0;
 
@@ -61,7 +61,7 @@ export class BiggiveImage {
     return (
       <div class={'container space-above-' + this.spaceAbove + ' space-below-' + this.spaceBelow} style={{ width: this.getWidth(), height: this.getHeight() }}>
         <div class="image-wrap">
-          <img src={this.imageUrl} style={{ width: this.getWidth(), height: this.getHeight() }} alt={this.imageAltText} />
+          <img src={this.imageUrl} alt={this.imageAltText} />
         </div>
       </div>
     );

@@ -576,6 +576,10 @@ export namespace Components {
     }
     interface BiggiveFormattedText {
         /**
+          * Default line height percentage
+         */
+        "defaultLineHeight": number;
+        /**
           * Default text colour
          */
         "defaultTextColour": string;
@@ -593,6 +597,10 @@ export namespace Components {
           * Number of columns in grid
          */
         "columnCount": number;
+        /**
+          * Gap between columns
+         */
+        "columnGap": number;
         /**
           * Space below component
          */
@@ -717,6 +725,40 @@ export namespace Components {
          */
         "teaserColour": string;
     }
+    interface BiggiveIconButton {
+        /**
+          * Arrow Colour
+         */
+        "arrowColour": string;
+        /**
+          * Background Colour
+         */
+        "backgroundColour": string;
+        /**
+          * Text
+         */
+        "iconColour": string;
+        /**
+          * Text
+         */
+        "label": string;
+        /**
+          * New Tab
+         */
+        "openInNewTab": boolean;
+        /**
+          * Space below component
+         */
+        "spaceBelow": number;
+        /**
+          * Text Colour
+         */
+        "textColour": string;
+        /**
+          * URL
+         */
+        "url": string;
+    }
     interface BiggiveIconGroup {
         /**
           * Label
@@ -729,7 +771,7 @@ export namespace Components {
     }
     interface BiggiveImage {
         /**
-          * Image width
+          * Image height
          */
         "height": number;
         /**
@@ -1089,6 +1131,10 @@ export interface BiggiveFormFieldSelectOptionCustomEvent<T> extends CustomEvent<
     detail: T;
     target: HTMLBiggiveFormFieldSelectOptionElement;
 }
+export interface BiggiveIconButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLBiggiveIconButtonElement;
+}
 export interface BiggiveSearchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLBiggiveSearchElement;
@@ -1225,6 +1271,12 @@ declare global {
     var HTMLBiggiveHeroImageElement: {
         prototype: HTMLBiggiveHeroImageElement;
         new (): HTMLBiggiveHeroImageElement;
+    };
+    interface HTMLBiggiveIconButtonElement extends Components.BiggiveIconButton, HTMLStencilElement {
+    }
+    var HTMLBiggiveIconButtonElement: {
+        prototype: HTMLBiggiveIconButtonElement;
+        new (): HTMLBiggiveIconButtonElement;
     };
     interface HTMLBiggiveIconGroupElement extends Components.BiggiveIconGroup, HTMLStencilElement {
     }
@@ -1381,6 +1433,7 @@ declare global {
         "biggive-header": HTMLBiggiveHeaderElement;
         "biggive-heading": HTMLBiggiveHeadingElement;
         "biggive-hero-image": HTMLBiggiveHeroImageElement;
+        "biggive-icon-button": HTMLBiggiveIconButtonElement;
         "biggive-icon-group": HTMLBiggiveIconGroupElement;
         "biggive-image": HTMLBiggiveImageElement;
         "biggive-image-feature": HTMLBiggiveImageFeatureElement;
@@ -1997,6 +2050,10 @@ declare namespace LocalJSX {
     }
     interface BiggiveFormattedText {
         /**
+          * Default line height percentage
+         */
+        "defaultLineHeight"?: number;
+        /**
           * Default text colour
          */
         "defaultTextColour"?: string;
@@ -2014,6 +2071,10 @@ declare namespace LocalJSX {
           * Number of columns in grid
          */
         "columnCount"?: number;
+        /**
+          * Gap between columns
+         */
+        "columnGap"?: number;
         /**
           * Space below component
          */
@@ -2137,6 +2198,41 @@ declare namespace LocalJSX {
          */
         "teaserColour"?: string;
     }
+    interface BiggiveIconButton {
+        /**
+          * Arrow Colour
+         */
+        "arrowColour"?: string;
+        /**
+          * Background Colour
+         */
+        "backgroundColour"?: string;
+        /**
+          * Text
+         */
+        "iconColour"?: string;
+        /**
+          * Text
+         */
+        "label"?: string;
+        "onDoButtonClick"?: (event: BiggiveIconButtonCustomEvent<{ event: object; url: string }>) => void;
+        /**
+          * New Tab
+         */
+        "openInNewTab"?: boolean;
+        /**
+          * Space below component
+         */
+        "spaceBelow"?: number;
+        /**
+          * Text Colour
+         */
+        "textColour"?: string;
+        /**
+          * URL
+         */
+        "url"?: string;
+    }
     interface BiggiveIconGroup {
         /**
           * Label
@@ -2149,7 +2245,7 @@ declare namespace LocalJSX {
     }
     interface BiggiveImage {
         /**
-          * Image width
+          * Image height
          */
         "height"?: number;
         /**
@@ -2513,6 +2609,7 @@ declare namespace LocalJSX {
         "biggive-header": BiggiveHeader;
         "biggive-heading": BiggiveHeading;
         "biggive-hero-image": BiggiveHeroImage;
+        "biggive-icon-button": BiggiveIconButton;
         "biggive-icon-group": BiggiveIconGroup;
         "biggive-image": BiggiveImage;
         "biggive-image-feature": BiggiveImageFeature;
@@ -2563,6 +2660,7 @@ declare module "@stencil/core" {
             "biggive-header": LocalJSX.BiggiveHeader & JSXBase.HTMLAttributes<HTMLBiggiveHeaderElement>;
             "biggive-heading": LocalJSX.BiggiveHeading & JSXBase.HTMLAttributes<HTMLBiggiveHeadingElement>;
             "biggive-hero-image": LocalJSX.BiggiveHeroImage & JSXBase.HTMLAttributes<HTMLBiggiveHeroImageElement>;
+            "biggive-icon-button": LocalJSX.BiggiveIconButton & JSXBase.HTMLAttributes<HTMLBiggiveIconButtonElement>;
             "biggive-icon-group": LocalJSX.BiggiveIconGroup & JSXBase.HTMLAttributes<HTMLBiggiveIconGroupElement>;
             "biggive-image": LocalJSX.BiggiveImage & JSXBase.HTMLAttributes<HTMLBiggiveImageElement>;
             "biggive-image-feature": LocalJSX.BiggiveImageFeature & JSXBase.HTMLAttributes<HTMLBiggiveImageFeatureElement>;

@@ -20,9 +20,14 @@ export class BiggiveFormattedText {
    */
   @Prop() maxWidth: number = 100;
 
+  /**
+   * Default line height percentage
+   */
+  @Prop() defaultLineHeight: number = null;
+
   render() {
     return (
-      <div class={'container max-width-' + this.maxWidth + ' text-colour-' + this.defaultTextColour + ' space-below-' + this.spaceBelow}>
+      <div class={'container max-width-' + this.maxWidth + ' text-colour-' + this.defaultTextColour + ' line-height-' + this.defaultLineHeight + ' space-below-' + this.spaceBelow}>
         <slot></slot>
       </div>
     );
