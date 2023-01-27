@@ -101,7 +101,7 @@ export class BiggiveMainMenu {
           </div>
           <div class="nav-secondary"></div>
         </div>
-        <nav role="navigation">
+        <nav id="main-navigation-menu">
           <div class="navbar">
             <div class="logo">
               <a href={this.logoUrl} aria-label="Home">
