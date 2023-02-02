@@ -726,37 +726,20 @@ export namespace Components {
         "teaserColour": string;
     }
     interface BiggiveIconButton {
-        /**
-          * Arrow Colour
-         */
         "arrowColour": string;
-        /**
-          * Background Colour
-         */
+
         "backgroundColour": string;
-        /**
-          * Text
-         */
+
         "iconColour": string;
-        /**
-          * Text
-         */
+
         "label": string;
-        /**
-          * New Tab
-         */
+
         "openInNewTab": boolean;
-        /**
-          * Space below component
-         */
+
         "spaceBelow": number;
-        /**
-          * Text Colour
-         */
+
         "textColour": string;
-        /**
-          * URL
-         */
+
         "url": string;
     }
     interface BiggiveIconGroup {
