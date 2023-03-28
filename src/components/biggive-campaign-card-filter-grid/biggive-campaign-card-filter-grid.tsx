@@ -7,7 +7,7 @@ import { faFilterSlash, faMagnifyingGlass } from '@fortawesome/pro-solid-svg-ico
   shadow: true,
 })
 export class BiggiveCampaignCardFilterGrid {
-  @Element() el;
+  @Element() el: HTMLBiggiveCampaignCardFilterGridElement;
 
   /**
    * This event `doSearchAndFilterUpdate` event is emitted and propogates to the parent

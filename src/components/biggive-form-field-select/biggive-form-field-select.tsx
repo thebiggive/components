@@ -6,7 +6,8 @@ import { Component, Prop, h, Event, Element, EventEmitter, Listen } from '@stenc
   shadow: true,
 })
 export class BiggiveFormFieldSelect {
-  @Element() el: HTMLDivElement;
+  @Element() el: HTMLBiggiveFormFieldSelectElement;
+
   /**
    * This event `doChange` event is emitted and propogates to the parent
    * component which handles it

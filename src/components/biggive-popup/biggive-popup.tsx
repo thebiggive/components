@@ -6,21 +6,21 @@ import { Component, Element, Method, h } from '@stencil/core';
   shadow: true,
 })
 export class BiggivePopup {
-  @Element() el;
+  @Element() el: HTMLBiggivePopupElement;
 
   @Method()
   async openFromOutside() {
-    this.el.shadowRoot.querySelector('.popup').setAttribute('data-visible', 'true');
+    this.el.shadowRoot?.querySelector('.popup')?.setAttribute('data-visible', 'true');
   }
 
   @Method()
   async closeFromOutside() {
-    this.el.shadowRoot.querySelector('.popup').setAttribute('data-visible', 'false');
+    this.el.shadowRoot?.querySelector('.popup')?.setAttribute('data-visible', 'false');
   }
 
   private closeFromWithin = (event: any) => {
     if (event.target.classList.contains('popup') || event.target.classList.contains('close')) {
-      this.el.shadowRoot.querySelector('.popup').setAttribute('data-visible', 'false');
+      this.el.shadowRoot?.querySelector('.popup')?.setAttribute('data-visible', 'false');
     }
   };
 
