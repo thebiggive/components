@@ -57,8 +57,16 @@ export class BiggiveTippingSlider {
         if (pageX !== undefined) {
           const mousePos = pageX - bar.offsetLeft - handle.offsetWidth / 2;
           const position = mousePos > max ? max : mousePos < 0 ? 0 : mousePos;
-          const percentage = (position / max) * this.percentageEnd;
+          const percentage = (position / max) * this.percentageEnd >= 1 ? (position / max) * this.percentageEnd : 1;
           const donation = Math.round(this.donationAmount * (percentage / 100));
+
+          console.log('mousePos', mousePos);
+          console.log('position', position);
+          console.log('percentage', percentage);
+          console.log('donation', donation);
+
+          console.log(Math.round(percentage).toString());
+          console.log(this.format(this.donationCurrency, donation));
 
           percentageWrap.innerHTML = Math.round(percentage).toString();
           donationWrap.innerHTML = this.format(this.donationCurrency, donation);
