@@ -976,6 +976,7 @@ export namespace Components {
           * ISO-4217 currency code (e.g. GBP, USD)
          */
         "donationCurrency": 'GBP' | 'USD';
+        "percentageCurrent": number;
         "percentageEnd": number;
         "percentageStart": number;
         "spaceBelow": spacingOption;
@@ -2488,6 +2489,7 @@ declare namespace LocalJSX {
           * ISO-4217 currency code (e.g. GBP, USD)
          */
         "donationCurrency": 'GBP' | 'USD';
+        "percentageCurrent"?: number;
         "percentageEnd"?: number;
         "percentageStart"?: number;
         "spaceBelow"?: spacingOption;

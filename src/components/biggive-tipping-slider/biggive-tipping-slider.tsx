@@ -14,6 +14,8 @@ export class BiggiveTippingSlider {
 
   @Prop() colourScheme: brandColour = 'primary';
 
+  @Prop() percentageCurrent: number;
+
   @Prop() percentageStart: number;
 
   @Prop() percentageEnd: number;
@@ -99,13 +101,13 @@ export class BiggiveTippingSlider {
     const donationWrap = handle?.querySelector('.donation-value')!;
 
     handle.style.marginLeft = '0px';
-    percentageWrap.innerHTML = '0';
-    donationWrap.innerHTML = '0';
+    percentageWrap.innerHTML = '1';
+    donationWrap.innerHTML = '1';
   };
 
   render() {
-    const currencyFormatted = this.format(this.donationCurrency, 0);
-
+    const donation = Math.round(this.donationAmount * (1 / 100));
+    const currencyFormatted = this.format(this.donationCurrency, donation);
     return (
       <div class={'container space-below-' + this.spaceBelow}>
         <div class="bar">
@@ -116,7 +118,7 @@ export class BiggiveTippingSlider {
               </span>
               &nbsp;
               <span class="percentage">
-                (<span class="percentage-value">0</span>%)
+                (<span class="percentage-value">1</span>%)
               </span>
             </div>
           </div>
