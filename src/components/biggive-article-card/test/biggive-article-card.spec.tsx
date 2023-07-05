@@ -13,8 +13,10 @@ describe('biggive-article-card', () => {
         <div class="container space-below-0">
            <div class="background-colour-white button-colourblack clip-bottom-left-corner-true clip-top-right-corner-true date-colour-black image-label-colour-black main-title-colour-black sleeve slug-colour-black text-colour-black" style="background-image: url('');">
                   <div class="content-wrap">
-                    <div class="slug text-colour-primary"></div>
-                    <div class="date"></div>
+                    <div class="meta">
+                      <div class="slug text-colour-primary"></div>
+                      <div class="date"></div>
+                    </div>
                     <div class="main-image-container">
                       <div class="image-wrap">
                         <img>
