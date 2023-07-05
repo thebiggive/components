@@ -93,6 +93,7 @@ export namespace Components {
         "backgroundColour": brandColour;
         "borderWidth": spacingOption;
         "circle": boolean;
+        "circleColour": 'light' | 'dark';
         "fullName": string;
         "imageStyle": 'cover' | 'contain';
         "imageUrl": string;
@@ -1585,6 +1586,7 @@ declare namespace LocalJSX {
         "backgroundColour"?: brandColour;
         "borderWidth"?: spacingOption;
         "circle"?: boolean;
+        "circleColour"?: 'light' | 'dark';
         "fullName"?: string;
         "imageStyle"?: 'cover' | 'contain';
         "imageUrl"?: string;

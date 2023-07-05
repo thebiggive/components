@@ -106,8 +106,7 @@
       }
   
   
-  
-  
+
   
       .circle {
         position: absolute;
@@ -120,6 +119,15 @@
         text-align: center;
         padding: 6.5px;
         box-sizing: border-box;
+        svg path {
+          stroke: #000000;
+        }
+        &.dark {
+          background-color: #000000;
+          svg path {
+            stroke: #FFFFFF;
+          }
+        }
         svg {
           position: relative;
           display: inline-block;
