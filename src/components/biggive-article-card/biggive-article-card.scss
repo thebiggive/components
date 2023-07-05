@@ -29,13 +29,16 @@
       flex-direction: column;
     }
   }
-  .slug {
-    @include font-size-medium();
+  .meta {
     margin-bottom: $spacer-2;
   }
-  .date {
-    @include font-size-medium();
-    margin-bottom: $spacer-3;
+  .meta .slug {
+    @include font-size-small();
+    margin-bottom: $spacer-1;
+  }
+  .meta .date {
+    @include font-size-small();
+    margin-bottom: $spacer-1;
   }
   h3 {
     @include heading-4();
@@ -47,10 +50,10 @@
     }
   }
   .main-image-container {
-    margin-bottom: 15px;
     img {
       width: 100%;
       height: auto;
+      display: inline-block;
     }
   }
   .image-group {

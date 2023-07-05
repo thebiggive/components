@@ -11,6 +11,10 @@
     width: 100%;
     height: auto;
   }
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
   &.max-width-10 .sleeve { @include max-width-10(); }
   &.max-width-15 .sleeve { @include max-width-15(); }
   &.max-width-20 .sleeve { @include max-width-20(); }

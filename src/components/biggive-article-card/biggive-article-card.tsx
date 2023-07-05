@@ -78,8 +78,10 @@ export class BiggiveArticleCard {
           style={{ 'background-image': "url('" + this.backgroundImageUrl + "')" }}
         >
           <div class="content-wrap">
-            {this.slug != '' ? <div class="slug text-colour-primary">{this.slug}</div> : null}
-            {this.date != '' ? <div class="date">{this.date}</div> : null}
+            <div class="meta">
+              {this.slug != '' ? <div class="slug text-colour-primary">{this.slug}</div> : null}
+              {this.date != '' ? <div class="date">{this.date}</div> : null}
+            </div>
 
             {this.mainImageUrl != '' ? (
               <div class="main-image-container">
