@@ -193,19 +193,37 @@ export class BiggiveCampaignCardFilterGrid {
       locations: searchAndFilterObj.filterLocation,
     };
 
-    for (var id in filters) {
-      if (typeof filters[id] === 'string') {
-        let button = document.createElement('span');
-        button.classList.add('button');
-        button.dataset.id = id;
-        button.innerText = filters[id];
-        selectedFilters.appendChild(button);
-        button.addEventListener('click', () => {
-          button.remove();
-          this.el.shadowRoot.getElementById(button.dataset.id).selectedValue = null;
-          this.el.shadowRoot.getElementById(button.dataset.id).selectedLabel = null;
-        });
+    for (const filterKey of Object.keys(filters)) {
+      // https://stackoverflow.com/a/69757191/2803757
+      const filterValue: string = filters[filterKey as keyof typeof filters];
+      if (filterValue?.length === 0) { 
+        continue;
       }
+
+      let button = document.createElement('span');
+      button.classList.add('button');
+      button.dataset.id = filterKey;
+      button.innerText = filterValue;
+
+      if (selectedFilters) {
+        selectedFilters.appendChild(button);
+      }
+
+      button.addEventListener('click', () => {
+        button.remove();
+
+        if (!button.dataset.id) {
+          return;
+        }
+
+        const buttonEl = this.el.shadowRoot?.getElementById(button.dataset.id);
+        if (!(buttonEl instanceof HTMLBiggiveFormFieldSelectElement)) {
+          return;
+        }
+
+        buttonEl.selectedLabel = null;
+        buttonEl.selectedValue = null;
+      });
     }
 
     this.filtersApplied =
@@ -230,7 +248,10 @@ export class BiggiveCampaignCardFilterGrid {
   };
 
   private handleFilterButtonClick = () => {
-    this.el.shadowRoot.getElementById('filter-popup').openFromOutside();
+    const filterPopup = this.el.shadowRoot?.getElementById('filter-popup');
+    if (filterPopup instanceof HTMLBiggivePopupElement) {
+      filterPopup.openFromOutside();
+    }
   };
 
   private handleClearAll = () => {
@@ -247,15 +268,20 @@ export class BiggiveCampaignCardFilterGrid {
 
     // Clear <biggive-form-field-select> components' internal selectedValue and selectedLabel. DON-654.
     ['sort-by', 'categories', 'beneficiaries', 'locations', 'funding'].forEach(id => {
-      this.el.shadowRoot.getElementById(id).selectedValue = null;
-      this.el.shadowRoot.getElementById(id).selectedLabel = null;
+      const theEl = this.el.shadowRoot?.getElementById(id);
+      if (!(theEl instanceof HTMLBiggiveFormFieldSelectElement)) {
+        return;
+      }
+      theEl.selectedValue = null;
+      theEl.selectedLabel = null;
     });
 
-    const selectedFilters = this.el.shadowRoot.querySelector('.selected-filters');
-
-    selectedFilters.querySelectorAll('.button').forEach(button => {
-      button.remove();
-    });
+    const selectedFilters = this.el.shadowRoot?.querySelector('.selected-filters');
+    if (selectedFilters) {
+      selectedFilters.querySelectorAll('.button').forEach(button => {
+        button.remove();
+      });
+    }
 
     // Emit the doSearchAndFilterUpdate event with null values. DON-654
     this.doSearchAndFilterUpdate.emit({
@@ -309,7 +335,7 @@ export class BiggiveCampaignCardFilterGrid {
                     placeholder={this.categoriesPlaceHolderText}
                     selectedLabel={this.selectedFilterCategory}
                     options={this.categoryOptions}
-                    onSelectionChange={this.categoryFilterSelectionChanged}
+                    selectionChanged={this.categoryFilterSelectionChanged}
                     id="categories"
                     space-below="2"
                   ></biggive-form-field-select>
@@ -322,7 +348,7 @@ export class BiggiveCampaignCardFilterGrid {
                     placeholder={this.beneficiariesPlaceHolderText}
                     selectedLabel={this.selectedFilterBeneficiary}
                     options={this.beneficiaryOptions}
-                    onSelectionChange={this.beneficiarySelectionChanged}
+                    selectionChanged={this.beneficiarySelectionChanged}
                     id="beneficiaries"
                     space-below="2"
                   ></biggive-form-field-select>
@@ -335,7 +361,7 @@ export class BiggiveCampaignCardFilterGrid {
                     placeholder={this.locationsPlaceHolderText}
                     selectedLabel={this.selectedFilterLocation}
                     options={this.locationOptions}
-                    onSelectionChange={this.locationSelectionChanged}
+                    selectionChanged={this.locationSelectionChanged}
                     id="locations"
                     space-below="2"
                   ></biggive-form-field-select>
@@ -348,7 +374,7 @@ export class BiggiveCampaignCardFilterGrid {
                     placeholder={this.fundingPlaceHolderText}
                     selectedLabel={this.selectedFilterFunding}
                     options={this.fundingOptions}
-                    onSelectionChange={this.fundingSelectionChanged}
+                    selectionChanged={this.fundingSelectionChanged}
                     id="funding"
                     space-below="2"
                   ></biggive-form-field-select>
@@ -366,7 +392,7 @@ export class BiggiveCampaignCardFilterGrid {
                 select-style="underlined"
                 placeholder={this.sortByPlaceholderText}
                 selectedLabel={this.selectedSortByOption}
-                onSelectionChange={this.sortBySelectionChanged}
+                selectionChanged={this.sortBySelectionChanged}
                 id="sort-by"
               >
                 <biggive-form-field-select-option value="amountRaised" label="Most raised"></biggive-form-field-select-option>

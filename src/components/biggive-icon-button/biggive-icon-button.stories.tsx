@@ -78,7 +78,7 @@ export default {
   },
 };
 
-const Template = args => `
+const Template = (args: any) => `
         <biggive-icon-button
           space-below="${args.spaceBelow}"
           background-colour="${args.backgroundColour}"

@@ -18,7 +18,7 @@ export default {
   },
 };
 
-const Template = args => `
+const Template = (args: any) => `
           <biggive-formatted-text
             space-below=${args.spaceBelow}
             default-text-colour="${args.defaultTextColour}"

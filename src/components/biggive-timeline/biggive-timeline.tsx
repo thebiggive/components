@@ -34,7 +34,6 @@ export class BiggiveTimeline {
 
   @Prop() entryTextColour: brandColour = 'black';
 
-  private currentTab = 0;
   private scrollContextTab: HTMLElement | null;
   private scrollOffset: number = 0;
   private tabHeadings: Array<string> = [];
@@ -69,7 +68,6 @@ export class BiggiveTimeline {
     }
 
     if (i >= 0 && i <= tabs?.length - 1) {
-      this.currentTab = i;
       let currentTabTitle = tabs[i]?.innerHTML;
       let j = 0;
       tabs?.forEach(function (tab) {

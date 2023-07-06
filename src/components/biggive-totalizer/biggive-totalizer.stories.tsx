@@ -48,7 +48,7 @@ export default {
   },
 };
 
-const Template = args => `
+const Template = (args: any) => `
             <biggive-totalizer
               space-below="${args.spaceBelow}"
               primary-colour="${args.primaryColour}"
