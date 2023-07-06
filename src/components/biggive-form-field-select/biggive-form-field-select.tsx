@@ -33,7 +33,7 @@ export class BiggiveFormFieldSelect {
     const value = event.target.value;
     this.selectedValue = value;
     this.selectedLabel = event.target.label;
-    this.onSelectionChange(value);
+    this.selectionChanged(value);
   };
 
   /**
