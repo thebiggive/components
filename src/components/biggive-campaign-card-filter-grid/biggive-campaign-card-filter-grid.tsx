@@ -196,7 +196,7 @@ export class BiggiveCampaignCardFilterGrid {
     for (const filterKey of Object.keys(filters)) {
       // https://stackoverflow.com/a/69757191/2803757
       const filterValue: string = filters[filterKey as keyof typeof filters];
-      if (filterValue?.length === 0) { 
+      if (filterValue?.length === 0) {
         continue;
       }
 
@@ -212,7 +212,7 @@ export class BiggiveCampaignCardFilterGrid {
       button.addEventListener('click', () => {
         button.remove();
 
-        if (!button.dataset.id) {
+        if (button.dataset.id === undefined) {
           return;
         }
 
