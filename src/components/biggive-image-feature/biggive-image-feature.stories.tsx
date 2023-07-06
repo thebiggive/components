@@ -84,7 +84,7 @@ export default {
   },
 };
 
-const Template = args => `
+const Template = (args: any) => `
             <biggive-image-feature
               space-below="${args.spaceBelow}"
               default-text-colour="${args.defaultTextColour}"

@@ -22,7 +22,7 @@ export class BiggiveAccordion {
     this.children = Array.from(this.host.children) as Array<HTMLBiggiveAccordionEntryElement>;
   }
 
-  toggleSection(e: MouseEvent) {
+  private toggleSection(e: MouseEvent) {
     const target = (e.target as Element)!;
     const entry = target.closest('.entry')!;
     const arrow = entry.querySelector('.arrow')!;

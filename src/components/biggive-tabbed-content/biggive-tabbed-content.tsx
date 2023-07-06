@@ -24,10 +24,9 @@ export class BiggiveTabbedContent {
 
   @Prop() buttonIconColour: brandColour = 'primary';
 
-  currentTab = 0;
-  scrollContextTab: HTMLElement | null;
-  scrollOffset: number = 0;
-  children: Array<HTMLBiggiveTabElement> = [];
+  private scrollContextTab: HTMLElement | null;
+  private scrollOffset: number = 0;
+  private children: Array<HTMLBiggiveTabElement> = [];
 
   componentWillLoad() {
     this.children = Array.from(this.host.children) as Array<HTMLBiggiveTabElement>;
@@ -54,11 +53,10 @@ export class BiggiveTabbedContent {
   /*
    * Shows the i'th tab, counting from zero. Does nothing if i out of range.
    */
-  showTab(i: number) {
+  private showTab(i: number) {
     const tabs = this.host.shadowRoot?.querySelectorAll('.navigation ul li')!;
 
     if (i >= 0 && i <= tabs?.length - 1) {
-      this.currentTab = i;
       let j = 0;
       tabs?.forEach(function (tab) {
         if (i == j) {
@@ -77,7 +75,7 @@ export class BiggiveTabbedContent {
     }
   }
 
-  clickTabHandler = (e: MouseEvent) => {
+  private clickTabHandler = (e: MouseEvent) => {
     let i = 0;
     const parent = (e.target as Element).parentElement!;
     for (let el of Array.from(parent.children)) {
@@ -89,7 +87,7 @@ export class BiggiveTabbedContent {
     }
   };
 
-  scrollTab(direction: 'NEXT' | 'PREV') {
+  private scrollTab(direction: 'NEXT' | 'PREV') {
     if (!this.scrollContextTab) {
       return;
     }
@@ -124,11 +122,11 @@ export class BiggiveTabbedContent {
     });
   }
 
-  clickPrevHandler = () => {
+  private clickPrevHandler = () => {
     this.scrollTab('PREV');
   };
 
-  clickNextHandler = () => {
+  private clickNextHandler = () => {
     this.scrollTab('NEXT');
   };
 

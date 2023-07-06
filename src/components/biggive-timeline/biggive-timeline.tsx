@@ -34,11 +34,10 @@ export class BiggiveTimeline {
 
   @Prop() entryTextColour: brandColour = 'black';
 
-  currentTab = 0;
-  scrollContextTab: HTMLElement | null;
-  scrollOffset: number = 0;
-  tabHeadings: Array<string> = [];
-  children: Array<HTMLBiggiveTimelineEntryElement> = [];
+  private scrollContextTab: HTMLElement | null;
+  private scrollOffset: number = 0;
+  private tabHeadings: Array<string> = [];
+  private children: Array<HTMLBiggiveTimelineEntryElement> = [];
 
   componentWillLoad() {
     this.children = Array.from(this.host.children) as Array<HTMLBiggiveTimelineEntryElement>;
@@ -60,7 +59,7 @@ export class BiggiveTimeline {
   /*
    * Shows the i'th element in the timeline, counting from zero. Does nothing if i out of range.
    */
-  showTab(i: number) {
+  private showTab(i: number) {
     const tabs = this.host.shadowRoot?.querySelectorAll<HTMLElement>('.navigation ul li')!;
     const entries = this.host.shadowRoot?.querySelectorAll<HTMLElement>('.entry')!;
 
@@ -69,7 +68,6 @@ export class BiggiveTimeline {
     }
 
     if (i >= 0 && i <= tabs?.length - 1) {
-      this.currentTab = i;
       let currentTabTitle = tabs[i]?.innerHTML;
       let j = 0;
       tabs?.forEach(function (tab) {
@@ -87,7 +85,7 @@ export class BiggiveTimeline {
     }
   }
 
-  clickTabHandler = e => {
+  private clickTabHandler = (e: any) => {
     let i = 0;
     for (let el of e.target.parentElement.children) {
       if (el == e.target) {
@@ -98,7 +96,7 @@ export class BiggiveTimeline {
     }
   };
 
-  scrollTab(direction: 'NEXT' | 'PREV') {
+  private scrollTab(direction: 'NEXT' | 'PREV') {
     if (!this.scrollContextTab) {
       return;
     }
@@ -133,11 +131,11 @@ export class BiggiveTimeline {
     });
   }
 
-  clickPrevHandler = () => {
+  private clickPrevHandler = () => {
     this.scrollTab('PREV');
   };
 
-  clickNextHandler = () => {
+  private clickNextHandler = () => {
     this.scrollTab('NEXT');
   };
 

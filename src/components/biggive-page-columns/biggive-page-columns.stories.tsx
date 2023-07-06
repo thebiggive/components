@@ -11,7 +11,7 @@ export default {
   },
 };
 
-const Template = args => `
+const Template = (args: any) => `
     <biggive-page-columns
       space-below: "${args.spaceBelow}"
     </biggive-page-columns>

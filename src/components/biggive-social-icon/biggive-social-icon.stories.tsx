@@ -28,7 +28,7 @@ export default {
   },
 };
 
-const Template = args => `
+const Template = (args: any) => `
           <biggive-social-icon
             background-colour="${args.backgroundColour}"
             icon-colour="${args.iconColour}"

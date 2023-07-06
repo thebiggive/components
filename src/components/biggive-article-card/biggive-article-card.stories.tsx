@@ -49,7 +49,7 @@ export default {
   },
 };
 
-const Template = args => `
+const Template = (args: any) => `
               <biggive-article-card
                 space-below="${args.spaceBelow}"
                 background-colour="${args.backgroundColour}"

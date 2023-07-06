@@ -3,8 +3,15 @@
     "project": "./tsconfig.json"
   },
   "extends": [
-    "plugin:@stencil/recommended",
-    "plugin:prettier/recommended"
+    "plugin:@stencil-community/recommended",
+    "plugin:prettier/recommended",
+    "plugin:storybook/recommended"
   ],
-  "plugins": ["prettier"]
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "@stencil-community/decorators-style": "off",
+    "@stencil-community/required-jsdoc": "off"
+  }
 }

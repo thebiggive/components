@@ -46,7 +46,7 @@ export default {
   },
 };
 
-const Template = args => `
+const Template = (args: any) => `
             <biggive-heading
               space-above=${args.spaceAbove}
               space-below=${args.spaceBelow}

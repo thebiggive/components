@@ -18,7 +18,7 @@ export default {
   },
 };
 
-const Template = args => `
+const Template = (args: any) => `
             <biggive-sheet
                 id="${args.id}"
                 background-colour="${args.backgroundColour}"

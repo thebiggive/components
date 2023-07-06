@@ -39,7 +39,7 @@ export default {
   },
 };
 
-const Template = args => `
+const Template = (args: any) => `
         <biggive-page-section
           space-below="${args.spaceBelow}" 
           max-width="${args.maxWidth}"  

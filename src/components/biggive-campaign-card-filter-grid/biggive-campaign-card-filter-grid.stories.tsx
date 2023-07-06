@@ -54,7 +54,7 @@ export default {
   },
 };
 
-const Template = args => `
+const Template = (args: any) => `
       <biggive-campaign-card-filter-grid
         category-options='${args.categoryOptions}'
         beneficiary-options='${args.beneficiaryOptions}'
