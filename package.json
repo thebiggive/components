@@ -61,7 +61,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.0",
     "jest": "^27.4.5",
-    "jest-cli": "^27.4.5",
+    "jest-cli": "^29.6.0",
     "lint-staged": "^13.0.3",
     "prettier": "2.7.1",
     "puppeteer": "^20.7.4",
