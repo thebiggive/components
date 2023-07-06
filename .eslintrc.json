@@ -11,6 +11,7 @@
     "prettier"
   ],
   "rules": {
+    "@stencil-community/decorators-style": "off",
     "@stencil-community/required-jsdoc": "off"
   }
 }

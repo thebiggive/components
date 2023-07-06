@@ -1,13 +1,6 @@
 import { Component, Element, Event, EventEmitter, h, Prop, State } from '@stencil/core';
 import { faMagnifyingGlass } from '@fortawesome/pro-solid-svg-icons';
 
-const updateEventProperties = {
-  eventName: 'doSearchAndFilterUpdate',
-  bubbles: true,
-  cancelable: true,
-  composed: true,
-};
-
 @Component({
   tag: 'biggive-campaign-card-filter-grid',
   styleUrl: 'biggive-campaign-card-filter-grid.scss',
@@ -20,7 +13,13 @@ export class BiggiveCampaignCardFilterGrid {
    * This event `doSearchAndFilterUpdate` event is emitted and propogates to the parent
    * component which handles it
    */
-  @Event(updateEventProperties) doSearchAndFilterUpdate: EventEmitter<{
+  @Event({
+    eventName: 'doSearchAndFilterUpdate',
+    bubbles: true,
+    cancelable: true,
+    composed: true,
+  })
+  doSearchAndFilterUpdate: EventEmitter<{
     searchText: string | null;
     sortBy: string | null;
     filterCategory: string | null;
