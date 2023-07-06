@@ -6,10 +6,10 @@ import { Component, Prop, h, Element } from '@stencil/core';
   shadow: true,
 })
 export class BiggiveFormFieldSelect {
-  @Element() el: HTMLDivElement;
+  @Element() el: HTMLBiggiveFormFieldSelectElement;
 
-  @Prop()
-  onSelectionChange: (value: string) => void;
+  @Prop() selectionChanged: (value: string) => void;
+
   /**
    * Displayed as 'eyebrow' label over the top border of the box.
    */
@@ -29,7 +29,7 @@ export class BiggiveFormFieldSelect {
    */
   @Prop() backgroundColour: 'white' | 'grey';
 
-  doOptionSelectCompletedHandler = event => {
+  doOptionSelectCompletedHandler = (event: any) => {
     const value = event.target.value;
     this.selectedValue = value;
     this.selectedLabel = event.target.label;
@@ -45,7 +45,7 @@ export class BiggiveFormFieldSelect {
    */
   @Prop() placeholder: string | undefined;
 
-  toggleFocus(event) {
+  toggleFocus(event: any) {
     if (event.target) {
       const dropdown: HTMLElement = event.target.parentElement.parentElement;
       if (dropdown !== null && dropdown !== undefined) {

@@ -1,4 +1,5 @@
 import { Component, Event, EventEmitter, Prop, h } from '@stencil/core';
+import { CLICK_PROPERTIES } from '../../globals/event-configs';
 
 @Component({
   tag: 'biggive-button',
@@ -6,13 +7,7 @@ import { Component, Event, EventEmitter, Prop, h } from '@stencil/core';
   shadow: true,
 })
 export class BiggiveButton {
-  @Event({
-    eventName: 'doButtonClick',
-    composed: true,
-    cancelable: true,
-    bubbles: true,
-  })
-  doButtonClick: EventEmitter<{ event: object; url: string }>;
+  @Event(CLICK_PROPERTIES) doButtonClick: EventEmitter<{ event: object; url: string }>;
 
   /**
    * Space below component

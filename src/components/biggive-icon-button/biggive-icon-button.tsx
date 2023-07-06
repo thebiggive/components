@@ -1,5 +1,6 @@
 import { Component, Event, EventEmitter, Prop, h } from '@stencil/core';
 import { brandColour } from '../../globals/brand-colour';
+import { CLICK_PROPERTIES } from '../../globals/event-configs';
 import { spacingOption } from '../../globals/spacing-option';
 
 @Component({
@@ -8,13 +9,7 @@ import { spacingOption } from '../../globals/spacing-option';
   shadow: true,
 })
 export class BiggiveIconButton {
-  @Event({
-    eventName: 'doButtonClick',
-    composed: true,
-    cancelable: true,
-    bubbles: true,
-  })
-  doButtonClick: EventEmitter<{ event: object; url: string }>;
+  @Event(CLICK_PROPERTIES) doButtonClick: EventEmitter<{ event: object; url: string }>;
 
   @Prop() spaceBelow: spacingOption = 1;
 

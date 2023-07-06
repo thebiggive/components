@@ -1,18 +1,19 @@
 import { Component, Event, EventEmitter, h, Prop } from '@stencil/core';
 
+const cardClickProperties = {
+  eventName: 'doCardGeneralClick',
+  bubbles: true,
+  cancelable: true,
+  composed: true,
+};
+
 @Component({
   tag: 'biggive-campaign-card',
   styleUrl: 'biggive-campaign-card.scss',
   shadow: true,
 })
 export class BiggiveCampaignCard {
-  @Event({
-    eventName: 'doCardGeneralClick',
-    composed: true,
-    cancelable: true,
-    bubbles: true,
-  })
-  doCardGeneralClick: EventEmitter<{ event: object; url: string }>;
+  @Event(cardClickProperties) doCardGeneralClick: EventEmitter<{ event: object; url: string }>;
 
   /**
    * Space below component

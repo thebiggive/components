@@ -8,7 +8,7 @@ import { spacingOption } from '../../globals/spacing-option';
   shadow: true,
 })
 export class BiggiveFilteredCarousel {
-  @Element() host: HTMLBiggiveCarouselElement;
+  @Element() host: HTMLBiggiveFilteredCarouselElement;
 
   @Prop() spaceBelow: spacingOption = 4;
 
