@@ -18,7 +18,7 @@ export class BiggiveFilteredCarousel {
 
   @Prop() buttonIconColour: brandColour = 'primary';
 
-  children: Array<HTMLElement>;
+  private children: Array<HTMLElement>;
 
   componentDidLoad() {
     const carousel: HTMLBiggiveCarouselElement = this.host.shadowRoot?.querySelector('biggive-carousel')!;

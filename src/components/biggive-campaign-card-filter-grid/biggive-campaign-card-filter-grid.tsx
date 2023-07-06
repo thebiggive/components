@@ -29,11 +29,11 @@ export class BiggiveCampaignCardFilterGrid {
     filterFunding: string | null;
   }>;
 
-  sortByPlaceholderText = 'Sort by';
-  beneficiariesPlaceHolderText = 'Select beneficiary';
-  categoriesPlaceHolderText = 'Select category';
-  locationsPlaceHolderText = 'Select location';
-  fundingPlaceHolderText = 'Select funding';
+  private sortByPlaceholderText = 'Sort by';
+  private beneficiariesPlaceHolderText = 'Select beneficiary';
+  private categoriesPlaceHolderText = 'Select category';
+  private locationsPlaceHolderText = 'Select location';
+  private fundingPlaceHolderText = 'Select funding';
 
   /**
    * Space below component
@@ -122,23 +122,23 @@ export class BiggiveCampaignCardFilterGrid {
 
   private initialSortByOption: 'Most raised' | 'Match funds remaining' | 'Relevance';
 
-  categoryFilterSelectionChanged = (value: string) => {
+  private categoryFilterSelectionChanged = (value: string) => {
     this.selectedFilterCategory = value;
   };
 
-  beneficiarySelectionChanged = (value: string) => {
+  private beneficiarySelectionChanged = (value: string) => {
     this.selectedFilterBeneficiary = value;
   };
 
-  locationSelectionChanged = (value: string) => {
+  private locationSelectionChanged = (value: string) => {
     this.selectedFilterLocation = value;
   };
 
-  fundingelectionChanged = (value: string) => {
+  private fundingSelectionChanged = (value: string) => {
     this.selectedFilterFunding = value;
   };
 
-  sortByelectionChanged = (value: 'Most raised' | 'Match funds remaining' | 'Relevance') => {
+  private sortBySelectionChanged = (value: 'Most raised' | 'Match funds remaining' | 'Relevance') => {
     this.selectedSortByOption = value;
     this.doSearchAndFilterUpdate.emit(this.getSearchAndFilterObject());
   };
@@ -174,13 +174,18 @@ export class BiggiveCampaignCardFilterGrid {
   private handleApplyFilterButtonClick = () => {
     const searchAndFilterObj = this.getSearchAndFilterObject();
     this.doSearchAndFilterUpdate.emit(searchAndFilterObj);
-    this.el.shadowRoot.getElementById('filter-popup').closeFromOutside();
 
-    const selectedFilters = this.el.shadowRoot.querySelector('.selected-filters');
+    const filterPopup = this.el.shadowRoot?.getElementById('filter-popup');
+    if (filterPopup instanceof HTMLBiggivePopupElement) {
+      filterPopup.closeFromOutside();
+    }
 
-    selectedFilters.querySelectorAll('.button').forEach(button => {
-      button.remove();
-    });
+    const selectedFilters = this.el.shadowRoot?.querySelector('.selected-filters');
+    if (selectedFilters) {
+      selectedFilters.querySelectorAll('.button').forEach(button => {
+        button.remove();
+      });
+    }
 
     let filters = {
       beneficiaries: searchAndFilterObj.filterBeneficiary,
@@ -344,7 +349,7 @@ export class BiggiveCampaignCardFilterGrid {
                     placeholder={this.fundingPlaceHolderText}
                     selectedLabel={this.selectedFilterFunding}
                     options={this.fundingOptions}
-                    onSelectionChange={this.fundingelectionChanged}
+                    onSelectionChange={this.fundingSelectionChanged}
                     id="funding"
                     space-below="2"
                   ></biggive-form-field-select>
@@ -362,7 +367,7 @@ export class BiggiveCampaignCardFilterGrid {
                 select-style="underlined"
                 placeholder={this.sortByPlaceholderText}
                 selectedLabel={this.selectedSortByOption}
-                onSelectionChange={this.sortByelectionChanged}
+                onSelectionChange={this.sortBySelectionChanged}
                 id="sort-by"
               >
                 <biggive-form-field-select-option value="amountRaised" label="Most raised"></biggive-form-field-select-option>

@@ -29,7 +29,7 @@ export class BiggiveFormFieldSelect {
    */
   @Prop() backgroundColour: 'white' | 'grey';
 
-  doOptionSelectCompletedHandler = (event: any) => {
+  private doOptionSelectCompletedHandler = (event: any) => {
     const value = event.target.value;
     this.selectedValue = value;
     this.selectedLabel = event.target.label;
@@ -44,19 +44,6 @@ export class BiggiveFormFieldSelect {
    * Placeholder
    */
   @Prop() placeholder: string | undefined;
-
-  toggleFocus(event: any) {
-    if (event.target) {
-      const dropdown: HTMLElement = event.target.parentElement.parentElement;
-      if (dropdown !== null && dropdown !== undefined) {
-        if (dropdown.classList.contains('active')) {
-          dropdown.classList.remove('active');
-        } else {
-          dropdown.classList.add('active');
-        }
-      }
-    }
-  }
 
   render() {
     const greyIfRequired = this.backgroundColour === 'grey' ? ' grey' : '';

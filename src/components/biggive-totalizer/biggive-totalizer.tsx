@@ -36,7 +36,7 @@ export class BiggiveTotalizer {
    */
   @Prop() mainMessage: string;
 
-  setSpeed(itemsWidth: number) {
+  private setSpeed(itemsWidth: number) {
     const sleeve1: HTMLDivElement | null | undefined = this.host.shadowRoot?.querySelector('.ticker-wrap #sleeve_1');
     const sleeve2: HTMLDivElement | null | undefined = this.host.shadowRoot?.querySelector('.ticker-wrap #sleeve_2');
 

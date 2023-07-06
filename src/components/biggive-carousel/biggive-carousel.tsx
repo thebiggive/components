@@ -16,11 +16,11 @@ export class BiggiveCarousel {
   @Prop() buttonBackgroundColour: brandColour = 'white';
   @Prop() buttonIconColour: brandColour = 'primary';
 
-  currentTab = 0;
-  itemCount = 0;
-  itemWidthPx = 0;
-  columnGapPx = 0;
-  sleeve: HTMLElement;
+  private currentTab = 0;
+  private itemCount = 0;
+  private itemWidthPx = 0;
+  private columnGapPx = 0;
+  private sleeve: HTMLElement;
 
   componentDidRender() {
     this.sleeve = this.host.shadowRoot?.querySelector<HTMLElement>('.sleeve')!;
@@ -58,7 +58,7 @@ export class BiggiveCarousel {
    * Animates a transition to show the NEXT or PREVIOUS element in the carousel.
    * Does nothing if there is no next or previous element.
    */
-  showTab(direction: 'NEXT' | 'PREV') {
+  private showTab(direction: 'NEXT' | 'PREV') {
     const newTab = this.currentTab + (direction === 'PREV' ? -1 : 1);
 
     if (newTab < 0 || newTab > this.itemCount - this.columnCount) {
@@ -73,11 +73,11 @@ export class BiggiveCarousel {
     this.currentTab = newTab;
   }
 
-  clickPrevHandler = () => {
+  private clickPrevHandler = () => {
     this.showTab('PREV');
   };
 
-  clickNextHandler = () => {
+  private clickNextHandler = () => {
     this.showTab('NEXT');
   };
 
