@@ -54,7 +54,7 @@
     "@storybook/builder-webpack4": "^6.5.12",
     "@storybook/html": "^6.5.12",
     "@storybook/manager-webpack4": "^6.5.12",
-    "@storybook/testing-library": "^0.0.13",
+    "@storybook/testing-library": "^0.2.0",
     "@types/jest": "^27.0.3",
     "babel-loader": "^8.2.5",
     "eslint-config-prettier": "^8.5.0",
