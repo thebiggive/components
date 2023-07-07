@@ -26,7 +26,8 @@ jobs:
           cd ~/project
       - browser-tools/install-chrome:
           chrome-version: 111.0.5563.146 # https://github.com/puppeteer/puppeteer/blob/main/versions.js # https://github.com/puppeteer/puppeteer/blob/main/versions.js
-      - browser-tools/install-chromedriver
+      - browser-tools/install-chromedriver:
+         install-dir: ~/project
       - checkout
       - restore_cache:
           keys:
