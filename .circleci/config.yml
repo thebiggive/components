@@ -19,6 +19,7 @@ jobs:
     steps:
       # https://stackoverflow.com/a/75738251/2803757 – this lib's required for Chrome 111+
       # and not in the current base image.
+      - run: mkdir ~/project
       - run: |
           cd /tmp;
           wget http://archive.ubuntu.com/ubuntu/pool/main/libu/libu2f-host/libu2f-udev_1.1.4-1_all.deb;
@@ -31,14 +32,14 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v4-dependencies-{{ checksum "package-lock.json" }}
+            - v5-dependencies-{{ checksum "package-lock.json" }}
       - run: npm config set puppeteer_skip_chromium_download true
       - run: npm install
       - run: npm run build && git diff; git diff-index --quiet HEAD -- || (git status && exit 1); # Checks that npm run didn't change any files. If it did changes must be commited.
       - save_cache:
           paths:
             - node_modules
-          key: v4-dependencies-{{ checksum "package-lock.json" }}
+          key: v5-dependencies-{{ checksum "package-lock.json" }}
       - run: npm run lint
       - run: npm run test
       - store_test_results:
@@ -50,13 +51,13 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v4-dependencies-{{ checksum "package-lock.json" }}
+            - v5-dependencies-{{ checksum "package-lock.json" }}
       - run: npm config set puppeteer_skip_chromium_download true
       - run: npm install --quiet
       - save_cache:
           paths:
             - node_modules
-          key: v4-dependencies-{{ checksum "package-lock.json" }}
+          key: v5-dependencies-{{ checksum "package-lock.json" }}
       - run:
           name: Build components
           command: npm run build
@@ -82,13 +83,13 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v4-dependencies-{{ checksum "package-lock.json" }}
+            - v5-dependencies-{{ checksum "package-lock.json" }}
       - run: npm config set puppeteer_skip_chromium_download true
       - run: npm install --quiet
       - save_cache:
           paths:
             - node_modules
-          key: v4-dependencies-{{ checksum "package-lock.json" }}
+          key: v5-dependencies-{{ checksum "package-lock.json" }}
       - run:
           name: Build components
           command: npm run build
@@ -115,13 +116,13 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v4-dependencies-{{ checksum "package-lock.json" }}
+            - v5-dependencies-{{ checksum "package-lock.json" }}
       - run: npm config set puppeteer_skip_chromium_download true
       - run: npm install
       - save_cache:
           paths:
             - node_modules
-          key: v4-dependencies-{{ checksum "package-lock.json" }}
+          key: v5-dependencies-{{ checksum "package-lock.json" }}
       - run: ./scripts/create-version.sh
       - run: npm run build
       - run:
