@@ -29,7 +29,7 @@ export default {
   },
 };
 
-const Template = args => `
+const Template = (args: any) => `
             <biggive-branded-image
               charity-location="${args.charityLocation}"
               charity-name="${args.charityName}"

@@ -10,9 +10,9 @@ import { spacingOption } from '../../globals/spacing-option';
 export class BiggiveIconButton {
   @Event({
     eventName: 'doButtonClick',
-    composed: true,
-    cancelable: true,
     bubbles: true,
+    cancelable: true,
+    composed: true,
   })
   doButtonClick: EventEmitter<{ event: object; url: string }>;
 

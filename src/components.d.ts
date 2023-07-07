@@ -527,7 +527,6 @@ export namespace Components {
           * Must match background of containing element, or unintended shape will appear.
          */
         "backgroundColour": 'white' | 'grey';
-        "onSelectionChange": (value: string) => void;
         /**
           * JSON array of category key/values, or takes a stringified equiavalent (for Storybook)
          */
@@ -543,6 +542,7 @@ export namespace Components {
         "selectStyle": 'bordered' | 'underlined';
         "selectedLabel": string | null;
         "selectedValue": string | null;
+        "selectionChanged": (value: string) => void;
         /**
           * Space below component
          */
@@ -2032,7 +2032,6 @@ declare namespace LocalJSX {
           * Must match background of containing element, or unintended shape will appear.
          */
         "backgroundColour"?: 'white' | 'grey';
-        "onSelectionChange"?: (value: string) => void;
         /**
           * JSON array of category key/values, or takes a stringified equiavalent (for Storybook)
          */
@@ -2048,6 +2047,7 @@ declare namespace LocalJSX {
         "selectStyle"?: 'bordered' | 'underlined';
         "selectedLabel"?: string | null;
         "selectedValue"?: string | null;
+        "selectionChanged"?: (value: string) => void;
         /**
           * Space below component
          */

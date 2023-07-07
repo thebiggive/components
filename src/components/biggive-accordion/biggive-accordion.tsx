@@ -1,4 +1,4 @@
-import { Component, Prop, Element, h } from '@stencil/core';
+import { Component, Element, h, Prop, State } from '@stencil/core';
 import { brandColour } from '../../globals/brand-colour';
 import { spacingOption } from '../../globals/spacing-option';
 
@@ -16,13 +16,13 @@ export class BiggiveAccordion {
 
   @Prop() headingColour: brandColour = 'primary';
 
-  children: Array<HTMLBiggiveAccordionEntryElement> = [];
+  @State() children: Array<HTMLBiggiveAccordionEntryElement>;
 
   componentWillLoad() {
     this.children = Array.from(this.host.children) as Array<HTMLBiggiveAccordionEntryElement>;
   }
 
-  toggleSection(e: MouseEvent) {
+  private toggleSection(e: MouseEvent) {
     const target = (e.target as Element)!;
     const entry = target.closest('.entry')!;
     const arrow = entry.querySelector('.arrow')!;

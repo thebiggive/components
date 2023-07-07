@@ -25,7 +25,7 @@ export default {
   },
 };
 
-const Template = args => `
+const Template = (args: any) => `
           <biggive-grid
             space-below="${args.spaceBelow}"  
             column-count="${args.columnCount}"    

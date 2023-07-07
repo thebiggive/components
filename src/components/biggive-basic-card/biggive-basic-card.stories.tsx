@@ -120,7 +120,7 @@ export default {
   },
 };
 
-const Template = args => `
+const Template = (args: any) => `
               <biggive-basic-card
                 space-below="${args.spaceBelow}"
                 background-colour="${args.backgroundColour}"
