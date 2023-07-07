@@ -26,8 +26,7 @@ jobs:
           cd ~/components
       - browser-tools/install-chrome:
           chrome-version: 111.0.5563.146 # https://github.com/puppeteer/puppeteer/blob/main/versions.js # https://github.com/puppeteer/puppeteer/blob/main/versions.js
-      - browser-tools/install-chromedriver:
-         install-dir: /home/circleci/components
+      - browser-tools/install-chromedriver
       - checkout
       - restore_cache:
           keys:
