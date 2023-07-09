@@ -40,7 +40,7 @@ export class BiggiveAccordion {
     return (
       <div class={'container' + ' space-below-' + this.spaceBelow + ' text-colour-' + this.textColour + ' heading-colour-' + this.headingColour}>
         <div class="sleeve">
-          {this.children.map(entry => (
+          {this.children ? this.children.map(entry => (
             <div class="entry">
               <h3 class="heading" onClick={this.toggleSection} title="Expand section">
                 {entry.heading}
@@ -52,7 +52,7 @@ export class BiggiveAccordion {
               </h3>
               <div class="content" innerHTML={entry.innerHTML}></div>
             </div>
-          ))}
+          )) : []}
         </div>
       </div>
     );
