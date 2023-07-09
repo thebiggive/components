@@ -28,16 +28,8 @@ jobs:
           chrome-version: 114.0.5735.90 # https://github.com/puppeteer/puppeteer/blob/main/versions.js # https://github.com/puppeteer/puppeteer/blob/main/versions.js
       - browser-tools/install-chromedriver
       - checkout
-      - restore_cache:
-          keys:
-            - v3-dependencies-{{ checksum "package-lock.json" }}
-      - run: npm config set puppeteer_skip_chromium_download true
-      - run: npm install
+      - run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 npm install --quiet
       - run: npm run build && git diff; git diff-index --quiet HEAD -- || (git status && exit 1); # Checks that npm run didn't change any files. If it did changes must be commited.
-      - save_cache:
-          paths:
-            - node_modules
-          key: v3-dependencies-{{ checksum "package-lock.json" }}
       - run: npm run lint
       - run: npm run test
       - store_test_results:
@@ -50,8 +42,7 @@ jobs:
       - restore_cache:
           keys:
             - v3-dependencies-{{ checksum "package-lock.json" }}
-      - run: npm config set puppeteer_skip_chromium_download true
-      - run: npm install --quiet
+      - run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 npm install --quiet
       - save_cache:
           paths:
             - node_modules
@@ -82,8 +73,7 @@ jobs:
       - restore_cache:
           keys:
             - v3-dependencies-{{ checksum "package-lock.json" }}
-      - run: npm config set puppeteer_skip_chromium_download true
-      - run: npm install --quiet
+      - run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 npm install --quiet
       - save_cache:
           paths:
             - node_modules
@@ -115,8 +105,7 @@ jobs:
       - restore_cache:
           keys:
             - v3-dependencies-{{ checksum "package-lock.json" }}
-      - run: npm config set puppeteer_skip_chromium_download true
-      - run: npm install
+      - run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 npm install --quiet
       - save_cache:
           paths:
             - node_modules
@@ -129,7 +118,7 @@ jobs:
       - run:
           name: Publish core components to npm
           command: npm publish --access=public
-      - run: cd angular && npm install
+      - run: cd angular && npm install --quiet
       - run:
           name: Build Angular components
           command: cd angular && npm run build
