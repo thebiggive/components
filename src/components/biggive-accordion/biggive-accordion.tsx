@@ -40,19 +40,21 @@ export class BiggiveAccordion {
     return (
       <div class={'container' + ' space-below-' + this.spaceBelow + ' text-colour-' + this.textColour + ' heading-colour-' + this.headingColour}>
         <div class="sleeve">
-          {this.children ? this.children.map(entry => (
-            <div class="entry">
-              <h3 class="heading" onClick={this.toggleSection} title="Expand section">
-                {entry.heading}
-                <span class="arrow">
-                  <svg width="15" height="9" viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14.1074 0.999859L7.55357 7.55371L0.999718 0.99986" stroke="black" stroke-width="2" />
-                  </svg>
-                </span>
-              </h3>
-              <div class="content" innerHTML={entry.innerHTML}></div>
-            </div>
-          )) : []}
+          {this.children === undefined
+            ? []
+            : this.children.map(entry => (
+                <div class="entry">
+                  <h3 class="heading" onClick={this.toggleSection} title="Expand section">
+                    {entry.heading}
+                    <span class="arrow">
+                      <svg width="15" height="9" viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.1074 0.999859L7.55357 7.55371L0.999718 0.99986" stroke="black" stroke-width="2" />
+                      </svg>
+                    </span>
+                  </h3>
+                  <div class="content" innerHTML={entry.innerHTML}></div>
+                </div>
+              ))}
         </div>
       </div>
     );
