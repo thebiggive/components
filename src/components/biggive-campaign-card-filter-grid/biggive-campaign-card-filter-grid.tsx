@@ -174,8 +174,8 @@ export class BiggiveCampaignCardFilterGrid {
     const searchAndFilterObj = this.getSearchAndFilterObject();
     this.doSearchAndFilterUpdate.emit(searchAndFilterObj);
 
-    const filterPopup = this.el.shadowRoot?.getElementById('filter-popup');
-    if (filterPopup instanceof HTMLBiggivePopupElement) {
+    const filterPopup = this.el.shadowRoot?.getElementById('filter-popup') as HTMLBiggivePopupElement | undefined;
+    if (filterPopup) {
       filterPopup.closeFromOutside();
     }
 
@@ -216,13 +216,13 @@ export class BiggiveCampaignCardFilterGrid {
           return;
         }
 
-        const buttonEl = this.el.shadowRoot?.getElementById(button.dataset.id);
-        if (!(buttonEl instanceof HTMLBiggiveFormFieldSelectElement)) {
+        const selectEl = this.el.shadowRoot?.getElementById(button.dataset.id) as HTMLBiggiveFormFieldSelectElement | undefined;
+        if (!selectEl) {
           return;
         }
 
-        buttonEl.selectedLabel = null;
-        buttonEl.selectedValue = null;
+        selectEl.selectedLabel = null;
+        selectEl.selectedValue = null;
       });
     }
 
@@ -248,8 +248,8 @@ export class BiggiveCampaignCardFilterGrid {
   };
 
   private handleFilterButtonClick = () => {
-    const filterPopup = this.el.shadowRoot?.getElementById('filter-popup');
-    if (filterPopup instanceof HTMLBiggivePopupElement) {
+    const filterPopup = this.el.shadowRoot?.getElementById('filter-popup') as HTMLBiggivePopupElement | undefined;
+    if (filterPopup) {
       filterPopup.openFromOutside();
     }
   };
@@ -268,10 +268,11 @@ export class BiggiveCampaignCardFilterGrid {
 
     // Clear <biggive-form-field-select> components' internal selectedValue and selectedLabel. DON-654.
     ['sort-by', 'categories', 'beneficiaries', 'locations', 'funding'].forEach(id => {
-      const theEl = this.el.shadowRoot?.getElementById(id);
-      if (!(theEl instanceof HTMLBiggiveFormFieldSelectElement)) {
+      const theEl = this.el.shadowRoot?.getElementById(id) as HTMLBiggiveFormFieldSelectElement | undefined;
+      if (!theEl) {
         return;
       }
+
       theEl.selectedValue = null;
       theEl.selectedLabel = null;
     });
