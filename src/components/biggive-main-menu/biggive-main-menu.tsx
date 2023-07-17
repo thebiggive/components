@@ -34,23 +34,23 @@ export class BiggiveMainMenu {
    */
   @Prop() usePresetMenuContent = false;
 
-  openMobileMenu = () => {
-    const mobileMenu = this.host.shadowRoot!.querySelector<HTMLElement>('.nav-links');
-    mobileMenu!.style.left = '0';
-  };
-
-  closeMobileMenu = () => {
-    const mobileMenu = this.host.shadowRoot!.querySelector<HTMLElement>('.nav-links');
-    mobileMenu!.style.left = '-100%';
-  };
-
   @Method()
   async closeMobileMenuFromOutside() {
     const mobileMenu = this.host.shadowRoot!.querySelector<HTMLElement>('.nav-links');
     mobileMenu!.style.left = '-100%';
   }
 
-  appendPrimaryNavigationLinks() {
+  private openMobileMenu = () => {
+    const mobileMenu = this.host.shadowRoot!.querySelector<HTMLElement>('.nav-links');
+    mobileMenu!.style.left = '0';
+  };
+
+  private closeMobileMenu = () => {
+    const mobileMenu = this.host.shadowRoot!.querySelector<HTMLElement>('.nav-links');
+    mobileMenu!.style.left = '-100%';
+  };
+
+  private appendPrimaryNavigationLinks() {
     // get the slotted 'nav-primary' node
     const node = this.host.querySelector(`[slot="nav-primary"]`);
 
@@ -59,7 +59,8 @@ export class BiggiveMainMenu {
       this.host.shadowRoot!.querySelector('#nav-primary')!.appendChild(node);
     }
   }
-  noNav(event: Event) {
+
+  private noNav(event: Event) {
     event.preventDefault();
   }
 
@@ -69,7 +70,7 @@ export class BiggiveMainMenu {
    * This is because the blue bar disappears in mobile mode, so we need the items
    * init to still be seen, hence they're auto-added to the menu.
    */
-  appendNavSecondaryLinks() {
+  private appendNavSecondaryLinks() {
     // get the slotted 'nav-secondary' node
     const node = this.host.querySelector(`[slot="nav-secondary"]`);
 
@@ -90,7 +91,7 @@ export class BiggiveMainMenu {
     }
   }
 
-  setHeaderSize() {
+  private setHeaderSize() {
     // Some resize edge cases lead Firefox, and maybe others, to go haywire and get a host offset
     // height of millions of pixels, presumably due to a layout logic loop. So for as long as we use
     // this body padding workaround, we need a safe maximum value, currently 130px, beyond which

@@ -124,7 +124,7 @@ export default {
   },
 };
 
-const Template = args => `
+const Template = (args: any) => `
       <biggive-campaign-card
         space-below=${args.spaceBelow}
         banner="${args.banner}"

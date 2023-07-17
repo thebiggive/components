@@ -39,7 +39,7 @@ export default {
   },
 };
 
-const Template = args => `
+const Template = (args: any) => `
               <biggive-table
                 space-below="${args.spaceBelow}"
                 header-text-colour="${args.headerTextColour}"

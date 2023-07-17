@@ -41,7 +41,7 @@ export class BiggiveImage {
    */
   @Prop() sizeUnit: string = 'px';
 
-  getWidth(): string {
+  private getWidth(): string {
     var width = 'auto';
     if (this.width > 0) {
       width = this.width + this.sizeUnit;
@@ -49,7 +49,7 @@ export class BiggiveImage {
     return width;
   }
 
-  getHeight(): string {
+  private getHeight(): string {
     var height = 'auto';
     if (this.height > 0) {
       height = this.height + this.sizeUnit;

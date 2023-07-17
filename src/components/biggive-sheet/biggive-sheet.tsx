@@ -18,12 +18,6 @@ export class BiggiveSheet {
 
   @Prop() textColour: brandColour = 'white';
 
-  openSheet(hash: string) {
-    if (hash != '' && hash == this.sheetId) {
-      this.host.shadowRoot?.querySelector('.container')?.classList.add('active');
-    }
-  }
-
   componentWillLoad() {
     window.addEventListener('hashchange', () => {
       this.openSheet(window.location.hash);
@@ -34,7 +28,13 @@ export class BiggiveSheet {
     this.openSheet(window.location.hash);
   }
 
-  closeSheet = () => {
+  private openSheet(hash: string) {
+    if (hash != '' && hash == this.sheetId) {
+      this.host.shadowRoot?.querySelector('.container')?.classList.add('active');
+    }
+  }
+
+  private closeSheet = () => {
     this.host.shadowRoot?.querySelector('.container')?.classList.remove('active');
     history.pushState('', document.title, window.location.pathname);
   };

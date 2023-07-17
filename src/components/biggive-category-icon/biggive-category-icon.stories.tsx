@@ -31,7 +31,7 @@ export default {
   },
 };
 
-const Template = args => `
+const Template = (args: any) => `
             <biggive-category-icon
               background-colour="${args.backgroundColour}"
               icon-colour="${args.iconColour}"

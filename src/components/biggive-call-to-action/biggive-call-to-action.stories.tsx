@@ -158,7 +158,7 @@ export default {
   },
 };
 
-const Template = args => `
+const Template = (args: any) => `
       <biggive-call-to-action
         space-anove=${args.spaceAbove}
         space-below=${args.spaceBelow}

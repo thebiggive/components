@@ -24,7 +24,7 @@ export default {
   },
 };
 
-const Template = args => `
+const Template = (args: any) => `
               <biggive-quote
                 space-below="${args.spaceBelow}"  
                 default-text-colour="${args.defaultTextColour}"

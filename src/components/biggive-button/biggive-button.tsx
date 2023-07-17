@@ -8,9 +8,9 @@ import { Component, Event, EventEmitter, Prop, h } from '@stencil/core';
 export class BiggiveButton {
   @Event({
     eventName: 'doButtonClick',
-    composed: true,
-    cancelable: true,
     bubbles: true,
+    cancelable: true,
+    composed: true,
   })
   doButtonClick: EventEmitter<{ event: object; url: string }>;
 

@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   aws-s3: circleci/aws-s3@3.0.0 # 3.1.1 is broken: https://github.com/CircleCI-Public/aws-s3-orb/issues/45
+  browser-tools: circleci/browser-tools@1.4.1
   jira: circleci/jira@1.3.1
 
 defaults: &defaults
@@ -13,21 +14,26 @@ defaults: &defaults
         password: $DOCKER_HUB_ACCESS_TOKEN
 
 jobs:
-  build:
+  test:
     <<: *defaults
     steps:
+      # https://stackoverflow.com/a/75738251/2803757 – this lib's required for Chrome 111+
+      # and not in the current base image.
+      - run: |
+          cd /tmp;
+          wget http://archive.ubuntu.com/ubuntu/pool/main/libu/libu2f-host/libu2f-udev_1.1.4-1_all.deb;
+          sudo dpkg -i libu2f-udev_1.1.4-1_all.deb;
+          cd ~/project
+      - browser-tools/install-chrome:
+          chrome-version: 114.0.5735.90 # https://github.com/puppeteer/puppeteer/blob/main/versions.js # https://github.com/puppeteer/puppeteer/blob/main/versions.js
+      - browser-tools/install-chromedriver
       - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package-lock.json" }}
-      - run: npm install
+      - run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 npm install --quiet
       - run: npm run build && git diff; git diff-index --quiet HEAD -- || (git status && exit 1); # Checks that npm run didn't change any files. If it did changes must be commited.
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package-lock.json" }}
       - run: npm run lint
       - run: npm run test
+      - store_test_results:
+          path: stencil-test-results
 
   deploy-staging-storybook:
     <<: *defaults
@@ -35,12 +41,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package-lock.json" }}
-      - run: npm install --quiet
+            - v3-dependencies-{{ checksum "package-lock.json" }}
+      - run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 npm install --quiet
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package-lock.json" }}
+          key: v3-dependencies-{{ checksum "package-lock.json" }}
       - run:
           name: Build components
           command: npm run build
@@ -66,12 +72,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package-lock.json" }}
-      - run: npm install --quiet
+            - v3-dependencies-{{ checksum "package-lock.json" }}
+      - run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 npm install --quiet
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package-lock.json" }}
+          key: v3-dependencies-{{ checksum "package-lock.json" }}
       - run:
           name: Build components
           command: npm run build
@@ -98,12 +104,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package-lock.json" }}
-      - run: npm install
+            - v3-dependencies-{{ checksum "package-lock.json" }}
+      - run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 npm install --quiet
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package-lock.json" }}
+          key: v3-dependencies-{{ checksum "package-lock.json" }}
       - run: ./scripts/create-version.sh
       - run: npm run build
       - run:
@@ -126,7 +132,7 @@ jobs:
 workflows:
   build-and-maybe-publish:
     jobs:
-      - build:
+      - test:
           context:
             - docker-hub-creds
             - jira
@@ -138,7 +144,7 @@ workflows:
       # Pushes to `develop` deploy a new Storybook Staging build.
       - deploy-staging-storybook:
           requires:
-            - build
+            - test
           filters:
             branches:
               only:
@@ -158,7 +164,7 @@ workflows:
       # if the npm publish failed and apps can't use the new version.
       - publish:
           requires:
-            - build
+            - test
           filters:
             branches:
               only:
@@ -174,7 +180,7 @@ workflows:
 
       - deploy-production-storybook:
           requires:
-            - build
+            - test
             - publish
           filters:
             branches:

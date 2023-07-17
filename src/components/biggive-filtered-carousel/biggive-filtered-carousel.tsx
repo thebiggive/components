@@ -8,7 +8,7 @@ import { spacingOption } from '../../globals/spacing-option';
   shadow: true,
 })
 export class BiggiveFilteredCarousel {
-  @Element() host: HTMLBiggiveCarouselElement;
+  @Element() host: HTMLBiggiveFilteredCarouselElement;
 
   @Prop() spaceBelow: spacingOption = 4;
 
@@ -18,7 +18,7 @@ export class BiggiveFilteredCarousel {
 
   @Prop() buttonIconColour: brandColour = 'primary';
 
-  children: Array<HTMLElement>;
+  private children: Array<HTMLElement>;
 
   componentDidLoad() {
     const carousel: HTMLBiggiveCarouselElement = this.host.shadowRoot?.querySelector('biggive-carousel')!;

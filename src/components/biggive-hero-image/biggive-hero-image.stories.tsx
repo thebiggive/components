@@ -11,7 +11,7 @@ export default {
   },
 };
 
-const Template = args => `
+const Template = (args: any) => `
     <biggive-hero-image
       space-below="${args.spaceBelow}"
       colour-scheme="${args.colourScheme}"

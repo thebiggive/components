@@ -37,7 +37,7 @@ export default {
   },
 };
 
-const Template = args => `
+const Template = (args: any) => `
               <biggive-image
                 space-above="${args.spaceAbove}"
                 space-below="${args.spaceBelow}"

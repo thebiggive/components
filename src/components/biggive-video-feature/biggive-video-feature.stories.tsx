@@ -71,7 +71,7 @@ export default {
   },
 };
 
-const Template = args => `
+const Template = (args: any) => `
           <biggive-video-feature
             space-above="${args.spaceAbove}"
             space-below="${args.spaceBelow}"

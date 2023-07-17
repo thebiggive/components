@@ -35,7 +35,7 @@ export default {
   },
 };
 
-const Template = args => `
+const Template = (args: any) => `
             <biggive-boxed-content
               space-below="${args.spaceBelow}"  
               horizontal-padding="${args.horizontalPadding}"   
