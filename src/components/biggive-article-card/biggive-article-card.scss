@@ -33,17 +33,18 @@
     margin-bottom: $spacer-2;
   }
   .meta .slug {
-    @include font-size-small();
+    @include font-size-x-small();
     margin-bottom: $spacer-1;
   }
   .meta .date {
-    @include font-size-small();
+    @include font-size-x-small();
     margin-bottom: $spacer-1;
   }
   h3 {
     @include heading-4();
-    padding-bottom: $spacer-3;
+    padding-bottom: $spacer-2;
     margin-bottom: auto;
+    margin-top: $spacer-1;
     a,
     a:hover {
       text-decoration: none;

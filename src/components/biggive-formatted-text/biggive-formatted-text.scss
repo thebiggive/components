@@ -14,6 +14,9 @@
   a {
     color: inherit;
     text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
   }
   &.max-width-10 .sleeve { @include max-width-10(); }
   &.max-width-15 .sleeve { @include max-width-15(); }
