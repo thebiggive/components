@@ -65,6 +65,7 @@ export namespace Components {
         "spaceBelow": spacingOption;
         "subtitle": string;
         "teaser": string;
+        "textAlign": 'left' | 'center' | 'right';
         "textColour": brandColour;
     }
     interface BiggiveBeneficiaryIcon {
@@ -1558,6 +1559,7 @@ declare namespace LocalJSX {
         "spaceBelow"?: spacingOption;
         "subtitle"?: string;
         "teaser"?: string;
+        "textAlign"?: 'left' | 'center' | 'right';
         "textColour"?: brandColour;
     }
     interface BiggiveBeneficiaryIcon {

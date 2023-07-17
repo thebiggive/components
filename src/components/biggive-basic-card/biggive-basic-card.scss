@@ -13,7 +13,7 @@
   text-align: center;
   background-size: cover;
   background-position: center center;
-  padding: $spacer-4;
+  padding: $spacer-2;
   height: 100%;
   white-space: pre-wrap;
   a,
@@ -21,7 +21,7 @@
     text-decoration: none;
   }
   .sleeve {
-    padding: $spacer-4;
+    padding: $spacer-2;
     height: 100%;
     box-sizing: border-box;
     transition: all 1s ease-in-out;
@@ -76,6 +76,16 @@
     &.align-right {
       text-align: right;
     }
+  }
+
+  .text-align-left {
+    text-align: left;
+  }
+  .text-align-center {
+    text-align: center;
+  }
+  .text-align-right {
+    text-align: right;
   }
 
 }
