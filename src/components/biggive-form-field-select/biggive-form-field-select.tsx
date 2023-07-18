@@ -29,6 +29,8 @@ export class BiggiveFormFieldSelect {
    */
   @Prop() backgroundColour: 'white' | 'grey';
 
+  @Prop() selectedOptionColour: 'inherit' | 'blue' = 'blue';
+
   private doOptionSelectCompletedHandler = (event: any) => {
     const value = event.target.value;
     this.selectedValue = value;
@@ -66,7 +68,16 @@ export class BiggiveFormFieldSelect {
       <div class="selectWrapper">
         <label class={greyIfRequired}>
           <div class={'prompt' + greyIfRequired}>{this.prompt}</div>
-          <div class={'dropdown space-below-' + this.spaceBelow + ' select-style-' + this.selectStyle + (this.prompt === null ? '  noprompt' : '')}>
+          <div
+            class={
+              'dropdown space-below-' +
+              this.spaceBelow +
+              ' select-style-' +
+              this.selectStyle +
+              (this.prompt === null ? '  noprompt' : '') +
+              (this.selectedOptionColour === 'inherit' ? ' inherit-colour' : '')
+            }
+          >
             <div class="sleeve">
               <select class={greyIfRequired} onChange={this.doOptionSelectCompletedHandler}>
                 {Object.entries(options).map((value: [string, string]) => (
