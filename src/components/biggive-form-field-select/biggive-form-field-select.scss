@@ -62,7 +62,7 @@ select.grey {
       @include dropdown-underlined();
     }
   }
-  &.select-style-underlined.inherit-colour select{
+  &.inherit-colour select{
    color: inherit;
   }
 
