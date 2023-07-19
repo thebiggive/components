@@ -142,22 +142,8 @@ export class BiggiveCampaignCardFilterGrid {
     this.doSearchAndFilterUpdate.emit(this.getSearchAndFilterObject());
   };
 
-  private getSearchAndFilterObject(): {
-    searchText: string;
-    sortBy: string;
-    filterCategory: string;
-    filterBeneficiary: string;
-    filterLocation: string;
-    filterFunding: string;
-  } {
-    const event: {
-      searchText: string | null;
-      sortBy: string | null;
-      filterCategory: string | null;
-      filterBeneficiary: string | null;
-      filterLocation: string | null;
-      filterFunding: string | null;
-    } = {
+  private getSearchAndFilterObject() {
+    return {
       searchText: this.searchText,
       sortBy: this.selectedSortByOption,
       filterCategory: this.selectedFilterCategory,
@@ -165,9 +151,6 @@ export class BiggiveCampaignCardFilterGrid {
       filterFunding: this.selectedFilterFunding,
       filterLocation: this.selectedFilterLocation,
     };
-
-    // @ts-ignore
-    return event;
   }
 
   private handleApplyFilterButtonClick = () => {
@@ -195,7 +178,7 @@ export class BiggiveCampaignCardFilterGrid {
 
     for (const filterKey of Object.keys(filters)) {
       // https://stackoverflow.com/a/69757191/2803757
-      const filterValue: string = filters[filterKey as keyof typeof filters];
+      const filterValue = filters[filterKey as keyof typeof filters];
 
       if (filterValue === null || filterValue.length === 0) {
         continue;
