@@ -63,7 +63,7 @@ select.grey {
     }
   }
   &.inherit-colour select{
-   color: inherit;
+   color: inherit !important;
   }
 
   select {
