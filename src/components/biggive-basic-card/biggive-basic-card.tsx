@@ -22,8 +22,6 @@ export class BiggiveBasicCard {
 
   @Prop() mainImageAltText: string;
 
-  @Prop() textAlign: 'left' | 'center' | 'right' = 'center';
-
   @Prop() mainTitle: string;
 
   @Prop() subtitle: string;
@@ -72,7 +70,7 @@ export class BiggiveBasicCard {
         style={{ 'background-image': "url('" + this.backgroundImageUrl + "')" }}
       >
         <a href={this.buttonUrl}>
-          <div class={'sleeve background-colour-' + this.cardColour + ' text-colour-' + this.textColour + ' text-align-' + this.textAlign}>
+          <div class={'sleeve background-colour-' + this.cardColour + ' text-colour-' + this.textColour}>
             <div class="content-wrap">
               {this.icon == true ? (
                 <div class="icon">
@@ -82,7 +80,6 @@ export class BiggiveBasicCard {
                   </svg>
                 </div>
               ) : null}
-
               {this.mainImageUrl != '' ? (
                 <div class="main-image-container">
                   <div class="image-wrap">
