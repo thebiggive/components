@@ -62,6 +62,10 @@ select.grey {
       @include dropdown-underlined();
     }
   }
+  &.inherit-colour select{
+   color: inherit !important;
+  }
+
   select {
     max-height: 200px;
     overflow-x: hidden;

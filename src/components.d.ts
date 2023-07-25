@@ -541,6 +541,7 @@ export namespace Components {
         "prompt": string | null;
         "selectStyle": 'bordered' | 'underlined';
         "selectedLabel": string | null;
+        "selectedOptionColour": 'inherit' | 'blue';
         "selectedValue": string | null;
         "selectionChanged": (value: string) => void;
         /**
@@ -2077,6 +2078,7 @@ declare namespace LocalJSX {
         "prompt": string | null;
         "selectStyle"?: 'bordered' | 'underlined';
         "selectedLabel"?: string | null;
+        "selectedOptionColour"?: 'inherit' | 'blue';
         "selectedValue"?: string | null;
         "selectionChanged"?: (value: string) => void;
         /**
