@@ -20,10 +20,6 @@ export class BiggiveTextInput {
   @Prop() spaceBelow: number = 0;
   @Prop() selectStyle: 'bordered' | 'underlined' = 'bordered';
 
-  /**
-   * Displayed as 'eyebrow' label over the top border of the box.
-   * */
-  @Prop() prompt!: string;
   render() {
     const currencySymbol = this.currency === 'GBP' ? '£' : this.currency === 'USD' ? '$' : undefined;
     return (
@@ -35,7 +31,9 @@ export class BiggiveTextInput {
             <div style={{ clear: 'both' }}></div>
           </div>
         </div>
-        <div class="prompt">{this.prompt}</div>
+        <div class="prompt">
+          <slot name="label" />
+        </div>
       </div>
     );
   }

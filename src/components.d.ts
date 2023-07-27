@@ -738,6 +738,30 @@ export namespace Components {
         "textColour": brandColour;
         "url": string;
     }
+    interface BiggiveImageCard {
+        "backgroundColour": brandColour;
+        "backgroundImageUrl": string;
+        "buttonColour": brandColour;
+        "buttonLabel": string;
+        "buttonUrl": string;
+        "clipBottomLeftCorner": boolean;
+        "clipTopRightCorner": boolean;
+        "date": string;
+        "dateColour": brandColour;
+        "image1AltText": string;
+        "image1Url": string;
+        "image2AltText": string;
+        "image2Url": string;
+        "imageLabel": string;
+        "imageLabelColour": brandColour;
+        "mainImageAltText": string;
+        "mainImageUrl": string;
+        "mainTitle": string;
+        "mainTitleColour": brandColour;
+        "slug": string;
+        "slugColour": brandColour;
+        "spaceBelow": spacingOption;
+    }
     interface BiggiveImageFeature {
         /**
           * Button Colour Scheme
@@ -973,10 +997,6 @@ export namespace Components {
           * ISO-4217 currency code if input is for a money value
          */
         "currency": 'GBP' | 'USD' | undefined;
-        /**
-          * Displayed as 'eyebrow' label over the top border of the box.
-         */
-        "prompt": string;
         "selectStyle": 'bordered' | 'underlined';
         "spaceBelow": number;
         "value": string;
@@ -1302,6 +1322,12 @@ declare global {
         prototype: HTMLBiggiveImageButtonElement;
         new (): HTMLBiggiveImageButtonElement;
     };
+    interface HTMLBiggiveImageCardElement extends Components.BiggiveImageCard, HTMLStencilElement {
+    }
+    var HTMLBiggiveImageCardElement: {
+        prototype: HTMLBiggiveImageCardElement;
+        new (): HTMLBiggiveImageCardElement;
+    };
     interface HTMLBiggiveImageFeatureElement extends Components.BiggiveImageFeature, HTMLStencilElement {
     }
     var HTMLBiggiveImageFeatureElement: {
@@ -1478,6 +1504,7 @@ declare global {
         "biggive-icon-group": HTMLBiggiveIconGroupElement;
         "biggive-image": HTMLBiggiveImageElement;
         "biggive-image-button": HTMLBiggiveImageButtonElement;
+        "biggive-image-card": HTMLBiggiveImageCardElement;
         "biggive-image-feature": HTMLBiggiveImageFeatureElement;
         "biggive-main-menu": HTMLBiggiveMainMenuElement;
         "biggive-misc-icon": HTMLBiggiveMiscIconElement;
@@ -2246,6 +2273,30 @@ declare namespace LocalJSX {
         "textColour"?: brandColour;
         "url"?: string;
     }
+    interface BiggiveImageCard {
+        "backgroundColour"?: brandColour;
+        "backgroundImageUrl"?: string;
+        "buttonColour"?: brandColour;
+        "buttonLabel"?: string;
+        "buttonUrl"?: string;
+        "clipBottomLeftCorner"?: boolean;
+        "clipTopRightCorner"?: boolean;
+        "date"?: string;
+        "dateColour"?: brandColour;
+        "image1AltText"?: string;
+        "image1Url"?: string;
+        "image2AltText"?: string;
+        "image2Url"?: string;
+        "imageLabel"?: string;
+        "imageLabelColour"?: brandColour;
+        "mainImageAltText"?: string;
+        "mainImageUrl"?: string;
+        "mainTitle"?: string;
+        "mainTitleColour"?: brandColour;
+        "slug"?: string;
+        "slugColour"?: brandColour;
+        "spaceBelow"?: spacingOption;
+    }
     interface BiggiveImageFeature {
         /**
           * Button Colour Scheme
@@ -2478,10 +2529,6 @@ declare namespace LocalJSX {
           * ISO-4217 currency code if input is for a money value
          */
         "currency"?: 'GBP' | 'USD' | undefined;
-        /**
-          * Displayed as 'eyebrow' label over the top border of the box.
-         */
-        "prompt": string;
         "selectStyle"?: 'bordered' | 'underlined';
         "spaceBelow"?: number;
         "value": string;
@@ -2641,6 +2688,7 @@ declare namespace LocalJSX {
         "biggive-icon-group": BiggiveIconGroup;
         "biggive-image": BiggiveImage;
         "biggive-image-button": BiggiveImageButton;
+        "biggive-image-card": BiggiveImageCard;
         "biggive-image-feature": BiggiveImageFeature;
         "biggive-main-menu": BiggiveMainMenu;
         "biggive-misc-icon": BiggiveMiscIcon;
@@ -2699,6 +2747,7 @@ declare module "@stencil/core" {
             "biggive-icon-group": LocalJSX.BiggiveIconGroup & JSXBase.HTMLAttributes<HTMLBiggiveIconGroupElement>;
             "biggive-image": LocalJSX.BiggiveImage & JSXBase.HTMLAttributes<HTMLBiggiveImageElement>;
             "biggive-image-button": LocalJSX.BiggiveImageButton & JSXBase.HTMLAttributes<HTMLBiggiveImageButtonElement>;
+            "biggive-image-card": LocalJSX.BiggiveImageCard & JSXBase.HTMLAttributes<HTMLBiggiveImageCardElement>;
             "biggive-image-feature": LocalJSX.BiggiveImageFeature & JSXBase.HTMLAttributes<HTMLBiggiveImageFeatureElement>;
             "biggive-main-menu": LocalJSX.BiggiveMainMenu & JSXBase.HTMLAttributes<HTMLBiggiveMainMenuElement>;
             "biggive-misc-icon": LocalJSX.BiggiveMiscIcon & JSXBase.HTMLAttributes<HTMLBiggiveMiscIconElement>;
