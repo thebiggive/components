@@ -65,7 +65,6 @@
   }
 
   @each $key, $colour in $brandColours {
-    &.button-icon-colour-#{$key} .navigation .sleeve { border-color: $colour; }
     &.text-colour-#{$key} .navigation li { color: $colour; }
     &.navigation-highlight-colour-#{$key} .navigation ul {border-color: $colour; }
     &.selected-text-colour-#{$key} .navigation li.selected { color: $colour; border-color: $colour; }
