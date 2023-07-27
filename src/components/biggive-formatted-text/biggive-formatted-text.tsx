@@ -21,6 +21,10 @@ export class BiggiveFormattedText {
   @Prop() maxWidth: number = 100;
 
   render() {
-    return <div class={'container max-width-' + this.maxWidth + ' text-colour-' + this.defaultTextColour + ' space-below-' + this.spaceBelow}></div>;
+    return (
+      <div class={'container max-width-' + this.maxWidth + ' text-colour-' + this.defaultTextColour + ' space-below-' + this.spaceBelow}>
+        <slot></slot>
+      </div>
+    );
   }
 }

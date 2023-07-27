@@ -10,7 +10,9 @@ describe('biggive-formatted-text', () => {
     expect(page.root).toEqualHtml(`
       <biggive-formatted-text>
         <mock:shadow-root>
-          <div class="container max-width-100 space-below-0 text-colour-primary"></div>
+          <div class="container max-width-100 space-below-0 text-colour-primary">
+            <slot></slot>
+          </div>
         </mock:shadow-root>
       </biggive-formatted-text>
     `);
