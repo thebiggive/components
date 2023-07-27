@@ -39,7 +39,6 @@
  - [biggive-campaign-card-filter-grid](../biggive-campaign-card-filter-grid)
  - [biggive-footer](../biggive-footer)
  - [biggive-hero-image](../biggive-hero-image)
- - [biggive-image-card](../biggive-image-card)
  - [biggive-image-feature](../biggive-image-feature)
  - [biggive-video-feature](../biggive-video-feature)
 
@@ -53,7 +52,6 @@ graph TD;
   biggive-campaign-card-filter-grid --> biggive-button
   biggive-footer --> biggive-button
   biggive-hero-image --> biggive-button
-  biggive-image-card --> biggive-button
   biggive-image-feature --> biggive-button
   biggive-video-feature --> biggive-button
   style biggive-button fill:#f9f,stroke:#333,stroke-width:4px
