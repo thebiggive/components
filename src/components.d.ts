@@ -997,10 +997,6 @@ export namespace Components {
           * ISO-4217 currency code if input is for a money value
          */
         "currency": 'GBP' | 'USD' | undefined;
-        /**
-          * Displayed as 'eyebrow' label over the top border of the box.
-         */
-        "prompt": string;
         "selectStyle": 'bordered' | 'underlined';
         "spaceBelow": number;
         "value": string;
@@ -2533,10 +2529,6 @@ declare namespace LocalJSX {
           * ISO-4217 currency code if input is for a money value
          */
         "currency"?: 'GBP' | 'USD' | undefined;
-        /**
-          * Displayed as 'eyebrow' label over the top border of the box.
-         */
-        "prompt": string;
         "selectStyle"?: 'bordered' | 'underlined';
         "spaceBelow"?: number;
         "value": string;
