@@ -15,36 +15,107 @@ export default {
         options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black', 'transparent'],
       },
     },
-    backgroundColourHover: {
-      name: 'Hover background colour',
+    backgroundImageUrl: {
+      name: 'Background image URL',
+    },
+    cardColour: {
+      name: 'Card colour',
       control: {
         type: 'select',
         options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black', 'transparent'],
       },
     },
-    slug: {
-      name: 'Slug',
+    textColour: {
+      name: 'Text colour',
+      control: {
+        type: 'select',
+        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black', 'transparent'],
+      },
     },
-    date: {
-      name: 'Date',
+    icon: {
+      name: 'Icon',
+    },
+    iconColour: {
+      name: 'Icon colour',
+      control: {
+        type: 'select',
+        options: [
+          'primary',
+          'secondary',
+          'tertiary',
+          'brand-1',
+          'brand-2',
+          'brand-3',
+          'brand-4',
+          'brand-5',
+          'brand-6',
+          'white',
+          'black',
+          'red',
+          'clear-primary',
+          'clear-secondary',
+          'clear-tertiary',
+          'clear-brand-1',
+          'clear-brand-2',
+          'clear-brand-3',
+          'clear-brand-4',
+          'clear-brand-5',
+          'clear-brand-6',
+          'clear-white',
+          'clear-black',
+        ],
+      },
     },
     mainTitle: {
       name: 'Title',
     },
-    imageUrl: {
-      name: 'Image URL',
+    subtitle: {
+      name: 'Subtitle',
     },
-    imageAltText: {
-      name: 'Image alt text',
-    },
-    imageLabel: {
-      name: 'Image Label',
+    teaser: {
+      name: 'Teaser',
     },
     buttonUrl: {
       name: 'Button URL',
     },
     buttonLabel: {
       name: 'Button label',
+    },
+    buttonColourScheme: {
+      name: 'Button colour scheme',
+      control: {
+        type: 'select',
+        options: [
+          'primary',
+          'secondary',
+          'tertiary',
+          'brand-1',
+          'brand-2',
+          'brand-3',
+          'brand-4',
+          'brand-5',
+          'brand-6',
+          'white',
+          'black',
+          'clear-primary',
+          'clear-secondary',
+          'clear-tertiary',
+          'clear-brand-1',
+          'clear-brand-2',
+          'clear-brand-3',
+          'clear-brand-4',
+          'clear-brand-5',
+          'clear-brand-6',
+          'clear-white',
+          'clear-black',
+        ],
+      },
+    },
+    clipBottomLeftCorner: {
+      name: 'Clip bottom left corner',
+    },
+    clipTopRight: {
+      name: 'Clip top right corner',
     },
   },
 };
@@ -53,15 +124,19 @@ const Template = (args: any) => `
               <biggive-image-card
                 space-below="${args.spaceBelow}"
                 background-colour="${args.backgroundColour}"
-                background-colour-hover="${args.backgroundColourHover}"
-                slug="${args.slug}"
-                date="${args.date}"
-                main-title="${args.mainTitle}"
-                image-url="${args.imageUrl}"
-                image-alt-text="${args.imageAltText}"
-                image-label="${args.imageLabel}"
+                background-image-url="${args.backgroundImageUrl}"
+                card-colour="${args.cardColour}"
+                text-colour="${args.textColour}"
+                icon="${args.icon}"
+                icon-colour="${args.iconColour}"
+                mainTitle="${args.mainTitle}"
+                subtitle="${args.subtitle}"
+                teaser="${args.teaser}"
                 button-label="${args.buttonLabel}"
                 button-url="${args.buttonUrl}"
+                button-colour-ccheme="${args.buttonColourScheme}"
+                clip-bottom-left-corner="${args.clipBottomLeftCorner}"
+                clip-top-right-corner="${args.clipTopRightCorner}"
                 >
               </biggive-image-card>
               `;
@@ -69,14 +144,18 @@ const Template = (args: any) => `
 export const ImageCardComponent = Template.bind({});
 ImageCardComponent.args = {
   spaceBelow: 4,
+  icon: true,
+  iconColour: 'primary',
   backgroundColour: 'white',
-  backgroundColourHover: 'tertiary',
-  slug: '• Blog Post   • Mental Health',
-  date: 'September 2022',
+  backgroundImageUrl: 'https://media.istockphoto.com/vectors/childish-seamless-dotted-pattern-with-colorful-doodle-letters-fun-vector-id1208462693',
+  cardColour: 'white',
+  textColour: 'white',
   mainTitle: 'Sample main title',
-  imageUrl: 'https://media.istockphoto.com/vectors/childish-seamless-dotted-pattern-with-colorful-doodle-letters-fun-vector-id1208462693',
-  imageAltText: 'Image description',
-  imageLabel: 'By Joe Bloggs',
+  subtitle: 'Sample subtitle',
+  teaser: 'teaser',
   buttonUrl: '#',
   buttonLabel: 'Click here',
+  buttonColourScheme: 'clear-primary',
+  clipBottomLeftCorner: true,
+  clipTopRightCorner: true,
 };

@@ -7,122 +7,100 @@ import { spacingOption } from '../../globals/spacing-option';
   styleUrl: 'biggive-image-card.scss',
   shadow: true,
 })
-export class BiggiveImageCard {
+export class BiggiveBasicCard {
   @Prop() spaceBelow: spacingOption = 0;
 
-  @Prop() backgroundColour: brandColour = 'white';
+  @Prop() backgroundColour: brandColour = 'primary';
 
   @Prop() backgroundImageUrl: string = '';
 
-  @Prop() slug: string;
+  @Prop() cardColour: brandColour = 'white';
 
-  @Prop() slugColour: brandColour = 'black';
-
-  @Prop() date: string;
-
-  @Prop() dateColour: brandColour = 'black';
-
-  @Prop() mainTitle: string;
-
-  @Prop() mainTitleColour: brandColour = 'black';
+  @Prop() textColour: brandColour = 'black';
 
   @Prop() mainImageUrl: string;
 
   @Prop() mainImageAltText: string;
 
-  @Prop() image1Url: string;
+  @Prop() textAlign: 'left' | 'center' | 'right' = 'center';
 
-  @Prop() image1AltText: string;
+  @Prop() mainTitle: string;
 
-  @Prop() image2Url: string;
+  @Prop() subtitle: string;
 
-  @Prop() image2AltText: string;
+  @Prop() teaser: string;
 
-  @Prop() imageLabel: string;
+  @Prop() icon: boolean = true;
 
-  @Prop() imageLabelColour: brandColour = 'black';
+  @Prop() iconColour: brandColour = 'primary';
+
+  @Prop() buttonAlign: string = 'center';
+
+  @Prop() buttonStyle: string = 'standard';
 
   @Prop() buttonLabel: string;
 
   @Prop() buttonUrl: string;
 
-  @Prop() buttonColour: brandColour = 'black';
+  @Prop() buttonColourScheme: string = 'clear-primary';
 
   @Prop() clipBottomLeftCorner: boolean = true;
 
   @Prop() clipTopRightCorner: boolean = true;
 
+  @Prop() headingLevel: 1 | 2 | 3 | 4 | 5 | 6 = 3;
+
+  @Prop() addAnimation: boolean = false;
+
   render() {
+    const HeadingTag = `h${this.headingLevel}`;
+
     return (
-      <div class={'container space-below-' + this.spaceBelow}>
-        <div
-          class={
-            'sleeve background-colour-' +
-            this.backgroundColour +
-            ' text-colour-black ' +
-            ' slug-colour-' +
-            this.slugColour +
-            ' date-colour-' +
-            this.dateColour +
-            ' main-title-colour-' +
-            this.mainTitleColour +
-            ' image-label-colour-' +
-            this.imageLabelColour +
-            ' button-colour' +
-            this.buttonColour +
-            ' clip-bottom-left-corner-' +
-            this.clipBottomLeftCorner +
-            ' clip-top-right-corner-' +
-            this.clipTopRightCorner
-          }
-          style={{ 'background-image': "url('" + this.backgroundImageUrl + "')" }}
-        >
-          <div class="content-wrap">
-            <div class="meta">
-              {this.slug != '' ? <div class="slug text-colour-primary">{this.slug}</div> : null}
-              {this.date != '' ? <div class="date">{this.date}</div> : null}
-            </div>
-
-            {this.mainImageUrl != '' ? (
-              <div class="main-image-container">
-                <div class="image-wrap">
-                  <img src={this.mainImageUrl} alt={this.mainImageAltText} />
+      <div
+        class={
+          'container space-below-' +
+          this.spaceBelow +
+          ' background-colour-' +
+          this.backgroundColour +
+          ' clip-bottom-left-corner-' +
+          this.clipBottomLeftCorner +
+          ' clip-top-right-corner-' +
+          this.clipTopRightCorner +
+          ' add-animation-' +
+          this.addAnimation
+        }
+        style={{ 'background-image': "url('" + this.backgroundImageUrl + "')" }}
+      >
+        <a href={this.buttonUrl}>
+          <div class={'sleeve background-colour-' + this.cardColour + ' text-colour-' + this.textColour + ' text-align-' + this.textAlign}>
+            <div class="content-wrap">
+              {this.icon == true ? (
+                <div class="icon">
+                  <svg width="53" height="39" viewBox="0 0 53 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M38.7009 13.6572L52.3535 38.6959H25.0386L38.7009 13.6572Z" class="fill-black" />
+                    <path d="M20.4789 36.4199L6.36785e-06 5.89713e-05L40.9724 6.61352e-05L20.4789 36.4199Z" class={'fill-' + this.iconColour} />
+                  </svg>
                 </div>
-              </div>
-            ) : null}
+              ) : null}
 
-            <h3 class="title">
-              <a href={this.buttonUrl}>{this.mainTitle}</a>
-            </h3>
-            {this.image1Url != '' || this.image2Url != '' ? (
-              <div class="image-group">
-                {this.image1Url != '' ? (
-                  <div class="image-container">
-                    <div class="image-wrap" style={{ 'background-image': "url('" + this.image1Url + "')" }}>
-                      <img src={this.image1Url} alt={this.image1AltText} />
-                    </div>
+              {this.mainImageUrl != '' ? (
+                <div class="main-image-container">
+                  <div class="image-wrap">
+                    <img src={this.mainImageUrl} alt={this.mainImageAltText} title={this.mainImageAltText} />
                   </div>
-                ) : null}
-
-                {this.image2Url != '' ? (
-                  <div class="image-container">
-                    <div class="image-wrap" style={{ 'background-image': "url('" + this.image2Url + "')" }}>
-                      <img src={this.image2Url} alt={this.image2AltText} />
-                    </div>
-                  </div>
-                ) : null}
-              </div>
-            ) : null}
-
-            {this.imageLabel != '' ? <div class="image-label">{this.imageLabel}</div> : null}
-
-            {this.buttonLabel != null && this.buttonUrl != null ? (
-              <div class="button-wrap align-right">
-                <biggive-button colour-scheme={'clear-' + this.buttonColour} url={this.buttonUrl} label={this.buttonLabel}></biggive-button>
-              </div>
-            ) : null}
+                </div>
+              ) : null}
+              <HeadingTag class="title">{this.mainTitle}</HeadingTag>
+              <div class="subtitle">{this.subtitle}</div>
+              <div class="teaser">{this.teaser}</div>
+              {this.buttonLabel != null && this.buttonUrl != null && this.buttonUrl != '' ? (
+                <div class={'button-wrap align-' + this.buttonAlign}>
+                  <biggive-button colour-scheme={this.buttonColourScheme} label={this.buttonLabel}></biggive-button>
+                </div>
+              ) : null}
+            </div>
           </div>
-        </div>
+        </a>
       </div>
     );
   }

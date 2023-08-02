@@ -1,5 +1,5 @@
 @include backgrounds();
-@include image-alignment();
+@include fills();
 @include spacers();
 @include text-colours();
 
@@ -7,104 +7,85 @@
   display: contents;
 }
 
-.align-right {
-  text-align: right;
-}
-
 .container {
-  height: 100%;
-  width: 100%;
   @include standard-font();
   position: relative;
-  text-align: left;
-  @include lower-shadow();
+  text-align: center;
+  background-size: cover;
+  background-position: center center;
+  padding: $spacer-2;
+  height: 100%;
+  white-space: pre-wrap;
+  a,
+  a:hover {
+    text-decoration: none;
+  }
   .sleeve {
+    padding: $spacer-2;
     height: 100%;
     box-sizing: border-box;
-    background-size: cover;
-    padding:  $spacer-3 $spacer-3 $spacer-2 $spacer-3;
-    .content-wrap {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
+    transition: all 1s ease-in-out;
+  }
+  &.add-animation-true:hover .sleeve {
+    margin: -30px;
+    padding: 60px;
+    height: calc(100% + 60px);
+  }
+  &.clip-bottom-left-corner-false.clip-top-right-corner-true {
+    .sleeve {
+      @include corner-clip-medium-top-right();
     }
   }
-  .meta {
-    margin-bottom: $spacer-2;
-  }
-  .meta .slug {
-    @include font-size-x-small();
-    margin-bottom: $spacer-1;
-  }
-  .meta .date {
-    @include font-size-x-small();
-    margin-bottom: $spacer-1;
-  }
-  h3 {
-    @include heading-4();
-    padding-bottom: $spacer-2;
-    margin-bottom: auto;
-    margin-top: $spacer-1;
-    a,
-    a:hover {
-      text-decoration: none;
+  &.clip-bottom-left-corner-true.clip-top-right-corner-false {
+    .sleeve {
+      @include corner-clip-medium-bottom-left();
     }
+  }
+  &.clip-bottom-left-corner-true.clip-top-right-corner-true {
+    .sleeve {
+      @include corner-clip-medium-bottom-left-top-right();
+    }
+  }
+
+  .icon {
+    svg {
+      width: 50px;
+      height: auto;
+    }
+  }
+  .title {
+    // these have to be the heading level passed in based on order of headings, but in terms of design we want it look like H3.
+    @include heading-3();
+    margin-bottom: $spacer-3;
+  }
+  .subtitle {
+    margin-bottom: $spacer-3;
   }
   .main-image-container {
+    margin-bottom: 15px;
     img {
       width: 100%;
       height: auto;
-      display: inline-block;
     }
   }
-  .image-group {
-    display: flex;
-    margin-bottom: $spacer-3;
-    .image-container {
-      margin-right: 15px;
-      .image-wrap {
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        background-size: cover;
-        background-position: center center;
-        margin-bottom: $spacer-1;
-        img {
-          display: none;
-        }
-      }
+  .button-wrap {
+    text-align: center;
+    &.align-left {
+      text-align: left;
+    }
+    &.align-right {
+      text-align: right;
     }
   }
-  .image-label {
-    @include font-size-x-small();
-  }
 
-
-  .clip-bottom-left-corner-false.clip-top-right-corner-true {
-    
-      @include corner-clip-medium-top-right();
-    
+  .text-align-left {
+    text-align: left;
   }
-  .clip-bottom-left-corner-true.clip-top-right-corner-false {
-      @include corner-clip-medium-bottom-left();
+  .text-align-center {
+    text-align: center;
   }
-    
-  .clip-bottom-left-corner-true.clip-top-right-corner-true {
-      @include corner-clip-medium-bottom-left-top-right();
-    
+  .text-align-right {
+    text-align: right;
   }
-
-  
-
-  @each $key, $colour in $brandColours {
-    .main-title-colour-#{$key} h3 { color: $colour; }
-    .slug-colour-#{$key} .slug { color: $colour; }
-    .date-colour-#{$key} .date { color: $colour; }
-    .image-label-colour-#{$key} .image-label { color: $colour; }
-  }
-  
-  
-  
-
 
 }
