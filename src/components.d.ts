@@ -738,6 +738,30 @@ export namespace Components {
         "textColour": brandColour;
         "url": string;
     }
+    interface BiggiveImageCard {
+        "addAnimation": boolean;
+        "backgroundColour": brandColour;
+        "backgroundImageUrl": string;
+        "buttonAlign": string;
+        "buttonColourScheme": string;
+        "buttonLabel": string;
+        "buttonStyle": string;
+        "buttonUrl": string;
+        "cardColour": brandColour;
+        "clipBottomLeftCorner": boolean;
+        "clipTopRightCorner": boolean;
+        "headingLevel": 1 | 2 | 3 | 4 | 5 | 6;
+        "icon": boolean;
+        "iconColour": brandColour;
+        "mainImageAltText": string;
+        "mainImageUrl": string;
+        "mainTitle": string;
+        "spaceBelow": spacingOption;
+        "subtitle": string;
+        "teaser": string;
+        "textAlign": 'left' | 'center' | 'right';
+        "textColour": brandColour;
+    }
     interface BiggiveImageFeature {
         /**
           * Button Colour Scheme
@@ -2241,6 +2265,30 @@ declare namespace LocalJSX {
         "text"?: string;
         "textColour"?: brandColour;
         "url"?: string;
+    }
+    interface BiggiveImageCard {
+        "addAnimation"?: boolean;
+        "backgroundColour"?: brandColour;
+        "backgroundImageUrl"?: string;
+        "buttonAlign"?: string;
+        "buttonColourScheme"?: string;
+        "buttonLabel"?: string;
+        "buttonStyle"?: string;
+        "buttonUrl"?: string;
+        "cardColour"?: brandColour;
+        "clipBottomLeftCorner"?: boolean;
+        "clipTopRightCorner"?: boolean;
+        "headingLevel"?: 1 | 2 | 3 | 4 | 5 | 6;
+        "icon"?: boolean;
+        "iconColour"?: brandColour;
+        "mainImageAltText"?: string;
+        "mainImageUrl"?: string;
+        "mainTitle"?: string;
+        "spaceBelow"?: spacingOption;
+        "subtitle"?: string;
+        "teaser"?: string;
+        "textAlign"?: 'left' | 'center' | 'right';
+        "textColour"?: brandColour;
     }
     interface BiggiveImageFeature {
         /**
