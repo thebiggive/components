@@ -1322,6 +1322,12 @@ declare global {
         prototype: HTMLBiggiveImageButtonElement;
         new (): HTMLBiggiveImageButtonElement;
     };
+    interface HTMLBiggiveImageCardElement extends Components.BiggiveImageCard, HTMLStencilElement {
+    }
+    var HTMLBiggiveImageCardElement: {
+        prototype: HTMLBiggiveImageCardElement;
+        new (): HTMLBiggiveImageCardElement;
+    };
     interface HTMLBiggiveImageFeatureElement extends Components.BiggiveImageFeature, HTMLStencilElement {
     }
     var HTMLBiggiveImageFeatureElement: {
@@ -1498,6 +1504,7 @@ declare global {
         "biggive-icon-group": HTMLBiggiveIconGroupElement;
         "biggive-image": HTMLBiggiveImageElement;
         "biggive-image-button": HTMLBiggiveImageButtonElement;
+        "biggive-image-card": HTMLBiggiveImageCardElement;
         "biggive-image-feature": HTMLBiggiveImageFeatureElement;
         "biggive-main-menu": HTMLBiggiveMainMenuElement;
         "biggive-misc-icon": HTMLBiggiveMiscIconElement;
@@ -2681,6 +2688,7 @@ declare namespace LocalJSX {
         "biggive-icon-group": BiggiveIconGroup;
         "biggive-image": BiggiveImage;
         "biggive-image-button": BiggiveImageButton;
+        "biggive-image-card": BiggiveImageCard;
         "biggive-image-feature": BiggiveImageFeature;
         "biggive-main-menu": BiggiveMainMenu;
         "biggive-misc-icon": BiggiveMiscIcon;
@@ -2739,6 +2747,7 @@ declare module "@stencil/core" {
             "biggive-icon-group": LocalJSX.BiggiveIconGroup & JSXBase.HTMLAttributes<HTMLBiggiveIconGroupElement>;
             "biggive-image": LocalJSX.BiggiveImage & JSXBase.HTMLAttributes<HTMLBiggiveImageElement>;
             "biggive-image-button": LocalJSX.BiggiveImageButton & JSXBase.HTMLAttributes<HTMLBiggiveImageButtonElement>;
+            "biggive-image-card": LocalJSX.BiggiveImageCard & JSXBase.HTMLAttributes<HTMLBiggiveImageCardElement>;
             "biggive-image-feature": LocalJSX.BiggiveImageFeature & JSXBase.HTMLAttributes<HTMLBiggiveImageFeatureElement>;
             "biggive-main-menu": LocalJSX.BiggiveMainMenu & JSXBase.HTMLAttributes<HTMLBiggiveMainMenuElement>;
             "biggive-misc-icon": LocalJSX.BiggiveMiscIcon & JSXBase.HTMLAttributes<HTMLBiggiveMiscIconElement>;
