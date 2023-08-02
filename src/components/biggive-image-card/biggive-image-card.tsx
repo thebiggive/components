@@ -7,7 +7,7 @@ import { spacingOption } from '../../globals/spacing-option';
   styleUrl: 'biggive-image-card.scss',
   shadow: true,
 })
-export class BiggiveBasicCard {
+export class BiggiveImageCard {
   @Prop() spaceBelow: spacingOption = 0;
 
   @Prop() backgroundColour: brandColour = 'primary';
