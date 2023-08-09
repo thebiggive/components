@@ -8,9 +8,9 @@ to making it work before we can add it to our website.
 
 ## Properties
 
-| Property        | Attribute         | Description | Type     | Default     |
-| --------------- | ----------------- | ----------- | -------- | ----------- |
-| `blogUriPrefix` | `blog-uri-prefix` |             | `string` | `undefined` |
+| Property                     | Attribute         | Description | Type     | Default     |
+| ---------------------------- | ----------------- | ----------- | -------- | ----------- |
+| `blogUriPrefix` _(required)_ | `blog-uri-prefix` |             | `string` | `undefined` |
 
 
 ## Dependencies
