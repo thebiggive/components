@@ -2046,7 +2046,7 @@ declare namespace LocalJSX {
         "url"?: string;
     }
     interface BiggiveCookieBanner {
-        "blogUriPrefix"?: string;
+        "blogUriPrefix": string;
     }
     interface BiggiveFilteredCarousel {
         "buttonBackgroundColour"?: brandColour;

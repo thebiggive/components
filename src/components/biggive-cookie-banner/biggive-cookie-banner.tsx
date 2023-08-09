@@ -6,7 +6,7 @@ import { Component, Prop, h } from '@stencil/core';
   shadow: true,
 })
 export class BiggiveCookieBanner {
-  @Prop() blogUriPrefix: string;
+  @Prop() blogUriPrefix!: string;
 
   render() {
     return (
@@ -14,8 +14,8 @@ export class BiggiveCookieBanner {
         <h2>Our website uses cookies</h2>
 
         <p>
-          We use some essential cookies to make our website work. We'd also like to use analytics cookies to understand how you use the website, make improvements and share data
-          with our analytics platform.
+          We use some essential cookies to make our website work. We'd also like to share data with our analytics platform and use analytics cookies to understand how you use the
+          website and make improvements.
         </p>
 
         <p>
