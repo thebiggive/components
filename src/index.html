@@ -15,6 +15,13 @@
         margin: 0;
         padding: 0;
       }
+
+      #cookie-banner {
+        position: fixed;
+        bottom: 3em;
+        right: 3em;
+        z-index: 1;
+      }
     </style>
   </head>
   <body style="background-color: #F1F1F1;">
@@ -1136,5 +1143,10 @@
       blog-url-prefix="http://localhost:30003"
       experience-url-prefix="https://www.thebiggive.org.uk"
       ></biggive-footer>
+  <div id="cookie-banner">
+    <biggive-cookie-banner
+      blog-uri-prefix="http://localhost:30003"
+    ></biggive-cookie-banner>
+  </div>
   </body>
 </html>
