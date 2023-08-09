@@ -13,7 +13,10 @@ export class BiggiveCookieBanner {
       <div class="cooke-consent-container">
         <h2>Our website uses cookies</h2>
 
-        <p>We use some essential cookies to make our website work. We'd also like to use analytics cookies to understand how you use the website and make improvements.</p>
+        <p>
+          We use some essential cookies to make our website work. We'd also like to use analytics cookies to understand how you use the website, make improvements and share data
+          with our analytics platform.
+        </p>
 
         <p>
           <a href={this.blogUriPrefix + '/privacy'}>Find out more in our Privacy Policy</a>
@@ -25,7 +28,7 @@ export class BiggiveCookieBanner {
             colour-scheme="secondary"
             is-past-campaign="false"
             is-future-campaign="false"
-            label="Accept All Cookies"
+            label="Accept All"
             open-in-new-tab="false"
             full-width="true"
             size="medium"
