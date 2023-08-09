@@ -13,7 +13,7 @@ export class BiggiveCookieBanner {
       <div class="cooke-consent-container">
         <h2>Our website uses cookies</h2>
 
-        <p>We use cookies to make our website work. To help us make our marketing and website better, we'd like your consent to use cookies on behalf of third parties too.</p>
+        <p>We use some essential cookies to make our website work. We'd also like to use analytics cookies to understand how you use the website and make improvements.</p>
 
         <p>
           <a href={this.blogUriPrefix + '/privacy'}>Find out more in our Privacy Policy</a>
