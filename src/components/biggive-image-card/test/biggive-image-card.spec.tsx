@@ -1,10 +1,10 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { BiggiveImageCard } from '../biggive-image-card';
+import { BiggiveBasicCard } from '../biggive-image-card';
 
 describe('biggive-image-card', () => {
   it('renders', async () => {
     const page = await newSpecPage({
-      components: [BiggiveImageCard],
+      components: [BiggiveBasicCard],
       html: `<biggive-image-card></biggive-image-card>`,
     });
     expect(page.root).toEqualHtml(`
@@ -12,7 +12,7 @@ describe('biggive-image-card', () => {
         <mock:shadow-root>
           <div class="add-animation-false background-colour-primary clip-bottom-left-corner-true clip-top-right-corner-true container space-below-0" style="background-image: url('');">
             <a>
-             <div class="background-colour-white sleeve text-align-center text-colour-black">
+             <div class="background-colour-white sleeve text-colour-black">
                 <div class="content-wrap">
                   <div class="icon">
                    <svg fill="none" height="39" viewBox="0 0 53 39" width="53" xmlns="http://www.w3.org/2000/svg">
