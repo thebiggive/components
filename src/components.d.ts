@@ -502,6 +502,9 @@ export namespace Components {
          */
         "url": string;
     }
+    interface BiggiveCookieBanner {
+        "blogUriPrefix": string;
+    }
     interface BiggiveFilteredCarousel {
         "buttonBackgroundColour": brandColour;
         "buttonIconColour": brandColour;
@@ -1237,6 +1240,12 @@ declare global {
         prototype: HTMLBiggiveCategoryIconElement;
         new (): HTMLBiggiveCategoryIconElement;
     };
+    interface HTMLBiggiveCookieBannerElement extends Components.BiggiveCookieBanner, HTMLStencilElement {
+    }
+    var HTMLBiggiveCookieBannerElement: {
+        prototype: HTMLBiggiveCookieBannerElement;
+        new (): HTMLBiggiveCookieBannerElement;
+    };
     interface HTMLBiggiveFilteredCarouselElement extends Components.BiggiveFilteredCarousel, HTMLStencilElement {
     }
     var HTMLBiggiveFilteredCarouselElement: {
@@ -1484,6 +1493,7 @@ declare global {
         "biggive-campaign-highlights": HTMLBiggiveCampaignHighlightsElement;
         "biggive-carousel": HTMLBiggiveCarouselElement;
         "biggive-category-icon": HTMLBiggiveCategoryIconElement;
+        "biggive-cookie-banner": HTMLBiggiveCookieBannerElement;
         "biggive-filtered-carousel": HTMLBiggiveFilteredCarouselElement;
         "biggive-footer": HTMLBiggiveFooterElement;
         "biggive-form": HTMLBiggiveFormElement;
@@ -2027,6 +2037,9 @@ declare namespace LocalJSX {
           * Url
          */
         "url"?: string;
+    }
+    interface BiggiveCookieBanner {
+        "blogUriPrefix": string;
     }
     interface BiggiveFilteredCarousel {
         "buttonBackgroundColour"?: brandColour;
@@ -2661,6 +2674,7 @@ declare namespace LocalJSX {
         "biggive-campaign-highlights": BiggiveCampaignHighlights;
         "biggive-carousel": BiggiveCarousel;
         "biggive-category-icon": BiggiveCategoryIcon;
+        "biggive-cookie-banner": BiggiveCookieBanner;
         "biggive-filtered-carousel": BiggiveFilteredCarousel;
         "biggive-footer": BiggiveFooter;
         "biggive-form": BiggiveForm;
@@ -2720,6 +2734,7 @@ declare module "@stencil/core" {
             "biggive-campaign-highlights": LocalJSX.BiggiveCampaignHighlights & JSXBase.HTMLAttributes<HTMLBiggiveCampaignHighlightsElement>;
             "biggive-carousel": LocalJSX.BiggiveCarousel & JSXBase.HTMLAttributes<HTMLBiggiveCarouselElement>;
             "biggive-category-icon": LocalJSX.BiggiveCategoryIcon & JSXBase.HTMLAttributes<HTMLBiggiveCategoryIconElement>;
+            "biggive-cookie-banner": LocalJSX.BiggiveCookieBanner & JSXBase.HTMLAttributes<HTMLBiggiveCookieBannerElement>;
             "biggive-filtered-carousel": LocalJSX.BiggiveFilteredCarousel & JSXBase.HTMLAttributes<HTMLBiggiveFilteredCarouselElement>;
             "biggive-footer": LocalJSX.BiggiveFooter & JSXBase.HTMLAttributes<HTMLBiggiveFooterElement>;
             "biggive-form": LocalJSX.BiggiveForm & JSXBase.HTMLAttributes<HTMLBiggiveFormElement>;
