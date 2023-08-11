@@ -8,25 +8,23 @@ describe('biggive-image-card', () => {
       html: `<biggive-image-card></biggive-image-card>`,
     });
     expect(page.root).toEqualHtml(`
-      <biggive-image-card>
-        <mock:shadow-root>
-          <div class="add-animation-false background-colour-primary clip-bottom-left-corner-true clip-top-right-corner-true container space-below-0" style="background-image: url('');">
-            <a>
-             <div class="background-colour-white sleeve text-colour-black">
-                <div class="content-wrap">
-                 </div>
-                 <div class="main-image-container">
-                   <div class="image-wrap">
-                     <img>
-                   </div>
-                </div>
-                 <div class="teaser"></div>
+    <biggive-image-card>
+    <mock:shadow-root>
+     <div class="add-animation-false background-colour-primary clip-bottom-left-corner-true clip-top-right-corner-true container space-below-0">
+        <a>
+         <div class="sleeve text-align-center text-colour-black">
+           <div class="content-wrap">
+             <div class="main-image-container">
+               <div class="image-wrap">
+                 <img>
                </div>
-              </div>
-           </a>
-          </div>
-        </mock:shadow-root>
-      </biggive-image-card>
+             </div>
+             <div class="teaser"></div>
+           </div>
+         </div>
+       </a>
+     </div>
+    </mock:shadow-root>
     `);
   });
 });
