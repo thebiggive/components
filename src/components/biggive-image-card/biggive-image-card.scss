@@ -16,6 +16,7 @@
   padding: $spacer-2;
   height: 100%;
   white-space: pre-wrap;
+  box-shadow: 0px 0px 30px rgb(0 0 0 / 20%);
   a,
   a:hover {
     text-decoration: none;
@@ -58,7 +59,7 @@
     @include heading-3();
     margin-bottom: $spacer-3;
   }
-  .subtitle {
+  .teaser {
     margin-bottom: $spacer-3;
   }
   .main-image-container {

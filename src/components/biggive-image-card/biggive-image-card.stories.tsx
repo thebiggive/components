@@ -15,62 +15,12 @@ export default {
         options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black', 'transparent'],
       },
     },
-    backgroundImageUrl: {
-      name: 'Background image URL',
-    },
-    cardColour: {
-      name: 'Card colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black', 'transparent'],
-      },
-    },
-    textColour: {
+    teaserColour: {
       name: 'Text colour',
       control: {
         type: 'select',
         options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black', 'transparent'],
       },
-    },
-    icon: {
-      name: 'Icon',
-    },
-    iconColour: {
-      name: 'Icon colour',
-      control: {
-        type: 'select',
-        options: [
-          'primary',
-          'secondary',
-          'tertiary',
-          'brand-1',
-          'brand-2',
-          'brand-3',
-          'brand-4',
-          'brand-5',
-          'brand-6',
-          'white',
-          'black',
-          'red',
-          'clear-primary',
-          'clear-secondary',
-          'clear-tertiary',
-          'clear-brand-1',
-          'clear-brand-2',
-          'clear-brand-3',
-          'clear-brand-4',
-          'clear-brand-5',
-          'clear-brand-6',
-          'clear-white',
-          'clear-black',
-        ],
-      },
-    },
-    mainTitle: {
-      name: 'Title',
-    },
-    subtitle: {
-      name: 'Subtitle',
     },
     teaser: {
       name: 'Teaser',
@@ -124,13 +74,6 @@ const Template = (args: any) => `
               <biggive-image-card
                 space-below="${args.spaceBelow}"
                 background-colour="${args.backgroundColour}"
-                background-image-url="${args.backgroundImageUrl}"
-                card-colour="${args.cardColour}"
-                text-colour="${args.textColour}"
-                icon="${args.icon}"
-                icon-colour="${args.iconColour}"
-                mainTitle="${args.mainTitle}"
-                subtitle="${args.subtitle}"
                 teaser="${args.teaser}"
                 button-label="${args.buttonLabel}"
                 button-url="${args.buttonUrl}"
@@ -144,14 +87,7 @@ const Template = (args: any) => `
 export const ImageCardComponent = Template.bind({});
 ImageCardComponent.args = {
   spaceBelow: 4,
-  icon: true,
-  iconColour: 'primary',
   backgroundColour: 'white',
-  backgroundImageUrl: 'https://media.istockphoto.com/vectors/childish-seamless-dotted-pattern-with-colorful-doodle-letters-fun-vector-id1208462693',
-  cardColour: 'white',
-  textColour: 'white',
-  mainTitle: 'Sample main title',
-  subtitle: 'Sample subtitle',
   teaser: 'teaser',
   buttonUrl: '#',
   buttonLabel: 'Click here',
