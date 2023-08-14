@@ -6,7 +6,7 @@
   "peerDependencies": {
     "@angular/common": "^15.2.9||^16.1.0",
     "@angular/core": "^15.2.9||^16.1.0",
-    "@biggive/components": "*"
+    "@biggive/components": "../../../dist"
   },
   "dependencies": {
     "tslib": "^2.3.0"
