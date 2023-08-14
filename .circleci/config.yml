@@ -141,23 +141,6 @@ workflows:
             - jira/notify:
                 job_type: build
                 environment_type: development
-      
-      # Pushes to `develop` deploy a new Storybook Staging build.
-      - deploy-staging-storybook:
-          requires:
-            - test
-          filters:
-            branches:
-              only:
-                - develop
-          context:
-            - docker-hub-creds
-            - ecs-deploys # Includes S3 stuff used by Donate frontend.
-            - jira
-          post-steps:
-            - jira/notify:
-                job_type: deployment
-                environment_type: staging
 
       # Pushes to `main` publish new package versions to npm, then deploy a
       # new Storybook Production build. The latter doesn't use the former directly,
