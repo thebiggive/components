@@ -1,8 +1,9 @@
 version: 2.1
 
 orbs:
-  aws-s3: circleci/aws-s3@3.0.0 # 3.1.1 is broken: https://github.com/CircleCI-Public/aws-s3-orb/issues/45
-  browser-tools: circleci/browser-tools@1.4.1
+  aws-cli: circleci/aws-cli@4.0.0
+  aws-s3: circleci/aws-s3@4.0.0
+  browser-tools: circleci/browser-tools@1.4.3
   jira: circleci/jira@1.3.1
 
 defaults: &defaults
@@ -12,6 +13,12 @@ defaults: &defaults
       auth:
         username: $DOCKER_HUB_USERNAME
         password: $DOCKER_HUB_ACCESS_TOKEN
+  steps:
+    aws-auth:
+      # executor: aws-cli/default
+      steps:
+        - checkout
+        - aws-cli/setup: ~
 
 jobs:
   test:
@@ -23,9 +30,9 @@ jobs:
           cd /tmp;
           wget http://archive.ubuntu.com/ubuntu/pool/main/libu/libu2f-host/libu2f-udev_1.1.4-1_all.deb;
           sudo dpkg -i libu2f-udev_1.1.4-1_all.deb;
-          cd ~/project
+          cd ~/components
       - browser-tools/install-chrome:
-          chrome-version: 114.0.5735.90 # https://github.com/puppeteer/puppeteer/blob/main/versions.js # https://github.com/puppeteer/puppeteer/blob/main/versions.js
+          chrome-version: 114.0.5735.90 # https://github.com/puppeteer/puppeteer/blob/main/versions.js
       - browser-tools/install-chromedriver
       - checkout
       - run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 npm install --quiet
@@ -34,37 +41,6 @@ jobs:
       - run: npm run test
       - store_test_results:
           path: stencil-test-results
-
-  deploy-staging-storybook:
-    <<: *defaults
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v3-dependencies-{{ checksum "package-lock.json" }}
-      - run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 npm install --quiet
-      - save_cache:
-          paths:
-            - node_modules
-          key: v3-dependencies-{{ checksum "package-lock.json" }}
-      - run:
-          name: Build components
-          command: npm run build
-      - run:
-          name: Build Storybook
-          command: npm run build-storybook
-      - aws-s3/sync:
-          from: src/assets
-          to: 's3://tbg-staging-component-library/assets'
-          arguments: |
-            --acl public-read \
-            --cache-control "max-age=3600"
-      - aws-s3/sync:
-          from: storybook-static
-          to: 's3://tbg-staging-component-library'
-          arguments: |
-            --acl public-read \
-            --cache-control "max-age=3600"
 
   deploy-production-storybook:
     <<: *defaults
@@ -85,12 +61,18 @@ jobs:
           name: Build Storybook
           command: npm run build-storybook
       - aws-s3/sync:
+          auth:
+            - aws-cli/setup: ~ # Config from env vars; profile name 'default'.
+          #profile_name: default
           from: src/assets
           to: 's3://tbg-production-component-library/assets'
           arguments: |
             --acl public-read \
             --cache-control "max-age=3600"
       - aws-s3/sync:
+          auth:
+            - aws-cli/setup: ~ # Config from env vars; profile name 'default'.
+          #profile_name: default
           from: storybook-static
           to: 's3://tbg-production-component-library'
           arguments: |
@@ -105,6 +87,12 @@ jobs:
       - restore_cache:
           keys:
             - v3-dependencies-{{ checksum "package-lock.json" }}
+      # This is technically "wrong" but generally we would only expect updates inside
+      # the Angular project iff there is one in the outer one. And we deliberately don't
+      # check in an inner lockfile so can't use it for hash comparison.
+      - restore_cache:
+          keys:
+            - v3-angular-dependencies-{{ checksum "package-lock.json" }}
       - run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 npm install --quiet
       - save_cache:
           paths:
@@ -119,6 +107,10 @@ jobs:
           name: Publish core components to npm
           command: npm publish --access=public
       - run: cd angular && npm install
+      - save_cache:
+          paths:
+            - angular/node_modules
+          key: v3-angular-dependencies-{{ checksum "package-lock.json" }}
       - run:
           name: Build Angular components
           command: cd angular && npm run build
