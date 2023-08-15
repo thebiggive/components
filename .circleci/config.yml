@@ -28,7 +28,14 @@ jobs:
           chrome-version: 114.0.5735.90 # https://github.com/puppeteer/puppeteer/blob/main/versions.js
       - browser-tools/install-chromedriver
       - checkout
+      - restore_cache:
+          keys:
+            - v3-dependencies-{{ checksum "package-lock.json" }}
       - run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 npm install --quiet
+      - save_cache:
+          paths:
+            - node_modules
+          key: v3-dependencies-{{ checksum "package-lock.json" }}
       - run: npm run build && git diff; git diff-index --quiet HEAD -- || (git status && exit 1); # Checks that npm run didn't change any files. If it did changes must be commited.
       - run: npm run lint
       - run: npm run test
