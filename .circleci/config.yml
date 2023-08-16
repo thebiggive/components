@@ -50,12 +50,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v3-dependencies-{{ checksum "package-lock.json" }}
+            - v4-dependencies-{{ checksum "package-lock.json" }}
       - run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 npm install --quiet
       - save_cache:
           paths:
             - node_modules
-          key: v3-dependencies-{{ checksum "package-lock.json" }}
+          key: v4-dependencies-{{ checksum "package-lock.json" }}
       - run:
           name: Build components
           command: npm run build
@@ -82,18 +82,18 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v3-dependencies-{{ checksum "package-lock.json" }}
+            - v4-dependencies-{{ checksum "package-lock.json" }}
       # This is technically "wrong" but generally we would only expect updates inside
       # the Angular project iff there is one in the outer one. And we deliberately don't
       # check in an inner lockfile so can't use it for hash comparison.
       - restore_cache:
           keys:
-            - v3-angular-dependencies-{{ checksum "package-lock.json" }}
+            - v4-angular-dependencies-{{ checksum "package-lock.json" }}
       - run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 npm install --quiet
       - save_cache:
           paths:
             - node_modules
-          key: v3-dependencies-{{ checksum "package-lock.json" }}
+          key: v4-dependencies-{{ checksum "package-lock.json" }}
       - run: ./scripts/create-version.sh
       - run: npm run build
       - run:
@@ -106,7 +106,7 @@ jobs:
       - save_cache:
           paths:
             - angular/node_modules
-          key: v3-angular-dependencies-{{ checksum "package-lock.json" }}
+          key: v4-angular-dependencies-{{ checksum "package-lock.json" }}
       - run:
           name: Build Angular components
           command: cd angular && npm run build
