@@ -9,6 +9,10 @@ import { spacingOption } from "./globals/spacing-option";
 import { brandColour } from "./globals/brand-colour";
 import { headingTag } from "./globals/heading-tag";
 import { headingSize } from "./globals/heading-size";
+export { spacingOption } from "./globals/spacing-option";
+export { brandColour } from "./globals/brand-colour";
+export { headingTag } from "./globals/heading-tag";
+export { headingSize } from "./globals/heading-size";
 export namespace Components {
     interface BiggiveAccordion {
         "headingColour": brandColour;
