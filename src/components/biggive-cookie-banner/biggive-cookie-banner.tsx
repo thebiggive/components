@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Element, Prop, h } from '@stencil/core';
 
 @Component({
   tag: 'biggive-cookie-banner',
@@ -7,10 +7,20 @@ import { Component, Prop, h } from '@stencil/core';
 })
 export class BiggiveCookieBanner {
   @Prop() blogUriPrefix!: string;
+  @Element() el: HTMLBiggiveCookieBannerElement;
+
+  private handleChoosePrefencesClick = () => {
+    this.el.shadowRoot.getElementById('cookie-preferences-popup').openFromOutside();
+  };
 
   render() {
     return (
       <div class="cooke-consent-container">
+
+        <biggive-popup id="cookie-preferences-popup">
+
+        </biggive-popup>
+
         <h2>Our website uses cookies</h2>
 
         <p>
@@ -38,6 +48,7 @@ export class BiggiveCookieBanner {
           ></biggive-button>
 
           <biggive-button
+            onClick={this.handleChoosePrefencesClick}
             space-below="0"
             colour-scheme="grey-light"
             is-past-campaign="false"
