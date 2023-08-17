@@ -7,13 +7,13 @@
 
 ## Properties
 
-| Property            | Attribute             | Description | Type                                                                                                                                                                                                                            | Default     |
-| ------------------- | --------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `attribution`       | `attribution`         |             | `string`                                                                                                                                                                                                                        | `''`        |
+| Property            | Attribute             | Description | Type                                                                                                                                                                                                                                   | Default     |
+| ------------------- | --------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `attribution`       | `attribution`         |             | `string`                                                                                                                                                                                                                               | `''`        |
 | `defaultTextColour` | `default-text-colour` |             | `"black" \| "brand-1" \| "brand-2" \| "brand-3" \| "brand-4" \| "brand-5" \| "brand-6" \| "brand-afa-pink" \| "grey-dark" \| "grey-extra-light" \| "grey-light" \| "grey-medium" \| "primary" \| "secondary" \| "tertiary" \| "white"` | `'black'`   |
-| `quote`             | `quote`               |             | `string`                                                                                                                                                                                                                        | `''`        |
+| `quote`             | `quote`               |             | `string`                                                                                                                                                                                                                               | `''`        |
 | `quoteIconColour`   | `quote-icon-colour`   |             | `"black" \| "brand-1" \| "brand-2" \| "brand-3" \| "brand-4" \| "brand-5" \| "brand-6" \| "brand-afa-pink" \| "grey-dark" \| "grey-extra-light" \| "grey-light" \| "grey-medium" \| "primary" \| "secondary" \| "tertiary" \| "white"` | `'primary'` |
-| `spaceBelow`        | `space-below`         |             | `0 \| 1 \| 2 \| 3 \| 4 \| 5 \| 6`                                                                                                                                                                                               | `0`         |
+| `spaceBelow`        | `space-below`         |             | `0 \| 1 \| 2 \| 3 \| 4 \| 5 \| 6`                                                                                                                                                                                                      | `0`         |
 
 
 ----------------------------------------------
