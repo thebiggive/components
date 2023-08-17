@@ -138,10 +138,7 @@ This directory contains a static version of the web components which can be used
 We've followed [this guide](https://ionicframework.com/blog/how-to-use-storybook-with-stencil/) to
 provide sample usage of key components: a living style guide.
 
-CI automatically publishes the Storybook preview:
-
-* to [Staging](https://components-staging.thebiggivetest.org.uk) from `develop`; and
-* to [Production](https://components-production.thebiggive.org.uk) from `main` – which also npm publishes a new major version automatically.
+From the `main` branch, CI automatically npm-publishes a new major version and updates the [Storybook preview](https://components-production.thebiggive.org.uk).
 
 For now, the local `npm run storybook` won't load static image assets or fonts. We've prioritised realistic
 renders in the deployed environment, where these work due to:
