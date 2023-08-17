@@ -121,6 +121,11 @@ export class BiggiveFooter {
                   </a>
                 </li>
                 <li>
+                  <a href={makeURL('Blog', this.blogUrlPrefix, 'artsforimpact')} class="icon-arts">
+                    Arts for Impact
+                  </a>
+                </li>
+                <li>
                   <a href={makeURL('Blog', this.blogUrlPrefix, 'emergency-campaigns/')} class="icon-emergency">
                     Emergency Match Fund
                   </a>
