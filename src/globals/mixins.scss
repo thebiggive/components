@@ -233,6 +233,7 @@
   &.colour-scheme-brand-4 {background-color: $colour-brand-emf-yellow; svg {fill: $colour-black;}}
   &.colour-scheme-brand-5 {background-color: $colour-brand-c4c-orange; svg {fill: $colour-black;}}
   &.colour-scheme-brand-6 {background-color: $colour-brand-grey; svg {fill: $colour-black;}}
+  &.colour-scheme-brand-afa-pink {background-color: $colour-brand-afa-pink; svg {fill: $colour-black;}}
   &.colour-scheme-white {background-color: $colour-white; svg {fill: $colour-black;}}
   &.colour-scheme-black {background-color: $colour-black; svg {fill: $colour-white;}}
   &.colour-scheme-black {background-color: $colour-grey-extra-light; svg {fill: $colour-grey-extra-light;}}
@@ -546,6 +547,19 @@
   }
 }
 
+@mixin button-clear-brand-afa-pink {
+  color: $colour-brand-afa-pink;
+  background-color: transparent;
+  text-decoration: underline;
+  border: 0;
+  padding-left: 0;
+  padding-right: 0;
+  &:hover {
+    text-decoration: none;
+    background-color: transparent;
+  }
+}
+
 @mixin button-clear-white {
   color: $colour-white;
   background-color: transparent;
@@ -708,6 +722,15 @@
   color: $colour-white;
   background-color: $colour-brand-grey;
   border-color: $colour-brand-grey;
+  &:hover {
+    background-color: $colour-black;
+  }
+}
+
+@mixin button-brand-afa-pink {
+  color: $colour-white;
+  background-color: $colour-brand-afa-pink;
+  border-color: $colour-brand-afa-pink;
   &:hover {
     background-color: $colour-black;
   }
@@ -1016,6 +1039,11 @@
       background-color: $colour-brand-mhf-turquoise;
   }
 
+  .background-colour-hover-brand-afa-pink:hover,
+  .background-colour-brand-afa-pink {
+    background-color: $colour-brand-afa-pink;
+  }
+
   .background-colour-hover-white:hover,
   .background-colour-white {
       background-color: $colour-white;
@@ -1082,6 +1110,10 @@
 
   .fill-brand-6 {
       fill: $colour-brand-grey;
+  }
+
+  .fill-brand-afa-pink {
+    fill: $colour-brand-afa-pink;
   }
 
   .fill-brand-mhf-turquoise {
@@ -1207,6 +1239,11 @@
   .text-colour-hover-brand-6:hover,
   .text-colour-brand-6 {
       color: $colour-brand-grey;
+  }
+
+  .text-colour-hover-brand-afa-pink:hover,
+  .text-colour-brand-afa-pink {
+    color: $colour-brand-afa-pink;
   }
 
   .text-colour-hover-white:hover,
