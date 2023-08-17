@@ -301,6 +301,11 @@ export class BiggiveMainMenu {
                               </a>
                             </li>
                             <li>
+                              <a href={makeURL('Blog', this.blogUrlPrefix, 'artsforimpact/')} class="icon-arts-impact">
+                                Arts for Impact
+                              </a>
+                            </li>
+                            <li>
                               <a href={makeURL('Blog', this.blogUrlPrefix, 'anchor-match-fund/')} class="icon-anchor-match">
                                 Anchor Match Fund
                               </a>
