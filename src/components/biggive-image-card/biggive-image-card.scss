@@ -33,19 +33,13 @@
     height: calc(100% + 60px);
   }
   &.clip-bottom-left-corner-false.clip-top-right-corner-true {
-    .sleeve {
       @include corner-clip-medium-top-right();
-    }
   }
   &.clip-bottom-left-corner-true.clip-top-right-corner-false {
-    .sleeve {
       @include corner-clip-medium-bottom-left();
-    }
   }
   &.clip-bottom-left-corner-true.clip-top-right-corner-true {
-    .sleeve {
       @include corner-clip-medium-bottom-left-top-right();
-    }
   }
 
   .icon {
