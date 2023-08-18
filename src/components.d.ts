@@ -1135,6 +1135,10 @@ export interface BiggiveCampaignCardFilterGridCustomEvent<T> extends CustomEvent
     detail: T;
     target: HTMLBiggiveCampaignCardFilterGridElement;
 }
+export interface BiggiveCookieBannerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLBiggiveCookieBannerElement;
+}
 export interface BiggiveIconButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLBiggiveIconButtonElement;
@@ -2040,6 +2044,14 @@ declare namespace LocalJSX {
     }
     interface BiggiveCookieBanner {
         "blogUriPrefix": string;
+        /**
+          * Indicates that the user accepts cookies for any purpose, without discrimination.
+         */
+        "onCookieBannerAcceptAllSelected"?: (event: BiggiveCookieBannerCustomEvent<void>) => void;
+        /**
+          * Indicates that the user has made a selection of cookies purpose to accept.  Event data contains an array of the type of cookie purposes the user consents to. Currently, it is only possible to consent to marketing cookies, so it will simply be ['marketing'] or [] but in future other types may be possible.
+         */
+        "onCookieBannerSavePreferencesSelected"?: (event: BiggiveCookieBannerCustomEvent<{ marketing: Boolean }>) => void;
     }
     interface BiggiveFilteredCarousel {
         "buttonBackgroundColour"?: brandColour;

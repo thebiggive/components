@@ -13,15 +13,25 @@ to making it work before we can add it to our website.
 | `blogUriPrefix` _(required)_ | `blog-uri-prefix` |             | `string` | `undefined` |
 
 
+## Events
+
+| Event                                 | Description                                                                                                                                                                                                                                                                                                       | Type                                   |
+| ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| `cookieBannerAcceptAllSelected`       | Indicates that the user accepts cookies for any purpose, without discrimination.                                                                                                                                                                                                                                  | `CustomEvent<void>`                    |
+| `cookieBannerSavePreferencesSelected` | Indicates that the user has made a selection of cookies purpose to accept.  Event data contains an array of the type of cookie purposes the user consents to. Currently, it is only possible to consent to marketing cookies, so it will simply be ['marketing'] or [] but in future other types may be possible. | `CustomEvent<{ marketing: Boolean; }>` |
+
+
 ## Dependencies
 
 ### Depends on
 
+- [biggive-popup](../biggive-popup)
 - [biggive-button](../biggive-button)
 
 ### Graph
 ```mermaid
 graph TD;
+  biggive-cookie-banner --> biggive-popup
   biggive-cookie-banner --> biggive-button
   style biggive-cookie-banner fill:#f9f,stroke:#333,stroke-width:4px
 ```
