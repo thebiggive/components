@@ -1,7 +1,7 @@
 @include spacers();
 
 :host {
-  display: contents; 
+  display: contents;
 }
 
 .container {
@@ -22,7 +22,7 @@
     &.size-small {
       @include button-small();
     }
-    
+
     &.button.rounded-true {
       @include button-rounded();
     }
@@ -31,7 +31,7 @@
 .button-primary {
    @include button-primary();
 }
- 
+
 .button-secondary {
     @include button-secondary();
 }
@@ -68,6 +68,10 @@
     @include button-brand-6();
 }
 
+.button-brand-afa-pink {
+  @include button-brand-afa-pink();
+}
+
 .button-white {
     @include button-white();
 }
@@ -95,7 +99,7 @@
 .button-clear-primary {
     @include button-clear-primary();
 }
-  
+
 .button-clear-secondary {
     @include button-clear-secondary();
 }
