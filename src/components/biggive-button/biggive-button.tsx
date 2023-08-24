@@ -67,7 +67,7 @@ export class BiggiveButton {
 
   render() {
     return (
-      <div class={'container space-below-' + this.spaceBelow + ' centered-' + this.centered}>
+      <div class={'container space-below-' + this.spaceBelow + ' centered-' + this.centered} role="button">
         <a
           href={this.url}
           target={this.openInNewTab ? '_blank' : '_self'}
