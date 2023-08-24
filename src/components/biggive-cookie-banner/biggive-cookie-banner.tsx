@@ -40,7 +40,7 @@ export class BiggiveCookieBanner {
     elementById.openFromOutside();
   };
 
-  private handleSavePreferencesClick = () => {
+  private handleAcceptSelectedCookies = () => {
     const elementById = this.el.shadowRoot?.getElementById('cookie-preferences-popup') as HTMLBiggivePopupElement;
     elementById.closeFromOutside();
 
@@ -62,40 +62,44 @@ export class BiggiveCookieBanner {
     return (
       <div class="cooke-consent-container">
         <biggive-popup id="cookie-preferences-popup">
-          <h4 class="space-above-0 space-below-3 text-colour-primary">Manage your cookie preferences</h4>
-          <form>
-            <h5>Essential (always required)</h5>
-            <input type="radio" name="necassary" id="necassary-off" disabled={true} />
-            <label htmlFor="necassary-on">Off</label>
+          <div class="content">
+            <h4 class="space-above-0 space-below-3 text-colour-primary">Manage your cookie preferences</h4>
+            <form>
+              <div class="radio-group">
+                <h5>Essential (always required)</h5>
+                <input type="radio" name="necassary" id="necassary-off" disabled={true} />
+                <label htmlFor="necassary-on">Off</label>
 
-            <input type="radio" name="necassary" id="necassary-on" disabled={true} checked={true} />
-            <label htmlFor="necassary-on">On</label>
+                <input type="radio" name="necassary" id="necassary-on" disabled={true} checked={true} />
+                <label htmlFor="necassary-on">On</label>
+              </div>
 
-            <h5>Marketing</h5>
-            <input type="radio" name="marketing" id="marketing-off" checked={true} />
-            <label htmlFor="marketing-off">Off</label>
+              <div class="radio-group">
+                <h5>Marketing</h5>
+                <input type="radio" name="marketing" id="marketing-off" checked={true} />
+                <label htmlFor="marketing-off">Off</label>
 
-            <input type="radio" name="marketing" id="marketing-on" />
-            <label htmlFor="marketing-on">On</label>
+                <input type="radio" name="marketing" id="marketing-on" />
+                <label htmlFor="marketing-on">On</label>
+              </div>
 
-            <hr />
-
-            <biggive-button
-              space-below="0"
-              space-above="2"
-              colour-scheme="secondary"
-              is-past-campaign="false"
-              is-future-campaign="false"
-              label="Save preferences"
-              open-in-new-tab="false"
-              full-width="false"
-              size="small"
-              rounded={false}
-              centered={false}
-              button-id="save-preferences-button"
-              onClick={this.handleSavePreferencesClick}
-            ></biggive-button>
-          </form>
+              <biggive-button
+                space-below="0"
+                space-above="2"
+                colour-scheme="secondary"
+                is-past-campaign="false"
+                is-future-campaign="false"
+                label="Accept Selected Cookies"
+                open-in-new-tab="false"
+                full-width="false"
+                size="small"
+                rounded={false}
+                centered={false}
+                button-id="accept-selected-button"
+                onClick={this.handleAcceptSelectedCookies}
+              ></biggive-button>
+            </form>
+          </div>
         </biggive-popup>
 
         <h2>Our website uses cookies</h2>
