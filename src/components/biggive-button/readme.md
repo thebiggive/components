@@ -18,7 +18,7 @@
 | `rounded`      | `rounded`         | Rounded corners       | `boolean`             | `false`      |
 | `size`         | `size`            | Size                  | `string`              | `'medium'`   |
 | `spaceBelow`   | `space-below`     | Space below component | `number`              | `1`          |
-| `url`          | `url`             | URL                   | `string`              | `undefined`  |
+| `url`          | `url`             | URL                   | `string \| undefined` | `undefined`  |
 
 
 ## Events
