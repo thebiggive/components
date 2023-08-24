@@ -195,7 +195,7 @@ export namespace Components {
         /**
           * URL
          */
-        "url": string;
+        "url": string | undefined;
     }
     interface BiggiveCallToAction {
         /**
@@ -1724,7 +1724,7 @@ declare namespace LocalJSX {
         /**
           * URL
          */
-        "url"?: string;
+        "url"?: string | undefined;
     }
     interface BiggiveCallToAction {
         /**
