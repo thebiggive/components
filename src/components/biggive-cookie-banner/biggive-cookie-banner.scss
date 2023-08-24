@@ -34,3 +34,18 @@ div.button-group {
     flex-direction: row-reverse;
   }
 }
+
+biggive-popup {
+  @include font-size-medium();
+  div.content {
+    h5 {
+      border-bottom: 2px solid black;
+      max-width: 25em;
+      margin-bottom: 5px;
+    }
+
+    div.radio-group {
+      margin-bottom: 30px;
+    }
+  }
+}
