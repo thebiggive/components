@@ -176,9 +176,13 @@ export class BiggiveCampaignCardFilterGrid {
       locations: searchAndFilterObj.filterLocation,
     } as const;
 
-    for (const filterKey of Object.keys(filters)) {
+    type FilterKey = keyof typeof filters;
+
+    const keys: FilterKey[] = Object.keys(filters) as unknown as FilterKey[];
+
+    for (const filterKey of keys) {
       // https://stackoverflow.com/a/69757191/2803757
-      const filterValue = filters[filterKey as keyof typeof filters];
+      const filterValue = filters[filterKey];
 
       if (filterValue === null || filterValue.length === 0) {
         continue;
@@ -208,7 +212,10 @@ export class BiggiveCampaignCardFilterGrid {
             this.selectedFilterLocation = null;
             break;
           default:
-            throw new Error(`Selected filter key: ${filterKey} cannot be removed:`);
+            // This asks the compiler to check that we are in dead code, i.e. we covered all the possible filter keys
+            // above. If we missed one we would get a compile error trying to assign a string to a never.
+            const exhaustiveSwitch: never = filterKey;
+            console.error(exhaustiveSwitch);
         }
         button.remove();
         this.doSearchAndFilterUpdate.emit(this.getSearchAndFilterObject());
