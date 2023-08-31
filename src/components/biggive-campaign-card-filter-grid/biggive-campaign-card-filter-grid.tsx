@@ -174,11 +174,15 @@ export class BiggiveCampaignCardFilterGrid {
       categories: searchAndFilterObj.filterCategory,
       funding: searchAndFilterObj.filterFunding,
       locations: searchAndFilterObj.filterLocation,
-    };
+    } as const;
 
-    for (const filterKey of Object.keys(filters)) {
+    type FilterKey = keyof typeof filters;
+
+    const keys: FilterKey[] = Object.keys(filters) as unknown as FilterKey[];
+
+    for (const filterKey of keys) {
       // https://stackoverflow.com/a/69757191/2803757
-      const filterValue = filters[filterKey as keyof typeof filters];
+      const filterValue = filters[filterKey];
 
       if (filterValue === null || filterValue.length === 0) {
         continue;
@@ -194,7 +198,27 @@ export class BiggiveCampaignCardFilterGrid {
       }
 
       button.addEventListener('click', () => {
+        switch (filterKey) {
+          case 'beneficiaries':
+            this.selectedFilterBeneficiary = null;
+            break;
+          case 'categories':
+            this.selectedFilterCategory = null;
+            break;
+          case 'funding':
+            this.selectedFilterFunding = null;
+            break;
+          case 'locations':
+            this.selectedFilterLocation = null;
+            break;
+          default:
+            // This asks the compiler to check that we are in dead code, i.e. we covered all the possible filter keys
+            // above. If we missed one we would get a compile error trying to assign a string to a never.
+            const exhaustiveSwitch: never = filterKey;
+            console.error(exhaustiveSwitch);
+        }
         button.remove();
+        this.doSearchAndFilterUpdate.emit(this.getSearchAndFilterObject());
 
         if (button.dataset.id === undefined) {
           return;
