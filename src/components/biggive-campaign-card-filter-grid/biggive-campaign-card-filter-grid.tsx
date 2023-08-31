@@ -174,7 +174,7 @@ export class BiggiveCampaignCardFilterGrid {
       categories: searchAndFilterObj.filterCategory,
       funding: searchAndFilterObj.filterFunding,
       locations: searchAndFilterObj.filterLocation,
-    };
+    } as const;
 
     for (const filterKey of Object.keys(filters)) {
       // https://stackoverflow.com/a/69757191/2803757
@@ -194,7 +194,24 @@ export class BiggiveCampaignCardFilterGrid {
       }
 
       button.addEventListener('click', () => {
+        switch (filterKey) {
+          case 'beneficiaries':
+            this.selectedFilterBeneficiary = null;
+            break;
+          case 'categories':
+            this.selectedFilterCategory = null;
+            break;
+          case 'funding':
+            this.selectedFilterFunding = null;
+            break;
+          case 'locations':
+            this.selectedFilterLocation = null;
+            break;
+          default:
+            throw new Error(`Selected filter key: ${filterKey} cannot be removed:`);
+        }
         button.remove();
+        this.doSearchAndFilterUpdate.emit(this.getSearchAndFilterObject());
 
         if (button.dataset.id === undefined) {
           return;
