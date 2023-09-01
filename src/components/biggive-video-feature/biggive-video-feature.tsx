@@ -83,7 +83,7 @@ export class BiggiveVideoFeature {
             ) : null}
           </div>
           <div class="graphic-wrap">
-            {this.videoUrl !== null && this.videoUrl !== undefined ? <div class="video-wrap" innerHTML={VideoService.getEmbedHtml(this.videoUrl)}></div> : null}
+            {this.videoUrl !== null && this.videoUrl !== undefined ? <div class="video-wrap" innerHTML={VideoService.getEmbedHtml(this.videoUrl, this.mainTitle)}></div> : null}
           </div>
         </div>
       </div>
