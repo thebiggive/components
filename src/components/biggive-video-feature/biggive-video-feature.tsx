@@ -71,6 +71,8 @@ export class BiggiveVideoFeature {
   @Prop() buttonColourScheme: string = 'primary';
 
   render() {
+    const youtubeClass = this.videoUrl.includes('youtube.com') ? ' youtube' : '';
+
     return (
       <div class={'container text-colour-' + this.defaultTextColour + ' space-above-' + this.spaceAbove + ' space-below-' + this.spaceBelow}>
         <div class="sleeve">
@@ -83,7 +85,9 @@ export class BiggiveVideoFeature {
             ) : null}
           </div>
           <div class="graphic-wrap">
-            {this.videoUrl !== null && this.videoUrl !== undefined ? <div class="video-wrap" innerHTML={VideoService.getEmbedHtml(this.videoUrl, this.mainTitle)}></div> : null}
+            {this.videoUrl !== null && this.videoUrl !== undefined ? (
+              <div class={'video-wrap' + youtubeClass} innerHTML={VideoService.getEmbedHtml(this.videoUrl, this.mainTitle)}></div>
+            ) : null}
           </div>
         </div>
       </div>
