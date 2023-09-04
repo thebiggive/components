@@ -8,6 +8,10 @@
   @include video-wrap();
 }
 
+.video-wrap.youtube {
+  padding-bottom: 56.25%;
+}
+
 .container {
   @include standard-font();
 }
