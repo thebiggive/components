@@ -38,10 +38,17 @@ div.button-group {
 biggive-popup {
   @include font-size-medium();
   div.content {
+    max-height: 95vh;
+    overflow: scroll;
     h5 {
       border-bottom: 2px solid black;
       max-width: 25em;
       margin-bottom: 5px;
+    }
+
+    p {
+      margin-top: 5px;
+      margin-bottom: 8px;
     }
 
     div.radio-group {

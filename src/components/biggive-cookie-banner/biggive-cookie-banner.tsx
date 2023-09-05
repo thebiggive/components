@@ -23,9 +23,8 @@ export class BiggiveCookieBanner {
   /**
    * Indicates that the user has made a selection of cookies purpose to accept.
    *
-   * Event data contains an array of the type of cookie purposes the user consents to. Currently,
-   * it is only possible to consent to marketing cookies, so it will simply be ['marketing'] or [] but
-   * in future other types may be possible.
+   * Event data contains an array of the type of cookie purposes the user consents to, e.g.
+   * [] or ['a-and-t', 'third-party']
    */
   @Event({
     eventName: 'cookieBannerSavePreferencesSelected',
@@ -33,7 +32,7 @@ export class BiggiveCookieBanner {
     cancelable: true,
     composed: true,
   })
-  cookieBannerSavePreferencesSelected: EventEmitter<{ marketing: Boolean }>;
+  cookieBannerSavePreferencesSelected: EventEmitter<{ aAndT: Boolean; thirdParty: boolean }>;
 
   private handleChoosePrefencesClick = () => {
     const elementById = this.el.shadowRoot?.getElementById('cookie-preferences-popup') as HTMLBiggivePopupElement;
@@ -44,9 +43,10 @@ export class BiggiveCookieBanner {
     const elementById = this.el.shadowRoot?.getElementById('cookie-preferences-popup') as HTMLBiggivePopupElement;
     elementById.closeFromOutside();
 
-    const marketingRadio = this.el.shadowRoot?.getElementById('marketing-on') as HTMLInputElement;
+    const aAndTRadio = this.el.shadowRoot?.getElementById('a-and-t-on') as HTMLInputElement;
+    const thirdPartyRadio = this.el.shadowRoot?.getElementById('third-party-on') as HTMLInputElement;
 
-    this.cookieBannerSavePreferencesSelected.emit({ marketing: marketingRadio.checked });
+    this.cookieBannerSavePreferencesSelected.emit({ aAndT: aAndTRadio.checked, thirdParty: thirdPartyRadio.checked });
 
     elementById.closeFromOutside();
   };
@@ -66,7 +66,8 @@ export class BiggiveCookieBanner {
             <h4 class="space-above-0 space-below-3 text-colour-primary">Manage your cookie preferences</h4>
             <form>
               <div class="radio-group">
-                <h5>Essential (always required)</h5>
+                <h5>Essential Cookies</h5>
+                <p>These cookies are necessary to ensure our website functions correctly and include required cookies from third parties.</p>
                 <input type="radio" name="necassary" id="necassary-off" disabled={true} />
                 <label htmlFor="necassary-on">Off</label>
 
@@ -75,12 +76,34 @@ export class BiggiveCookieBanner {
               </div>
 
               <div class="radio-group">
-                <h5>Marketing</h5>
-                <input type="radio" name="marketing" id="marketing-off" checked={true} />
-                <label htmlFor="marketing-off">Off</label>
+                <h5>Analytics & Testing Cookies</h5>
+                <p>
+                  We use analytics cookies to track activity on our website. For example, the pages you’ve visited, the content you’ve engaged with and the search terms you’ve
+                  used. This allows us to personalise and improve our content.
+                </p>
 
-                <input type="radio" name="marketing" id="marketing-on" />
-                <label htmlFor="marketing-on">On</label>
+                <p>
+                  We use testing cookies to collect data on how you interact with website features. These insights allow us to update our website and build features that enhance
+                  your user experience.
+                </p>
+                <input type="radio" name="a-and-t" id="a-and-t-off" checked={true} />
+                <label htmlFor="a-and-t-off">Off</label>
+
+                <input type="radio" name="a-and-t" id="a-and-t-on" />
+                <label htmlFor="a-and-t-on">On</label>
+              </div>
+
+              <div class="radio-group">
+                <h5>Third-party Cookies </h5>
+                <p>
+                  These cookies are used to track activity, which can help to provide a better experience and improve functionality across various applications. For example, our
+                  donation experience survey.
+                </p>
+                <input type="radio" name="third-party" id="third-party-off" checked={true} />
+                <label htmlFor="third-party-off">Off</label>
+
+                <input type="radio" name="third-party" id="third-party-on" />
+                <label htmlFor="third-party-on">On</label>
               </div>
 
               <biggive-button
