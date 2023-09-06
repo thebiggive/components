@@ -2049,9 +2049,9 @@ declare namespace LocalJSX {
          */
         "onCookieBannerAcceptAllSelected"?: (event: BiggiveCookieBannerCustomEvent<void>) => void;
         /**
-          * Indicates that the user has made a selection of cookies purpose to accept.  Event data contains an array of the type of cookie purposes the user consents to. Currently, it is only possible to consent to marketing cookies, so it will simply be ['marketing'] or [] but in future other types may be possible.
+          * Indicates that the user has made a selection of cookies purpose to accept.  Event data is an object with boolean properties to say whether the user accepts or refuses each category of optional cookie.
          */
-        "onCookieBannerSavePreferencesSelected"?: (event: BiggiveCookieBannerCustomEvent<{ marketing: Boolean }>) => void;
+        "onCookieBannerSavePreferencesSelected"?: (event: BiggiveCookieBannerCustomEvent<{ analyticsAndTesting: Boolean; thirdParty: boolean }>) => void;
     }
     interface BiggiveFilteredCarousel {
         "buttonBackgroundColour"?: brandColour;

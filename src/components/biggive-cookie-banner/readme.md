@@ -15,10 +15,10 @@ to making it work before we can add it to our website.
 
 ## Events
 
-| Event                                 | Description                                                                                                                                                                                                                                                                                                       | Type                                   |
-| ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| `cookieBannerAcceptAllSelected`       | Indicates that the user accepts cookies for any purpose, without discrimination.                                                                                                                                                                                                                                  | `CustomEvent<void>`                    |
-| `cookieBannerSavePreferencesSelected` | Indicates that the user has made a selection of cookies purpose to accept.  Event data contains an array of the type of cookie purposes the user consents to. Currently, it is only possible to consent to marketing cookies, so it will simply be ['marketing'] or [] but in future other types may be possible. | `CustomEvent<{ marketing: Boolean; }>` |
+| Event                                 | Description                                                                                                                                                                                              | Type                                                                  |
+| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `cookieBannerAcceptAllSelected`       | Indicates that the user accepts cookies for any purpose, without discrimination.                                                                                                                         | `CustomEvent<void>`                                                   |
+| `cookieBannerSavePreferencesSelected` | Indicates that the user has made a selection of cookies purpose to accept.  Event data is an object with boolean properties to say whether the user accepts or refuses each category of optional cookie. | `CustomEvent<{ analyticsAndTesting: Boolean; thirdParty: boolean; }>` |
 
 
 ## Dependencies
