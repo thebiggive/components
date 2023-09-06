@@ -31,7 +31,7 @@ export class BiggiveCookieBanner {
     cancelable: true,
     composed: true,
   })
-  cookieBannerSavePreferencesSelected: EventEmitter<{ aAndT: Boolean; thirdParty: boolean }>;
+  cookieBannerSavePreferencesSelected: EventEmitter<{ analyticsAndTesting: Boolean; thirdParty: boolean }>;
 
   private handleChoosePrefencesClick = () => {
     const elementById = this.el.shadowRoot?.getElementById('cookie-preferences-popup') as HTMLBiggivePopupElement;
@@ -42,10 +42,10 @@ export class BiggiveCookieBanner {
     const elementById = this.el.shadowRoot?.getElementById('cookie-preferences-popup') as HTMLBiggivePopupElement;
     elementById.closeFromOutside();
 
-    const aAndTRadio = this.el.shadowRoot?.getElementById('a-and-t-on') as HTMLInputElement;
+    const analyticsAndTestingRadio = this.el.shadowRoot?.getElementById('a-and-t-on') as HTMLInputElement;
     const thirdPartyRadio = this.el.shadowRoot?.getElementById('third-party-on') as HTMLInputElement;
 
-    this.cookieBannerSavePreferencesSelected.emit({ aAndT: aAndTRadio.checked, thirdParty: thirdPartyRadio.checked });
+    this.cookieBannerSavePreferencesSelected.emit({ analyticsAndTesting: analyticsAndTestingRadio.checked, thirdParty: thirdPartyRadio.checked });
 
     elementById.closeFromOutside();
   };
