@@ -2049,7 +2049,7 @@ declare namespace LocalJSX {
          */
         "onCookieBannerAcceptAllSelected"?: (event: BiggiveCookieBannerCustomEvent<void>) => void;
         /**
-          * Indicates that the user has made a selection of cookies purpose to accept.  Event data contains an array of the type of cookie purposes the user consents to, e.g. [] or ['a-and-t', 'third-party']
+          * Indicates that the user has made a selection of cookies purpose to accept.  Event data is an object with boolean properties to say whether the user accepts or refuses each category of optional cookie.
          */
         "onCookieBannerSavePreferencesSelected"?: (event: BiggiveCookieBannerCustomEvent<{ aAndT: Boolean; thirdParty: boolean }>) => void;
     }
