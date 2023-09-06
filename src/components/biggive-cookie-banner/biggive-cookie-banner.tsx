@@ -23,8 +23,7 @@ export class BiggiveCookieBanner {
   /**
    * Indicates that the user has made a selection of cookies purpose to accept.
    *
-   * Event data contains an array of the type of cookie purposes the user consents to, e.g.
-   * [] or ['a-and-t', 'third-party']
+   * Event data is an object with boolean properties to say whether the user accepts or refuses each category of optional cookie.
    */
   @Event({
     eventName: 'cookieBannerSavePreferencesSelected',
