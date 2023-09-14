@@ -18,9 +18,13 @@ export class BiggiveProgressBar {
   /**
    * Percentage to show + use for CSS width; round before input if desired
    */
-  @Prop() counter: number = 100;
+  @Prop() counter?: number | null = 100;
 
   render() {
+    if (this.counter === null || this.counter === undefined) {
+      return null;
+    }
+
     return (
       <div class={'progress-bar progress-bar-' + this.colourScheme + ' space-below-' + this.spaceBelow}>
         <div class="slider">

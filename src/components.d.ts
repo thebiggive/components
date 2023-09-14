@@ -333,25 +333,25 @@ export namespace Components {
          */
         "organisationName": string;
         /**
-          * Amount for the primary figure, formatted with currency symbol
+          * Amount for the primary figure, formatted with currency symbol – null or omit to hide the figure & label.
          */
-        "primaryFigureAmount": string;
+        "primaryFigureAmount": string | null;
         /**
-          * Label for the primary figure
+          * Label for the primary figure – may be null or omitted for no label or if there's no figure.
          */
-        "primaryFigureLabel": string;
+        "primaryFigureLabel": string | null;
         /**
-          * Progress bar percentage
+          * Progress bar percentage – null or omit to hide the progress bar.
          */
-        "progressBarCounter": number;
+        "progressBarCounter": number | null;
         /**
-          * Amount for the secondary figure, formatted with currency symbol
+          * Amount for the secondary figure, formatted with currency symbol – null or omit to hide the figure & label.
          */
-        "secondaryFigureAmount": string;
+        "secondaryFigureAmount": string | null;
         /**
-          * Label for the secondary figure
+          * Label for the secondary figure – may be null or omitted for no label or if there's no figure.
          */
-        "secondaryFigureLabel": string;
+        "secondaryFigureLabel": string | null;
         /**
           * Space below component
          */
@@ -914,7 +914,7 @@ export namespace Components {
         /**
           * Percentage to show + use for CSS width; round before input if desired
          */
-        "counter": number;
+        "counter"?: number | null;
         /**
           * Space below component
          */
@@ -1863,25 +1863,25 @@ declare namespace LocalJSX {
          */
         "organisationName"?: string;
         /**
-          * Amount for the primary figure, formatted with currency symbol
+          * Amount for the primary figure, formatted with currency symbol – null or omit to hide the figure & label.
          */
-        "primaryFigureAmount"?: string;
+        "primaryFigureAmount"?: string | null;
         /**
-          * Label for the primary figure
+          * Label for the primary figure – may be null or omitted for no label or if there's no figure.
          */
-        "primaryFigureLabel"?: string;
+        "primaryFigureLabel"?: string | null;
         /**
-          * Progress bar percentage
+          * Progress bar percentage – null or omit to hide the progress bar.
          */
-        "progressBarCounter"?: number;
+        "progressBarCounter"?: number | null;
         /**
-          * Amount for the secondary figure, formatted with currency symbol
+          * Amount for the secondary figure, formatted with currency symbol – null or omit to hide the figure & label.
          */
-        "secondaryFigureAmount"?: string;
+        "secondaryFigureAmount"?: string | null;
         /**
-          * Label for the secondary figure
+          * Label for the secondary figure – may be null or omitted for no label or if there's no figure.
          */
-        "secondaryFigureLabel"?: string;
+        "secondaryFigureLabel"?: string | null;
         /**
           * Space below component
          */
@@ -2461,7 +2461,7 @@ declare namespace LocalJSX {
         /**
           * Percentage to show + use for CSS width; round before input if desired
          */
-        "counter"?: number;
+        "counter"?: number | null;
         /**
           * Space below component
          */
