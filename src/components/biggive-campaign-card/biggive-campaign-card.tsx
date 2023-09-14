@@ -115,6 +115,10 @@ export class BiggiveCampaignCard {
     return value === undefined || value === null || value === '';
   }
 
+  private notEmpty(value?: number | string | null) {
+    return !this.isEmpty(value);
+  }
+
   private handleCardGeneralClick = (event: any) => {
     this.doCardGeneralClick.emit({ event, url: this.moreInfoButtonUrl });
   };
@@ -141,15 +145,15 @@ export class BiggiveCampaignCard {
               <div class="organisation-name">By {this.organisationName}</div>
             </div>
 
-            {this.isEmpty(this.primaryFigureAmount) && this.isEmpty(this.secondaryFigureAmount) ? null : (
+            {(this.notEmpty(this.primaryFigureAmount) || this.notEmpty(this.secondaryFigureAmount)) && (
               <div class="meta-wrap">
-                {this.isEmpty(this.primaryFigureAmount) ? null : (
+                {this.notEmpty(this.primaryFigureAmount) && (
                   <div class="meta-item">
                     <span class="label">{this.primaryFigureLabel}</span>
                     <span class="text">{this.primaryFigureAmount}</span>
                   </div>
                 )}
-                {this.isEmpty(this.secondaryFigureAmount) ? null : (
+                {this.notEmpty(this.secondaryFigureAmount) && (
                   <div class="meta-item">
                     <span class="label">{this.secondaryFigureLabel}</span>
                     <span class="text">{this.secondaryFigureAmount}</span>
@@ -157,7 +161,7 @@ export class BiggiveCampaignCard {
                 )}
               </div>
             )}
-            {this.isEmpty(this.progressBarCounter) ? null : (
+            {this.notEmpty(this.progressBarCounter) && (
               <div class="progress-bar-wrap">
                 <biggive-progress-bar counter={this.progressBarCounter} colour-scheme="primary"></biggive-progress-bar>
               </div>
