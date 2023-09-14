@@ -469,181 +469,6 @@
   }
 }
 
-@mixin button-clear-brand-1 {
-  color: $colour-brand-cc-red;
-  background-color: transparent;
-  text-decoration: underline;
-  border: 0;
-  padding-left: 0;
-  padding-right: 0;
-  &:hover {
-    text-decoration: none;
-    background-color: transparent;
-  }
-}
-
-@mixin button-clear-brand-2 {
-  color: $colour-brand-wgmf-purple;
-  background-color: transparent;
-  text-decoration: underline;
-  border: 0;
-  padding-left: 0;
-  padding-right: 0;
-  &:hover {
-    text-decoration: none;
-    background-color: transparent;
-  }
-}
-
-@mixin button-clear-brand-3 {
-  color: $colour-brand-gmf-green;
-  background-color: transparent;
-  text-decoration: underline;
-  border: 0;
-  padding-left: 0;
-  padding-right: 0;
-  &:hover {
-    text-decoration: none;
-    background-color: transparent;
-  }
-}
-
-@mixin button-clear-brand-4 {
-  color: $colour-brand-emf-yellow;
-  background-color: transparent;
-  text-decoration: underline;
-  border: 0;
-  padding-left: 0;
-  padding-right: 0;
-  &:hover {
-    text-decoration: none;
-    background-color: transparent;
-  }
-}
-
-@mixin button-clear-brand-5 {
-  color: $colour-brand-c4c-orange;
-  background-color: transparent;
-  text-decoration: underline;
-  border: 0;
-  padding-left: 0;
-  padding-right: 0;
-  &:hover {
-    text-decoration: none;
-    background-color: transparent;
-  }
-}
-
-@mixin button-clear-brand-6 {
-  color: $colour-brand-grey;
-  background-color: transparent;
-  text-decoration: underline;
-  border: 0;
-  padding-left: 0;
-  padding-right: 0;
-  &:hover {
-    text-decoration: none;
-    background-color: transparent;
-  }
-}
-
-@mixin button-clear-brand-afa-pink {
-  color: $colour-brand-afa-pink;
-  background-color: transparent;
-  text-decoration: underline;
-  border: 0;
-  padding-left: 0;
-  padding-right: 0;
-  &:hover {
-    text-decoration: none;
-    background-color: transparent;
-  }
-}
-
-@mixin button-clear-white {
-  color: $colour-white;
-  background-color: transparent;
-  text-decoration: underline;
-  border: 0;
-  padding-left: 0;
-  padding-right: 0;
-  &:hover {
-    color: $colour-white;
-    text-decoration: none;
-    background-color: transparent;
-  }
-}
-
-@mixin button-clear-black {
-  color: $colour-black;
-  background-color: transparent;
-  text-decoration: underline;
-  border: 0;
-  padding-left: 0;
-  padding-right: 0;
-  &:hover {
-    color: $colour-black;
-    text-decoration: none;
-    background-color: transparent;
-  }
-}
-
-@mixin button-clear-grey-extra-light {
-  color: $colour-grey-extra-light;
-  background-color: transparent;
-  text-decoration: underline;
-  border: 0;
-  padding-left: 0;
-  padding-right: 0;
-  &:hover {
-    color: $colour-grey-extra-light;
-    text-decoration: none;
-    background-color: transparent;
-  }
-}
-
-@mixin button-clear-grey-light {
-  color: $colour-grey-light;
-  background-color: transparent;
-  text-decoration: underline;
-  border: 0;
-  padding-left: 0;
-  padding-right: 0;
-  &:hover {
-    color: $colour-grey-light;
-    text-decoration: none;
-    background-color: transparent;
-  }
-}
-
-@mixin button-clear-grey-medium {
-  color: $colour-grey-medium;
-  background-color: transparent;
-  text-decoration: underline;
-  border: 0;
-  padding-left: 0;
-  padding-right: 0;
-  &:hover {
-    color: $colour-grey-medium;
-    text-decoration: none;
-    background-color: transparent;
-  }
-}
-
-@mixin button-clear-grey-dark {
-  color: $colour-grey-dark;
-  background-color: transparent;
-  text-decoration: underline;
-  border: 0;
-  padding-left: 0;
-  padding-right: 0;
-  &:hover {
-    color: $colour-grey-dark;
-    text-decoration: none;
-    background-color: transparent;
-  }
-}
-
 @mixin button-primary {
   color: $colour-white;
   background-color: $colour-primary-blue;
@@ -1274,4 +1099,36 @@
   .text-colour-grey-dark {
       color: $colour-grey-dark;
   }
+}
+
+$brands: (
+  "brand-1": $colour-brand-cc-red,
+  "brand-2": $colour-brand-wgmf-purple,
+  "brand-3": $colour-brand-gmf-green,
+  "brand-4": $colour-brand-emf-yellow,
+  "brand-5": $colour-brand-c4c-orange,
+  "brand-6": $colour-brand-grey,
+  "brand-afa-pink": $colour-brand-afa-pink,
+  "brand-mhf-turquoise": $colour-brand-mhf-turquoise,
+  "white": $colour-white,
+  "black": $colour-black,
+  "grey-extra-light": $colour-grey-extra-light,
+  "grey-light": $colour-grey-light,
+  "grey-medium": $colour-grey-medium,
+  "grey-dark": $colour-grey-dark
+  );
+
+@each $brand, $colour in $brands {
+  @mixin button-clear-#{$brand} {
+      color: $colour;
+      background-color: transparent;
+      text-decoration: underline;
+      border: 0;
+      padding-left: 0;
+      padding-right: 0;
+      &:hover {
+        text-decoration: none;
+        background-color: transparent;
+      }
+    }
 }
