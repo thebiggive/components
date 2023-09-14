@@ -1101,25 +1101,40 @@
   }
 }
 
-$brands: (
-  "brand-1": $colour-brand-cc-red,
-  "brand-2": $colour-brand-wgmf-purple,
-  "brand-3": $colour-brand-gmf-green,
-  "brand-4": $colour-brand-emf-yellow,
-  "brand-5": $colour-brand-c4c-orange,
-  "brand-6": $colour-brand-grey,
-  "brand-afa-pink": $colour-brand-afa-pink,
-  "brand-mhf-turquoise": $colour-brand-mhf-turquoise,
-  "white": $colour-white,
-  "black": $colour-black,
-  "grey-extra-light": $colour-grey-extra-light,
-  "grey-light": $colour-grey-light,
-  "grey-medium": $colour-grey-medium,
-  "grey-dark": $colour-grey-dark
+$clear-button-brands: (
+  "clear-primary": $colour-primary-blue,
+  "clear-secondary": $colour-secondary-green,
+  "clear-tertiary": $colour-tertiary-coral,
+  "clear-brand-1": $colour-brand-cc-red,
+  "clear-brand-2": $colour-brand-wgmf-purple,
+  "clear-brand-3": $colour-brand-gmf-green,
+  "clear-brand-4": $colour-brand-emf-yellow,
+  "clear-brand-5": $colour-brand-c4c-orange,
+  "clear-brand-6": $colour-brand-grey,
+  "clear-brand-afa-pink": $colour-brand-afa-pink,
+  "clear-brand-mhf-turquoise": $colour-brand-mhf-turquoise,
+  "clear-white": $colour-white,
+  "clear-black": $colour-black,
+  "clear-grey-extra-light": $colour-grey-extra-light,
+  "clear-grey-light": $colour-grey-light,
+  "clear-grey-medium": $colour-grey-medium,
+  "clear-grey-dark": $colour-grey-dark
   );
 
-@each $brand, $colour in $brands {
-  @mixin button-clear-#{$brand} {
+  // $button-brands: (
+  //   "primary": $colour-white, $colour-primary-blue,
+  //   "secondary": $colour-black, $colour-secondary-green,
+  //   "tertiary":
+  //   "brand-1":
+  //   "brand-2":
+  //   "brand-3":
+  //   "brand-4":
+  //   "brand-5":
+  //   "brand-6":
+  // );
+
+@each $brand, $colour in $clear-button-brands {
+  @mixin button-#{$brand} {
       color: $colour;
       background-color: transparent;
       text-decoration: underline;
@@ -1131,4 +1146,13 @@ $brands: (
         background-color: transparent;
       }
     }
+  // @mixin button-#{$brand} {
+  //   color: $colour-1;
+  //   background-color: $colour-2;
+  //   border-color: $colour-2;
+  //   &:hover {
+  //     color: $colour-2;
+  //     background-color: $colour-1;
+  //   }
+  // }
 }
