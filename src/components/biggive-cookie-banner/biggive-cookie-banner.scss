@@ -39,7 +39,7 @@ biggive-popup {
   @include font-size-medium();
   div.content {
     max-height: 95vh;
-    overflow: scroll;
+    overflow: auto;
     h5 {
       border-bottom: 2px solid black;
       max-width: 25em;
