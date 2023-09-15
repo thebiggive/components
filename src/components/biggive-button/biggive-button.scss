@@ -27,6 +27,19 @@
       @include button-rounded();
     }
 }
+// brand-6 color ambiguity (for now keeping its definition outside of the brand colors loop)
+.button-clear-brand-6 {
+    color: $colour-brand-grey;
+    background-color: transparent;
+    text-decoration: underline;
+    border: 0;
+    padding-left: 0;
+    padding-right: 0;
+    &:hover {
+      text-decoration: none;
+      background-color: transparent;
+    }
+}
 
 .button-primary {
    @include button-primary();
@@ -109,7 +122,7 @@
   "brand-3": $colour-brand-gmf-green,
   "brand-4": $colour-brand-emf-yellow,
   "brand-5": $colour-brand-c4c-orange,
-  "brand-6": $colour-brand-grey,
+  //"brand-6": $colour-brand-grey,
   "brand-afa-pink": $colour-brand-afa-pink,
   "brand-mhf-turquoise": $colour-brand-mhf-turquoise,
   "white": $colour-white,
