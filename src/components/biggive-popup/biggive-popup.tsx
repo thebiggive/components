@@ -27,7 +27,7 @@ export class BiggivePopup {
 
   render() {
     return (
-      <div class="popup" ref={el => (this.popup = el as HTMLDivElement)} tabindex="0" onClick={this.closeFromWithin}>
+      <div class="popup" ref={el => (this.popup = el as HTMLDivElement)} tabindex="-1" onClick={this.closeFromWithin}>
         <div class="sleeve">
           <div class="header">
             <div class="close" onClick={this.closeFromWithin}></div>
