@@ -10,18 +10,21 @@ export class BiggivePopup {
 
   @Method()
   async openFromOutside() {
-    this.popup.focus();
     this.popup.setAttribute('data-visible', 'true');
+    this.popup.setAttribute('tabindex', '0');
+    this.popup.focus();
   }
 
   @Method()
   async closeFromOutside() {
     this.popup.setAttribute('data-visible', 'false');
+    this.popup.setAttribute('tabindex', '-1');
   }
 
   private closeFromWithin = (event: any) => {
     if (event.target.classList.contains('popup') || event.target.classList.contains('close')) {
       this.popup.setAttribute('data-visible', 'false');
+      this.popup.setAttribute('tabindex', '-1');
     }
   };
 
