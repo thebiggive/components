@@ -981,83 +981,14 @@
 }
 
 @mixin text-colours {
-  .text-colour-hover-primary:hover,
-  .text-colour-primary {
-      color: $colour-primary-blue;
+  @each $brand, $colour in $colours {
+    .text-colour-hover-#{$brand}:hover,
+    .text-colour-#{$brand}{
+        color: $colour;
+    }
   }
-
-  .text-colour-hover-secondary:hover,
-  .text-colour-secondary {
-      color: $colour-secondary-green;
-  }
-
-  .text-colour-hover-tertiary:hover,
-  .text-colour-tertiary {
-      color: $colour-tertiary-coral;
-  }
-
-  .text-colour-hover-brand-1:hover,
-  .text-colour-brand-1 {
-      color: $colour-brand-cc-red;
-  }
-
-  .text-colour-hover-brand-2:hover,
-  .text-colour-brand-2 {
-      color: $colour-brand-wgmf-purple;
-  }
-
-  .text-colour-hover-brand-3:hover,
-  .text-colour-brand-3 {
-      color: $colour-brand-gmf-green;
-  }
-
-  .text-colour-hover-brand-4:hover,
-  .text-colour-brand-4 {
-      color: $colour-brand-emf-yellow;
-  }
-
-  .text-colour-hover-brand-5:hover,
-  .text-colour-brand-5 {
-      color: $colour-brand-c4c-orange;
-  }
-
   .text-colour-hover-brand-6:hover,
   .text-colour-brand-6 {
       color: $colour-brand-grey;
-  }
-
-  .text-colour-hover-brand-afa-pink:hover,
-  .text-colour-brand-afa-pink {
-    color: $colour-brand-afa-pink;
-  }
-
-  .text-colour-hover-white:hover,
-  .text-colour-white {
-      color: $colour-white;
-  }
-
-  .text-colour-hover-black:hover,
-  .text-colour-black {
-      color: $colour-black;
-  }
-
-  .text-colour-hover-grey-extra-light:hover,
-  .text-colour-grey-extra-light {
-      color: $colour-grey-extra-light;
-  }
-
-  .text-colour-hover-grey-light:hover,
-  .text-colour-grey-light {
-      color: $colour-grey-light;
-  }
-
-  .text-colour-hover-grey-medium:hover,
-  .text-colour-grey-medium {
-      color: $colour-grey-medium;
-  }
-
-  .text-colour-hover-grey-dark:hover,
-  .text-colour-grey-dark {
-      color: $colour-grey-dark;
   }
 }
