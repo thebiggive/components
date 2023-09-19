@@ -142,6 +142,7 @@
         padding-left: 0;
         padding-right: 0;
         &:hover {
+          color: $colour;
           text-decoration: none;
           background-color: transparent;
         }
