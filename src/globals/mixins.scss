@@ -430,45 +430,6 @@
   }
 }
 
-@mixin button-clear-primary {
-  color: $colour-primary-blue;
-  background-color: transparent;
-  text-decoration: underline;
-  border: 0;
-  padding-left: 0;
-  padding-right: 0;
-  &:hover {
-    text-decoration: none;
-    background-color: transparent;
-  }
-}
-
-@mixin button-clear-secondary {
-  color: $colour-secondary-green;
-  background-color: transparent;
-  text-decoration: underline;
-  border: 0;
-  padding-left: 0;
-  padding-right: 0;
-  &:hover {
-    text-decoration: none;
-    background-color: transparent;
-  }
-}
-
-@mixin button-clear-tertiary {
-  color: $colour-tertiary-coral;
-  background-color: transparent;
-  text-decoration: underline;
-  border: 0;
-  padding-left: 0;
-  padding-right: 0;
-  &:hover {
-    text-decoration: none;
-    background-color: transparent;
-  }
-}
-
 @mixin button-primary {
   color: $colour-white;
   background-color: $colour-primary-blue;
