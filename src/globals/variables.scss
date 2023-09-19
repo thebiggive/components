@@ -57,6 +57,26 @@ $brandColours: (
     "grey-dark": $colour-grey-dark,
 );
 
+$colours: (
+    "primary": $colour-primary-blue,
+    "secondary": $colour-secondary-green,
+    "tertiary": $colour-tertiary-coral,
+    "brand-1": $colour-brand-cc-red,
+    "brand-2": $colour-brand-wgmf-purple,
+    "brand-3": $colour-brand-gmf-green,
+    "brand-4": $colour-brand-emf-yellow,
+    "brand-5": $colour-brand-c4c-orange,
+    // We do not include "brand-6" here because for historical reasons its grey in some contexts and turquoise in others.
+    "brand-afa-pink": $colour-brand-afa-pink,
+    "brand-mhf-turquoise": $colour-brand-mhf-turquoise,
+    "white": $colour-white,
+    "black": $colour-black,
+    "grey-extra-light": $colour-grey-extra-light,
+    "grey-light": $colour-grey-light,
+    "grey-medium": $colour-grey-medium,
+    "grey-dark": $colour-grey-dark
+);
+
 
 $spacer-0: 0;
 $spacer-1: 5px;
