@@ -792,76 +792,14 @@
 }
 
 @mixin fills {
-  .fill-primary {
-      fill: $colour-primary-blue;
-  }
-
-  .fill-secondary {
-      fill: $colour-secondary-green;
-  }
-
-  .fill-tertiary {
-      fill: $colour-tertiary-coral;
-  }
-
-  .fill-brand-1 {
-      fill: $colour-brand-cc-red;
-  }
-
-  .fill-brand-2 {
-      fill: $colour-brand-wgmf-purple;
-  }
-
-  .fill-brand-3 {
-      fill: $colour-brand-gmf-green;
-  }
-
-  .fill-brand-4 {
-      fill: $colour-brand-emf-yellow;
-  }
-
-  .fill-brand-5 {
-      fill: $colour-brand-c4c-orange;
+  @each $brand, $colour in $colours {
+    .fill-#{$brand} {
+      fill: $colour;
+    }
   }
 
   .fill-brand-6 {
       fill: $colour-brand-grey;
-  }
-
-  .fill-brand-afa-pink {
-    fill: $colour-brand-afa-pink;
-  }
-
-  .fill-brand-mhf-turquoise {
-    fill: $colour-brand-mhf-turquoise;
-  }
-
-  .fill-white {
-      fill: $colour-white;
-  }
-
-  .fill-black {
-      fill: $colour-black;
-  }
-
-  .fill-grey-extra-light {
-    fill: $colour-grey-extra-light;
-  }
-
-  .fill-grey-light {
-    fill: $colour-grey-light;
-  }
-
-  .fill-grey-medium {
-    fill: $colour-grey-medium;
-  }
-
-  .fill-grey-dark {
-    fill: $colour-grey-dark;
-  }
-
-  .fill-red {
-      fill: red;
   }
 }
 
