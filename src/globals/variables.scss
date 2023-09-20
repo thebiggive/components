@@ -37,6 +37,7 @@ $colour-grey-background: #F4F4F4; // Main app background in donate-frontend
 
 /**
  * @see brandColour in src/globals/brand-colour.ts . This and that should be updated together.
+ * Also see mixin icon-large - that repeats this list of colours and specifies another colour to go with each one, e.g. white or black.
  */
 $brandColours: (
     "primary": $colour-primary-blue,
