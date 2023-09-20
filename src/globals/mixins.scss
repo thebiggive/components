@@ -779,84 +779,15 @@
 }
 
 @mixin backgrounds {
-  .background-colour-hover-primary:hover,
-  .background-colour-primary {
-      background-color: $colour-primary-blue;
+  @each $brand, $colour in $colours {
+    .background-colour-hover-#{$brand}:hover,
+    .background-colour-#{$brand} {
+      background-color: $colour;
+    }
   }
-
-  .background-colour-hover-secondary:hover,
-  .background-colour-secondary {
-      background-color: $colour-secondary-green;
-  }
-
-  .background-colour-hover-tertiary:hover,
-  .background-colour-tertiary {
-      background-color: $colour-tertiary-coral;
-  }
-
-  .background-colour-hover-brand-1:hover,
-  .background-colour-brand-1 {
-      background-color: $colour-brand-cc-red;
-  }
-
-  .background-colour-hover-brand-2:hover,
-  .background-colour-brand-2 {
-      background-color: $colour-brand-wgmf-purple;
-  }
-
-  .background-colour-hover-brand-3:hover,
-  .background-colour-brand-3 {
-      background-color: $colour-brand-gmf-green;
-  }
-
-  .background-colour-hover-brand-4:hover,
-  .background-colour-brand-4 {
-      background-color: $colour-brand-emf-yellow;
-  }
-
-  .background-colour-hover-brand-5:hover,
-  .background-colour-brand-5 {
-      background-color: $colour-brand-c4c-orange;
-  }
-
   .background-colour-hover-brand-6:hover,
   .background-colour-brand-6 {
       background-color: $colour-brand-mhf-turquoise;
-  }
-
-  .background-colour-hover-brand-afa-pink:hover,
-  .background-colour-brand-afa-pink {
-    background-color: $colour-brand-afa-pink;
-  }
-
-  .background-colour-hover-white:hover,
-  .background-colour-white {
-      background-color: $colour-white;
-  }
-
-  .background-colour-hover-black:hover,
-  .background-colour-black {
-      background-color: $colour-black;
-  }
-  .background-colour-hover-white:hover,
-  .background-colour-white {
-      background-color: $colour-white;
-  }
-  .background-colour-hover-grey-extra-light:hover,
-  .background-colour-grey-extra-light {
-      background-color: $colour-grey-extra-light;
-  }
-  .background-colour-hover-grey-light:hover,
-  .background-colour-grey-light {
-      background-color: $colour-grey-light;
-  }
-  .background-colour-hover-grey-medium:hover,
-  .background-colour-grey-medium {
-      background-color: $colour-grey-medium;
-  }
-  .background-colour-hover-grey-dark:hover,
-  .background-colour-grey-dark {
-      background-color: $colour-grey-dark;
   }
 }
 
