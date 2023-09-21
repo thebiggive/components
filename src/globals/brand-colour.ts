@@ -1,5 +1,5 @@
 /**
- * @see $brandColours in src/globals/variables.scss . This and that should be updated together.
+ * @see $brandColoursIncBrand6Turquoise in src/globals/variables.scss . This and that should be updated together.
  *
  * @todo consider changing values to remove need for comments. Not doing right now to avoid possible semantic
  * merge conflicts.
