@@ -9,7 +9,7 @@
 
 .container {
 
-  @each $key, $colour in $brandColours {
+  @each $key, $colour in $brandColoursIncBrand6Turquoise {
     &.header-text-colour-#{$key} thead { color: $colour; }
     &.header-background-colour-#{$key} thead { background-color: $colour; }
     &.body-text-colour-#{$key} tbody { color: $colour; }

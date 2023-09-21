@@ -46,7 +46,7 @@
 
     .arrow-wrap {
       margin: auto 0 auto auto;
-      @each $key, $colour in $brandColours {
+      @each $key, $colour in $brandColoursIncBrand6Turquoise {
         &.arrow-colour-#{$key} .arrow-wrap svg path { stroke: $colour; }
       }
     }
@@ -93,7 +93,7 @@
 
   }
 
-  @each $key, $colour in $brandColours {
+  @each $key, $colour in $brandColoursIncBrand6Turquoise {
     &.arrow-colour-#{$key} .arrow-wrap svg path { stroke: $colour; }
 
   }

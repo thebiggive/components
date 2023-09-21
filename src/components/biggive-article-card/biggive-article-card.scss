@@ -95,7 +95,7 @@
 
   
 
-  @each $key, $colour in $brandColours {
+  @each $key, $colour in $brandColoursIncBrand6Turquoise {
     .main-title-colour-#{$key} h3 { color: $colour; }
     .slug-colour-#{$key} .slug { color: $colour; }
     .date-colour-#{$key} .date { color: $colour; }
