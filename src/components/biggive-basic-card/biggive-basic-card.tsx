@@ -92,7 +92,7 @@ export class BiggiveBasicCard {
               <div class="teaser">{this.teaser}</div>
               {this.buttonLabel != null && this.buttonUrl != null && this.buttonUrl != '' ? (
                 <div class={'button-wrap align-' + this.buttonAlign}>
-                  <biggive-button colour-scheme={this.buttonColourScheme} label={this.buttonLabel}></biggive-button>
+                  <biggive-button colour-scheme={this.buttonColourScheme} url={this.buttonUrl} label={this.buttonLabel}></biggive-button>
                 </div>
               ) : null}
             </div>
