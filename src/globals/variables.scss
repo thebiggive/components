@@ -1,3 +1,4 @@
+@use "sass:map";
 // Should only be used for Sass variables, mixins and functions; not contain any CSS.
 // https://github.com/ionic-team/stencil-sass#inject-globals-sass-paths
 
@@ -37,26 +38,41 @@ $colour-grey-background: #F4F4F4; // Main app background in donate-frontend
 
 /**
  * @see brandColour in src/globals/brand-colour.ts . This and that should be updated together.
+ * Also see mixin icon-large - that repeats this list of colours and specifies another colour to go with each one, e.g. white or black.
+ * 
+ * NOTE: brand-1 to brand-5 are deprecated, please use the color brands instead
  */
-$brandColours: (
+$colours: (
     "primary": $colour-primary-blue,
     "secondary": $colour-secondary-green,
     "tertiary": $colour-tertiary-coral,
+
     "brand-1": $colour-brand-cc-red,
     "brand-2": $colour-brand-wgmf-purple,
     "brand-3": $colour-brand-gmf-green,
     "brand-4": $colour-brand-emf-yellow,
     "brand-5": $colour-brand-c4c-orange,
-    "brand-6": $colour-brand-mhf-turquoise,
+
+    "brand-cc-red": $colour-brand-cc-red,
+    "brand-wgmf-purple": $colour-brand-wgmf-purple,
+    "brand-gmf-green": $colour-brand-gmf-green,
+    "brand-emf-yellow": $colour-brand-emf-yellow,
+    "brand-c4c-orange": $colour-brand-c4c-orange,
+
+    // We do not include "brand-6" here because for historical reasons its grey in some contexts and turquoise in others.
     "brand-afa-pink": $colour-brand-afa-pink,
+    "brand-mhf-turquoise": $colour-brand-mhf-turquoise,
+    "brand-grey": $colour-brand-grey,
     "white": $colour-white,
     "black": $colour-black,
     "grey-extra-light": $colour-grey-extra-light,
     "grey-light": $colour-grey-light,
     "grey-medium": $colour-grey-medium,
-    "grey-dark": $colour-grey-dark,
+    "grey-dark": $colour-grey-dark
 );
 
+// preserving the use of turquoise by some components
+$brandColoursIncBrand6Turquoise: map.merge($colours, ("brand-6": $colour-brand-mhf-turquoise));
 
 $spacer-0: 0;
 $spacer-1: 5px;

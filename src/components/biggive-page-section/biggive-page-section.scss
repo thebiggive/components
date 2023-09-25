@@ -90,68 +90,18 @@
   bottom: 0;
 }
 
-.container.background-color-primary:before,
-.container.background-color-primary:after,
-.container.background-color-primary .sleeve,
-.container.background-color-primary .sleeve:before {
-  background-color: $colour-primary-blue;
-  color: $colour-white;
-}
-
-.container.background-color-secondary:before,
-.container.background-color-secondary:after,
-.container.background-color-secondary .sleeve:before,
-.container.background-color-secondary .sleeve {
-  background-color: $colour-secondary-green;
-  color: $colour-white;
-}
-
-.container.background-color-tertiary:before,
-.container.background-color-tertiary:after,
-.container.background-color-tertiary .sleeve:before,
-.container.background-color-tertiary .sleeve {
-  background-color: $colour-tertiary-coral;
-  color: $colour-white;
-}
-
-.container.background-color-brand-1:before,
-.container.background-color-brand-1:after,
-.container.background-color-brand-1 .sleeve:before,
-.container.background-color-brand-1 .sleeve {
-  background-color: $colour-brand-cc-red;
-  color: $colour-white;
-}
-
-.container.background-color-brand-2:before,
-.container.background-color-brand-2:after,
-.container.background-color-brand-2 .sleeve:before,
-.container.background-color-brand-2 .sleeve {
-  background-color: $colour-brand-wgmf-purple;
-  color: $colour-white;
-}
-
-.container.background-color-brand-3:before,
-.container.background-color-brand-3:after,
-.container.background-color-brand-3 .sleeve:before,
-.container.background-color-brand-3 .sleeve {
-  background-color: $colour-brand-gmf-green;
-  color: $colour-white;
-}
-
-.container.background-color-brand-4:before,
-.container.background-color-brand-4:after,
-.container.background-color-brand-4 .sleeve:before,
-.container.background-color-brand-4 .sleeve {
-  background-color: $colour-brand-emf-yellow;
-  color: $colour-white;
-}
-
-.container.background-color-brand-5:before,
-.container.background-color-brand-5:after,
-.container.background-color-brand-5 .sleeve:before,
-.container.background-color-brand-5 .sleeve {
-  background-color: $colour-brand-c4c-orange;
-  color: $colour-white;
+@each $brand, $colour in $colours {
+  .container.background-color-#{$brand}:before,
+  .container.background-color-#{$brand}:after,
+  .container.background-color-#{$brand} .sleeve:before,
+  .container.background-color-#{$brand} .sleeve {
+    background-color: $colour;
+    @if $brand == 'white' or $brand == 'grey-extra-light' or $brand == 'grey-light' {
+      color: $colour-black;
+    } @else {
+      color: $colour-white;
+    }
+  }
 }
 
 .container.background-color-brand-6:before,
@@ -159,57 +109,6 @@
 .container.background-color-brand-6 .sleeve:before,
 .container.background-color-brand-6 .sleeve {
   background-color: $colour-brand-mhf-turquoise;
-  color: $colour-white;
-}
-
-
-
-.container.background-color-white:before,
-.container.background-color-white:after,
-.container.background-color-white .sleeve:before,
-.container.background-color-white .sleeve {
-  background-color: $colour-white;
-  color: $colour-black;
-}
-
-
-.container.background-color-black:before,
-.container.background-color-black:after,
-.container.background-color-black .sleeve:before,
-.container.background-color-black .sleeve {
-  background-color: $colour-black;
-  color: $colour-white;
-}
-
-.container.background-color-grey-extra-light:before,
-.container.background-color-grey-extra-light:after,
-.container.background-color-grey-extra-light .sleeve:before,
-.container.background-color-grey-extra-light .sleeve {
-  background-color: $colour-grey-extra-light;
-  color: $colour-black;
-}
-
-.container.background-color-grey-light:before,
-.container.background-color-grey-light:after,
-.container.background-color-grey-light .sleeve:before,
-.container.background-color-grey-light .sleeve {
-  background-color: $colour-grey-light;
-  color: $colour-black;
-}
-
-.container.background-color-grey-medium:before,
-.container.background-color-grey-medium:after,
-.container.background-color-grey-medium .sleeve:before,
-.container.background-color-grey-medium .sleeve {
-  background-color: $colour-grey-medium;
-  color: $colour-white;
-}
-
-.container.background-color-grey-dark:before,
-.container.background-color-grey-dark:after,
-.container.background-color-grey-dark .sleeve:before,
-.container.background-color-grey-dark .sleeve {
-  background-color: $colour-grey-dark;
   color: $colour-white;
 }
 

@@ -8,7 +8,7 @@
 
 .container {
   @include standard-font();
-  @each $key, $colour in $brandColours {
+  @each $key, $colour in $brandColoursIncBrand6Turquoise {
     .heading-colour-#{$key} { color: $colour; }
   }
   display: flex;
@@ -23,7 +23,7 @@
     }
   }
 
-  @each $key, $colour in $brandColours {
+  @each $key, $colour in $brandColoursIncBrand6Turquoise {
     .icon-colour-#{$key} svg path { fill: $colour; }
   }
 
