@@ -361,7 +361,7 @@ export namespace Components {
         /**
           * JSON array of beneficiary key/values, or takes a stringified equiavalent (for Storybook)
          */
-        "beneficiaryOptions": string | Record<string, string>;
+        "beneficiaryOptions": string | Record<string, string> | string[];
         /**
           * Defines the text on the search button
          */
@@ -369,11 +369,11 @@ export namespace Components {
         /**
           * JSON array of category key/values, or takes a stringified equiavalent (for Storybook)
          */
-        "categoryOptions": string | Record<string, string>;
+        "categoryOptions": string | Record<string, string> | string[];
         /**
           * JSON array of funding key/values, or takes a stringified equiavalent (for Storybook)
          */
-        "fundingOptions": string | Record<string, string>;
+        "fundingOptions": string | Record<string, string> | string[];
         /**
           * Intro
          */
@@ -381,7 +381,7 @@ export namespace Components {
         /**
           * JSON array of location key/values, or takes a stringified equiavalent (for Storybook)
          */
-        "locationOptions": string | Record<string, string>;
+        "locationOptions": string | Record<string, string> | string[];
         /**
           * Defines the text displayed as the placeholder in the input field before the user types anything
          */
@@ -533,7 +533,7 @@ export namespace Components {
         /**
           * JSON array of category key/values, or takes a stringified equiavalent (for Storybook)
          */
-        "options": string | Record<string, string>;
+        "options": string | Array<{ label: string; value: string }>;
         /**
           * Placeholder
          */
@@ -1891,7 +1891,7 @@ declare namespace LocalJSX {
         /**
           * JSON array of beneficiary key/values, or takes a stringified equiavalent (for Storybook)
          */
-        "beneficiaryOptions"?: string | Record<string, string>;
+        "beneficiaryOptions"?: string | Record<string, string> | string[];
         /**
           * Defines the text on the search button
          */
@@ -1899,11 +1899,11 @@ declare namespace LocalJSX {
         /**
           * JSON array of category key/values, or takes a stringified equiavalent (for Storybook)
          */
-        "categoryOptions"?: string | Record<string, string>;
+        "categoryOptions"?: string | Record<string, string> | string[];
         /**
           * JSON array of funding key/values, or takes a stringified equiavalent (for Storybook)
          */
-        "fundingOptions"?: string | Record<string, string>;
+        "fundingOptions"?: string | Record<string, string> | string[];
         /**
           * Intro
          */
@@ -1911,7 +1911,7 @@ declare namespace LocalJSX {
         /**
           * JSON array of location key/values, or takes a stringified equiavalent (for Storybook)
          */
-        "locationOptions"?: string | Record<string, string>;
+        "locationOptions"?: string | Record<string, string> | string[];
         /**
           * This event `doSearchAndFilterUpdate` event is emitted and propogates to the parent component which handles it
          */
@@ -2081,7 +2081,7 @@ declare namespace LocalJSX {
         /**
           * JSON array of category key/values, or takes a stringified equiavalent (for Storybook)
          */
-        "options": string | Record<string, string>;
+        "options": string | Array<{ label: string; value: string }>;
         /**
           * Placeholder
          */
