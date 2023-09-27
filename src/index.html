@@ -31,8 +31,10 @@
     donate-url-prefix="http://localhost:4200"
     blog-url-prefix="http://localhost:30003"
     experience-url-prefix="https://www.thebiggive.org.uk"
-    is-logged-in="false"
+    is-logged-in="false"#
   ></biggive-main-menu>
+
+
 
     <biggive-totalizer
     space-below="0"
@@ -70,6 +72,22 @@
 
     <biggive-page-section>
 
+
+      <h2>Test select below</h2>
+      <!-- Testing to check that options display in the correct order -->
+      <biggive-form-field-select
+              prompt="'Donation to the Big Give Trust'"
+              options='[
+              {"value": "xsomeValue", "label": "x some Label first"},
+              {"value": "asomeValue", "label": "a some Label second"},
+              {"value": "ysomeValue", "label": "y some Label third"},
+              {"value": "bsomeValue", "label": "b some Label fourth "}
+              ]'
+              selectedValue="3"
+              backgroundColour="'grey'"
+              spaceBelow="3"
+      >
+      </biggive-form-field-select>
 
       <!-- Long list of words as location options to simulate UX of a country drop-down -->
       <biggive-campaign-card-filter-grid

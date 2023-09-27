@@ -5,10 +5,13 @@ describe('biggive-form-field-select', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [BiggiveFormFieldSelect],
-      html: `<biggive-form-field-select prompt="What would you like?" options='{"optionOne": "Option one", "optionTwo": "Option two"}'></biggive-form-field-select>`,
+      html: `<biggive-form-field-select
+                prompt="What would you like?"
+                options='[{"value": "optionOne", "label": "Option one"},{"value": "optionTwo", "label": "Option two"}]'
+              ></biggive-form-field-select>`,
     });
     expect(page.root).toEqualHtml(`
-      <biggive-form-field-select options="{&quot;optionOne&quot;: &quot;Option one&quot;, &quot;optionTwo&quot;: &quot;Option two&quot;}" prompt="What would you like?">
+      <biggive-form-field-select options="[{&quot;value&quot;: &quot;optionOne&quot;, &quot;label&quot;: &quot;Option one&quot;},{&quot;value&quot;: &quot;optionTwo&quot;, &quot;label&quot;: &quot;Option two&quot;}]" prompt="What would you like?">
         <mock:shadow-root>
           <div class="selectWrapper">
             <label>

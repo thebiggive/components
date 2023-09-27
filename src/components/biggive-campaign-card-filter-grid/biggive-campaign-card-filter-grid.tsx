@@ -68,22 +68,22 @@ export class BiggiveCampaignCardFilterGrid {
   /**
    * JSON array of category key/values, or takes a stringified equiavalent (for Storybook)
    */
-  @Prop() categoryOptions: string | Record<string, string>;
+  @Prop() categoryOptions: string | Record<string, string> | string[];
 
   /**
    * JSON array of beneficiary key/values, or takes a stringified equiavalent (for Storybook)
    */
-  @Prop() beneficiaryOptions: string | Record<string, string>;
+  @Prop() beneficiaryOptions: string | Record<string, string> | string[];
 
   /**
    * JSON array of location key/values, or takes a stringified equiavalent (for Storybook)
    */
-  @Prop() locationOptions: string | Record<string, string>;
+  @Prop() locationOptions: string | Record<string, string> | string[];
 
   /**
    * JSON array of funding key/values, or takes a stringified equiavalent (for Storybook)
    */
-  @Prop() fundingOptions: string | Record<string, string>;
+  @Prop() fundingOptions: string | Record<string, string> | string[];
 
   /**
    * This helps us inject a pre-selected dropdown value from outside of this component.
@@ -343,7 +343,7 @@ export class BiggiveCampaignCardFilterGrid {
                     prompt="Category"
                     placeholder={this.categoriesPlaceHolderText}
                     selectedLabel={this.selectedFilterCategory}
-                    options={this.categoryOptions}
+                    options={this.optionsToArray(this.categoryOptions || [])}
                     selectionChanged={this.categoryFilterSelectionChanged}
                     id="categories"
                     space-below="2"
@@ -356,7 +356,7 @@ export class BiggiveCampaignCardFilterGrid {
                     prompt="Beneficiary"
                     placeholder={this.beneficiariesPlaceHolderText}
                     selectedLabel={this.selectedFilterBeneficiary}
-                    options={this.beneficiaryOptions}
+                    options={this.optionsToArray(this.beneficiaryOptions || [])}
                     selectionChanged={this.beneficiarySelectionChanged}
                     id="beneficiaries"
                     space-below="2"
@@ -369,7 +369,7 @@ export class BiggiveCampaignCardFilterGrid {
                     prompt="Location"
                     placeholder={this.locationsPlaceHolderText}
                     selectedLabel={this.selectedFilterLocation}
-                    options={this.locationOptions}
+                    options={this.optionsToArray(this.locationOptions || [])}
                     selectionChanged={this.locationSelectionChanged}
                     id="locations"
                     space-below="2"
@@ -382,7 +382,7 @@ export class BiggiveCampaignCardFilterGrid {
                     prompt="Funding"
                     placeholder={this.fundingPlaceHolderText}
                     selectedLabel={this.selectedFilterFunding}
-                    options={this.fundingOptions}
+                    options={this.optionsToArray(this.fundingOptions || [])}
                     selectionChanged={this.fundingSelectionChanged}
                     id="funding"
                     space-below="2"
@@ -396,7 +396,10 @@ export class BiggiveCampaignCardFilterGrid {
 
             <div class="sort-wrap">
               <biggive-form-field-select
-                options={{ amountRaised: 'Most raised', matchFundsRemaining: 'Match funds remaining' }}
+                options={[
+                  { value: 'amountRaised', label: 'Most raised' },
+                  { value: 'matchFundsRemaining', label: 'Match funds remaining' },
+                ]}
                 prompt={null}
                 select-style="underlined"
                 placeholder={this.sortByPlaceholderText}
@@ -422,5 +425,19 @@ export class BiggiveCampaignCardFilterGrid {
         </div>
       </div>
     );
+  }
+
+  private optionsToArray(options: string | Record<string, string> | string[]): {
+    label: string;
+    value: string;
+  }[] {
+    if (typeof options === 'string') {
+      options = JSON.parse(options);
+    }
+    if (Array.isArray(options)) {
+      return options.map((option: string) => ({ value: option, label: option }));
+    }
+
+    return Object.entries(options).map(entry => ({ value: entry[0], label: entry[1] }));
   }
 }
