@@ -52,7 +52,7 @@ tasks and target app build strategies to get things in the right place.
 
 Generated build outputs should similarly be `.gitignore`d.
 
-Because Stencil components have *partly* generated readme docs, it's after changing any `@Prop`s or similar it's
+Because Stencil components have *partly* generated readme docs, after changing any `@Prop`s or similar it's
 necessary to `npm run build` before committing your changes. The docs are source controlled as they can include manual
 content. CircleCI will also run `npm run build` and fail if there are any changes required that were not committed.
 
