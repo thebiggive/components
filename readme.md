@@ -47,13 +47,17 @@ feature was set up, run `npm install` again.
 
 ### Dependencies and build output
 
-Anything externally managed should be loaded with npm and no copies checked into this codebase. We can use Stencil `copy` tasks and target app build strategies to get things in the right place.
+Anything externally managed should be loaded with npm and no copies checked into this codebase. We can use Stencil `copy`
+tasks and target app build strategies to get things in the right place.
 
 Generated build outputs should similarly be `.gitignore`d.
 
-Because Stencil components have *partly* generated readme docs, it is a good idea after changing any `@Prop`s or similar to `npm run build`
-before committing your changes. The docs should be source controlled as they can include manual content. If you make a new one, it's a good
-idea to add a one line description of its purpose to the readme before the generated section.
+Because Stencil components have *partly* generated readme docs, it's after changing any `@Prop`s or similar it's
+necessary to `npm run build` before committing your changes. The docs are source controlled as they can include manual
+content. CircleCI will also run `npm run build` and fail if there are any changes required that were not committed.
+
+If you make a new one, it's a good idea to add a one line description of its purpose to the readme before the
+generated section.
 
 ### Output targets
 
