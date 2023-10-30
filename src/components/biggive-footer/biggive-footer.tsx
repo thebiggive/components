@@ -171,7 +171,7 @@ export class BiggiveFooter {
                   <a href={makeURL('Blog', this.blogUrlPrefix, 'our-people')}>Our People</a>
                 </li>
                 <li>
-                  <a href={makeURL('Blog', this.blogUrlPrefix, 'donation-funds')}>Donate By Bank</a>
+                  <a href={makeURL('Blog', this.blogUrlPrefix, 'donation-funds')}>Donate by Bank Transfer</a>
                 </li>
                 <li>
                   <a href={makeURL('Blog', this.blogUrlPrefix, 'our-fees')}>Our Fees</a>
