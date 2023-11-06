@@ -25,7 +25,7 @@ describe('biggive-campaign-card', () => {
      <mock:shadow-root>
        <div class="container space-below-4">
              <div class="sleeve">
-               <div>
+               <div class="above-button-wrap">
                  <div class="campaign-type">
                    <span>
                      Match Funded
@@ -78,7 +78,7 @@ describe('biggive-campaign-card', () => {
      <mock:shadow-root>
        <div class="container space-below-4">
              <div class="sleeve">
-               <div>
+               <div class="above-button-wrap">
                  <div class="campaign-type">
                    <span>
                      Match Funded

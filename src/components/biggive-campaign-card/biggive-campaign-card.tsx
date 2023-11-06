@@ -123,7 +123,7 @@ export class BiggiveCampaignCard {
     return (
       <div class={'container space-below-' + this.spaceBelow.toString()}>
         <div class="sleeve">
-          <div onClick={this.handleCardGeneralClick}>
+          <div onClick={this.handleCardGeneralClick} class="above-button-wrap">
             {this.campaignType !== null ? (
               <div class="campaign-type">
                 <span>{this.campaignType}</span>

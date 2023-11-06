@@ -22,6 +22,11 @@
   .sleeve {
     @include flex-container-column();
     height: 100%;
+    .above-button-wrap {
+      // we want all the height variation to be inside this element, so that the button is always at the same position
+      // right at the bottom of the card.
+      flex-grow: 1;
+    }
   }
   .campaign-type {
     position: absolute;
