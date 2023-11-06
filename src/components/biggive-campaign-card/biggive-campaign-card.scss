@@ -5,6 +5,10 @@
   display: contents;
 }
 
+* {
+  //outline: 1px dotted red;
+}
+
 .container {
   @include flex-container-column();
   @include standard-font();
@@ -26,6 +30,11 @@
       // we want all the height variation to be inside this element, so that the button is always at the same position
       // right at the bottom of the card.
       flex-grow: 1;
+      @include flex-container-column();
+      .title-wrap {
+        // and specifically we want the spare height to go under the charity name.
+        flex-grow: 1;
+      }
     }
   }
   .campaign-type {
