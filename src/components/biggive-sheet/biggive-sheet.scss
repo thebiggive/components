@@ -45,7 +45,7 @@
       display: flex;
       font-size: 14px;
       .svg-wrap {
-        @each $key, $colour in $brandColours {
+        @each $key, $colour in $brandColoursIncBrand6Turquoise {
           &.colour-#{$key} svg path { fill: $colour; }
         }
         display: flex;

@@ -68,22 +68,22 @@ export class BiggiveCampaignCardFilterGrid {
   /**
    * JSON array of category key/values, or takes a stringified equiavalent (for Storybook)
    */
-  @Prop() categoryOptions: string | Record<string, string>;
+  @Prop() categoryOptions: string | Record<string, string> | string[];
 
   /**
    * JSON array of beneficiary key/values, or takes a stringified equiavalent (for Storybook)
    */
-  @Prop() beneficiaryOptions: string | Record<string, string>;
+  @Prop() beneficiaryOptions: string | Record<string, string> | string[];
 
   /**
    * JSON array of location key/values, or takes a stringified equiavalent (for Storybook)
    */
-  @Prop() locationOptions: string | Record<string, string>;
+  @Prop() locationOptions: string | Record<string, string> | string[];
 
   /**
    * JSON array of funding key/values, or takes a stringified equiavalent (for Storybook)
    */
-  @Prop() fundingOptions: string | Record<string, string>;
+  @Prop() fundingOptions: string | Record<string, string> | string[];
 
   /**
    * This helps us inject a pre-selected dropdown value from outside of this component.
@@ -174,11 +174,15 @@ export class BiggiveCampaignCardFilterGrid {
       categories: searchAndFilterObj.filterCategory,
       funding: searchAndFilterObj.filterFunding,
       locations: searchAndFilterObj.filterLocation,
-    };
+    } as const;
 
-    for (const filterKey of Object.keys(filters)) {
+    type FilterKey = keyof typeof filters;
+
+    const keys: FilterKey[] = Object.keys(filters) as unknown as FilterKey[];
+
+    for (const filterKey of keys) {
       // https://stackoverflow.com/a/69757191/2803757
-      const filterValue = filters[filterKey as keyof typeof filters];
+      const filterValue = filters[filterKey];
 
       if (filterValue === null || filterValue.length === 0) {
         continue;
@@ -194,7 +198,27 @@ export class BiggiveCampaignCardFilterGrid {
       }
 
       button.addEventListener('click', () => {
+        switch (filterKey) {
+          case 'beneficiaries':
+            this.selectedFilterBeneficiary = null;
+            break;
+          case 'categories':
+            this.selectedFilterCategory = null;
+            break;
+          case 'funding':
+            this.selectedFilterFunding = null;
+            break;
+          case 'locations':
+            this.selectedFilterLocation = null;
+            break;
+          default:
+            // This asks the compiler to check that we are in dead code, i.e. we covered all the possible filter keys
+            // above. If we missed one we would get a compile error trying to assign a string to a never.
+            const exhaustiveSwitch: never = filterKey;
+            console.error(exhaustiveSwitch);
+        }
         button.remove();
+        this.doSearchAndFilterUpdate.emit(this.getSearchAndFilterObject());
 
         if (button.dataset.id === undefined) {
           return;
@@ -319,7 +343,7 @@ export class BiggiveCampaignCardFilterGrid {
                     prompt="Category"
                     placeholder={this.categoriesPlaceHolderText}
                     selectedLabel={this.selectedFilterCategory}
-                    options={this.categoryOptions}
+                    options={this.optionsToArray(this.categoryOptions || [])}
                     selectionChanged={this.categoryFilterSelectionChanged}
                     id="categories"
                     space-below="2"
@@ -332,7 +356,7 @@ export class BiggiveCampaignCardFilterGrid {
                     prompt="Beneficiary"
                     placeholder={this.beneficiariesPlaceHolderText}
                     selectedLabel={this.selectedFilterBeneficiary}
-                    options={this.beneficiaryOptions}
+                    options={this.optionsToArray(this.beneficiaryOptions || [])}
                     selectionChanged={this.beneficiarySelectionChanged}
                     id="beneficiaries"
                     space-below="2"
@@ -345,7 +369,7 @@ export class BiggiveCampaignCardFilterGrid {
                     prompt="Location"
                     placeholder={this.locationsPlaceHolderText}
                     selectedLabel={this.selectedFilterLocation}
-                    options={this.locationOptions}
+                    options={this.optionsToArray(this.locationOptions || [])}
                     selectionChanged={this.locationSelectionChanged}
                     id="locations"
                     space-below="2"
@@ -358,7 +382,7 @@ export class BiggiveCampaignCardFilterGrid {
                     prompt="Funding"
                     placeholder={this.fundingPlaceHolderText}
                     selectedLabel={this.selectedFilterFunding}
-                    options={this.fundingOptions}
+                    options={this.optionsToArray(this.fundingOptions || [])}
                     selectionChanged={this.fundingSelectionChanged}
                     id="funding"
                     space-below="2"
@@ -372,7 +396,10 @@ export class BiggiveCampaignCardFilterGrid {
 
             <div class="sort-wrap">
               <biggive-form-field-select
-                options={{ amountRaised: 'Most raised', matchFundsRemaining: 'Match funds remaining' }}
+                options={[
+                  { value: 'amountRaised', label: 'Most raised' },
+                  { value: 'matchFundsRemaining', label: 'Match funds remaining' },
+                ]}
                 prompt={null}
                 select-style="underlined"
                 placeholder={this.sortByPlaceholderText}
@@ -398,5 +425,19 @@ export class BiggiveCampaignCardFilterGrid {
         </div>
       </div>
     );
+  }
+
+  private optionsToArray(options: string | Record<string, string> | string[]): {
+    label: string;
+    value: string;
+  }[] {
+    if (typeof options === 'string') {
+      options = JSON.parse(options);
+    }
+    if (Array.isArray(options)) {
+      return options.map((option: string) => ({ value: option, label: option }));
+    }
+
+    return Object.entries(options).map(entry => ({ value: entry[0], label: entry[1] }));
   }
 }

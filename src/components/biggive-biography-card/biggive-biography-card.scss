@@ -9,7 +9,7 @@
 
 .container {
 
-  @each $key, $colour in $brandColours {
+  @each $key, $colour in $brandColoursIncBrand6Turquoise {
     &.background-colour-#{$key} .image-wrap { background-color: $colour; }
   }
 
@@ -39,7 +39,7 @@
   .sleeve {
 
     
-    @each $key, $colour in $brandColours {
+    @each $key, $colour in $brandColoursIncBrand6Turquoise {
 
       &.border-width-1.border-colour-#{$key} { border: $spacer-1 solid $colour; }
       &.border-width-2.border-colour-#{$key} { border: $spacer-2 solid $colour; }

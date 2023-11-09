@@ -21,7 +21,7 @@ export class BiggiveFormFieldSelect {
   /**
    * JSON array of category key/values, or takes a stringified equiavalent (for Storybook)
    */
-  @Prop() options!: string | Record<string, string>;
+  @Prop() options!: string | Array<{ label: string; value: string }>;
   @Prop() selectStyle: 'bordered' | 'underlined' = 'bordered';
 
   /**
@@ -50,18 +50,24 @@ export class BiggiveFormFieldSelect {
   render() {
     const greyIfRequired = this.backgroundColour === 'grey' ? ' grey' : '';
 
-    let options: Record<string, string>;
+    let options: Array<{ label: string; value: string }>;
     if (typeof this.options === 'string') {
-      options = JSON.parse(this.options);
+      let parsed = JSON.parse(this.options) as unknown;
+      if (!Array.isArray(parsed)) {
+        throw new Error('Options should be an Array<{ label: string; value: string }>');
+      }
+      options = parsed;
     } else {
       options = this.options;
     }
-    if (Array.isArray(options)) {
-      options = Object.fromEntries(options.map((value: string) => [value, value]));
-    }
 
     if (typeof this.placeholder === 'string' && typeof this.selectedValue !== 'string') {
-      options = Object.assign({ __placeholder__: this.placeholder }, options);
+      options = [{ value: '__placeholder__', label: this.placeholder }, ...options];
+    }
+
+    if (typeof options === 'undefined') {
+      console.error('options undefined');
+      options = [];
     }
 
     return (
@@ -80,9 +86,9 @@ export class BiggiveFormFieldSelect {
           >
             <div class="sleeve">
               <select class={greyIfRequired} onChange={this.doOptionSelectCompletedHandler}>
-                {Object.entries(options).map((value: [string, string]) => (
-                  <option selected={this.selectedValue === value[0]} value={value[0]}>
-                    {value[1]}
+                {options.map(option => (
+                  <option selected={this.selectedValue === option.value} value={option.value}>
+                    {option.label}
                   </option>
                 ))}
               </select>

@@ -1,7 +1,7 @@
 @include spacers();
 
 :host {
-  display: contents; 
+  display: contents;
 }
 
 .container {
@@ -22,136 +22,139 @@
     &.size-small {
       @include button-small();
     }
-    
+
     &.button.rounded-true {
       @include button-rounded();
     }
 }
-
-.button-primary {
-   @include button-primary();
+// brand-6 color ambiguity (for now keeping its definition outside of the brand colors loop)
+.button-clear-brand-6 {
+    color: $colour-brand-grey;
+    background-color: transparent;
+    text-decoration: underline;
+    border: 0;
+    padding-left: 0;
+    padding-right: 0;
+    &:hover {
+      text-decoration: none;
+      background-color: transparent;
+    }
 }
- 
+
+@each $brand, $colour in $colours {
+  .button-#{$brand} {
+    color: $colour-white; // may be overridden by following rules. Later CSS rules have priority.
+    background-color: $colour;
+    border-color: $colour;
+    &:hover {
+      color: $colour;
+      background-color: $colour-white; // may be overriden by following rules
+    }
+  }
+}
+
+// not part of loop, 6 is deprecated
+.button-brand-6 {
+  color: $colour-white;
+  background-color: $colour-brand-grey;
+  border-color: $colour-brand-grey;
+  &:hover {
+    background-color: $colour-black;
+  }
+}
+
 .button-secondary {
-    @include button-secondary();
-}
-
-.button-tertiary {
-    @include button-tertiary();
-}
-
-.button-brand-1 {
-    @include button-brand-1();
-}
-
-.button-brand-2 {
-    @include button-brand-2();
-}
-
-.button-brand-3 {
-    @include button-brand-3();
+  color: $colour-black;
+  &:hover {
+    color: $colour-black;
+    background-color: $colour-white;
+    border-color: $colour-black;
+  }
 }
 
 .button-brand-4 {
-    @include button-brand-4();
+  &:hover {
+    background-color: $colour-black;
+  }
+}
+
+.button-brand-grey {
+  color: $colour-white;
+  &:hover {
+    background-color: $colour-black;
+  }
 }
 
 .button-brand-mhf-turquoise {
-  @include button-brand-mhf-turquoise();
+  &:hover {
+    background-color: $colour-black;
+  }
 }
 
-.button-brand-5 {
-    @include button-brand-5();
-}
-
-.button-brand-6 {
-    @include button-brand-6();
+.button-brand-afa-pink {
+  &:hover {
+    background-color: $colour-black;
+  }
 }
 
 .button-white {
-    @include button-white();
+  color: $colour-primary-blue;
+  &:hover {
+    color: $colour-black;
+    background-color: $colour-secondary-green;
+  }
 }
 
 .button-black {
-    @include button-black();
+  color: $colour-white;
+  &:hover {
+    background-color: $colour-white;
+  }
 }
 
 .button-grey-extra-light {
-    @include button-grey-extra-light();
+  color: $colour-black;
+  &:hover {
+    background-color: $colour-black;
+  }
 }
 
 .button-grey-light {
-    @include button-grey-light();
-}
+  color: $colour-black;
+  &:hover {
+    background-color: $colour-black;
+  }}
 
 .button-grey-medium {
-    @include button-grey-medium();
+  color: $colour-white;
+  &:hover {
+    background-color: $colour-white;
+  }
 }
 
 .button-grey-dark {
-    @include button-grey-dark();
+  color: $colour-white;
+  &:hover {
+    background-color: $colour-white;
+  }
 }
-
-.button-clear-primary {
-    @include button-clear-primary();
-}
-  
-.button-clear-secondary {
-    @include button-clear-secondary();
-}
-
-.button-clear-tertiary {
-    @include button-clear-tertiary();
-}
-
-.button-clear-brand-1 {
-    @include button-clear-brand-1();
-}
-
-.button-clear-brand-2 {
-    @include button-clear-brand-2();
-}
-
-.button-clear-brand-3 {
-    @include button-clear-brand-3();
-}
-
-.button-clear-brand-4 {
-    @include button-clear-brand-4();
-}
-
-.button-clear-brand-5 {
-    @include button-clear-brand-5();
-}
-
-.button-clear-brand-6 {
-    @include button-clear-brand-6();
-}
-
-.button-clear-white {
-   @include button-clear-white();
-}
-
-.button-clear-black {
-    @include button-clear-black();
- }
-
- .button-clear-grey-extra-light {
-    @include button-clear-grey-extra-light();
- }
- .button-clear-grey-light {
-    @include button-clear-grey-light();
- }
-
- .button-clear-grey-medium {
-    @include button-clear-grey-medium();
- }
-
- .button-clear-grey-dark {
-    @include button-clear-grey-dark();
- }
-
 
 .button-rounded {
     @include button-rounded();
  }
+
+ @each $brand, $colour in $colours {
+    .button-clear-#{$brand} {
+        color: $colour;
+        background-color: transparent;
+        text-decoration: underline;
+        border: 0;
+        padding-left: 0;
+        padding-right: 0;
+        &:hover {
+          color: $colour;
+          text-decoration: none;
+          background-color: transparent;
+        }
+    }
+}

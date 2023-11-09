@@ -39,29 +39,29 @@ export class BiggiveCampaignCard {
   @Prop() organisationName: string;
 
   /**
-   * Label for the primary figure
+   * Label for the primary figure – may be null or omitted for no label or if there's no figure.
    */
-  @Prop() primaryFigureLabel: string;
+  @Prop() primaryFigureLabel: string | null;
 
   /**
-   * Amount for the primary figure, formatted with currency symbol
+   * Amount for the primary figure, formatted with currency symbol – null or omit to hide the figure & label.
    */
-  @Prop() primaryFigureAmount: string;
+  @Prop() primaryFigureAmount: string | null;
 
   /**
-   * Label for the secondary figure
+   * Label for the secondary figure – may be null or omitted for no label or if there's no figure.
    */
-  @Prop() secondaryFigureLabel: string;
+  @Prop() secondaryFigureLabel: string | null;
 
   /**
-   * Amount for the secondary figure, formatted with currency symbol
+   * Amount for the secondary figure, formatted with currency symbol – null or omit to hide the figure & label.
    */
-  @Prop() secondaryFigureAmount: string;
+  @Prop() secondaryFigureAmount: string | null;
 
   /**
-   * Progress bar percentage
+   * Progress bar percentage – null or omit to hide the progress bar.
    */
-  @Prop() progressBarCounter: number = 100;
+  @Prop() progressBarCounter: number | null;
 
   /**
    * Donate button label
@@ -111,6 +111,10 @@ export class BiggiveCampaignCard {
    */
   @Prop() datetime: string;
 
+  private isEmpty(value?: number | string | null) {
+    return value === undefined || value === null || value === '';
+  }
+
   private handleCardGeneralClick = (event: any) => {
     this.doCardGeneralClick.emit({ event, url: this.moreInfoButtonUrl });
   };
@@ -119,7 +123,7 @@ export class BiggiveCampaignCard {
     return (
       <div class={'container space-below-' + this.spaceBelow.toString()}>
         <div class="sleeve">
-          <div onClick={this.handleCardGeneralClick}>
+          <div onClick={this.handleCardGeneralClick} class="above-button-wrap">
             {this.campaignType !== null ? (
               <div class="campaign-type">
                 <span>{this.campaignType}</span>
@@ -137,19 +141,27 @@ export class BiggiveCampaignCard {
               <div class="organisation-name">By {this.organisationName}</div>
             </div>
 
-            <div class="meta-wrap">
-              <div class="meta-item">
-                <span class="label">{this.primaryFigureLabel}</span>
-                <span class="text">{this.primaryFigureAmount}</span>
+            {this.isEmpty(this.primaryFigureAmount) && this.isEmpty(this.secondaryFigureAmount) ? null : (
+              <div class="meta-wrap">
+                {this.isEmpty(this.primaryFigureAmount) ? null : (
+                  <div class="meta-item">
+                    <span class="label">{this.primaryFigureLabel}</span>
+                    <span class="text">{this.primaryFigureAmount}</span>
+                  </div>
+                )}
+                {this.isEmpty(this.secondaryFigureAmount) ? null : (
+                  <div class="meta-item">
+                    <span class="label">{this.secondaryFigureLabel}</span>
+                    <span class="text">{this.secondaryFigureAmount}</span>
+                  </div>
+                )}
               </div>
-              <div class="meta-item">
-                <span class="label">{this.secondaryFigureLabel}</span>
-                <span class="text">{this.secondaryFigureAmount}</span>
+            )}
+            {this.isEmpty(this.progressBarCounter) ? null : (
+              <div class="progress-bar-wrap">
+                <biggive-progress-bar counter={this.progressBarCounter} colour-scheme="primary"></biggive-progress-bar>
               </div>
-            </div>
-            <div class="progress-bar-wrap">
-              <biggive-progress-bar counter={this.progressBarCounter} colour-scheme="primary"></biggive-progress-bar>
-            </div>
+            )}
           </div>
           <div class="button-wrap">
             {this.isFutureCampaign || this.isPastCampaign ? (

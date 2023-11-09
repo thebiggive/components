@@ -31,8 +31,10 @@
     donate-url-prefix="http://localhost:4200"
     blog-url-prefix="http://localhost:30003"
     experience-url-prefix="https://www.thebiggive.org.uk"
-    is-logged-in="false"
+    is-logged-in="false"#
   ></biggive-main-menu>
+
+
 
     <biggive-totalizer
     space-below="0"
@@ -71,6 +73,22 @@
     <biggive-page-section>
 
 
+      <h2>Test select below</h2>
+      <!-- Testing to check that options display in the correct order -->
+      <biggive-form-field-select
+              prompt="'Donation to the Big Give Trust'"
+              options='[
+              {"value": "xsomeValue", "label": "x some Label first"},
+              {"value": "asomeValue", "label": "a some Label second"},
+              {"value": "ysomeValue", "label": "y some Label third"},
+              {"value": "bsomeValue", "label": "b some Label fourth "}
+              ]'
+              selectedValue="3"
+              backgroundColour="'grey'"
+              spaceBelow="3"
+      >
+      </biggive-form-field-select>
+
       <!-- Long list of words as location options to simulate UX of a country drop-down -->
       <biggive-campaign-card-filter-grid
       category-options='["ABC", "DEF"]'
@@ -108,6 +126,30 @@
         campaign-type="Match Funded"
         campaign-title="Oxford Piano Festival Fundraising Campaign for LGBTQ+ community"
         organisation-name="Oxford Philharmonic Orchestra"
+        currency-code="GBP"
+        primary-figure-label="Total Raised"
+        primary-figure-amount="76543"
+        secondary-figure-label="Total Raised"
+        secondary-figure-amount="76543">
+      </biggive-campaign-card>
+      <biggive-campaign-card
+        data-filter-categories="[&quot;Healthcare&quot;]"
+        data-filter-beneficiaries="[&quot;Children&quot;]"
+        campaign-type="Match Funded"
+        campaign-title="Short campaign title"
+        organisation-name="Some charity"
+        currency-code="GBP"
+        primary-figure-label="Total Raised"
+        primary-figure-amount="76543"
+        secondary-figure-label="Total Raised"
+        secondary-figure-amount="76543">
+      </biggive-campaign-card>
+      <biggive-campaign-card
+        data-filter-categories="[&quot;Healthcare&quot;]"
+        data-filter-beneficiaries="[&quot;Children&quot;]"
+        campaign-type="Match Funded"
+        campaign-title="Long long long yes quite long campaign title"
+        organisation-name="Some charity"
         currency-code="GBP"
         primary-figure-label="Total Raised"
         primary-figure-amount="76543"
@@ -1143,10 +1185,11 @@
       blog-url-prefix="http://localhost:30003"
       experience-url-prefix="https://www.thebiggive.org.uk"
       ></biggive-footer>
-  <div id="cookie-banner">
+    <!-- Hiding the cookie banner as can't be easiliy dismissed -->
+    <!-- <div id="cookie-banner" style="display: none;">
     <biggive-cookie-banner
       blog-uri-prefix="http://localhost:30003"
     ></biggive-cookie-banner>
-  </div>
+  </div> -->
   </body>
 </html>

@@ -47,13 +47,17 @@ feature was set up, run `npm install` again.
 
 ### Dependencies and build output
 
-Anything externally managed should be loaded with npm and no copies checked into this codebase. We can use Stencil `copy` tasks and target app build strategies to get things in the right place.
+Anything externally managed should be loaded with npm and no copies checked into this codebase. We can use Stencil `copy`
+tasks and target app build strategies to get things in the right place.
 
 Generated build outputs should similarly be `.gitignore`d.
 
-Because Stencil components have *partly* generated readme docs, it is a good idea after changing any `@Prop`s or similar to `npm run build`
-before committing your changes. The docs should be source controlled as they can include manual content. If you make a new one, it's a good
-idea to add a one line description of its purpose to the readme before the generated section.
+Because Stencil components have *partly* generated readme docs, after changing any `@Prop`s or similar it's
+necessary to `npm run build` before committing your changes. The docs are source controlled as they can include manual
+content. CircleCI will also run `npm run build` and fail if there are any changes required that were not committed.
+
+If you make a new one, it's a good idea to add a one line description of its purpose to the readme before the
+generated section.
 
 ### Output targets
 
@@ -138,10 +142,7 @@ This directory contains a static version of the web components which can be used
 We've followed [this guide](https://ionicframework.com/blog/how-to-use-storybook-with-stencil/) to
 provide sample usage of key components: a living style guide.
 
-CI automatically publishes the Storybook preview:
-
-* to [Staging](https://components-staging.thebiggivetest.org.uk) from `develop`; and
-* to [Production](https://components-production.thebiggive.org.uk) from `main` – which also npm publishes a new major version automatically.
+From the `main` branch, CI automatically npm-publishes a new major version and updates the [Storybook preview](https://components-production.thebiggive.org.uk).
 
 For now, the local `npm run storybook` won't load static image assets or fonts. We've prioritised realistic
 renders in the deployed environment, where these work due to:

@@ -13,15 +13,25 @@ to making it work before we can add it to our website.
 | `blogUriPrefix` _(required)_ | `blog-uri-prefix` |             | `string` | `undefined` |
 
 
+## Events
+
+| Event                                 | Description                                                                                                                                                                                              | Type                                                                  |
+| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `cookieBannerAcceptAllSelected`       | Indicates that the user accepts cookies for any purpose, without discrimination.                                                                                                                         | `CustomEvent<void>`                                                   |
+| `cookieBannerSavePreferencesSelected` | Indicates that the user has made a selection of cookies purpose to accept.  Event data is an object with boolean properties to say whether the user accepts or refuses each category of optional cookie. | `CustomEvent<{ analyticsAndTesting: Boolean; thirdParty: boolean; }>` |
+
+
 ## Dependencies
 
 ### Depends on
 
+- [biggive-popup](../biggive-popup)
 - [biggive-button](../biggive-button)
 
 ### Graph
 ```mermaid
 graph TD;
+  biggive-cookie-banner --> biggive-popup
   biggive-cookie-banner --> biggive-button
   style biggive-cookie-banner fill:#f9f,stroke:#333,stroke-width:4px
 ```

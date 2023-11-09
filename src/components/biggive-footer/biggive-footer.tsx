@@ -121,6 +121,11 @@ export class BiggiveFooter {
                   </a>
                 </li>
                 <li>
+                  <a href={makeURL('Blog', this.blogUrlPrefix, 'artsforimpact')} class="icon-arts">
+                    Arts for Impact
+                  </a>
+                </li>
+                <li>
                   <a href={makeURL('Blog', this.blogUrlPrefix, 'emergency-campaigns/')} class="icon-emergency">
                     Emergency Match Fund
                   </a>
@@ -164,6 +169,9 @@ export class BiggiveFooter {
                 </li>
                 <li>
                   <a href={makeURL('Blog', this.blogUrlPrefix, 'our-people')}>Our People</a>
+                </li>
+                <li>
+                  <a href={makeURL('Blog', this.blogUrlPrefix, 'donation-funds')}>Donate by Bank Transfer</a>
                 </li>
                 <li>
                   <a href={makeURL('Blog', this.blogUrlPrefix, 'our-fees')}>Our Fees</a>

@@ -195,7 +195,7 @@ export namespace Components {
         /**
           * URL
          */
-        "url": string;
+        "url": string | undefined;
     }
     interface BiggiveCallToAction {
         /**
@@ -333,25 +333,25 @@ export namespace Components {
          */
         "organisationName": string;
         /**
-          * Amount for the primary figure, formatted with currency symbol
+          * Amount for the primary figure, formatted with currency symbol – null or omit to hide the figure & label.
          */
-        "primaryFigureAmount": string;
+        "primaryFigureAmount": string | null;
         /**
-          * Label for the primary figure
+          * Label for the primary figure – may be null or omitted for no label or if there's no figure.
          */
-        "primaryFigureLabel": string;
+        "primaryFigureLabel": string | null;
         /**
-          * Progress bar percentage
+          * Progress bar percentage – null or omit to hide the progress bar.
          */
-        "progressBarCounter": number;
+        "progressBarCounter": number | null;
         /**
-          * Amount for the secondary figure, formatted with currency symbol
+          * Amount for the secondary figure, formatted with currency symbol – null or omit to hide the figure & label.
          */
-        "secondaryFigureAmount": string;
+        "secondaryFigureAmount": string | null;
         /**
-          * Label for the secondary figure
+          * Label for the secondary figure – may be null or omitted for no label or if there's no figure.
          */
-        "secondaryFigureLabel": string;
+        "secondaryFigureLabel": string | null;
         /**
           * Space below component
          */
@@ -361,7 +361,7 @@ export namespace Components {
         /**
           * JSON array of beneficiary key/values, or takes a stringified equiavalent (for Storybook)
          */
-        "beneficiaryOptions": string | Record<string, string>;
+        "beneficiaryOptions": string | Record<string, string> | string[];
         /**
           * Defines the text on the search button
          */
@@ -369,11 +369,11 @@ export namespace Components {
         /**
           * JSON array of category key/values, or takes a stringified equiavalent (for Storybook)
          */
-        "categoryOptions": string | Record<string, string>;
+        "categoryOptions": string | Record<string, string> | string[];
         /**
           * JSON array of funding key/values, or takes a stringified equiavalent (for Storybook)
          */
-        "fundingOptions": string | Record<string, string>;
+        "fundingOptions": string | Record<string, string> | string[];
         /**
           * Intro
          */
@@ -381,7 +381,7 @@ export namespace Components {
         /**
           * JSON array of location key/values, or takes a stringified equiavalent (for Storybook)
          */
-        "locationOptions": string | Record<string, string>;
+        "locationOptions": string | Record<string, string> | string[];
         /**
           * Defines the text displayed as the placeholder in the input field before the user types anything
          */
@@ -533,7 +533,7 @@ export namespace Components {
         /**
           * JSON array of category key/values, or takes a stringified equiavalent (for Storybook)
          */
-        "options": string | Record<string, string>;
+        "options": string | Array<{ label: string; value: string }>;
         /**
           * Placeholder
          */
@@ -744,26 +744,19 @@ export namespace Components {
     interface BiggiveImageCard {
         "addAnimation": boolean;
         "backgroundColour": brandColour;
-        "backgroundImageUrl": string;
         "buttonAlign": string;
         "buttonColourScheme": string;
         "buttonLabel": string;
         "buttonStyle": string;
         "buttonUrl": string;
-        "cardColour": brandColour;
         "clipBottomLeftCorner": boolean;
         "clipTopRightCorner": boolean;
-        "headingLevel": 1 | 2 | 3 | 4 | 5 | 6;
-        "icon": boolean;
-        "iconColour": brandColour;
         "mainImageAltText": string;
         "mainImageUrl": string;
-        "mainTitle": string;
         "spaceBelow": spacingOption;
-        "subtitle": string;
         "teaser": string;
+        "teaserColour": brandColour;
         "textAlign": 'left' | 'center' | 'right';
-        "textColour": brandColour;
     }
     interface BiggiveImageFeature {
         /**
@@ -921,7 +914,7 @@ export namespace Components {
         /**
           * Percentage to show + use for CSS width; round before input if desired
          */
-        "counter": number;
+        "counter"?: number | null;
         /**
           * Space below component
          */
@@ -1141,6 +1134,10 @@ export interface BiggiveCampaignCardCustomEvent<T> extends CustomEvent<T> {
 export interface BiggiveCampaignCardFilterGridCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLBiggiveCampaignCardFilterGridElement;
+}
+export interface BiggiveCookieBannerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLBiggiveCookieBannerElement;
 }
 export interface BiggiveIconButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1727,7 +1724,7 @@ declare namespace LocalJSX {
         /**
           * URL
          */
-        "url"?: string;
+        "url"?: string | undefined;
     }
     interface BiggiveCallToAction {
         /**
@@ -1866,25 +1863,25 @@ declare namespace LocalJSX {
          */
         "organisationName"?: string;
         /**
-          * Amount for the primary figure, formatted with currency symbol
+          * Amount for the primary figure, formatted with currency symbol – null or omit to hide the figure & label.
          */
-        "primaryFigureAmount"?: string;
+        "primaryFigureAmount"?: string | null;
         /**
-          * Label for the primary figure
+          * Label for the primary figure – may be null or omitted for no label or if there's no figure.
          */
-        "primaryFigureLabel"?: string;
+        "primaryFigureLabel"?: string | null;
         /**
-          * Progress bar percentage
+          * Progress bar percentage – null or omit to hide the progress bar.
          */
-        "progressBarCounter"?: number;
+        "progressBarCounter"?: number | null;
         /**
-          * Amount for the secondary figure, formatted with currency symbol
+          * Amount for the secondary figure, formatted with currency symbol – null or omit to hide the figure & label.
          */
-        "secondaryFigureAmount"?: string;
+        "secondaryFigureAmount"?: string | null;
         /**
-          * Label for the secondary figure
+          * Label for the secondary figure – may be null or omitted for no label or if there's no figure.
          */
-        "secondaryFigureLabel"?: string;
+        "secondaryFigureLabel"?: string | null;
         /**
           * Space below component
          */
@@ -1894,7 +1891,7 @@ declare namespace LocalJSX {
         /**
           * JSON array of beneficiary key/values, or takes a stringified equiavalent (for Storybook)
          */
-        "beneficiaryOptions"?: string | Record<string, string>;
+        "beneficiaryOptions"?: string | Record<string, string> | string[];
         /**
           * Defines the text on the search button
          */
@@ -1902,11 +1899,11 @@ declare namespace LocalJSX {
         /**
           * JSON array of category key/values, or takes a stringified equiavalent (for Storybook)
          */
-        "categoryOptions"?: string | Record<string, string>;
+        "categoryOptions"?: string | Record<string, string> | string[];
         /**
           * JSON array of funding key/values, or takes a stringified equiavalent (for Storybook)
          */
-        "fundingOptions"?: string | Record<string, string>;
+        "fundingOptions"?: string | Record<string, string> | string[];
         /**
           * Intro
          */
@@ -1914,7 +1911,7 @@ declare namespace LocalJSX {
         /**
           * JSON array of location key/values, or takes a stringified equiavalent (for Storybook)
          */
-        "locationOptions"?: string | Record<string, string>;
+        "locationOptions"?: string | Record<string, string> | string[];
         /**
           * This event `doSearchAndFilterUpdate` event is emitted and propogates to the parent component which handles it
          */
@@ -2047,6 +2044,14 @@ declare namespace LocalJSX {
     }
     interface BiggiveCookieBanner {
         "blogUriPrefix": string;
+        /**
+          * Indicates that the user accepts cookies for any purpose, without discrimination.
+         */
+        "onCookieBannerAcceptAllSelected"?: (event: BiggiveCookieBannerCustomEvent<void>) => void;
+        /**
+          * Indicates that the user has made a selection of cookies purpose to accept.  Event data is an object with boolean properties to say whether the user accepts or refuses each category of optional cookie.
+         */
+        "onCookieBannerSavePreferencesSelected"?: (event: BiggiveCookieBannerCustomEvent<{ analyticsAndTesting: Boolean; thirdParty: boolean }>) => void;
     }
     interface BiggiveFilteredCarousel {
         "buttonBackgroundColour"?: brandColour;
@@ -2076,7 +2081,7 @@ declare namespace LocalJSX {
         /**
           * JSON array of category key/values, or takes a stringified equiavalent (for Storybook)
          */
-        "options": string | Record<string, string>;
+        "options": string | Array<{ label: string; value: string }>;
         /**
           * Placeholder
          */
@@ -2289,26 +2294,19 @@ declare namespace LocalJSX {
     interface BiggiveImageCard {
         "addAnimation"?: boolean;
         "backgroundColour"?: brandColour;
-        "backgroundImageUrl"?: string;
         "buttonAlign"?: string;
         "buttonColourScheme"?: string;
         "buttonLabel"?: string;
         "buttonStyle"?: string;
         "buttonUrl"?: string;
-        "cardColour"?: brandColour;
         "clipBottomLeftCorner"?: boolean;
         "clipTopRightCorner"?: boolean;
-        "headingLevel"?: 1 | 2 | 3 | 4 | 5 | 6;
-        "icon"?: boolean;
-        "iconColour"?: brandColour;
         "mainImageAltText"?: string;
         "mainImageUrl"?: string;
-        "mainTitle"?: string;
         "spaceBelow"?: spacingOption;
-        "subtitle"?: string;
         "teaser"?: string;
+        "teaserColour"?: brandColour;
         "textAlign"?: 'left' | 'center' | 'right';
-        "textColour"?: brandColour;
     }
     interface BiggiveImageFeature {
         /**
@@ -2463,7 +2461,7 @@ declare namespace LocalJSX {
         /**
           * Percentage to show + use for CSS width; round before input if desired
          */
-        "counter"?: number;
+        "counter"?: number | null;
         /**
           * Space below component
          */

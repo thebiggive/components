@@ -16,6 +16,7 @@
   padding: $spacer-2;
   height: 100%;
   white-space: pre-wrap;
+  box-shadow: 0px 0px 30px rgb(0 0 0 / 20%);
   a,
   a:hover {
     text-decoration: none;
@@ -32,19 +33,13 @@
     height: calc(100% + 60px);
   }
   &.clip-bottom-left-corner-false.clip-top-right-corner-true {
-    .sleeve {
       @include corner-clip-medium-top-right();
-    }
   }
   &.clip-bottom-left-corner-true.clip-top-right-corner-false {
-    .sleeve {
       @include corner-clip-medium-bottom-left();
-    }
   }
   &.clip-bottom-left-corner-true.clip-top-right-corner-true {
-    .sleeve {
       @include corner-clip-medium-bottom-left-top-right();
-    }
   }
 
   .icon {
@@ -58,7 +53,7 @@
     @include heading-3();
     margin-bottom: $spacer-3;
   }
-  .subtitle {
+  .teaser {
     margin-bottom: $spacer-3;
   }
   .main-image-container {

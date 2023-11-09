@@ -23,7 +23,7 @@ export class BiggiveVideo {
   render() {
     return (
       <div class={'container space-above-' + this.spaceAbove + ' space-below-' + this.spaceBelow}>
-        <div class="video-wrap" innerHTML={VideoService.getEmbedHtml(this.videoUrl)}></div>
+        <div class="video-wrap" innerHTML={VideoService.getEmbedHtml(this.videoUrl, null)}></div>
       </div>
     );
   }

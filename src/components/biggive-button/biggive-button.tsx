@@ -32,7 +32,7 @@ export class BiggiveButton {
   /**
    * URL
    */
-  @Prop() url: string;
+  @Prop() url: string | undefined;
 
   /**
    * New Tab
@@ -66,10 +66,16 @@ export class BiggiveButton {
   };
 
   render() {
+    // We always want to have a href so that browsers will see this as a link and allow clicking with keybard.
+    // If there's no or an empty href then it isn't possible to click by keyboard and we would have to handle keyboard
+    // interaction separately.
+    const href = this.url || 'javascript:void(0);';
+
     return (
       <div class={'container space-below-' + this.spaceBelow + ' centered-' + this.centered}>
         <a
-          href={this.url}
+          role="button"
+          href={href}
           target={this.openInNewTab ? '_blank' : '_self'}
           id={this.buttonId}
           class={'button button-' + this.colourScheme + ' full-width-' + this.fullWidth.toString() + ' size-' + this.size + ' rounded-' + this.rounded.toString()}
