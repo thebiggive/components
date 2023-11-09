@@ -80,9 +80,6 @@ const Template = () => `
                         <a href="#">Our People</a>
                     </li>
                     <li>
-                        <a href="#">Our Community</a>
-                    </li>
-                    <li>
                         <a href="#">Our Fees</a>
                     </li>
                     <li>
