@@ -11,28 +11,20 @@ export class BiggiveMainMenu {
 
   // URL prefixes vary by environment, and components library is not best placed to know what they are, so we
   // take them as props
-  @Prop() blogUrlPrefix: string | undefined;
+  @Prop() blogUrlPrefix: string;
 
   /**
    * E.g. "https://donate.thebiggive.org.uk" for production (currently)
    */
-  @Prop() donateUrlPrefix: string | undefined;
+  @Prop() donateUrlPrefix: string;
 
-  @Prop() experienceUrlPrefix: string | undefined;
+  @Prop() experienceUrlPrefix: string;
 
   /**
    * Whether the current user is logged in (i.e. is assumed to have a valid JWT). They get links to some
    * extra content if they are.
    */
   @Prop() isLoggedIn = false;
-
-  @Prop() logoUrl: string = '/';
-
-  /**
-   * If true, content passed in via slots will be ignored, and this will just render a hard-coded menu
-   * that's the same everywhere. When BG2-2286 is done this will be permantly true and the prop will be deleted.
-   */
-  @Prop() usePresetMenuContent: true = true;
 
   @Method()
   async closeMobileMenuFromOutside() {

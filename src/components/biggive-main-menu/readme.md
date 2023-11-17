@@ -7,14 +7,12 @@
 
 ## Properties
 
-| Property               | Attribute                 | Description                                                                                                                                                                                                   | Type                  | Default     |
-| ---------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ----------- |
-| `blogUrlPrefix`        | `blog-url-prefix`         |                                                                                                                                                                                                               | `string \| undefined` | `undefined` |
-| `donateUrlPrefix`      | `donate-url-prefix`       | E.g. "https://donate.thebiggive.org.uk" for production (currently)                                                                                                                                            | `string \| undefined` | `undefined` |
-| `experienceUrlPrefix`  | `experience-url-prefix`   |                                                                                                                                                                                                               | `string \| undefined` | `undefined` |
-| `isLoggedIn`           | `is-logged-in`            | Whether the current user is logged in (i.e. is assumed to have a valid JWT). They get links to some extra content if they are.                                                                                | `boolean`             | `false`     |
-| `logoUrl`              | `logo-url`                |                                                                                                                                                                                                               | `string`              | `'/'`       |
-| `usePresetMenuContent` | `use-preset-menu-content` | If true, content passed in via slots will be ignored, and this will just render a hard-coded menu that's the same everywhere. When BG2-2286 is done this will be permantly true and the prop will be deleted. | `boolean`             | `true`      |
+| Property              | Attribute               | Description                                                                                                                    | Type      | Default     |
+| --------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------ | --------- | ----------- |
+| `blogUrlPrefix`       | `blog-url-prefix`       |                                                                                                                                | `string`  | `undefined` |
+| `donateUrlPrefix`     | `donate-url-prefix`     | E.g. "https://donate.thebiggive.org.uk" for production (currently)                                                             | `string`  | `undefined` |
+| `experienceUrlPrefix` | `experience-url-prefix` |                                                                                                                                | `string`  | `undefined` |
+| `isLoggedIn`          | `is-logged-in`          | Whether the current user is logged in (i.e. is assumed to have a valid JWT). They get links to some extra content if they are. | `boolean` | `false`     |
 
 
 ## Methods
