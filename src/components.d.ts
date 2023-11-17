@@ -828,7 +828,7 @@ export namespace Components {
         /**
           * If true, content passed in via slots will be ignored, and this will just render a hard-coded menu that's the same everywhere. When BG2-2286 is done this will be permantly true and the prop will be deleted.
          */
-        "usePresetMenuContent": boolean;
+        "usePresetMenuContent": true;
     }
     interface BiggiveMiscIcon {
         /**
@@ -2377,7 +2377,7 @@ declare namespace LocalJSX {
         /**
           * If true, content passed in via slots will be ignored, and this will just render a hard-coded menu that's the same everywhere. When BG2-2286 is done this will be permantly true and the prop will be deleted.
          */
-        "usePresetMenuContent"?: boolean;
+        "usePresetMenuContent"?: true;
     }
     interface BiggiveMiscIcon {
         /**
