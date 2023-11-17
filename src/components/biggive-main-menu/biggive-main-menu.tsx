@@ -95,6 +95,24 @@ export class BiggiveMainMenu {
     });
   }
 
+  private getSecondaryNavLinks() {
+    return (
+      <ul>
+        {this.isLoggedIn && (
+          <li>
+            <a href={makeURL('Donate', this.donateUrlPrefix, 'my-account')}>My Account</a>
+          </li>
+        )}
+        <li>
+          <a href={makeURL('Experience', this.experienceUrlPrefix, 's/contact-us')}>Contact Us</a>
+        </li>
+        <li>
+          <a href={makeURL('Experience', this.experienceUrlPrefix, 'charities/s/login')}>Charity Login</a>
+        </li>
+      </ul>
+    );
+  }
+
   render() {
     /** ten minutes in advance to account for a *very* slow browser following the link and/or clock skew.
      * There's not really any harm in doing this early unless its soo early that people start sharing the noredirect link more than we'd like.
@@ -112,22 +130,6 @@ export class BiggiveMainMenu {
 
     const homePageLink = ccIsOpenNowIsh ? '/?noredirect' : '/';
 
-    const secondaryNavLinks = (
-      <ul>
-        {this.isLoggedIn && (
-          <li>
-            <a href={makeURL('Donate', this.donateUrlPrefix, 'my-account')}>My Account</a>
-          </li>
-        )}
-        <li>
-          <a href={makeURL('Experience', this.experienceUrlPrefix, 's/contact-us')}>Contact Us</a>
-        </li>
-        <li>
-          <a href={makeURL('Experience', this.experienceUrlPrefix, 'charities/s/login')}>Charity Login</a>
-        </li>
-      </ul>
-    );
-
     return (
       <Host>
         <div class="row row-top">
@@ -143,7 +145,7 @@ export class BiggiveMainMenu {
             ></biggive-social-icon>
             <biggive-social-icon service="Instagram" url="https://www.instagram.com/biggiveorg" background-colour="tertiary" icon-colour="black"></biggive-social-icon>
           </div>
-          <div class="nav-secondary">{secondaryNavLinks}</div>
+          <div class="nav-secondary">{this.getSecondaryNavLinks()}</div>
         </div>
         <nav role="navigation" aria-label="Main Menu">
           <div class="navbar">
@@ -292,7 +294,7 @@ export class BiggiveMainMenu {
                     </ul>
                   </li>
                 </ul>
-                <div class="mobile-only">{secondaryNavLinks}</div>
+                <div class="mobile-only">{this.getSecondaryNavLinks()}</div>
               </div>
               <div class="mobile-social-icon-wrap mobile-only">
                 <biggive-social-icon service="Facebook" url="https://www.facebook.com/BigGive.org" background-colour="tertiary" icon-colour="black"></biggive-social-icon>
