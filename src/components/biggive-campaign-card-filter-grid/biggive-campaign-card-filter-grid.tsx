@@ -385,10 +385,46 @@ export class BiggiveCampaignCardFilterGrid {
           </div>
           <div class="selected-filter-wrap">
             <div class="selected-filters">
-              {this.selectedFilterCategory && <span class="button" onClick={() => {this.removeFilter('categories')}}>{this.selectedFilterCategory}</span>}
-              {this.selectedFilterBeneficiary && <span class="button" onClick={() => {this.removeFilter('beneficiaries')}}>{this.selectedFilterBeneficiary}</span>}
-              {this.selectedFilterLocation && <span class="button" onClick={() => {this.removeFilter('locations')}}>{this.selectedFilterLocation}</span>}
-              {this.selectedFilterFunding && <span class="button" onClick={() => {this.removeFilter('funding')}}>{this.selectedFilterFunding}</span>}
+              {this.selectedFilterCategory && (
+                <span
+                  class="button"
+                  onClick={() => {
+                    this.removeFilter('categories');
+                  }}
+                >
+                  {this.selectedFilterCategory}
+                </span>
+              )}
+              {this.selectedFilterBeneficiary && (
+                <span
+                  class="button"
+                  onClick={() => {
+                    this.removeFilter('beneficiaries');
+                  }}
+                >
+                  {this.selectedFilterBeneficiary}
+                </span>
+              )}
+              {this.selectedFilterLocation && (
+                <span
+                  class="button"
+                  onClick={() => {
+                    this.removeFilter('locations');
+                  }}
+                >
+                  {this.selectedFilterLocation}
+                </span>
+              )}
+              {this.selectedFilterFunding && (
+                <span
+                  class="button"
+                  onClick={() => {
+                    this.removeFilter('funding');
+                  }}
+                >
+                  {this.selectedFilterFunding}
+                </span>
+              )}
             </div>
             <div class="clear-all">
               <a onClick={this.handleClearAll}>Clear all</a>
