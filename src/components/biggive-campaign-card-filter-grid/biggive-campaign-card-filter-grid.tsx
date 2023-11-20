@@ -202,8 +202,6 @@ export class BiggiveCampaignCardFilterGrid {
       return;
     }
 
-    console.log({ selectEl });
-
     selectEl.selectedLabel = null;
     selectEl.selectedValue = null;
     this.doSearchAndFilterUpdate.emit(this.getSearchAndFilterObject());
@@ -278,9 +276,6 @@ export class BiggiveCampaignCardFilterGrid {
   }
 
   render() {
-    console.log('rendering');
-    console.log(this.selectedFilterBeneficiary, this.selectedFilterCategory, this.selectedFilterFunding, this.selectedFilterLocation);
-
     return (
       <div class={'container space-below-' + this.spaceBelow}>
         <div class="sleeve">
