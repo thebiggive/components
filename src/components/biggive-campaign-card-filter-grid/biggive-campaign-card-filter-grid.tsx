@@ -169,77 +169,45 @@ export class BiggiveCampaignCardFilterGrid {
       });
     }
 
-    let filters = {
-      beneficiaries: searchAndFilterObj.filterBeneficiary,
-      categories: searchAndFilterObj.filterCategory,
-      funding: searchAndFilterObj.filterFunding,
-      locations: searchAndFilterObj.filterLocation,
-    } as const;
-
-    type FilterKey = keyof typeof filters;
-
-    const keys: FilterKey[] = Object.keys(filters) as unknown as FilterKey[];
-
-    for (const filterKey of keys) {
-      // https://stackoverflow.com/a/69757191/2803757
-      const filterValue = filters[filterKey];
-
-      if (filterValue === null || filterValue.length === 0) {
-        continue;
-      }
-
-      let button = document.createElement('span');
-      button.classList.add('button');
-      button.dataset.id = filterKey;
-      button.innerText = filterValue;
-
-      if (selectedFilters) {
-        selectedFilters.appendChild(button);
-      }
-
-      button.addEventListener('click', () => {
-        switch (filterKey) {
-          case 'beneficiaries':
-            this.selectedFilterBeneficiary = null;
-            break;
-          case 'categories':
-            this.selectedFilterCategory = null;
-            break;
-          case 'funding':
-            this.selectedFilterFunding = null;
-            break;
-          case 'locations':
-            this.selectedFilterLocation = null;
-            break;
-          default:
-            // This asks the compiler to check that we are in dead code, i.e. we covered all the possible filter keys
-            // above. If we missed one we would get a compile error trying to assign a string to a never.
-            const exhaustiveSwitch: never = filterKey;
-            console.error(exhaustiveSwitch);
-        }
-        button.remove();
-        this.doSearchAndFilterUpdate.emit(this.getSearchAndFilterObject());
-
-        if (button.dataset.id === undefined) {
-          return;
-        }
-
-        const selectEl = this.el.shadowRoot?.getElementById(button.dataset.id) as HTMLBiggiveFormFieldSelectElement | undefined;
-        if (!selectEl) {
-          return;
-        }
-
-        selectEl.selectedLabel = null;
-        selectEl.selectedValue = null;
-      });
-    }
-
     this.filtersApplied =
       typeof searchAndFilterObj.filterBeneficiary === 'string' ||
       typeof searchAndFilterObj.filterCategory === 'string' ||
       typeof searchAndFilterObj.filterFunding === 'string' ||
       typeof searchAndFilterObj.filterLocation === 'string';
   };
+
+  private removeFilter(filterKey: 'funding' | 'locations' | 'categories' | 'beneficiaries') {
+    switch (filterKey) {
+      case 'beneficiaries':
+        this.selectedFilterBeneficiary = null;
+        break;
+      case 'categories':
+        this.selectedFilterCategory = null;
+        break;
+      case 'funding':
+        this.selectedFilterFunding = null;
+        break;
+      case 'locations':
+        this.selectedFilterLocation = null;
+        break;
+      default:
+        // This asks the compiler to check that we are in dead code, i.e. we covered all the possible filter keys
+        // above. If we missed one we would get a compile error trying to assign a string to a never.
+        const exhaustiveSwitch: never = filterKey;
+        console.error(exhaustiveSwitch);
+    }
+
+    const selectEl = this.el.shadowRoot?.getElementById(filterKey) as HTMLBiggiveFormFieldSelectElement | undefined;
+    if (!selectEl) {
+      return;
+    }
+
+    console.log({ selectEl });
+
+    selectEl.selectedLabel = null;
+    selectEl.selectedValue = null;
+    this.doSearchAndFilterUpdate.emit(this.getSearchAndFilterObject());
+  }
 
   private handleSearchButtonPressed = () => {
     this.doSearchAndFilterUpdate.emit(this.getSearchAndFilterObject());
@@ -310,6 +278,9 @@ export class BiggiveCampaignCardFilterGrid {
   }
 
   render() {
+    console.log('rendering');
+    console.log(this.selectedFilterBeneficiary, this.selectedFilterCategory, this.selectedFilterFunding, this.selectedFilterLocation);
+
     return (
       <div class={'container space-below-' + this.spaceBelow}>
         <div class="sleeve">
@@ -343,6 +314,7 @@ export class BiggiveCampaignCardFilterGrid {
                     prompt="Category"
                     placeholder={this.categoriesPlaceHolderText}
                     selectedLabel={this.selectedFilterCategory}
+                    selectedValue={this.selectedFilterCategory}
                     options={this.optionsToArray(this.categoryOptions || [])}
                     selectionChanged={this.categoryFilterSelectionChanged}
                     id="categories"
@@ -356,6 +328,7 @@ export class BiggiveCampaignCardFilterGrid {
                     prompt="Beneficiary"
                     placeholder={this.beneficiariesPlaceHolderText}
                     selectedLabel={this.selectedFilterBeneficiary}
+                    selectedValue={this.selectedFilterBeneficiary}
                     options={this.optionsToArray(this.beneficiaryOptions || [])}
                     selectionChanged={this.beneficiarySelectionChanged}
                     id="beneficiaries"
@@ -369,6 +342,7 @@ export class BiggiveCampaignCardFilterGrid {
                     prompt="Location"
                     placeholder={this.locationsPlaceHolderText}
                     selectedLabel={this.selectedFilterLocation}
+                    selectedValue={this.selectedFilterLocation}
                     options={this.optionsToArray(this.locationOptions || [])}
                     selectionChanged={this.locationSelectionChanged}
                     id="locations"
@@ -382,6 +356,7 @@ export class BiggiveCampaignCardFilterGrid {
                     prompt="Funding"
                     placeholder={this.fundingPlaceHolderText}
                     selectedLabel={this.selectedFilterFunding}
+                    selectedValue={this.selectedFilterFunding}
                     options={this.optionsToArray(this.fundingOptions || [])}
                     selectionChanged={this.fundingSelectionChanged}
                     id="funding"
@@ -414,7 +389,12 @@ export class BiggiveCampaignCardFilterGrid {
             </div>
           </div>
           <div class="selected-filter-wrap">
-            <div class="selected-filters"></div>
+            <div class="selected-filters">
+              {this.selectedFilterCategory && <span class="button" onClick={() => {this.removeFilter('categories')}}>{this.selectedFilterCategory}</span>}
+              {this.selectedFilterBeneficiary && <span class="button" onClick={() => {this.removeFilter('beneficiaries')}}>{this.selectedFilterBeneficiary}</span>}
+              {this.selectedFilterLocation && <span class="button" onClick={() => {this.removeFilter('locations')}}>{this.selectedFilterLocation}</span>}
+              {this.selectedFilterFunding && <span class="button" onClick={() => {this.removeFilter('funding')}}>{this.selectedFilterFunding}</span>}
+            </div>
             <div class="clear-all">
               <a onClick={this.handleClearAll}>Clear all</a>
             </div>
