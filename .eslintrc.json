@@ -12,6 +12,9 @@
   ],
   "rules": {
     "@stencil-community/decorators-style": "off",
-    "@stencil-community/required-jsdoc": "off"
+    "@stencil-community/required-jsdoc": "off",
+
+    // see https://stackoverflow.com/a/75277764/2526181
+    "react/jsx-no-bind": [ "error", { "ignoreDOMComponents": true } ]
   }
 }
