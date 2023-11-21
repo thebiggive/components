@@ -124,10 +124,10 @@ export class BiggiveCampaignCardFilterGrid {
   /**
    * This and similar properties represent selections made in the popup but not yet applied.
    */
-  private newSelectedFilterCategory: string | undefined;
-  private newSelectedFilterBeneficiary: string | undefined;
-  private newSelectedFilterLocation: string | undefined;
-  private newSelectedFilterFunding: string | undefined;
+  private newSelectedFilterCategory: string | null = null;
+  private newSelectedFilterBeneficiary: string | null = null;
+  private newSelectedFilterLocation: string | null = null;
+  private newSelectedFilterFunding: string | null = null;
 
   private categoryFilterSelectionChanged = (value: string) => {
     this.newSelectedFilterCategory = value;
@@ -228,6 +228,11 @@ export class BiggiveCampaignCardFilterGrid {
   };
 
   private handleFilterButtonClick = () => {
+    this.newSelectedFilterBeneficiary = this.selectedFilterBeneficiary;
+    this.newSelectedFilterCategory = this.selectedFilterCategory;
+    this.newSelectedFilterFunding = this.selectedFilterFunding;
+    this.newSelectedFilterLocation = this.selectedFilterLocation;
+
     const filterPopup = this.el.shadowRoot?.getElementById('filter-popup') as HTMLBiggivePopupElement | undefined;
     if (filterPopup) {
       filterPopup.openFromOutside();
