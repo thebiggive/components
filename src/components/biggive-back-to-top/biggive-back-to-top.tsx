@@ -10,7 +10,7 @@ export class BiggiveBackToTop {
     return (
       <div class="container">
         <a href="#">
-          <img src={getAssetPath('/assets/images/triangles-combined.svg')} />
+          <img src={getAssetPath('assets/images/triangles-combined.svg')} />
           <span class="text">Back to top</span>
         </a>
       </div>
