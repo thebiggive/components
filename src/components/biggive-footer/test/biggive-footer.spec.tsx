@@ -34,7 +34,7 @@ describe('biggive-footer', () => {
 
         <div class="row row-bottom">
           <div class="postscript-wrap">
-            <img class="fr-logo" src="/assets/images/fundraising-regulator.png" alt="Fundraising Regulator">
+            <img class="fr-logo" src="/assets/images/fundraising-regulator.png" alt="Registered with FUNDRAISING REGULATOR">
             <nav class="nav nav-postscript" aria-label="Legal"></nav>
           </div>
           <div class="social-icon-wrap">
