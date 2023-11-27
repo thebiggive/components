@@ -95,7 +95,7 @@ export class BiggiveMainMenu {
     });
   }
 
-  private getSecondaryNavLinks() {
+  private getSecondaryNavLinks = () => {
     return (
       <ul>
         {this.isLoggedIn && (
@@ -111,7 +111,7 @@ export class BiggiveMainMenu {
         </li>
       </ul>
     );
-  }
+  };
 
   render() {
     /** ten minutes in advance to account for a *very* slow browser following the link and/or clock skew.
