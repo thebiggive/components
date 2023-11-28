@@ -6,6 +6,8 @@ import { Component, Element, Prop, h } from '@stencil/core';
   shadow: true,
 })
 export class BiggiveTotalizer {
+  private lastWrapperWidth: number = 0;
+
   @Element() host: HTMLBiggiveTotalizerElement;
   /**
    * Space below component
@@ -37,6 +39,14 @@ export class BiggiveTotalizer {
   @Prop() mainMessage: string;
 
   private setSpeed(itemsWidth: number) {
+    if (itemsWidth === this.lastWrapperWidth) {
+      // Some browsers fire 'resize' overzealously on scroll; we don't want to cause extra paints if nothing
+      // relevant changed.
+      return;
+    }
+
+    this.lastWrapperWidth = itemsWidth;
+
     const sleeve1: HTMLDivElement | null | undefined = this.host.shadowRoot?.querySelector('.ticker-wrap #sleeve_1');
     const sleeve2: HTMLDivElement | null | undefined = this.host.shadowRoot?.querySelector('.ticker-wrap #sleeve_2');
 
