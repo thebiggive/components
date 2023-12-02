@@ -45,8 +45,6 @@ export class BiggiveTotalizer {
       return;
     }
 
-    console.log('containerWidth', containerWidth);
-
     let sleeves: HTMLDivElement[] = [];
     for (const ii in [1, 2, 3, 4]) {
       const sleeve = this.host.shadowRoot?.querySelector('.ticker-wrap #sleeve_' + ii) as HTMLDivElement | null;
@@ -68,25 +66,14 @@ export class BiggiveTotalizer {
     const sleeveCount = Math.max(1, Math.min(4, Math.ceil((2 * itemsWidth) / containerWidth)));
     this.host.style.setProperty('--ticker-end-left', `-${sleeveCount * 100}%`);
 
-    const duration = Math.round((containerWidth / 60) * sleeveCount);
-    console.log('base duration', duration);
-    console.log('itemsWidth', itemsWidth);
-    console.log('sleeveCount', sleeveCount);
+    const duration = Math.round((itemsWidth / 100) * sleeveCount);
 
     for (let ii = 1; ii <= sleeveCount; ii++) {
       const sleeve = sleeves[ii - 1];
       if (sleeve) {
-        console.log('setting sleeve no. ' + ii);
-
         sleeve.style.animationDuration = duration + 's';
-
-        console.log('anim duration', sleeve.style.animationDuration);
-
         // https://stackoverflow.com/a/45847760
         sleeve.style.animationDelay = (duration * (ii - 1)) / sleeveCount + 's';
-
-        console.log('anim delay', sleeve.style.animationDelay);
-
         sleeve.style.display = 'inline-flex';
         sleeve.style.animationName = 'ticker';
       }
