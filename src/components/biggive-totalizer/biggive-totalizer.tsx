@@ -65,7 +65,7 @@ export class BiggiveTotalizer {
       return;
     }
 
-    const sleeveCount = Math.max(1, Math.min(4, Math.ceil(itemsWidth / containerWidth)));
+    const sleeveCount = Math.max(1, Math.min(4, Math.ceil((2 * itemsWidth) / containerWidth)));
     this.host.style.setProperty('--ticker-end-left', `-${sleeveCount * 100}%`);
 
     const duration = Math.round((containerWidth / 60) * sleeveCount);
@@ -78,9 +78,6 @@ export class BiggiveTotalizer {
       if (sleeve) {
         console.log('setting sleeve no. ' + ii);
 
-        // This is often over 100% on mobile sizes, so we need to replace the SCSS default.
-        sleeve.style.width = itemsWidth + 'px';
-        sleeve.style.left = itemsWidth + 'px';
         sleeve.style.animationDuration = duration + 's';
 
         console.log('anim duration', sleeve.style.animationDuration);
