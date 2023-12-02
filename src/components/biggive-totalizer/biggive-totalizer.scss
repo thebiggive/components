@@ -68,6 +68,8 @@
     }
 
     .sleeve-delayed-copy {
+      // We set between 0 and 3 copies to `display: inline-flex` in TS, depending on the size
+      // of the items and container.
       display: none;
       white-space: nowrap;
       max-height: 24px;
