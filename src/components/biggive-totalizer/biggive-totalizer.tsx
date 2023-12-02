@@ -90,9 +90,7 @@ export class BiggiveTotalizer {
 
         console.log('anim delay', sleeve.style.animationDelay);
 
-        sleeve.style.background = ii > 1 ? 'blue' : 'inherit';
         sleeve.style.display = 'inline-flex';
-
         sleeve.style.animationName = 'ticker';
       }
     }

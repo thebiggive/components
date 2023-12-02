@@ -38,7 +38,7 @@
 
   .ticker-wrap {
     @include font-size-medium();
-    padding: calc($spacer-2 - 4px) 0 $spacer-2 0;
+    padding: calc($spacer-2 - 4px) $spacer-4 $spacer-2 0;
     min-height: 17px;
     overflow: hidden;
     position: relative;
