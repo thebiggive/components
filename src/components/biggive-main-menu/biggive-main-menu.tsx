@@ -7,6 +7,8 @@ import { makeURL } from '../../util/helper-methods';
   shadow: true,
 })
 export class BiggiveMainMenu {
+  private lastOffsetHeight = 0;
+
   @Element() host: HTMLBiggiveMainMenuElement;
 
   // URL prefixes vary by environment, and components library is not best placed to know what they are, so we
@@ -47,6 +49,14 @@ export class BiggiveMainMenu {
   }
 
   private setHeaderSize() {
+    if (this.host.offsetHeight === this.lastOffsetHeight) {
+      // Some browsers fire 'resize' overzealously on scroll; we don't want to cause extra paints if nothing
+      // relevant changed.
+      return;
+    }
+
+    this.lastOffsetHeight = this.host.offsetHeight;
+
     // Some resize edge cases lead Firefox, and maybe others, to go haywire and get a host offset
     // height of millions of pixels, presumably due to a layout logic loop. So for as long as we use
     // this body padding workaround, we need a safe maximum value, currently 130px, beyond which
