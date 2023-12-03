@@ -63,7 +63,10 @@ export class BiggiveTotalizer {
       return;
     }
 
-    const sleeveCount = Math.max(1, Math.min(4, Math.ceil((2 * itemsWidth) / containerWidth)));
+    // We've seen the initial calculation exclude the ~30px per set of values end padding before,
+    // and it's safe to err on the side of more copies to reduce the chance of abrupt early loop
+    // ends, so we add a buffer of 40px to the calculation when deciding how many copies to use.
+    const sleeveCount = Math.max(1, Math.min(4, Math.ceil((2 * (40 + itemsWidth)) / containerWidth)));
     this.host.style.setProperty('--ticker-end-left', `-${sleeveCount * 100}%`);
 
     const duration = Math.round((itemsWidth / 100) * sleeveCount);
