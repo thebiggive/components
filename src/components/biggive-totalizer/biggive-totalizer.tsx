@@ -39,6 +39,8 @@ export class BiggiveTotalizer {
   @Prop() mainMessage: string;
 
   private setSpeed(itemsWidth: number, containerWidth: number) {
+    console.log('setSpeed() called with itemsWidth=' + itemsWidth + ', containerWidth=' + containerWidth);
+
     if (containerWidth === this.lastWrapperWidth) {
       // Some browsers fire 'resize' overzealously on scroll; we don't want to cause extra paints if nothing
       // relevant changed.
@@ -83,7 +85,7 @@ export class BiggiveTotalizer {
     }
   }
 
-  componentDidRender() {
+  componentDidLoad() {
     const wrapper = this.host.shadowRoot?.querySelector('.ticker-wrap') as HTMLDivElement;
 
     const tickerItemsInternalWrapper: HTMLDivElement | null = this.host.querySelector(`[slot="ticker-items"]`);
@@ -105,7 +107,12 @@ export class BiggiveTotalizer {
       sleeve4 && sleeve4.appendChild(child.cloneNode(true));
     });
 
-    this.setSpeed(tickerItemsInternalWrapper.clientWidth, wrapper.clientWidth);
+    setTimeout(() => {
+      // In Angular contexts, it seems like we need to leave little time before the calculations work.
+      // Not totally clear why yet.
+      this.setSpeed(tickerItemsInternalWrapper.clientWidth, wrapper.clientWidth);
+    }, 300);
+
     window.addEventListener('resize', () => {
       this.setSpeed(tickerItemsInternalWrapper.clientWidth, wrapper.clientWidth);
     });
