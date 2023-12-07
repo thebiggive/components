@@ -7,12 +7,13 @@
 
 ## Properties
 
-| Property              | Attribute               | Description                                                                                                                    | Type      | Default     |
-| --------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------ | --------- | ----------- |
-| `blogUrlPrefix`       | `blog-url-prefix`       |                                                                                                                                | `string`  | `undefined` |
-| `donateUrlPrefix`     | `donate-url-prefix`     | E.g. "https://donate.thebiggive.org.uk" for production (currently)                                                             | `string`  | `undefined` |
-| `experienceUrlPrefix` | `experience-url-prefix` |                                                                                                                                | `string`  | `undefined` |
-| `isLoggedIn`          | `is-logged-in`          | Whether the current user is logged in (i.e. is assumed to have a valid JWT). They get links to some extra content if they are. | `boolean` | `false`     |
+| Property               | Attribute                | Description                                                                                                                    | Type      | Default     |
+| ---------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | --------- | ----------- |
+| `blogUrlPrefix`        | `blog-url-prefix`        |                                                                                                                                | `string`  | `undefined` |
+| `donateUrlPrefix`      | `donate-url-prefix`      | E.g. "https://donate.thebiggive.org.uk" for production (currently)                                                             | `string`  | `undefined` |
+| `experienceUrlPrefix`  | `experience-url-prefix`  |                                                                                                                                | `string`  | `undefined` |
+| `isLoggedIn`           | `is-logged-in`           | Whether the current user is logged in (i.e. is assumed to have a valid JWT). They get links to some extra content if they are. | `boolean` | `false`     |
+| `myAccountflagEnabled` | `my-accountflag-enabled` |                                                                                                                                | `boolean` | `false`     |
 
 
 ## Methods
