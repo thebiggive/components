@@ -824,6 +824,7 @@ export namespace Components {
           * Whether the current user is logged in (i.e. is assumed to have a valid JWT). They get links to some extra content if they are.
          */
         "isLoggedIn": boolean;
+        "myAccountflagEnabled": boolean;
     }
     interface BiggiveMiscIcon {
         /**
@@ -2368,6 +2369,7 @@ declare namespace LocalJSX {
           * Whether the current user is logged in (i.e. is assumed to have a valid JWT). They get links to some extra content if they are.
          */
         "isLoggedIn"?: boolean;
+        "myAccountflagEnabled"?: boolean;
     }
     interface BiggiveMiscIcon {
         /**
