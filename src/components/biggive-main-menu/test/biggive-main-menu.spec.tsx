@@ -34,13 +34,13 @@ describe('biggive-main-menu', () => {
           <div class="nav-secondary">
             <ul>
               <li>
-                <a href="https://have-an-experience-here.biggive.org/s/contact-us">
-                  Contact Us
+                <a href="https://have-an-experience-here.biggive.org/charities/s/login">
+                  Charity Login
                 </a>
               </li>
               <li>
-                <a href="https://have-an-experience-here.biggive.org/charities/s/login">
-                  Charity Login
+                <a href="https://have-an-experience-here.biggive.org/s/contact-us">
+                  Contact Us
                 </a>
               </li>
             </ul>
@@ -220,13 +220,13 @@ describe('biggive-main-menu', () => {
                 <div class="mobile-only">
                   <ul>
                     <li>
-                      <a href="https://have-an-experience-here.biggive.org/s/contact-us">
-                        Contact Us
+                      <a href="https://have-an-experience-here.biggive.org/charities/s/login">
+                        Charity Login
                       </a>
                     </li>
                     <li>
-                      <a href="https://have-an-experience-here.biggive.org/charities/s/login">
-                        Charity Login
+                      <a href="https://have-an-experience-here.biggive.org/s/contact-us">
+                        Contact Us
                       </a>
                     </li>
                   </ul>
