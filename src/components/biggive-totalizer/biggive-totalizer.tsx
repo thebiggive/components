@@ -78,7 +78,7 @@ export class BiggiveTotalizer {
       if (sleeve) {
         sleeve.style.animationDuration = duration + 's';
         // https://stackoverflow.com/a/45847760
-        sleeve.style.animationDelay = (duration * (ii - 1)) / sleeveCount + 's';
+        sleeve.style.animationDelay = (duration / (sleeveCount - 1)) * (ii - 1) + 's';
         sleeve.style.display = 'inline-flex';
         sleeve.style.animationName = 'ticker';
       }
