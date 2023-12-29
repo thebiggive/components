@@ -45,10 +45,13 @@
 
     .sleeve {
       will-change: transform; // https://web.dev/stick-to-compositor-only-properties-and-manage-layer-count/
+      display: inline-flex;
       position: absolute;
-      display: flex;
+      top: 4px;
+      height: 24px;
       min-width: 100%;
       left: 100%;
+      white-space: nowrap;
 
       animation-iteration-count: infinite;
       animation-timing-function: linear;
@@ -58,12 +61,6 @@
 
       @media (prefers-reduced-motion) {
         animation-name: none !important; // Turn off movement when needed for a11y.
-      }
-
-      ::slotted([slot=ticker-items]) {
-        display: inline-flex;
-        white-space: nowrap;
-        max-height: 24px;
       }
     }
 
