@@ -103,6 +103,8 @@ export class BiggiveTotalizer {
     // a blank break. Sleeve 2 and up will animate on delays per https://stackoverflow.com/a/45847760.
     setTimeout(() => {
       tickerItemsInternalWrapper.childNodes.forEach((child: HTMLElement) => {
+        console.log('Child element for cloning: ', child);
+
         sleeve2 && sleeve2.appendChild(child.cloneNode(true)); // Deep clone all items.
         sleeve3 && sleeve3.appendChild(child.cloneNode(true));
         sleeve4 && sleeve4.appendChild(child.cloneNode(true));
