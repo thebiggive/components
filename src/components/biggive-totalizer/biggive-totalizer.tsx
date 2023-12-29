@@ -101,12 +101,14 @@ export class BiggiveTotalizer {
 
     // Deep clone [all children of] the ticker items internal wrapper and append them, so the ticker can show items without
     // a blank break. Sleeve 2 and up will animate on delays per https://stackoverflow.com/a/45847760.
-    sleeve2 && sleeve2.appendChild(tickerItemsInternalWrapper.cloneNode(true));
-    sleeve3 && sleeve3.appendChild(tickerItemsInternalWrapper.cloneNode(true));
-    sleeve4 && sleeve4.appendChild(tickerItemsInternalWrapper.cloneNode(true));
+    setTimeout(() => {
+      sleeve2 && sleeve2.appendChild(tickerItemsInternalWrapper.cloneNode(true));
+      sleeve3 && sleeve3.appendChild(tickerItemsInternalWrapper.cloneNode(true));
+      sleeve4 && sleeve4.appendChild(tickerItemsInternalWrapper.cloneNode(true));
+    }, 800);
 
     setTimeout(() => {
-      // In Angular contexts, it seems like we need to leave little time before the calculations work.
+      // In Angular contexts, it seems like we need to leave a little time before the calculations work.
       // Not totally clear why yet.
       this.setSpeed(tickerItemsInternalWrapper.clientWidth, wrapper.clientWidth);
     }, 300);
