@@ -102,9 +102,11 @@ export class BiggiveTotalizer {
     // Deep clone [all children of] the ticker items internal wrapper and append them, so the ticker can show items without
     // a blank break. Sleeve 2 and up will animate on delays per https://stackoverflow.com/a/45847760.
     setTimeout(() => {
-      sleeve2 && sleeve2.appendChild(tickerItemsInternalWrapper.cloneNode(true));
-      sleeve3 && sleeve3.appendChild(tickerItemsInternalWrapper.cloneNode(true));
-      sleeve4 && sleeve4.appendChild(tickerItemsInternalWrapper.cloneNode(true));
+      tickerItemsInternalWrapper.childNodes.forEach((child: HTMLElement) => {
+        sleeve2 && sleeve2.appendChild(child.cloneNode(true)); // Deep clone all items.
+        sleeve3 && sleeve3.appendChild(child.cloneNode(true));
+        sleeve4 && sleeve4.appendChild(child.cloneNode(true));
+      });
     }, 800);
 
     setTimeout(() => {
