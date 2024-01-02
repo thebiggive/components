@@ -15,10 +15,14 @@ export const config: Config = {
   ],
   outputTargets: [
     angularOutputTarget({
-      componentCorePackage: '@biggive/components',
+      componentCorePackage: '@biggive/components/dist/components',
       directivesProxyFile: './angular/projects/components/src/lib/stencil-generated/components.ts',
       directivesArrayFile: './angular/projects/components/src/lib/stencil-generated/index.ts',
       includeImportCustomElements: true,
+      // TODO once we have Stencil v4 working generally, it could well be good to try "standalone" which uses
+      // `dist-custom-elements` instead of `dist` and might make things more efficient in Donate.
+      // See https://stenciljs.com/docs/angular#outputtype
+      outputType: 'component',
     }),
     {
       type: 'dist-hydrate-script',
