@@ -15,6 +15,9 @@ export const config: Config = {
   ],
   outputTargets: [
     angularOutputTarget({
+      // Not 100% sure if specifying the package this way, as opposed to `@biggive/component`, is now
+      // required. But it's the format suggested in the below guide and it works.
+      // https://pranavsarda.hashnode.dev/stenciljs-with-angular-app-directly
       componentCorePackage: '@biggive/components/dist/components',
       directivesProxyFile: './angular/projects/components/src/lib/stencil-generated/components.ts',
       directivesArrayFile: './angular/projects/components/src/lib/stencil-generated/index.ts',

@@ -73,9 +73,9 @@ export class BiggiveTotalizer {
     // has proven very hard to iterate on pending a fix for DON-867 because
     // there is Angular-specific behaviour breaking the contents of copies.
     const sleeveCount = 1;
-    this.host.style.setProperty('--ticker-end-left', `-${sleeveCount * 100}%`);
+    this.host.style.setProperty('--ticker-end-left', `-${(sleeveCount + 1) * 100}%`);
 
-    const duration = Math.round((itemsWidth / 100) * sleeveCount);
+    const duration = Math.round((itemsWidth / 50) * sleeveCount);
 
     for (let ii = 1; ii <= sleeveCount; ii++) {
       const sleeve = sleeves[ii - 1];

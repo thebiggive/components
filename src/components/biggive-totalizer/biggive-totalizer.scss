@@ -6,7 +6,7 @@
   display: contents;
   @include standard-font();
 
-  --ticker-end-left: -100%;
+  --ticker-end-left: -200%;
 }
 
 @keyframes ticker {
