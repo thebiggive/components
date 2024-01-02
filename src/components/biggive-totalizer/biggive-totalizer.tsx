@@ -68,7 +68,11 @@ export class BiggiveTotalizer {
     // We've seen the initial calculation exclude the ~30px per set of values end padding before,
     // and it's safe to err on the side of more copies to reduce the chance of abrupt early loop
     // ends, so we add a buffer of 40px to the calculation when deciding how many copies to use.
-    const sleeveCount = Math.max(1, Math.min(4, Math.ceil((2 * (40 + itemsWidth)) / containerWidth)));
+    // const sleeveCount = Math.max(1, Math.min(4, Math.ceil((2 * (40 + itemsWidth)) / containerWidth)));
+    // TODO Ultimately we'd like to get multiple copies working, or simplify. This
+    // has proven very hard to iterate on pending a fix for DON-867 because
+    // there is Angular-specific behaviour breaking the contents of copies.
+    const sleeveCount = 1;
     this.host.style.setProperty('--ticker-end-left', `-${sleeveCount * 100}%`);
 
     const duration = Math.round((itemsWidth / 100) * sleeveCount);
