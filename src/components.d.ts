@@ -9,6 +9,10 @@ import { spacingOption } from "./globals/spacing-option";
 import { brandColour } from "./globals/brand-colour";
 import { headingTag } from "./globals/heading-tag";
 import { headingSize } from "./globals/heading-size";
+export { spacingOption } from "./globals/spacing-option";
+export { brandColour } from "./globals/brand-colour";
+export { headingTag } from "./globals/heading-tag";
+export { headingSize } from "./globals/heading-size";
 export namespace Components {
     interface BiggiveAccordion {
         "headingColour": brandColour;
@@ -824,6 +828,7 @@ export namespace Components {
           * Whether the current user is logged in (i.e. is assumed to have a valid JWT). They get links to some extra content if they are.
          */
         "isLoggedIn": boolean;
+        "myAccountflagEnabled": boolean;
     }
     interface BiggiveMiscIcon {
         /**
@@ -1197,7 +1202,18 @@ declare global {
         prototype: HTMLBiggiveBrandedImageElement;
         new (): HTMLBiggiveBrandedImageElement;
     };
+    interface HTMLBiggiveButtonElementEventMap {
+        "doButtonClick": { event: object; url: string };
+    }
     interface HTMLBiggiveButtonElement extends Components.BiggiveButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLBiggiveButtonElementEventMap>(type: K, listener: (this: HTMLBiggiveButtonElement, ev: BiggiveButtonCustomEvent<HTMLBiggiveButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLBiggiveButtonElementEventMap>(type: K, listener: (this: HTMLBiggiveButtonElement, ev: BiggiveButtonCustomEvent<HTMLBiggiveButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLBiggiveButtonElement: {
         prototype: HTMLBiggiveButtonElement;
@@ -1209,13 +1225,42 @@ declare global {
         prototype: HTMLBiggiveCallToActionElement;
         new (): HTMLBiggiveCallToActionElement;
     };
+    interface HTMLBiggiveCampaignCardElementEventMap {
+        "doCardGeneralClick": { event: object; url: string };
+    }
     interface HTMLBiggiveCampaignCardElement extends Components.BiggiveCampaignCard, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLBiggiveCampaignCardElementEventMap>(type: K, listener: (this: HTMLBiggiveCampaignCardElement, ev: BiggiveCampaignCardCustomEvent<HTMLBiggiveCampaignCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLBiggiveCampaignCardElementEventMap>(type: K, listener: (this: HTMLBiggiveCampaignCardElement, ev: BiggiveCampaignCardCustomEvent<HTMLBiggiveCampaignCardElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLBiggiveCampaignCardElement: {
         prototype: HTMLBiggiveCampaignCardElement;
         new (): HTMLBiggiveCampaignCardElement;
     };
+    interface HTMLBiggiveCampaignCardFilterGridElementEventMap {
+        "doSearchAndFilterUpdate": {
+    searchText: string | null;
+    sortBy: string | null;
+    filterCategory: string | null;
+    filterBeneficiary: string | null;
+    filterLocation: string | null;
+    filterFunding: string | null;
+  };
+    }
     interface HTMLBiggiveCampaignCardFilterGridElement extends Components.BiggiveCampaignCardFilterGrid, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLBiggiveCampaignCardFilterGridElementEventMap>(type: K, listener: (this: HTMLBiggiveCampaignCardFilterGridElement, ev: BiggiveCampaignCardFilterGridCustomEvent<HTMLBiggiveCampaignCardFilterGridElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLBiggiveCampaignCardFilterGridElementEventMap>(type: K, listener: (this: HTMLBiggiveCampaignCardFilterGridElement, ev: BiggiveCampaignCardFilterGridCustomEvent<HTMLBiggiveCampaignCardFilterGridElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLBiggiveCampaignCardFilterGridElement: {
         prototype: HTMLBiggiveCampaignCardFilterGridElement;
@@ -1239,7 +1284,19 @@ declare global {
         prototype: HTMLBiggiveCategoryIconElement;
         new (): HTMLBiggiveCategoryIconElement;
     };
+    interface HTMLBiggiveCookieBannerElementEventMap {
+        "cookieBannerAcceptAllSelected": void;
+        "cookieBannerSavePreferencesSelected": { analyticsAndTesting: Boolean; thirdParty: boolean };
+    }
     interface HTMLBiggiveCookieBannerElement extends Components.BiggiveCookieBanner, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLBiggiveCookieBannerElementEventMap>(type: K, listener: (this: HTMLBiggiveCookieBannerElement, ev: BiggiveCookieBannerCustomEvent<HTMLBiggiveCookieBannerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLBiggiveCookieBannerElementEventMap>(type: K, listener: (this: HTMLBiggiveCookieBannerElement, ev: BiggiveCookieBannerCustomEvent<HTMLBiggiveCookieBannerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLBiggiveCookieBannerElement: {
         prototype: HTMLBiggiveCookieBannerElement;
@@ -1299,7 +1356,18 @@ declare global {
         prototype: HTMLBiggiveHeroImageElement;
         new (): HTMLBiggiveHeroImageElement;
     };
+    interface HTMLBiggiveIconButtonElementEventMap {
+        "doButtonClick": { event: object; url: string };
+    }
     interface HTMLBiggiveIconButtonElement extends Components.BiggiveIconButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLBiggiveIconButtonElementEventMap>(type: K, listener: (this: HTMLBiggiveIconButtonElement, ev: BiggiveIconButtonCustomEvent<HTMLBiggiveIconButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLBiggiveIconButtonElementEventMap>(type: K, listener: (this: HTMLBiggiveIconButtonElement, ev: BiggiveIconButtonCustomEvent<HTMLBiggiveIconButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLBiggiveIconButtonElement: {
         prototype: HTMLBiggiveIconButtonElement;
@@ -1317,7 +1385,18 @@ declare global {
         prototype: HTMLBiggiveImageElement;
         new (): HTMLBiggiveImageElement;
     };
+    interface HTMLBiggiveImageButtonElementEventMap {
+        "doButtonClick": { event: object; url: string };
+    }
     interface HTMLBiggiveImageButtonElement extends Components.BiggiveImageButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLBiggiveImageButtonElementEventMap>(type: K, listener: (this: HTMLBiggiveImageButtonElement, ev: BiggiveImageButtonCustomEvent<HTMLBiggiveImageButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLBiggiveImageButtonElementEventMap>(type: K, listener: (this: HTMLBiggiveImageButtonElement, ev: BiggiveImageButtonCustomEvent<HTMLBiggiveImageButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLBiggiveImageButtonElement: {
         prototype: HTMLBiggiveImageButtonElement;
@@ -2368,6 +2447,7 @@ declare namespace LocalJSX {
           * Whether the current user is logged in (i.e. is assumed to have a valid JWT). They get links to some extra content if they are.
          */
         "isLoggedIn"?: boolean;
+        "myAccountflagEnabled"?: boolean;
     }
     interface BiggiveMiscIcon {
         /**

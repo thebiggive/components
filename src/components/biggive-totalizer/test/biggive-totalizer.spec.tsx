@@ -24,6 +24,8 @@ describe('biggive-totalizer', () => {
                      <slot name="ticker-items"></slot>
                    </div>
                    <div class="sleeve sleeve-delayed-copy" id="sleeve_2"></div>
+                   <div class="sleeve sleeve-delayed-copy" id="sleeve_3"></div>
+                   <div class="sleeve sleeve-delayed-copy" id="sleeve_4"></div>
                  </div>
                </div>
              </div>
