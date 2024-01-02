@@ -34,6 +34,7 @@ export const config: Config = {
     },
     {
       type: 'dist-custom-elements', // Uses default `dist/components`.
+      customElementsExportBehavior: 'single-export-module'
     },
     {
       type: 'docs-readme',
