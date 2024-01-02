@@ -54,4 +54,7 @@ export const config: Config = {
   devServer: {
     port: 3939,
   },
+  extras: {
+    experimentalSlotFixes: true
+  },
 };
