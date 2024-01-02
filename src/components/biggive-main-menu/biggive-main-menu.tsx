@@ -16,7 +16,7 @@ export class BiggiveMainMenu {
   @Prop() blogUrlPrefix: string;
 
   /**
-   * E.g. "https://donate.thebiggive.org.uk" for production (currently)
+   * E.g. "https://donate.biggive.org" for production (currently)
    */
   @Prop() donateUrlPrefix: string;
 

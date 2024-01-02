@@ -27,8 +27,8 @@ describe('biggive-footer', () => {
 
 
           <div class="button-wrap">
-            <biggive-button colour-scheme="white" url="https://blog.thebiggive.org.uk/charities" label="For charities"></biggive-button>
-            <biggive-button colour-scheme="white" url="https://blog.thebiggive.org.uk/funders" label="For funders"></biggive-button>
+            <biggive-button colour-scheme="white" url="https://biggive.org/charities" label="For charities"></biggive-button>
+            <biggive-button colour-scheme="white" url="https://biggive.org/funders" label="For funders"></biggive-button>
           </div>
         </div>
 
