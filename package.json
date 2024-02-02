@@ -67,7 +67,7 @@
     "jest-cli": "^29.7.0",
     "lint-staged": "^15.2.0",
     "prettier": "^3.1.1",
-    "puppeteer": "21.10.*",
+    "puppeteer": "21.11.*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.0.26"
