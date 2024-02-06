@@ -201,7 +201,7 @@ export class BiggiveFooter {
                     <a href={makeURL('Blog', this.blogUrlPrefix, 'terms-and-conditions')}>Terms and Conditions</a>
                   </li>
                   <li>
-                    <a href={makeURL('Blog', this.blogUrlPrefix, 'privacy')}>Privacy Policy</a>
+                    <a href={makeURL('Blog', this.blogUrlPrefix, 'privacy')}>Privacy Statement</a>
                   </li>
                 </ul>
               </nav>
