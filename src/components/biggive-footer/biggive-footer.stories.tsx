@@ -25,7 +25,7 @@ const Template = () => `
         </ul>
         <ul slot="nav-postscript">
           <li><a href="#">Terms and conditions</a></li>
-          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Privacy statement</a></li>
         </ul>
         <div slot="social-icons">
         <biggive-social-icon service="Facebook" url="https://www.facebook.com" background-colour="tertiary" icon-colour="black"></biggive-social-icon>
