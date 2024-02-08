@@ -12,6 +12,11 @@
   .sleeve {
     @include section-container();
     padding: $spacer-4;
+
+    @media screen and (max-width: $screen-desktop-max) {
+      // similar to e.g. biggive-hero-image which was set to use $spacer-3 first.
+      padding: $spacer-3;
+    }
   }
 }
 
