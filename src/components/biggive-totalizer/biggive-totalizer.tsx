@@ -75,7 +75,7 @@ export class BiggiveTotalizer {
     const sleeveCount = 1;
     this.host.style.setProperty('--ticker-end-left', `-${(sleeveCount + 1) * 100}%`);
 
-    const duration = Math.round((itemsWidth / 50) * sleeveCount);
+    const duration = Math.round((itemsWidth / 30) * sleeveCount);
 
     for (let ii = 1; ii <= sleeveCount; ii++) {
       const sleeve = sleeves[ii - 1];
