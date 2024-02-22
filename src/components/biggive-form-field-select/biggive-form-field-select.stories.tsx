@@ -9,7 +9,6 @@ const Template = () => `
           placeholder="--None--"
           selectStyle="bordered"
           prompt="Some Prompt"
-          name="someFormFieldName"
           options="[
           {&quot;label&quot;:&quot;Option Two&quot;,&quot;value&quot;:&quot;option_1&quot;},
           {&quot;label&quot;:&quot;Option Two&quot;,&quot;value&quot;:&quot;option_2&quot;}
