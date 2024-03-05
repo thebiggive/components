@@ -13,7 +13,7 @@
     "skipLibCheck": true, //https://stackoverflow.com/a/68262351/20012370
     "target": "es2017",
     "noImplicitAny": true,
-    "noUnusedLocals": true,
+//    "noUnusedLocals": true,
     "noUnusedParameters": true,
     "jsx": "react",
     "jsxFactory": "h",

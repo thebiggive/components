@@ -1,11 +1,15 @@
 import { Component, Method, State, Prop, Element, h } from '@stencil/core';
 import { brandColour } from '../../globals/brand-colour';
 import { spacingOption } from '../../globals/spacing-option';
+import Swiper from 'swiper';
+import { register } from 'swiper/element/bundle';
+
 
 @Component({
   tag: 'biggive-carousel',
   styleUrl: 'biggive-carousel.scss',
   shadow: true,
+  styles: [],
 })
 export class BiggiveCarousel {
   @Element() host: HTMLBiggiveCarouselElement;
@@ -22,9 +26,19 @@ export class BiggiveCarousel {
   private columnGapPx = 0;
   private sleeve: HTMLElement;
 
-  componentDidRender() {
-    this.sleeve = this.host.shadowRoot?.querySelector<HTMLElement>('.sleeve')!;
-    this.resizeToFitContent();
+  componentDidLoad() {
+
+    register();
+    // this.sleeve = this.host.shadowRoot?.querySelector<HTMLElement>('.sleeve')!;
+    // this.resizeToFitContent();
+
+    const swiper = new Swiper('.swiper', {
+      // speed: 400,
+      // spaceBetween: 100,
+    });
+    swiper.init();
+    console.log('initialised swiper xx :', swiper);
+    swiper.autoplay.start();
   }
 
   @Method()
@@ -54,34 +68,20 @@ export class BiggiveCarousel {
     }
   }
 
-  /*
-   * Animates a transition to show the NEXT or PREVIOUS element in the carousel.
-   * Does nothing if there is no next or previous element.
-   */
-  private showTab(direction: 'NEXT' | 'PREV') {
-    const newTab = this.currentTab + (direction === 'PREV' ? -1 : 1);
-
-    if (newTab < 0 || newTab > this.itemCount - this.columnCount) {
-      return;
-    }
-
-    const pos = 0 - (this.itemWidthPx + this.columnGapPx) * newTab;
-
-    this.sleeve.style.transitionDuration = '0.3s';
-    this.sleeve.style.transitionTimingFunction = 'ease-out';
-    this.sleeve.style.transform = 'translate3d(' + pos + 'px, 0, 0)';
-    this.currentTab = newTab;
-  }
-
-  private clickPrevHandler = () => {
-    this.showTab('PREV');
-  };
-
-  private clickNextHandler = () => {
-    this.showTab('NEXT');
-  };
+  //
+  // private clickPrevHandler = () => {
+  //   this.showTab('PREV');
+  // };
+  //
+  // private clickNextHandler = () => {
+  //   this.showTab('NEXT');
+  // };
 
   render() {
+    // const slides = Array.from(this.sleeve.children);
+    //
+    // const slidesWrapped = slides.map((slide: Element) => slide);
+
     return (
       <div
         class={
@@ -95,22 +95,11 @@ export class BiggiveCarousel {
           this.buttonIconColour
         }
       >
-        <div class="items">
-          <div class="sleeve">
-            <slot></slot>
-          </div>
-        </div>
-
-        <div class="navigation">
-          <div class="button prev" onClick={this.clickPrevHandler} title="Previous">
-            <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8.29311 14.5703L1.73926 8.01646L8.29311 1.46261" stroke="#000000" stroke-width="2" />
-            </svg>
-          </div>
-          <div class="button next" onClick={this.clickNextHandler} title="Next">
-            <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0.739117 1.46094L7.29297 8.01479L0.739118 14.5686" stroke="#000000" stroke-width="2" />
-            </svg>
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
           </div>
         </div>
       </div>

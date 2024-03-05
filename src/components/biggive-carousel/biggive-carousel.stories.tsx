@@ -33,8 +33,8 @@ export default {
 };
 
 const Template = (args: any) => `
-                  <biggive-tabbed-content
-                    space-below="${args.spaceBelow}"  
+                  <biggive-carousel
+                    space-below="${args.spaceBelow}"
                     column-count="${args.columnCount}"
                     button-background-colour="${args.buttonBackgroundColour}"
                     button-icon-colour="${args.buttonIconColour}"
@@ -74,7 +74,7 @@ const Template = (args: any) => `
                     attribution="this is the attribution"
                     >
                     </biggive-quote>
-                  </biggive-tabbed-content>
+                  </biggive-carousel>
                   `;
 
 export const CarouselComponent = Template.bind({});
