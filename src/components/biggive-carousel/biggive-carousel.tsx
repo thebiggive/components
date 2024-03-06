@@ -1,9 +1,8 @@
-import { Component, Method, State, Prop, Element, h } from '@stencil/core';
+import { Component, Method, State, Prop, Element, h, getAssetPath } from '@stencil/core';
 import { brandColour } from '../../globals/brand-colour';
 import { spacingOption } from '../../globals/spacing-option';
-import Swiper from 'swiper';
-import { register } from 'swiper/element/bundle';
-
+import { register as registerSwiper } from 'swiper/element/bundle';
+import 'swiper/swiper-bundle.min.css';
 
 @Component({
   tag: 'biggive-carousel',
@@ -12,94 +11,48 @@ import { register } from 'swiper/element/bundle';
   styles: [],
 })
 export class BiggiveCarousel {
-  @Element() host: HTMLBiggiveCarouselElement;
-
   @State() versions: [];
   @Prop() spaceBelow: spacingOption = 4;
   @Prop() columnCount: 1 | 2 | 3 | 4 | 5 = 3;
   @Prop() buttonBackgroundColour: brandColour = 'white';
   @Prop() buttonIconColour: brandColour = 'primary';
 
-  private currentTab = 0;
-  private itemCount = 0;
-  private itemWidthPx = 0;
-  private columnGapPx = 0;
-  private sleeve: HTMLElement;
+  @Element() element: HTMLBiggiveCarouselElement;
 
   componentDidLoad() {
-
-    register();
-    // this.sleeve = this.host.shadowRoot?.querySelector<HTMLElement>('.sleeve')!;
-    // this.resizeToFitContent();
-
-    const swiper = new Swiper('.swiper', {
-      // speed: 400,
-      // spaceBetween: 100,
-    });
-    swiper.init();
-    console.log('initialised swiper xx :', swiper);
-    swiper.autoplay.start();
+    registerSwiper();
   }
-
-  @Method()
-  public async resizeToFitContent() {
-    let children = new Array<HTMLElement>();
-    Array.from(this.host.children).forEach(item => {
-      if (!item.classList.contains('hidden')) {
-        children.push(item as HTMLElement);
-      }
-    });
-
-    this.itemCount = children.length;
-
-    if (children.length > 0) {
-      this.columnGapPx = 30;
-
-      this.itemWidthPx = (this.sleeve.parentElement?.offsetWidth! - (this.columnCount - 1) * this.columnGapPx) / this.columnCount;
-
-      this.sleeve.style.width = (this.itemWidthPx + this.columnGapPx) * children.length + 'px';
-      this.sleeve.style.height = this.sleeve.style.height;
-      this.sleeve.style.transform = 'translate3d(0px, 0, 0)';
-
-      children.forEach(el => {
-        el.style.width = this.itemWidthPx + 'px';
-        el.style.marginRight = this.columnGapPx + 'px';
-      });
-    }
-  }
-
-  //
-  // private clickPrevHandler = () => {
-  //   this.showTab('PREV');
-  // };
-  //
-  // private clickNextHandler = () => {
-  //   this.showTab('NEXT');
-  // };
 
   render() {
-    // const slides = Array.from(this.sleeve.children);
-    //
-    // const slidesWrapped = slides.map((slide: Element) => slide);
+    const slidesContents = Array.from(this.element.children);
+    const swiperSlides = slidesContents.map(element => (
+      <swiper-slide>
+        <div innerHTML={element.outerHTML}></div>
+      </swiper-slide>
+    ));
 
     return (
-      <div
-        class={
-          'container column-count-' +
-          this.columnCount +
-          ' space-below-' +
-          this.spaceBelow +
-          ' button-background-colour-' +
-          this.buttonBackgroundColour +
-          ' button-icon-colour-' +
-          this.buttonIconColour
-        }
-      >
-        <div class="swiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">Slide 1</div>
-            <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>
+      <div>
+        <swiper-container
+          class="mySwiper"
+          space-between="30"
+          slides-per-view="auto"
+          pagination-clickable="true"
+          speed="500"
+          autoplay="false"
+          loop="true"
+          centered-slides="false"
+          navigation-next-el="#carousel-button-next"
+          navigation-prev-el="#carousel-button-prev"
+        >
+          {swiperSlides}
+        </swiper-container>
+        <div class="charity-carousel-navigation">
+          <div role="button" id="carousel-button-prev" class="button next">
+            <img width="35px" src={getAssetPath('assets/images/arrow-prev-with-circle.svg')} alt="Previous" />
+          </div>
+          <div role="button" id="carousel-button-next" class="button prev" title="Next">
+            <img width="35px" src={getAssetPath('assets/images/arrow-next-with-circle.svg')} alt="Next" />
           </div>
         </div>
       </div>
