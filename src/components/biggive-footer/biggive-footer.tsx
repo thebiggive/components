@@ -162,7 +162,7 @@ export class BiggiveFooter {
               </HeadingTag>
               <ul slot="nav-tertiary">
                 <li>
-                  <a href={makeURL('Experience', this.experienceUrlPrefix, 's/contact-us')}>Contact us</a>
+                  <a href={makeURL('Blog', this.blogUrlPrefix, 'faqs')}>Contact us</a>
                 </li>
                 <li>
                   <a href={makeURL('Blog', this.blogUrlPrefix, 'our-story')}>Our Story</a>
