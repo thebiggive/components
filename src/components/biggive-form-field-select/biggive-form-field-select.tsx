@@ -1,10 +1,9 @@
-import { Component, Prop, h, Element, AttachInternals } from '@stencil/core';
+import { Component, Prop, h, Element } from '@stencil/core';
 
 @Component({
   tag: 'biggive-form-field-select',
   styleUrl: 'biggive-form-field-select.scss',
   shadow: true,
-  formAssociated: true,
 })
 export class BiggiveFormFieldSelect {
   @Element() el: HTMLBiggiveFormFieldSelectElement;
@@ -32,13 +31,10 @@ export class BiggiveFormFieldSelect {
 
   @Prop() selectedOptionColour: 'inherit' | 'blue' = 'blue';
 
-  @AttachInternals() internals: ElementInternals;
-
   private doOptionSelectCompletedHandler = (event: any) => {
     const value = event.target.value;
     this.selectedValue = value;
     this.selectedLabel = event.target.label;
-    this.internals.setFormValue(value);
     this.selectionChanged(value);
   };
 
@@ -50,10 +46,6 @@ export class BiggiveFormFieldSelect {
    * Placeholder
    */
   @Prop() placeholder: string | undefined;
-
-  componentWillLoad() {
-    this.internals.setFormValue(this.selectedValue);
-  }
 
   render() {
     const greyIfRequired = this.backgroundColour === 'grey' ? ' grey' : '';
