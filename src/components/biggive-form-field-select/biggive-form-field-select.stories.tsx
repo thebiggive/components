@@ -3,20 +3,10 @@ export default {
 };
 
 const Template = () => `
-      <p></p>
-      <biggive-form-field-select
-          background-colour="grey"
-          placeholder="--None--"
-          selectStyle="bordered"
-          prompt="Some Prompt"
-          name="someFormFieldName"
-          options="[
-          {&quot;label&quot;:&quot;Option Two&quot;,&quot;value&quot;:&quot;option_1&quot;},
-          {&quot;label&quot;:&quot;Option Two&quot;,&quot;value&quot;:&quot;option_2&quot;}
-          ]"
-      />
+      <biggive-form-field-select>
+      </biggive-form-field-select>
       `;
 
 document.addEventListener('doOptionSelect', () => alert('doOptionSelect event emitted!'));
 
-export const FormFieldSelect = Template.bind({});
+export const SearchComponent = Template.bind({});

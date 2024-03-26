@@ -31,8 +31,6 @@ export class BiggiveFormFieldSelect {
 
   @Prop() selectedOptionColour: 'inherit' | 'blue' = 'blue';
 
-  @Prop() name: undefined | string = undefined;
-
   private doOptionSelectCompletedHandler = (event: any) => {
     const value = event.target.value;
     this.selectedValue = value;
@@ -87,7 +85,7 @@ export class BiggiveFormFieldSelect {
             }
           >
             <div class="sleeve">
-              <select class={greyIfRequired} onChange={this.doOptionSelectCompletedHandler} name={this.name}>
+              <select class={greyIfRequired} onChange={this.doOptionSelectCompletedHandler}>
                 {options.map(option => (
                   <option selected={this.selectedValue === option.value} value={option.value}>
                     {option.label}
