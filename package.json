@@ -50,12 +50,12 @@
     "@stencil/angular-output-target": "~0.8.3",
     "@stencil/sass": "^3.0.8",
     "@stencil-community/eslint-plugin": "~0.7.1",
-    "@storybook/addon-actions": "^7.0.26",
-    "@storybook/addon-essentials": "^7.0.26",
-    "@storybook/addon-interactions": "^7.0.26",
-    "@storybook/addon-links": "^7.0.26",
-    "@storybook/html": "^7.0.26",
-    "@storybook/html-webpack5": "^7.0.26",
+    "@storybook/addon-actions": "^8.0.8",
+    "@storybook/addon-essentials": "^8.0.8",
+    "@storybook/addon-interactions": "^8.0.8",
+    "@storybook/addon-links": "^8.0.8",
+    "@storybook/html": "^8.0.8",
+    "@storybook/html-webpack5": "^8.0.8",
     "@storybook/testing-library": "^0.2.0",
     "@types/jest": "^29.5.11",
     "babel-loader": "^9.1.2",
@@ -70,7 +70,7 @@
     "puppeteer": "22.6.*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "storybook": "^7.0.26"
+    "storybook": "^8.0.8"
   },
   "license": "MIT"
 }
