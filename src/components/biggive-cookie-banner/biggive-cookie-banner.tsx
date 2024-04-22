@@ -132,7 +132,9 @@ export class BiggiveCookieBanner {
         </p>
 
         <p>
-          <a href={this.blogUriPrefix + '/privacy'}>Find out more in our Privacy Statement</a>
+          <a href={this.blogUriPrefix + '/privacy#cookies'} target="_blank">
+            Find out more in our Cookies Statement
+          </a>
         </p>
 
         <div class="button-group">
