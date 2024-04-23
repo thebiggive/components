@@ -500,6 +500,10 @@ export namespace Components {
         "url": string;
     }
     interface BiggiveCookieBanner {
+        /**
+          * If true the Preferences modal will be auto-opened - for use when the user has requested to edit their cookie preferences
+         */
+        "autoOpenPreferences": boolean;
         "blogUriPrefix": string;
     }
     interface BiggiveFooter {
@@ -1126,6 +1130,10 @@ export interface BiggiveCookieBannerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLBiggiveCookieBannerElement;
 }
+export interface BiggiveFooterCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLBiggiveFooterElement;
+}
 export interface BiggiveIconButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLBiggiveIconButtonElement;
@@ -1283,7 +1291,18 @@ declare global {
         prototype: HTMLBiggiveCookieBannerElement;
         new (): HTMLBiggiveCookieBannerElement;
     };
+    interface HTMLBiggiveFooterElementEventMap {
+        "showCookiePreferenceCenterClicked": void;
+    }
     interface HTMLBiggiveFooterElement extends Components.BiggiveFooter, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLBiggiveFooterElementEventMap>(type: K, listener: (this: HTMLBiggiveFooterElement, ev: BiggiveFooterCustomEvent<HTMLBiggiveFooterElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLBiggiveFooterElementEventMap>(type: K, listener: (this: HTMLBiggiveFooterElement, ev: BiggiveFooterCustomEvent<HTMLBiggiveFooterElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLBiggiveFooterElement: {
         prototype: HTMLBiggiveFooterElement;
@@ -2084,6 +2103,10 @@ declare namespace LocalJSX {
         "url"?: string;
     }
     interface BiggiveCookieBanner {
+        /**
+          * If true the Preferences modal will be auto-opened - for use when the user has requested to edit their cookie preferences
+         */
+        "autoOpenPreferences"?: boolean;
         "blogUriPrefix": string;
         /**
           * Indicates that the user accepts cookies for any purpose, without discrimination.
@@ -2101,6 +2124,10 @@ declare namespace LocalJSX {
         "blogUrlPrefix"?: string | undefined;
         "experienceUrlPrefix"?: string | undefined;
         "headingLevel"?: 1 | 2 | 3 | 4 | 5 | 6;
+        /**
+          * Indicates that the user has made a selection of cookies purpose to accept.  Event data is an object with boolean properties to say whether the user accepts or refuses each category of optional cookie.
+         */
+        "onShowCookiePreferenceCenterClicked"?: (event: BiggiveFooterCustomEvent<void>) => void;
         /**
           * Conditionally render footer menu: hard-coded (preset) when set to true, dynamic (slot-based) when set to false
          */
