@@ -8,9 +8,10 @@ to making it work before we can add it to our website.
 
 ## Properties
 
-| Property                     | Attribute         | Description | Type     | Default     |
-| ---------------------------- | ----------------- | ----------- | -------- | ----------- |
-| `blogUriPrefix` _(required)_ | `blog-uri-prefix` |             | `string` | `undefined` |
+| Property                     | Attribute               | Description                                                                                                              | Type      | Default     |
+| ---------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------ | --------- | ----------- |
+| `autoOpenPreferences`        | `auto-open-preferences` | If true the Preferences modal will be auto-opened - for use when the user has requested to edit their cookie preferences | `boolean` | `false`     |
+| `blogUriPrefix` _(required)_ | `blog-uri-prefix`       |                                                                                                                          | `string`  | `undefined` |
 
 
 ## Events

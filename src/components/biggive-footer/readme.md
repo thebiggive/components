@@ -15,6 +15,13 @@
 | `usePresetFooter`     | `use-preset-footer`     | Conditionally render footer menu: hard-coded (preset) when set to true, dynamic (slot-based) when set to false              | `boolean`                    | `false`     |
 
 
+## Events
+
+| Event                               | Description                                                                                                                                                                                              | Type                |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `showCookiePreferenceCenterClicked` | Indicates that the user has made a selection of cookies purpose to accept.  Event data is an object with boolean properties to say whether the user accepts or refuses each category of optional cookie. | `CustomEvent<void>` |
+
+
 ## Dependencies
 
 ### Depends on
