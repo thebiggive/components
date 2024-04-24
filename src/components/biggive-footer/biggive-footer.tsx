@@ -1,4 +1,4 @@
-import { Component, Element, Event, EventEmitter, getAssetPath, h, Prop } from '@stencil/core';
+import { Component, Element, getAssetPath, h, Prop } from '@stencil/core';
 import { makeURL } from '../../util/helper-methods';
 
 @Component({
@@ -15,6 +15,7 @@ export class BiggiveFooter {
    * URL prefixes vary by environment, and components library is not best placed to know what they are, so we
    * take them as props
    */
+  @Prop() donateUrlPrefix: string;
   @Prop() blogUrlPrefix: string | undefined;
   @Prop() experienceUrlPrefix: string | undefined;
 
@@ -23,19 +24,6 @@ export class BiggiveFooter {
    * hard-coded (preset) when set to true, dynamic (slot-based) when set to false
    */
   @Prop() usePresetFooter = false;
-
-  /**
-   * Indicates that the user has made a selection of cookies purpose to accept.
-   *
-   * Event data is an object with boolean properties to say whether the user accepts or refuses each category of optional cookie.
-   */
-  @Event({
-    eventName: 'showCookiePreferenceCenterClicked',
-    bubbles: true,
-    cancelable: true,
-    composed: true,
-  })
-  showCookiePreferenceCenterClicked: EventEmitter<void>;
 
   private appendMenu(menuName: string) {
     var node = this.host.querySelector(`[slot="${menuName}"]`);
@@ -52,10 +40,6 @@ export class BiggiveFooter {
       this.appendMenu('nav-postscript');
     }
   }
-
-  private emitShowCookiePreferences = () => {
-    this.showCookiePreferenceCenterClicked.emit();
-  };
 
   render() {
     const HeadingTag = `h${this.headingLevel}`;
@@ -224,9 +208,7 @@ export class BiggiveFooter {
                     <a href={makeURL('Blog', this.blogUrlPrefix, 'privacy#cookies')}>Cookies Statement</a>
                   </li>
                   <li>
-                    <a href="javascript:void(0);" onClick={this.emitShowCookiePreferences}>
-                      Cookies Preference Centre
-                    </a>
+                    <a href={makeURL('Donate', this.donateUrlPrefix, 'cookie-preferences')}>Cookies Preference Centre</a>
                   </li>
                 </ul>
               </nav>
