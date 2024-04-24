@@ -505,6 +505,14 @@ export namespace Components {
          */
         "autoOpenPreferences": boolean;
         "blogUriPrefix": string;
+        /**
+          * This type is similar to CookiePreferences from donate-frontend/src/app/cookiePreference.service.ts but afaik there isn't a nice way to share a type.  When updating please also update the copy in the type of cookieBannerSavePreferencesSelected - using a named type there caused build problems.  When updating please also update the type of cookieBannerSavePreferencesSelected - I didn't find a way to avoid the duplication.
+         */
+        "previouslyAgreedCookiePreferences": | {
+        analyticsAndTesting: boolean;
+        thirdParty: boolean;
+      }
+    | undefined;
     }
     interface BiggiveFooter {
         "blogUrlPrefix": string | undefined;
@@ -1277,7 +1285,10 @@ declare global {
     interface HTMLBiggiveCookieBannerElementEventMap {
         "preferenceModalClosed": void;
         "cookieBannerAcceptAllSelected": void;
-        "cookieBannerSavePreferencesSelected": { analyticsAndTesting: Boolean; thirdParty: boolean };
+        "cookieBannerSavePreferencesSelected": {
+    analyticsAndTesting: boolean;
+    thirdParty: boolean;
+  };
     }
     interface HTMLBiggiveCookieBannerElement extends Components.BiggiveCookieBanner, HTMLStencilElement {
         addEventListener<K extends keyof HTMLBiggiveCookieBannerElementEventMap>(type: K, listener: (this: HTMLBiggiveCookieBannerElement, ev: BiggiveCookieBannerCustomEvent<HTMLBiggiveCookieBannerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2104,10 +2115,21 @@ declare namespace LocalJSX {
          */
         "onCookieBannerAcceptAllSelected"?: (event: BiggiveCookieBannerCustomEvent<void>) => void;
         /**
-          * Indicates that the user has made a selection of cookies purpose to accept.  Event data is an object with boolean properties to say whether the user accepts or refuses each category of optional cookie.
+          * Indicates that the user has made a selection of cookies purpose to accept.  Event data is an object with boolean properties to say whether the user accepts or refuses each category of optional cookie.  When updating this type please also update the type of previouslyAgreedCookiePreferences.
          */
-        "onCookieBannerSavePreferencesSelected"?: (event: BiggiveCookieBannerCustomEvent<{ analyticsAndTesting: Boolean; thirdParty: boolean }>) => void;
+        "onCookieBannerSavePreferencesSelected"?: (event: BiggiveCookieBannerCustomEvent<{
+    analyticsAndTesting: boolean;
+    thirdParty: boolean;
+  }>) => void;
         "onPreferenceModalClosed"?: (event: BiggiveCookieBannerCustomEvent<void>) => void;
+        /**
+          * This type is similar to CookiePreferences from donate-frontend/src/app/cookiePreference.service.ts but afaik there isn't a nice way to share a type.  When updating please also update the copy in the type of cookieBannerSavePreferencesSelected - using a named type there caused build problems.  When updating please also update the type of cookieBannerSavePreferencesSelected - I didn't find a way to avoid the duplication.
+         */
+        "previouslyAgreedCookiePreferences"?: | {
+        analyticsAndTesting: boolean;
+        thirdParty: boolean;
+      }
+    | undefined;
     }
     interface BiggiveFooter {
         "blogUrlPrefix"?: string | undefined;
