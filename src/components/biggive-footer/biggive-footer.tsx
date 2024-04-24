@@ -15,6 +15,7 @@ export class BiggiveFooter {
    * URL prefixes vary by environment, and components library is not best placed to know what they are, so we
    * take them as props
    */
+  @Prop() donateUrlPrefix: string;
   @Prop() blogUrlPrefix: string | undefined;
   @Prop() experienceUrlPrefix: string | undefined;
 
@@ -202,6 +203,12 @@ export class BiggiveFooter {
                   </li>
                   <li>
                     <a href={makeURL('Blog', this.blogUrlPrefix, 'privacy')}>Privacy Statement</a>
+                  </li>
+                  <li>
+                    <a href={makeURL('Blog', this.blogUrlPrefix, 'privacy#cookies')}>Cookies Statement</a>
+                  </li>
+                  <li>
+                    <a href={makeURL('Donate', this.donateUrlPrefix, 'cookie-preferences')}>Cookies Preference Centre</a>
                   </li>
                 </ul>
               </nav>

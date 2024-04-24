@@ -1,4 +1,4 @@
-import { Component, Element, Prop, h, Event, EventEmitter } from '@stencil/core';
+import { Component, Element, Prop, h, Event, EventEmitter, Watch } from '@stencil/core';
 
 @Component({
   tag: 'biggive-cookie-banner',
@@ -6,8 +6,21 @@ import { Component, Element, Prop, h, Event, EventEmitter } from '@stencil/core'
   shadow: true,
 })
 export class BiggiveCookieBanner {
+  /**
+   * If true the Preferences modal will be auto-opened - for use when the user has requested to edit their cookie
+   * preferences
+   */
+  @Prop() autoOpenPreferences: boolean = false;
   @Prop() blogUriPrefix!: string;
   @Element() el: HTMLBiggiveCookieBannerElement;
+
+  @Event({
+    eventName: 'preferenceModalClosed',
+    bubbles: true,
+    cancelable: true,
+    composed: true,
+  })
+  preferenceModalClosed: EventEmitter<void>;
 
   /**
    * Indicates that the user accepts cookies for any purpose, without discrimination.
@@ -32,6 +45,17 @@ export class BiggiveCookieBanner {
     composed: true,
   })
   cookieBannerSavePreferencesSelected: EventEmitter<{ analyticsAndTesting: Boolean; thirdParty: boolean }>;
+
+  componentDidLoad() {
+    this.autoOpenPreferencesIfRequested();
+  }
+
+  @Watch('autoOpenPreferences')
+  private autoOpenPreferencesIfRequested() {
+    if (this.autoOpenPreferences) {
+      this.handleChoosePrefencesClick();
+    }
+  }
 
   private handleChoosePrefencesClick = () => {
     const elementById = this.el.shadowRoot?.getElementById('cookie-preferences-popup') as HTMLBiggivePopupElement;
@@ -70,7 +94,7 @@ export class BiggiveCookieBanner {
   render() {
     return (
       <div class="cooke-consent-container">
-        <biggive-popup id="cookie-preferences-popup">
+        <biggive-popup id="cookie-preferences-popup" modal-closed-callback={this.preferenceModalClosed.emit}>
           <div class="content">
             <h4 class="space-above-0 space-below-3 text-colour-primary">Manage your cookie preferences</h4>
             <form>

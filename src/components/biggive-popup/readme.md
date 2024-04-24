@@ -5,6 +5,13 @@
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property              | Attribute | Description                                                                            | Type         | Default    |
+| --------------------- | --------- | -------------------------------------------------------------------------------------- | ------------ | ---------- |
+| `modalClosedCallback` | --        | Function to execute when the modal is closed, whether by the user or programmatically. | `() => void` | `() => {}` |
+
+
 ## Methods
 
 ### `closeFromOutside() => Promise<void>`
