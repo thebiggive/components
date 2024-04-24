@@ -50,6 +50,16 @@ export class BiggiveCookieBanner {
     elementById.closeFromOutside();
   };
 
+  /**
+   * Emits the same event as if the user had gone into preferences and said no to every option.
+   */
+  private handleRejectAllClicked = () => {
+    this.cookieBannerSavePreferencesSelected.emit({ analyticsAndTesting: false, thirdParty: false });
+
+    const elementById = this.el.shadowRoot?.getElementById('cookie-preferences-popup') as HTMLBiggivePopupElement;
+    elementById.closeFromOutside();
+  };
+
   private handleAcceptAllClick = () => {
     // We just emit the event - it will be up to the application, e.g. wp or frontend to listen for the event, record the acceptence, and make
     // and make this component disappear.
@@ -132,7 +142,9 @@ export class BiggiveCookieBanner {
         </p>
 
         <p>
-          <a href={this.blogUriPrefix + '/privacy'}>Find out more in our Privacy Statement</a>
+          <a href={this.blogUriPrefix + '/privacy#cookies'} target="_blank">
+            Find out more in our Cookies Statement
+          </a>
         </p>
 
         <div class="button-group">
@@ -149,6 +161,21 @@ export class BiggiveCookieBanner {
             rounded={false}
             centered={false}
             button-id="accept-all-button"
+          ></biggive-button>
+
+          <biggive-button
+            onClick={this.handleRejectAllClicked}
+            space-below="0"
+            colour-scheme="grey-light"
+            is-past-campaign="false"
+            is-future-campaign="false"
+            label="Reject All"
+            open-in-new-tab="false"
+            full-width="true"
+            size="medium"
+            rounded={false}
+            centered={false}
+            button-id="choose-preferences-button"
           ></biggive-button>
 
           <biggive-button
