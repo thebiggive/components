@@ -896,6 +896,10 @@ export namespace Components {
     }
     interface BiggivePopup {
         "closeFromOutside": () => Promise<void>;
+        /**
+          * Function to execute when the modal is closed, whether by the user or programmatically.
+         */
+        "modalClosedCallback": () => void;
         "openFromOutside": () => Promise<void>;
     }
     interface BiggiveProgressBar {
@@ -1271,6 +1275,7 @@ declare global {
         new (): HTMLBiggiveCategoryIconElement;
     };
     interface HTMLBiggiveCookieBannerElementEventMap {
+        "preferenceModalClosed": void;
         "cookieBannerAcceptAllSelected": void;
         "cookieBannerSavePreferencesSelected": { analyticsAndTesting: Boolean; thirdParty: boolean };
     }
@@ -2102,6 +2107,7 @@ declare namespace LocalJSX {
           * Indicates that the user has made a selection of cookies purpose to accept.  Event data is an object with boolean properties to say whether the user accepts or refuses each category of optional cookie.
          */
         "onCookieBannerSavePreferencesSelected"?: (event: BiggiveCookieBannerCustomEvent<{ analyticsAndTesting: Boolean; thirdParty: boolean }>) => void;
+        "onPreferenceModalClosed"?: (event: BiggiveCookieBannerCustomEvent<void>) => void;
     }
     interface BiggiveFooter {
         "blogUrlPrefix"?: string | undefined;
@@ -2493,6 +2499,10 @@ declare namespace LocalJSX {
         "spaceBelow"?: number;
     }
     interface BiggivePopup {
+        /**
+          * Function to execute when the modal is closed, whether by the user or programmatically.
+         */
+        "modalClosedCallback"?: () => void;
     }
     interface BiggiveProgressBar {
         /**

@@ -20,6 +20,7 @@ to making it work before we can add it to our website.
 | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
 | `cookieBannerAcceptAllSelected`       | Indicates that the user accepts cookies for any purpose, without discrimination.                                                                                                                         | `CustomEvent<void>`                                                   |
 | `cookieBannerSavePreferencesSelected` | Indicates that the user has made a selection of cookies purpose to accept.  Event data is an object with boolean properties to say whether the user accepts or refuses each category of optional cookie. | `CustomEvent<{ analyticsAndTesting: Boolean; thirdParty: boolean; }>` |
+| `preferenceModalClosed`               |                                                                                                                                                                                                          | `CustomEvent<void>`                                                   |
 
 
 ## Dependencies

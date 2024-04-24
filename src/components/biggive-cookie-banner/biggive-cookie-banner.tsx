@@ -14,6 +14,14 @@ export class BiggiveCookieBanner {
   @Prop() blogUriPrefix!: string;
   @Element() el: HTMLBiggiveCookieBannerElement;
 
+  @Event({
+    eventName: 'preferenceModalClosed',
+    bubbles: true,
+    cancelable: true,
+    composed: true,
+  })
+  preferenceModalClosed: EventEmitter<void>;
+
   /**
    * Indicates that the user accepts cookies for any purpose, without discrimination.
    */
@@ -86,7 +94,7 @@ export class BiggiveCookieBanner {
   render() {
     return (
       <div class="cooke-consent-container">
-        <biggive-popup id="cookie-preferences-popup">
+        <biggive-popup id="cookie-preferences-popup" modal-closed-callback={this.preferenceModalClosed.emit}>
           <div class="content">
             <h4 class="space-above-0 space-below-3 text-colour-primary">Manage your cookie preferences</h4>
             <form>
