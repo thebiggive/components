@@ -182,6 +182,8 @@ export class BiggiveCookieBanner {
                 onClick={this.handleAcceptSelectedCookies}
               ></biggive-button>
             </form>
+
+            <p>You can change the above settings for this browser at any time by clicking the privacy settings link in the footer of the page.</p>
           </div>
         </biggive-popup>
 
@@ -191,8 +193,6 @@ export class BiggiveCookieBanner {
           We use some essential cookies to make our website work. We'd also like to share data with our analytics platform and use analytics cookies to understand how you use the
           website and make improvements.
         </p>
-
-        <p>You can change the above settings for this browser at any time by clicking the privacy settings link in the footer of the page.</p>
 
         <p>
           <a href={this.blogUriPrefix + '/privacy#cookies'} target="_blank">
