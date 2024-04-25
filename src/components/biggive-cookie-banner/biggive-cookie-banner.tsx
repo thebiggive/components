@@ -192,6 +192,8 @@ export class BiggiveCookieBanner {
           website and make improvements.
         </p>
 
+        <p>You can change the above settings for this browser at any time by clicking the privacy settings link in the footer of the page.</p>
+
         <p>
           <a href={this.blogUriPrefix + '/privacy#cookies'} target="_blank">
             Find out more in our Cookies Statement
