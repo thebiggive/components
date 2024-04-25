@@ -121,7 +121,7 @@ export class BiggiveCookieBanner {
 
     return (
       <div class="cooke-consent-container">
-        <biggive-popup id="cookie-preferences-popup" modal-closed-callback={this.preferenceModalClosed.emit}>
+        <biggive-popup id="cookie-preferences-popup" modalClosedCallback={this.preferenceModalClosed.emit}>
           <div class="content">
             <h4 class="space-above-0 space-below-3 text-colour-primary">Manage your cookie preferences</h4>
             <form>
