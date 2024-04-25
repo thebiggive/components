@@ -12,6 +12,23 @@ export class BiggiveCookieBanner {
    */
   @Prop() autoOpenPreferences: boolean = false;
   @Prop() blogUriPrefix!: string;
+
+  /**
+   * This type is similar to CookiePreferences from donate-frontend/src/app/cookiePreference.service.ts
+   * but afaik there isn't a nice way to share a type.
+   *
+   * When updating please also update the copy in the type of cookieBannerSavePreferencesSelected - using a named type
+   * there caused build problems.
+   *
+   * When updating please also update the type of cookieBannerSavePreferencesSelected - I didn't find a way
+   * to avoid the duplication.
+   */
+  @Prop() previouslyAgreedCookiePreferences:
+    | {
+        analyticsAndTesting: boolean;
+        thirdParty: boolean;
+      }
+    | undefined = undefined;
   @Element() el: HTMLBiggiveCookieBannerElement;
 
   @Event({
@@ -37,6 +54,8 @@ export class BiggiveCookieBanner {
    * Indicates that the user has made a selection of cookies purpose to accept.
    *
    * Event data is an object with boolean properties to say whether the user accepts or refuses each category of optional cookie.
+   *
+   * When updating this type please also update the type of previouslyAgreedCookiePreferences.
    */
   @Event({
     eventName: 'cookieBannerSavePreferencesSelected',
@@ -44,7 +63,10 @@ export class BiggiveCookieBanner {
     cancelable: true,
     composed: true,
   })
-  cookieBannerSavePreferencesSelected: EventEmitter<{ analyticsAndTesting: Boolean; thirdParty: boolean }>;
+  cookieBannerSavePreferencesSelected: EventEmitter<{
+    analyticsAndTesting: boolean;
+    thirdParty: boolean;
+  }>;
 
   componentDidLoad() {
     this.autoOpenPreferencesIfRequested();
@@ -92,6 +114,11 @@ export class BiggiveCookieBanner {
   };
 
   render() {
+    // Using Partial type to give more flexibility for updates - if the list of preferences available here grows
+    // then the app may only pass a partial set of them in for a time. Any preference not passed will be treated as
+    // declined.
+    const cookiesCurrentlyAllowed: Partial<typeof this.previouslyAgreedCookiePreferences> = this.previouslyAgreedCookiePreferences || {};
+
     return (
       <div class="cooke-consent-container">
         <biggive-popup id="cookie-preferences-popup" modalClosedCallback={this.preferenceModalClosed.emit}>
@@ -119,10 +146,10 @@ export class BiggiveCookieBanner {
                   We use testing cookies to collect data on how you interact with website features. These insights allow us to update our website and build features that enhance
                   your user experience.
                 </p>
-                <input type="radio" name="a-and-t" id="a-and-t-off" checked={true} />
+                <input type="radio" name="a-and-t" id="a-and-t-off" checked={!cookiesCurrentlyAllowed.analyticsAndTesting} />
                 <label htmlFor="a-and-t-off">Off</label>
 
-                <input type="radio" name="a-and-t" id="a-and-t-on" />
+                <input type="radio" name="a-and-t" id="a-and-t-on" checked={!!cookiesCurrentlyAllowed.analyticsAndTesting} />
                 <label htmlFor="a-and-t-on">On</label>
               </div>
 
@@ -132,10 +159,10 @@ export class BiggiveCookieBanner {
                   These cookies are used to track activity, which can help to provide a better experience and improve functionality across various applications. For example, our
                   donation experience survey.
                 </p>
-                <input type="radio" name="third-party" id="third-party-off" checked={true} />
+                <input type="radio" name="third-party" id="third-party-off" checked={!cookiesCurrentlyAllowed.thirdParty} />
                 <label htmlFor="third-party-off">Off</label>
 
-                <input type="radio" name="third-party" id="third-party-on" />
+                <input type="radio" name="third-party" id="third-party-on" checked={!!cookiesCurrentlyAllowed.thirdParty} />
                 <label htmlFor="third-party-on">On</label>
               </div>
 
