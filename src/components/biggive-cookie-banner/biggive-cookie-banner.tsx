@@ -222,7 +222,7 @@ export class BiggiveCookieBanner {
             colour-scheme="grey-light"
             is-past-campaign="false"
             is-future-campaign="false"
-            label="Reject All"
+            label="Essential Cookies Only"
             open-in-new-tab="false"
             full-width="true"
             size="medium"
