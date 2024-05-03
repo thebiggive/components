@@ -287,6 +287,14 @@ export class BiggiveCampaignCardFilterGrid {
   }
 
   render() {
+    const sortOptions = [
+      { value: 'amountRaised', label: 'Most raised' },
+      { value: 'matchFundsRemaining', label: 'Match funds remaining' },
+    ];
+    if (typeof this.searchText === 'string' && this.searchText.length > 0) {
+      sortOptions.unshift({ value: 'relevance', label: 'Relevance' });
+    }
+
     return (
       <div class={'container space-below-' + this.spaceBelow}>
         <div class="sleeve">
@@ -377,10 +385,7 @@ export class BiggiveCampaignCardFilterGrid {
 
             <div class="sort-wrap">
               <biggive-form-field-select
-                options={[
-                  { value: 'amountRaised', label: 'Most raised' },
-                  { value: 'matchFundsRemaining', label: 'Match funds remaining' },
-                ]}
+                options={sortOptions}
                 prompt={null}
                 select-style="underlined"
                 placeholder={this.sortByPlaceholderText}
