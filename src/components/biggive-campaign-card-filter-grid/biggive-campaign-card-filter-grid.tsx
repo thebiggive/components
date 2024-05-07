@@ -92,7 +92,9 @@ export class BiggiveCampaignCardFilterGrid {
    * two pages is loaded directly with URL parameters - in such a scenario the dropdown
    * shows that it's pre-selected. DON-558.
    */
-  @Prop({ mutable: true }) selectedSortByOption: 'Most raised' | 'Match funds remaining' | 'Relevance';
+  // @State()
+  @Prop({ mutable: true })
+  selectedSortByOption: 'Most raised' | 'Match funds remaining' | 'Relevance';
 
   /**
    * For injecting the chosen category to filter by, as per the comment above for `selectedSortByOption`.
@@ -215,6 +217,10 @@ export class BiggiveCampaignCardFilterGrid {
 
   private handleSearchButtonPressed = () => {
     this.doSearchAndFilterUpdate.emit(this.getSearchAndFilterObject());
+
+    if (this.hasSearchTerm()) {
+      this.selectedSortByOption = 'Relevance';
+    }
   };
 
   private handleSearchTextChanged = (event: any) => {
@@ -291,7 +297,7 @@ export class BiggiveCampaignCardFilterGrid {
       { value: 'amountRaised', label: 'Most raised' },
       { value: 'matchFundsRemaining', label: 'Match funds remaining' },
     ];
-    if (typeof this.searchText === 'string' && this.searchText.length > 0) {
+    if (this.hasSearchTerm()) {
       sortOptions.unshift({ value: 'relevance', label: 'Relevance' });
     }
 
@@ -390,6 +396,7 @@ export class BiggiveCampaignCardFilterGrid {
                 select-style="underlined"
                 placeholder={this.sortByPlaceholderText}
                 selectedLabel={this.selectedSortByOption}
+                selectedValue={this.getSelectedValue()}
                 selectionChanged={this.sortBySelectionChanged}
                 id="sort-by"
               >
@@ -452,6 +459,31 @@ export class BiggiveCampaignCardFilterGrid {
         </div>
       </div>
     );
+  }
+
+  private getSelectedValue(): undefined | string {
+    if (this.selectedSortByOption === undefined) {
+      return undefined;
+    }
+    const sortOptions = [
+      { value: 'amountRaised', label: 'Most raised' },
+      { value: 'matchFundsRemaining', label: 'Match funds remaining' },
+    ];
+    if (this.hasSearchTerm()) {
+      sortOptions.unshift({ value: 'relevance', label: 'Relevance' });
+    }
+
+    const selected = sortOptions.filter(option => option.label === this.selectedSortByOption)[0];
+
+    if (selected === undefined) {
+      throw new Error(`Unexpected sort option "${this.selectedSortByOption}" selected`);
+    }
+
+    return selected.value;
+  }
+
+  private hasSearchTerm() {
+    return typeof this.searchText === 'string' && this.searchText.length > 0;
   }
 
   private optionsToArray(options: string | Record<string, string> | string[]): {
