@@ -1,6 +1,15 @@
 import { Component, Element, Event, EventEmitter, h, Prop, State } from '@stencil/core';
 import { faMagnifyingGlass } from '@fortawesome/pro-solid-svg-icons';
 
+const sortOptionLabels = {
+  relevance: 'Relevance',
+  amountRaised: 'Most Raised',
+  matchFundsRemaining: 'Match funds remaining',
+} as const;
+
+type sortOptionKey = keyof typeof sortOptionLabels;
+type sortOptionLabel = (typeof sortOptionLabels)[sortOptionKey];
+
 @Component({
   tag: 'biggive-campaign-card-filter-grid',
   styleUrl: 'biggive-campaign-card-filter-grid.scss',
@@ -92,7 +101,8 @@ export class BiggiveCampaignCardFilterGrid {
    * two pages is loaded directly with URL parameters - in such a scenario the dropdown
    * shows that it's pre-selected. DON-558.
    */
-  @Prop({ mutable: true }) selectedSortByOption: 'Most raised' | 'Match funds remaining' | 'Relevance';
+  @Prop({ mutable: true })
+  selectedSortByOption: 'Most raised' | 'Match funds remaining' | 'Relevance';
 
   /**
    * For injecting the chosen category to filter by, as per the comment above for `selectedSortByOption`.
@@ -215,6 +225,10 @@ export class BiggiveCampaignCardFilterGrid {
 
   private handleSearchButtonPressed = () => {
     this.doSearchAndFilterUpdate.emit(this.getSearchAndFilterObject());
+
+    if (this.hasSearchTerm()) {
+      this.selectedSortByOption = 'Relevance';
+    }
   };
 
   private handleSearchTextChanged = (event: any) => {
@@ -287,13 +301,7 @@ export class BiggiveCampaignCardFilterGrid {
   }
 
   render() {
-    const sortOptions = [
-      { value: 'amountRaised', label: 'Most raised' },
-      { value: 'matchFundsRemaining', label: 'Match funds remaining' },
-    ];
-    if (typeof this.searchText === 'string' && this.searchText.length > 0) {
-      sortOptions.unshift({ value: 'relevance', label: 'Relevance' });
-    }
+    const sortOptions = this.getSortOptions();
 
     return (
       <div class={'container space-below-' + this.spaceBelow}>
@@ -390,6 +398,7 @@ export class BiggiveCampaignCardFilterGrid {
                 select-style="underlined"
                 placeholder={this.sortByPlaceholderText}
                 selectedLabel={this.selectedSortByOption}
+                selectedValue={this.getSelectedValue()}
                 selectionChanged={this.sortBySelectionChanged}
                 id="sort-by"
               >
@@ -452,6 +461,35 @@ export class BiggiveCampaignCardFilterGrid {
         </div>
       </div>
     );
+  }
+
+  private getSelectedValue(): undefined | string {
+    if (this.selectedSortByOption === undefined) {
+      return undefined;
+    }
+    const sortOptions = this.getSortOptions();
+    const selected = sortOptions.filter(option => option.label === this.selectedSortByOption)[0];
+
+    if (selected === undefined) {
+      throw new Error(`Unexpected sort option "${this.selectedSortByOption}" selected`);
+    }
+
+    return selected.value;
+  }
+
+  private getSortOptions(): {
+    label: sortOptionLabel;
+    value: sortOptionKey;
+  }[] {
+    // @ts-ignore  - see https://github.com/microsoft/TypeScript/pull/12253#issuecomment-263132208
+    const sortOptionKeys: sortOptionKey[] = Object.getOwnPropertyNames(sortOptionLabels);
+    const relevantOptionKeys = sortOptionKeys.filter(key => key !== 'relevance' || this.hasSearchTerm());
+
+    return relevantOptionKeys.map((key: sortOptionKey) => ({ value: key, label: sortOptionLabels[key] }));
+  }
+
+  private hasSearchTerm() {
+    return typeof this.searchText === 'string' && this.searchText.length > 0;
   }
 
   private optionsToArray(options: string | Record<string, string> | string[]): {
