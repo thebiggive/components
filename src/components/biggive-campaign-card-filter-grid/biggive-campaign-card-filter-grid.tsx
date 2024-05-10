@@ -3,7 +3,7 @@ import { faMagnifyingGlass } from '@fortawesome/pro-solid-svg-icons';
 
 const sortOptionLabels = {
   relevance: 'Relevance',
-  amountRaised: 'Most Raised',
+  amountRaised: 'Most raised',
   matchFundsRemaining: 'Match funds remaining',
 } as const;
 
@@ -463,18 +463,22 @@ export class BiggiveCampaignCardFilterGrid {
     );
   }
 
-  private getSelectedValue(): undefined | string {
-    if (this.selectedSortByOption === undefined) {
+  // I'm not sure if I understand the reasoning for own-methods-must-be-private. I made the method below public to unit
+  // test it. Maybe the idea is that we should move anything with enough logic to test outside the component class? I
+  // can do that if people think it's better.
+  //
+  // eslint-disable-next-line @stencil-community/own-methods-must-be-private
+  public getSelectedValue(): undefined | string {
+    const sortByOption = this.selectedSortByOption;
+    if (sortByOption === undefined) {
       return undefined;
     }
     const sortOptions = this.getSortOptions();
-    const selected = sortOptions.filter(option => option.label === this.selectedSortByOption)[0];
+    const selected = sortOptions.filter(option => {
+      return option.label.toLowerCase() === sortByOption.toLowerCase();
+    })[0];
 
-    if (selected === undefined) {
-      throw new Error(`Unexpected sort option "${this.selectedSortByOption}" selected`);
-    }
-
-    return selected.value;
+    return selected?.value;
   }
 
   private getSortOptions(): {
