@@ -2,6 +2,28 @@ import { newSpecPage } from '@stencil/core/testing';
 import { BiggiveCampaignCardFilterGrid } from '../biggive-campaign-card-filter-grid';
 
 describe('biggive-campaign-card-filter-grid', () => {
+  it.each([
+    ['Most raised', 'amountRaised'],
+    // client library may pass in term with casing we didn't expect, but we don't have type checking between there and here
+    // so passing it in with a different type to simulate that:
+    ['Most Raised' as 'Most raised', 'amountRaised'],
+    ['Relevance', undefined], // can not sort by Relevance unless we have a search term.
+    ['Match funds remaining', 'matchFundsRemaining'],
+  ] as const)('Gets the selected sort order value', (selectedSortByOption, expectedSortByValue) => {
+    const sut = new BiggiveCampaignCardFilterGrid();
+
+    sut.selectedSortByOption = selectedSortByOption;
+    expect(sut.getSelectedValue()).toBe(expectedSortByValue);
+  });
+
+  it('Gets relevance as a selected sort order value if there is a search term', () => {
+    const sut = new BiggiveCampaignCardFilterGrid();
+
+    sut.searchText = 'Atlantis';
+    sut.selectedSortByOption = 'Relevance';
+    expect(sut.getSelectedValue()).toBe('relevance');
+  });
+
   it('renders with no search term', async () => {
     // Should show just 2 sort options, not Relevance.
     const page = await newSpecPage({
