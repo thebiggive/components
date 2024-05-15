@@ -26,9 +26,6 @@
     padding-left: 1em;
     padding-right: 1em;
     color: $colour-primary-blue;
-    .label {
-      background: yellow;
-    }
   }
 
   @include standard-font();
