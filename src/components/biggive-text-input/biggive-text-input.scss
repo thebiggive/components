@@ -3,6 +3,14 @@
 :host {
   display: contents;
 }
+
+::slotted([slot=label]) {
+  display: inline-block;
+  overflow: hidden;
+  line-height: 1.2; // Slightly less than other text to help with long charity names.
+  max-height: 2rem; // Essential to not obscure amount on some high DPI, small screens.
+}
+
 .text-input {
   .currency-symbol {
     position: absolute;
@@ -18,6 +26,9 @@
     padding-left: 1em;
     padding-right: 1em;
     color: $colour-primary-blue;
+    .label {
+      background: yellow;
+    }
   }
 
   @include standard-font();
