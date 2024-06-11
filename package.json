@@ -44,9 +44,6 @@
     "@stencil/core": "^4.9.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.9",
-    "@babel/preset-env": "^7.22.7",
-    "@babel/preset-typescript": "^7.22.5",
     "@chromatic-com/storybook": "^1.5.0",
     "@stencil-community/eslint-plugin": "~0.7.1",
     "@stencil/angular-output-target": "~0.8.3",
@@ -60,7 +57,6 @@
     "@storybook/html-webpack5": "^8.1.6",
     "@storybook/test": "^8.1.6",
     "@types/jest": "^29.5.11",
-    "babel-loader": "^9.1.2",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.2",
     "eslint-plugin-storybook": "^0.8.0",
@@ -69,7 +65,7 @@
     "jest-cli": "^29.7.0",
     "lint-staged": "^15.2.0",
     "prettier": "^3.1.1",
-    "puppeteer": "22.6.*",
+    "puppeteer": "22.10.*",
     "storybook": "^8.1.6"
   },
   "license": "MIT"
