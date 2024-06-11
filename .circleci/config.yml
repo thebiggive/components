@@ -24,8 +24,7 @@ jobs:
           wget http://archive.ubuntu.com/ubuntu/pool/main/libu/libu2f-host/libu2f-udev_1.1.4-1_all.deb;
           sudo dpkg -i libu2f-udev_1.1.4-1_all.deb;
           cd ~/components
-      - browser-tools/install-chrome:
-          chrome-version: 125.0.6422.78 # https://github.com/puppeteer/puppeteer/blob/main/versions.js
+      - browser-tools/install-chrome
       - browser-tools/install-chromedriver
       - checkout
       - restore_cache:
