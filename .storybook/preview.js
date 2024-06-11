@@ -1,9 +1,11 @@
+import { fn } from '@storybook/test';
+
 import {defineCustomElements} from '../loader';
 
 defineCustomElements();
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
+  args: { onClick: fn() },
   controls: {
     matchers: {
       color: /(background|color)$/i,
@@ -15,3 +17,4 @@ export const parameters = {
   // fixed-input components.
   layout: 'fullscreen',
 }
+export const tags = ['autodocs'];
