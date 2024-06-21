@@ -65,9 +65,6 @@ describe('biggive-campaign-card-filter-grid', () => {
                 <div class="select-wrapper-3">
                     <biggive-form-field-select backgroundcolour="white" id="locations" placeholder="Select location" prompt="Location" space-below="2"></biggive-form-field-select>
                 </div>
-                <div class="select-wrapper-4">
-                    <biggive-form-field-select backgroundcolour="white" id="funding" placeholder="Select funding" prompt="Funding" space-below="2"></biggive-form-field-select>
-                </div>
                 <div class="align-right">
                   <biggive-button label="Apply filters"></biggive-button>
                 </div>
@@ -138,9 +135,6 @@ describe('biggive-campaign-card-filter-grid', () => {
                 </div>
                 <div class="select-wrapper-3">
                     <biggive-form-field-select backgroundcolour="white" id="locations" placeholder="Select location" prompt="Location" space-below="2"></biggive-form-field-select>
-                </div>
-                <div class="select-wrapper-4">
-                    <biggive-form-field-select backgroundcolour="white" id="funding" placeholder="Select funding" prompt="Funding" space-below="2"></biggive-form-field-select>
                 </div>
                 <div class="align-right">
                   <biggive-button label="Apply filters"></biggive-button>
