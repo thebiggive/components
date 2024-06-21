@@ -375,10 +375,6 @@ export namespace Components {
          */
         "categoryOptions": string | Record<string, string> | string[];
         /**
-          * JSON array of funding key/values, or takes a stringified equiavalent (for Storybook)
-         */
-        "fundingOptions": string | Record<string, string> | string[];
-        /**
           * Intro
          */
         "intro": string;
@@ -402,10 +398,6 @@ export namespace Components {
           * For injecting the chosen category to filter by, as per the comment above for `selectedSortByOption`.
          */
         "selectedFilterCategory": string | null;
-        /**
-          * For injecting the chosen funding to filter by, as per the comment above for `selectedSortByOption`.
-         */
-        "selectedFilterFunding": string | null;
         /**
           * For injecting the chosen location to filter by, as per the comment above for `selectedSortByOption`.
          */
@@ -1253,7 +1245,6 @@ declare global {
     filterCategory: string | null;
     filterBeneficiary: string | null;
     filterLocation: string | null;
-    filterFunding: string | null;
   };
     }
     interface HTMLBiggiveCampaignCardFilterGridElement extends Components.BiggiveCampaignCardFilterGrid, HTMLStencilElement {
@@ -1969,10 +1960,6 @@ declare namespace LocalJSX {
          */
         "categoryOptions"?: string | Record<string, string> | string[];
         /**
-          * JSON array of funding key/values, or takes a stringified equiavalent (for Storybook)
-         */
-        "fundingOptions"?: string | Record<string, string> | string[];
-        /**
           * Intro
          */
         "intro"?: string;
@@ -1989,7 +1976,6 @@ declare namespace LocalJSX {
     filterCategory: string | null;
     filterBeneficiary: string | null;
     filterLocation: string | null;
-    filterFunding: string | null;
   }>) => void;
         /**
           * Defines the text displayed as the placeholder in the input field before the user types anything
@@ -2007,10 +1993,6 @@ declare namespace LocalJSX {
           * For injecting the chosen category to filter by, as per the comment above for `selectedSortByOption`.
          */
         "selectedFilterCategory"?: string | null;
-        /**
-          * For injecting the chosen funding to filter by, as per the comment above for `selectedSortByOption`.
-         */
-        "selectedFilterFunding"?: string | null;
         /**
           * For injecting the chosen location to filter by, as per the comment above for `selectedSortByOption`.
          */

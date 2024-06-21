@@ -10,9 +10,6 @@ export default {
     locationOptions: {
       name: 'Location Options',
     },
-    fundingOptions: {
-      name: 'Funding Options',
-    },
     searchText: {
       name: 'Search Text',
     },
@@ -44,13 +41,6 @@ export default {
         type: 'select',
       },
     },
-    selectedFilterFunding: {
-      name: 'Selected Filter Funding',
-      options: ['Match funded'],
-      control: {
-        type: 'select',
-      },
-    },
   },
 };
 
@@ -59,14 +49,12 @@ const Template = (args: any) => `
         category-options='${args.categoryOptions}'
         beneficiary-options='${args.beneficiaryOptions}'
         location-options='${args.locationOptions}'
-        funding-options='${args.fundingOptions}'
         search-text="${args.searchText}"
         filters-applied="${args.filtersApplied}",
         ${args.selectedSortByOption ? 'selected-sort-by-option=' + args.selectedSortByOption : ''}
         ${args.selectedFilterCategory ? 'selected-filter-category=' + args.selectedFilterCategory : ''}
         ${args.selectedFilterBeneficiary ? 'selected-filter-beneficiary=' + args.selectedFilterBeneficiary : ''}
         ${args.selectedFilterLocation ? 'selected-filter-location=' + args.selectedFilterLocation : ''}
-        ${args.selectedFilterFunding ? 'selected-filter-funding=' + args.selectedFilterFunding : ''}
         >
       <biggive-grid slot="campaign-grid" column-count="3">
         <biggive-campaign-card
@@ -115,11 +103,9 @@ CampaignCardFilterGridComponent.args = {
   categoryOptions: JSON.stringify(['ABC', 'DEF']),
   beneficiaryOptions: JSON.stringify(['ABC', 'DEF']),
   locationOptions: JSON.stringify(['ABC', 'DEF']),
-  fundingOptions: JSON.stringify(['ABC', 'DEF']),
   searchText: '',
   selectedSortByOption: null,
   selectedFilterCategory: null,
   selectedFilterBeneficiary: null,
   selectedFilterLocation: null,
-  selectedFilterFunding: null,
 };

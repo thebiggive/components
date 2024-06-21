@@ -34,14 +34,12 @@ export class BiggiveCampaignCardFilterGrid {
     filterCategory: string | null;
     filterBeneficiary: string | null;
     filterLocation: string | null;
-    filterFunding: string | null;
   }>;
 
   private sortByPlaceholderText = 'Sort by';
   private beneficiariesPlaceHolderText = 'Select beneficiary';
   private categoriesPlaceHolderText = 'Select category';
   private locationsPlaceHolderText = 'Select location';
-  private fundingPlaceHolderText = 'Select funding';
 
   /**
    * Space below component
@@ -90,11 +88,6 @@ export class BiggiveCampaignCardFilterGrid {
   @Prop() locationOptions: string | Record<string, string> | string[];
 
   /**
-   * JSON array of funding key/values, or takes a stringified equiavalent (for Storybook)
-   */
-  @Prop() fundingOptions: string | Record<string, string> | string[];
-
-  /**
    * This helps us inject a pre-selected dropdown value from outside of this component.
    * This is especially helpful for the Meta campaign and Explore pages, where searching
    * by text wipes out previous sort options and re-uses Relevance, or where one of those
@@ -120,11 +113,6 @@ export class BiggiveCampaignCardFilterGrid {
   @Prop({ mutable: true }) selectedFilterLocation: string | null = null;
 
   /**
-   * For injecting the chosen funding to filter by, as per the comment above for `selectedSortByOption`.
-   */
-  @Prop({ mutable: true }) selectedFilterFunding: string | null = null;
-
-  /**
    * State variable - causes re-render on change
    */
   @State() filtersApplied: boolean;
@@ -137,7 +125,6 @@ export class BiggiveCampaignCardFilterGrid {
   private newSelectedFilterCategory: string | null = null;
   private newSelectedFilterBeneficiary: string | null = null;
   private newSelectedFilterLocation: string | null = null;
-  private newSelectedFilterFunding: string | null = null;
 
   private categoryFilterSelectionChanged = (value: string) => {
     this.newSelectedFilterCategory = value;
@@ -151,10 +138,6 @@ export class BiggiveCampaignCardFilterGrid {
     this.newSelectedFilterLocation = value;
   };
 
-  private fundingSelectionChanged = (value: string) => {
-    this.newSelectedFilterFunding = value;
-  };
-
   private sortBySelectionChanged = (value: 'Most raised' | 'Match funds remaining' | 'Relevance') => {
     this.selectedSortByOption = value;
     this.doSearchAndFilterUpdate.emit(this.getSearchAndFilterObject());
@@ -166,7 +149,6 @@ export class BiggiveCampaignCardFilterGrid {
       sortBy: this.selectedSortByOption,
       filterCategory: this.selectedFilterCategory,
       filterBeneficiary: this.selectedFilterBeneficiary,
-      filterFunding: this.selectedFilterFunding,
       filterLocation: this.selectedFilterLocation,
     };
   }
@@ -175,7 +157,6 @@ export class BiggiveCampaignCardFilterGrid {
     this.selectedFilterCategory = this.newSelectedFilterCategory ?? this.selectedFilterCategory;
     this.selectedFilterBeneficiary = this.newSelectedFilterBeneficiary ?? this.selectedFilterBeneficiary;
     this.selectedFilterLocation = this.newSelectedFilterLocation ?? this.selectedFilterLocation;
-    this.selectedFilterFunding = this.newSelectedFilterFunding ?? this.selectedFilterFunding;
 
     const searchAndFilterObj = this.getSearchAndFilterObject();
     this.doSearchAndFilterUpdate.emit(searchAndFilterObj);
@@ -186,22 +167,16 @@ export class BiggiveCampaignCardFilterGrid {
     }
 
     this.filtersApplied =
-      typeof searchAndFilterObj.filterBeneficiary === 'string' ||
-      typeof searchAndFilterObj.filterCategory === 'string' ||
-      typeof searchAndFilterObj.filterFunding === 'string' ||
-      typeof searchAndFilterObj.filterLocation === 'string';
+      typeof searchAndFilterObj.filterBeneficiary === 'string' || typeof searchAndFilterObj.filterCategory === 'string' || typeof searchAndFilterObj.filterLocation === 'string';
   };
 
-  private removeFilter(filterKey: 'funding' | 'locations' | 'categories' | 'beneficiaries') {
+  private removeFilter(filterKey: 'locations' | 'categories' | 'beneficiaries') {
     switch (filterKey) {
       case 'beneficiaries':
         this.selectedFilterBeneficiary = null;
         break;
       case 'categories':
         this.selectedFilterCategory = null;
-        break;
-      case 'funding':
-        this.selectedFilterFunding = null;
         break;
       case 'locations':
         this.selectedFilterLocation = null;
@@ -244,7 +219,6 @@ export class BiggiveCampaignCardFilterGrid {
   private handleFilterButtonClick = () => {
     this.newSelectedFilterBeneficiary = this.selectedFilterBeneficiary;
     this.newSelectedFilterCategory = this.selectedFilterCategory;
-    this.newSelectedFilterFunding = this.selectedFilterFunding;
     this.newSelectedFilterLocation = this.selectedFilterLocation;
 
     const filterPopup = this.el.shadowRoot?.getElementById('filter-popup') as HTMLBiggivePopupElement | undefined;
@@ -262,7 +236,6 @@ export class BiggiveCampaignCardFilterGrid {
     this.selectedSortByOption = this.initialSortByOption;
     this.selectedFilterBeneficiary = null;
     this.selectedFilterCategory = null;
-    this.selectedFilterFunding = null;
     this.selectedFilterLocation = null;
 
     // Clear <biggive-form-field-select> components' internal selectedValue and selectedLabel. DON-654.
@@ -289,14 +262,12 @@ export class BiggiveCampaignCardFilterGrid {
       sortBy: null,
       filterCategory: null,
       filterBeneficiary: null,
-      filterFunding: null,
       filterLocation: null,
     });
   };
 
   componentWillRender() {
-    this.filtersApplied =
-      this.selectedFilterCategory !== null || this.selectedFilterBeneficiary !== null || this.selectedFilterFunding !== null || this.selectedFilterLocation !== null;
+    this.filtersApplied = this.selectedFilterCategory !== null || this.selectedFilterBeneficiary !== null || this.selectedFilterLocation !== null;
     this.initialSortByOption = this.selectedSortByOption;
   }
 
@@ -372,19 +343,6 @@ export class BiggiveCampaignCardFilterGrid {
                   ></biggive-form-field-select>
                 </div>
 
-                <div class="select-wrapper-4">
-                  <biggive-form-field-select
-                    backgroundColour="white"
-                    prompt="Funding"
-                    placeholder={this.fundingPlaceHolderText}
-                    selectedLabel={this.selectedFilterFunding}
-                    selectedValue={this.selectedFilterFunding}
-                    options={this.optionsToArray(this.fundingOptions || [])}
-                    selectionChanged={this.fundingSelectionChanged}
-                    id="funding"
-                    space-below="2"
-                  ></biggive-form-field-select>
-                </div>
                 <div class="align-right">
                   <biggive-button label="Apply filters" onClick={this.handleApplyFilterButtonClick} />
                 </div>
@@ -438,16 +396,6 @@ export class BiggiveCampaignCardFilterGrid {
                   }}
                 >
                   {this.selectedFilterLocation}
-                </span>
-              )}
-              {this.selectedFilterFunding && (
-                <span
-                  class="button"
-                  onClick={() => {
-                    this.removeFilter('funding');
-                  }}
-                >
-                  {this.selectedFilterFunding}
                 </span>
               )}
             </div>
