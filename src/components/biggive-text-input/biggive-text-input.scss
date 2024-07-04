@@ -6,9 +6,7 @@
 
 ::slotted([slot=label]) {
   display: inline-block;
-  overflow: hidden;
   line-height: 1.2; // Slightly less than other text to help with long charity names.
-  max-height: 2rem; // Essential to not obscure amount on some high DPI, small screens.
 }
 
 .text-input {
@@ -17,15 +15,20 @@
   }
   position: relative;
   .prompt {
-    position: absolute;
+    position: relative;
     z-index: 2;
     font-size: small;
-    top: -1em;
-    background-color: $colour-grey-background;
+    top: 1em;
     left: 4em;
-    padding-left: 1em;
-    padding-right: 1em;
     color: $colour-primary-blue;
+    max-width: calc(100% - 10em);
+    display: inline-block;
+
+    > span {
+      padding-left: 1em;
+      padding-right: 1em;
+      background-color: $colour-grey-background;
+    }
   }
 
   @include standard-font();

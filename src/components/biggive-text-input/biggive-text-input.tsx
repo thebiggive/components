@@ -24,15 +24,17 @@ export class BiggiveTextInput {
     const currencySymbol = this.currency === 'GBP' ? '£' : this.currency === 'USD' ? '$' : undefined;
     return (
       <div class={'text-input space-below-' + this.spaceBelow + ' select-style-' + this.selectStyle}>
+        <div class="prompt">
+          <span>
+            <slot name="label" />
+          </span>
+        </div>
         <div class="sleeve">
           <div class="inner-sleave">
             {currencySymbol && <span class="currency-symbol">{currencySymbol}</span>}
             <slot name="input" />
             <div style={{ clear: 'both' }}></div>
           </div>
-        </div>
-        <div class="prompt">
-          <slot name="label" />
         </div>
       </div>
     );
