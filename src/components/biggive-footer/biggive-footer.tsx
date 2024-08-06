@@ -18,6 +18,7 @@ export class BiggiveFooter {
   @Prop() donateUrlPrefix: string;
   @Prop() blogUrlPrefix: string | undefined;
   @Prop() experienceUrlPrefix: string | undefined;
+  year: string = new Date().getFullYear().toString();
 
   /**
    * Conditionally render footer menu:
@@ -81,7 +82,7 @@ export class BiggiveFooter {
             <div class="social-icon-wrap">
               <slot name="social-icons"></slot>
             </div>
-            <p>&copy; 2007 – 2023 The Big Give Trust (1136547) | Company number 07273065 | Dragon Court, 27-29 Macklin Street, London WC2B 5LX, United Kingdom</p>
+            <p>&copy; 2007 – {this.year} The Big Give Trust (1136547) | Company number 07273065 | Dragon Court, 27-29 Macklin Street, London WC2B 5LX, United Kingdom</p>
           </div>
         </footer>
       );
@@ -241,7 +242,7 @@ export class BiggiveFooter {
                 <biggive-social-icon service="Instagram" url="https://www.instagram.com/biggiveorg" background-colour="tertiary" icon-colour="black"></biggive-social-icon>
               </div>
             </div>
-            <p>&copy; 2007 – 2023 The Big Give Trust (1136547) | Company number 07273065 | Dragon Court, 27-29 Macklin Street, London WC2B 5LX, United Kingdom</p>
+            <p>&copy; 2007 – {this.year} The Big Give Trust (1136547) | Company number 07273065 | Dragon Court, 27-29 Macklin Street, London WC2B 5LX, United Kingdom</p>
           </div>
         </footer>
       );
