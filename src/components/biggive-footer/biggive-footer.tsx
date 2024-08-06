@@ -18,7 +18,7 @@ export class BiggiveFooter {
   @Prop() donateUrlPrefix: string;
   @Prop() blogUrlPrefix: string | undefined;
   @Prop() experienceUrlPrefix: string | undefined;
-  year: string = new Date().getFullYear().toString();
+  private year: string = new Date().getFullYear().toString();
 
   /**
    * Conditionally render footer menu:
