@@ -37,6 +37,7 @@
  - [biggive-call-to-action](../biggive-call-to-action)
  - [biggive-campaign-card](../biggive-campaign-card)
  - [biggive-campaign-card-filter-grid](../biggive-campaign-card-filter-grid)
+ - [biggive-container-card](../biggive-container-card)
  - [biggive-cookie-banner](../biggive-cookie-banner)
  - [biggive-footer](../biggive-footer)
  - [biggive-hero-image](../biggive-hero-image)
@@ -52,6 +53,7 @@ graph TD;
   biggive-call-to-action --> biggive-button
   biggive-campaign-card --> biggive-button
   biggive-campaign-card-filter-grid --> biggive-button
+  biggive-container-card --> biggive-button
   biggive-cookie-banner --> biggive-button
   biggive-footer --> biggive-button
   biggive-hero-image --> biggive-button
