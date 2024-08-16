@@ -27,12 +27,7 @@ export class BiggiveContainerCard {
   render() {
     return (
       <div
-        class={
-          'container space-below-' +
-          this.spaceBelow +
-          ' background-colour-' +
-          this.backgroundColour
-        }
+        class={'container space-below-' + this.spaceBelow + ' background-colour-' + this.backgroundColour}
         style={{ 'background-image': "url('" + this.backgroundImageUrl + "')" }}
       >
         <div class={'sleeve background-colour-' + this.cardColour + ' text-colour-' + this.textColour}>
