@@ -491,6 +491,8 @@ export namespace Components {
          */
         "url": string;
     }
+    interface BiggiveContainerCard {
+    }
     interface BiggiveCookieBanner {
         /**
           * If true the Preferences modal will be auto-opened - for use when the user has requested to edit their cookie preferences
@@ -1273,6 +1275,12 @@ declare global {
         prototype: HTMLBiggiveCategoryIconElement;
         new (): HTMLBiggiveCategoryIconElement;
     };
+    interface HTMLBiggiveContainerCardElement extends Components.BiggiveContainerCard, HTMLStencilElement {
+    }
+    var HTMLBiggiveContainerCardElement: {
+        prototype: HTMLBiggiveContainerCardElement;
+        new (): HTMLBiggiveContainerCardElement;
+    };
     interface HTMLBiggiveCookieBannerElementEventMap {
         "preferenceModalClosed": void;
         "cookieBannerAcceptAllSelected": void;
@@ -1557,6 +1565,7 @@ declare global {
         "biggive-campaign-card-filter-grid": HTMLBiggiveCampaignCardFilterGridElement;
         "biggive-campaign-highlights": HTMLBiggiveCampaignHighlightsElement;
         "biggive-category-icon": HTMLBiggiveCategoryIconElement;
+        "biggive-container-card": HTMLBiggiveContainerCardElement;
         "biggive-cookie-banner": HTMLBiggiveCookieBannerElement;
         "biggive-footer": HTMLBiggiveFooterElement;
         "biggive-form": HTMLBiggiveFormElement;
@@ -2085,6 +2094,8 @@ declare namespace LocalJSX {
           * Url
          */
         "url"?: string;
+    }
+    interface BiggiveContainerCard {
     }
     interface BiggiveCookieBanner {
         /**
@@ -2740,6 +2751,7 @@ declare namespace LocalJSX {
         "biggive-campaign-card-filter-grid": BiggiveCampaignCardFilterGrid;
         "biggive-campaign-highlights": BiggiveCampaignHighlights;
         "biggive-category-icon": BiggiveCategoryIcon;
+        "biggive-container-card": BiggiveContainerCard;
         "biggive-cookie-banner": BiggiveCookieBanner;
         "biggive-footer": BiggiveFooter;
         "biggive-form": BiggiveForm;
@@ -2798,6 +2810,7 @@ declare module "@stencil/core" {
             "biggive-campaign-card-filter-grid": LocalJSX.BiggiveCampaignCardFilterGrid & JSXBase.HTMLAttributes<HTMLBiggiveCampaignCardFilterGridElement>;
             "biggive-campaign-highlights": LocalJSX.BiggiveCampaignHighlights & JSXBase.HTMLAttributes<HTMLBiggiveCampaignHighlightsElement>;
             "biggive-category-icon": LocalJSX.BiggiveCategoryIcon & JSXBase.HTMLAttributes<HTMLBiggiveCategoryIconElement>;
+            "biggive-container-card": LocalJSX.BiggiveContainerCard & JSXBase.HTMLAttributes<HTMLBiggiveContainerCardElement>;
             "biggive-cookie-banner": LocalJSX.BiggiveCookieBanner & JSXBase.HTMLAttributes<HTMLBiggiveCookieBannerElement>;
             "biggive-footer": LocalJSX.BiggiveFooter & JSXBase.HTMLAttributes<HTMLBiggiveFooterElement>;
             "biggive-form": LocalJSX.BiggiveForm & JSXBase.HTMLAttributes<HTMLBiggiveFormElement>;
