@@ -1,3 +1,32 @@
+@include backgrounds();
+@include fills();
+@include spacers();
+@include text-colours();
+
 :host {
-  display: block;
+  display: contents;
+}
+
+.container {
+  @include standard-font();
+  position: relative;
+  background-size: cover;
+  background-position: center center;
+  padding: $spacer-4;
+  height: 100%;
+  white-space: pre-wrap;
+  .sleeve {
+    padding: $spacer-4;
+    height: 100%;
+    box-sizing: border-box;
+    transition: all 1s ease-in-out;
+  }
+  &.add-animation-true:hover .sleeve {
+    margin: -30px;
+    padding: 60px;
+    height: calc(100% + 60px);
+  }
+    .sleeve {
+      @include corner-clip-medium-bottom-left();
+  }
 }

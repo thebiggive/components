@@ -492,6 +492,14 @@ export namespace Components {
         "url": string;
     }
     interface BiggiveContainerCard {
+        "backgroundColour": brandColour;
+        "backgroundImageUrl": string;
+        "cardColour": brandColour;
+        "clipBottomLeftCorner": boolean;
+        "clipTopRightCorner": boolean;
+        "headingLevel": 1 | 2 | 3 | 4 | 5 | 6;
+        "spaceBelow": spacingOption;
+        "textColour": brandColour;
     }
     interface BiggiveCookieBanner {
         /**
@@ -2096,6 +2104,14 @@ declare namespace LocalJSX {
         "url"?: string;
     }
     interface BiggiveContainerCard {
+        "backgroundColour"?: brandColour;
+        "backgroundImageUrl"?: string;
+        "cardColour"?: brandColour;
+        "clipBottomLeftCorner"?: boolean;
+        "clipTopRightCorner"?: boolean;
+        "headingLevel"?: 1 | 2 | 3 | 4 | 5 | 6;
+        "spaceBelow"?: spacingOption;
+        "textColour"?: brandColour;
     }
     interface BiggiveCookieBanner {
         /**
