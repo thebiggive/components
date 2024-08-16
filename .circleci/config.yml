@@ -39,7 +39,7 @@ jobs:
       - run: npm run build && git diff; git diff-index --quiet HEAD -- || (git status && exit 1); # Checks that npm run didn't change any files. If it did changes must be commited.
       - run: npm run lint
       - run: npm run test
-      - run: cd angular; npm install && npm run build
+#      - run: cd angular; npm install && npm run build
       - store_test_results:
           path: stencil-test-results
 
@@ -101,20 +101,20 @@ jobs:
       - run:
           name: Publish core components to npm
           command: npm publish --access=public
-      - run: cd angular && npm install
-      - save_cache:
-          paths:
-            - angular/node_modules
-          key: v4-angular-dependencies-{{ checksum "package-lock.json" }}
-      - run:
-          name: Build Angular components
-          command: cd angular && npm run build
-      - run:
-          name: Authenticate with registry in Angular components output directory
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_PUBLISH_AUTH_TOKEN" > ~/components/angular/dist/components/.npmrc
-      - run:
-          name: Publish Angular components to npm
-          command: cd angular/dist/components && npm publish --access=public
+#      - run: cd angular && npm install
+#      - save_cache:
+#          paths:
+#            - angular/node_modules
+#          key: v4-angular-dependencies-{{ checksum "package-lock.json" }}
+#      - run:
+#          name: Build Angular components
+#          command: cd angular && npm run build
+#      - run:
+#          name: Authenticate with registry in Angular components output directory
+#          command: echo "//registry.npmjs.org/:_authToken=$NPM_PUBLISH_AUTH_TOKEN" > ~/components/angular/dist/components/.npmrc
+#      - run:
+#          name: Publish Angular components to npm
+#          command: cd angular/dist/components && npm publish --access=public
 
 workflows:
   build-and-maybe-publish:
