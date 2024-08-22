@@ -31,7 +31,9 @@ export class BiggiveContainerCard {
         style={{ 'background-image': "url('" + this.backgroundImageUrl + "')" }}
       >
         <div class={'sleeve background-colour-' + this.cardColour + ' text-colour-' + this.textColour}>
-          <slot></slot>
+          <div class="content-wrap">
+            <slot></slot>
+          </div>
         </div>
       </div>
     );
