@@ -12,11 +12,11 @@
   position: relative;
   background-size: cover;
   background-position: center center;
-  padding: $spacer-4;
+  padding: $spacer-3;
   height: 100%;
   white-space: pre-wrap;
   .sleeve {
-    padding: $spacer-4;
+    padding: $spacer-4 $spacer-3;
     height: 100%;
     box-sizing: border-box;
     transition: all 1s ease-in-out;
