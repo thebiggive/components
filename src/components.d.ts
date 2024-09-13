@@ -7,10 +7,12 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { spacingOption } from "./globals/spacing-option";
 import { brandColour } from "./globals/brand-colour";
+import { sortOptionLabel } from "./components/biggive-campaign-card-filter-grid/biggive-campaign-card-filter-grid";
 import { headingTag } from "./globals/heading-tag";
 import { headingSize } from "./globals/heading-size";
 export { spacingOption } from "./globals/spacing-option";
 export { brandColour } from "./globals/brand-colour";
+export { sortOptionLabel } from "./components/biggive-campaign-card-filter-grid/biggive-campaign-card-filter-grid";
 export { headingTag } from "./globals/heading-tag";
 export { headingSize } from "./globals/heading-size";
 export namespace Components {

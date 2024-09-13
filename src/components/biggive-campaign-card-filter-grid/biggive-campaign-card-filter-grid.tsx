@@ -8,8 +8,8 @@ const sortOptionLabels = {
   matchFundsRemaining: 'Match funds remaining',
 } as const;
 
-type sortOptionKey = keyof typeof sortOptionLabels;
-type sortOptionLabel = (typeof sortOptionLabels)[sortOptionKey];
+export type sortOptionKey = keyof typeof sortOptionLabels;
+export type sortOptionLabel = (typeof sortOptionLabels)[sortOptionKey];
 
 @Component({
   tag: 'biggive-campaign-card-filter-grid',
