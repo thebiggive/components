@@ -4,6 +4,7 @@ import { BiggiveCampaignCardFilterGrid } from '../biggive-campaign-card-filter-g
 describe('biggive-campaign-card-filter-grid', () => {
   it.each([
     ['Most raised', 'amountRaised'],
+    ['Least raised', 'leastRaised'],
     // client library may pass in term with casing we didn't expect, but we don't have type checking between there and here
     // so passing it in with a different type to simulate that:
     ['Most Raised' as 'Most raised', 'amountRaised'],
@@ -73,6 +74,7 @@ describe('biggive-campaign-card-filter-grid', () => {
             <div class="sort-wrap">
               <biggive-form-field-select id="sort-by" placeholder="Sort by" select-style="underlined">
                 <biggive-form-field-select-option label="Most raised" value="amountRaised"></biggive-form-field-select-option>
+                <biggive-form-field-select-option label="Least raised" value="leastRaised"></biggive-form-field-select-option>
                 <biggive-form-field-select-option label="Match funds remaining" value="matchFundsRemaining"></biggive-form-field-select-option>
               </biggive-form-field-select>
             </div>
@@ -144,6 +146,7 @@ describe('biggive-campaign-card-filter-grid', () => {
             <div class="sort-wrap">
               <biggive-form-field-select id="sort-by" placeholder="Sort by" select-style="underlined">
                 <biggive-form-field-select-option label="Most raised" value="amountRaised"></biggive-form-field-select-option>
+                <biggive-form-field-select-option label="Least raised" value="leastRaised"></biggive-form-field-select-option>
                 <biggive-form-field-select-option label="Match funds remaining" value="matchFundsRemaining"></biggive-form-field-select-option>
                 <biggive-form-field-select-option label="Relevance" value="Relevance"></biggive-form-field-select-option>
               </biggive-form-field-select>

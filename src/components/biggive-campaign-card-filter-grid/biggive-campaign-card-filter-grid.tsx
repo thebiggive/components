@@ -4,6 +4,7 @@ import { faMagnifyingGlass } from '@fortawesome/pro-solid-svg-icons';
 const sortOptionLabels = {
   relevance: 'Relevance',
   amountRaised: 'Most raised',
+  leastRaised: 'Least raised',
   matchFundsRemaining: 'Match funds remaining',
 } as const;
 
@@ -95,7 +96,7 @@ export class BiggiveCampaignCardFilterGrid {
    * shows that it's pre-selected. DON-558.
    */
   @Prop({ mutable: true })
-  selectedSortByOption: 'Most raised' | 'Match funds remaining' | 'Relevance';
+  selectedSortByOption: sortOptionLabel;
 
   /**
    * For injecting the chosen category to filter by, as per the comment above for `selectedSortByOption`.
@@ -117,7 +118,7 @@ export class BiggiveCampaignCardFilterGrid {
    */
   @State() filtersApplied: boolean;
 
-  private initialSortByOption: 'Most raised' | 'Match funds remaining' | 'Relevance';
+  private initialSortByOption: sortOptionLabel;
 
   /**
    * This and similar properties represent selections made in the popup but not yet applied.
@@ -138,7 +139,7 @@ export class BiggiveCampaignCardFilterGrid {
     this.newSelectedFilterLocation = value;
   };
 
-  private sortBySelectionChanged = (value: 'Most raised' | 'Match funds remaining' | 'Relevance') => {
+  private sortBySelectionChanged = (value: sortOptionLabel) => {
     this.selectedSortByOption = value;
     this.doSearchAndFilterUpdate.emit(this.getSearchAndFilterObject());
   };
@@ -361,6 +362,7 @@ export class BiggiveCampaignCardFilterGrid {
                 id="sort-by"
               >
                 <biggive-form-field-select-option value="amountRaised" label="Most raised"></biggive-form-field-select-option>
+                <biggive-form-field-select-option value="leastRaised" label="Least raised"></biggive-form-field-select-option>
                 <biggive-form-field-select-option value="matchFundsRemaining" label="Match funds remaining"></biggive-form-field-select-option>
                 {(this.searchText || '').length > 0 ? <biggive-form-field-select-option value="Relevance" label="Relevance"></biggive-form-field-select-option> : null}
               </biggive-form-field-select>
