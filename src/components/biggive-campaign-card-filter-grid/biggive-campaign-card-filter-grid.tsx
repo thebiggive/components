@@ -5,6 +5,7 @@ const sortOptionLabels = {
   relevance: 'Relevance',
   amountRaised: 'Most raised',
   leastRaised: 'Least raised',
+  closeToTarget: 'Close to campaign target',
   matchFundsRemaining: 'Match funds remaining',
 } as const;
 
