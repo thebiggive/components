@@ -36,42 +36,45 @@
   text-align: left;
   &.select-style-bordered {
     .sleeve {
-        @include font-size-large();
-        font-weight: bolder;
-        padding: 2px;
+      @include font-size-large();
+      font-weight: bolder;
+      padding: 2px;
+      position: relative;
+      background-color: $colour-primary-blue;
+      @include corner-clip-small-top-right();
+      .inner-sleeve {
+        background-color: $colour-grey-background;
+        color: $colour-primary-blue;
+        display: block;
         position: relative;
-        background-color: $colour-primary-blue;
-        @include corner-clip-small-top-right();
-        .inner-sleave {
-          background-color: $colour-grey-background;
-          color: $colour-primary-blue;
+        padding: 10px 30px 10px 10px;
+        clip-path:
+          polygon(
+            0% 0%,     /* top left */
+            0% 0%,     /* top left */
+            calc(100% - 14px) 0%,    /* top right */
+            100% 14px,   /* top right */
+            100% 100%,  /* bottom right */
+            100% 100%,  /* bottom right */
+            0 100%,   /* bottom left */
+            0 100%      /* bottom left */
+          );
+        &:after {
+          content: '';
           display: block;
-          position: relative;
-          padding: 10px 30px 10px 10px;
-          clip-path:
-            polygon(
-                0% 0%,     /* top left */
-                0% 0%,     /* top left */
-                calc(100% - 14px) 0%,    /* top right */
-                100% 14px,   /* top right */
-                100% 100%,  /* bottom right */
-                100% 100%,  /* bottom right */
-                0 100%,   /* bottom left */
-                0 100%      /* bottom left */
-            );
-          &:after {
-            content: '';
-            display: block;
-            position: absolute;
-            right: 20px;
-            top: 18px;
-            width: 10px;
-            height: 10px;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center center;
-          }
+          position: absolute;
+          right: 20px;
+          top: 18px;
+          width: 10px;
+          height: 10px;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center center;
         }
+      }
+      &.focused {
+        background-color: $colour-tertiary-coral;
+      }
     }
   }
 }

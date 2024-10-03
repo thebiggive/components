@@ -1,4 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, Element, h, Prop } from '@stencil/core';
 
 /**
  * Initially developed for use within the new donate stepper design. Currently has a hard-coded background
@@ -12,6 +12,7 @@ import { Component, h, Prop } from '@stencil/core';
   shadow: true,
 })
 export class BiggiveTextInput {
+  @Element() host: HTMLBiggiveTextInputElement;
   @Prop() value!: string;
   /**
    * ISO-4217 currency code if input is for a money value
@@ -21,6 +22,12 @@ export class BiggiveTextInput {
   @Prop() selectStyle: 'bordered' | 'underlined' = 'bordered';
 
   render() {
+    const nativeInput: HTMLDivElement | null = this.host.querySelector(`[slot="input"]`);
+    // Listen for focus
+    nativeInput?.addEventListener('focus', () => {
+      this.host.shadowRoot?.querySelector('.sleeve')?.classList.add('focused');
+    });
+
     const currencySymbol = this.currency === 'GBP' ? '£' : this.currency === 'USD' ? '$' : undefined;
     return (
       <div class={'text-input space-below-' + this.spaceBelow + ' select-style-' + this.selectStyle}>
@@ -30,7 +37,7 @@ export class BiggiveTextInput {
           </span>
         </div>
         <div class="sleeve">
-          <div class="inner-sleave">
+          <div class="inner-sleeve">
             {currencySymbol && <span class="currency-symbol">{currencySymbol}</span>}
             <slot name="input" />
             <div style={{ clear: 'both' }}></div>
