@@ -23,7 +23,6 @@ export class BiggiveTextInput {
 
   render() {
     const nativeInput: HTMLDivElement | null = this.host.querySelector(`[slot="input"]`);
-    // Listen for focus
     nativeInput?.addEventListener('focus', () => {
       this.host.shadowRoot?.querySelector('.sleeve')?.classList.add('focused');
     });
