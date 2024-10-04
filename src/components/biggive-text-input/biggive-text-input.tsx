@@ -43,13 +43,13 @@ export class BiggiveTextInput {
 
   componentDidLoad() {
     const nativeInput: HTMLElement | null = this.host.querySelector(`[slot="input"]`);
-    const sleave = this.host.shadowRoot!.querySelector('.sleeve');
+    const sleave = this.host.shadowRoot!.querySelector('.sleeve')!;
 
     if (!nativeInput) {
       throw new Error('Input slot element required for biggive-text-input');
     }
 
-    nativeInput.addEventListener('focusin', () => sleave?.classList.add('focused'));
-    nativeInput.addEventListener('focusout', () => sleave?.classList.remove('focused'));
+    nativeInput.addEventListener('focusin', () => sleave.classList.add('focused'));
+    nativeInput.addEventListener('focusout', () => sleave.classList.remove('focused'));
   }
 }
