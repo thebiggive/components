@@ -22,16 +22,6 @@ export class BiggiveTextInput {
   @Prop() selectStyle: 'bordered' | 'underlined' = 'bordered';
 
   render() {
-    const nativeInput: HTMLElement | null = this.host.querySelector(`[slot="input"]`);
-    const sleave = this.host.shadowRoot!.querySelector('.sleeve');
-
-    if (!nativeInput) {
-      throw new Error('Input slot element required for biggive-text-input');
-    }
-
-    nativeInput.addEventListener('focus', () => sleave?.classList.add('focused'));
-    nativeInput.addEventListener('focusout', () => sleave?.classList.remove('focused'));
-
     const currencySymbol = this.currency === 'GBP' ? '£' : this.currency === 'USD' ? '$' : undefined;
     return (
       <div class={'text-input space-below-' + this.spaceBelow + ' select-style-' + this.selectStyle}>
@@ -49,5 +39,17 @@ export class BiggiveTextInput {
         </div>
       </div>
     );
+  }
+
+  componentDidLoad() {
+    const nativeInput: HTMLElement | null = this.host.querySelector(`[slot="input"]`);
+    const sleave = this.host.shadowRoot!.querySelector('.sleeve');
+
+    if (!nativeInput) {
+      throw new Error('Input slot element required for biggive-text-input');
+    }
+
+    nativeInput.addEventListener('focusin', () => sleave?.classList.add('focused'));
+    nativeInput.addEventListener('focusout', () => sleave?.classList.remove('focused'));
   }
 }
