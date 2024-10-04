@@ -22,10 +22,15 @@ export class BiggiveTextInput {
   @Prop() selectStyle: 'bordered' | 'underlined' = 'bordered';
 
   render() {
-    const nativeInput: HTMLDivElement | null = this.host.querySelector(`[slot="input"]`);
-    nativeInput?.addEventListener('focus', () => {
-      this.host.shadowRoot?.querySelector('.sleeve')?.classList.add('focused');
-    });
+    const nativeInput: HTMLElement | null = this.host.querySelector(`[slot="input"]`);
+    const sleave = this.host.shadowRoot!.querySelector('.sleeve');
+
+    if (!nativeInput) {
+      throw new Error('Input slot element required for biggive-text-input');
+    }
+
+    nativeInput.addEventListener('focus', () => sleave?.classList.add('focused'));
+    nativeInput.addEventListener('focusout', () => sleave?.classList.remove('focused'));
 
     const currencySymbol = this.currency === 'GBP' ? '£' : this.currency === 'USD' ? '$' : undefined;
     return (
