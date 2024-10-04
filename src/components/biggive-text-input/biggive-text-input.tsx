@@ -1,4 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, Element, h, Prop } from '@stencil/core';
 
 /**
  * Initially developed for use within the new donate stepper design. Currently has a hard-coded background
@@ -12,6 +12,7 @@ import { Component, h, Prop } from '@stencil/core';
   shadow: true,
 })
 export class BiggiveTextInput {
+  @Element() host: HTMLBiggiveTextInputElement;
   @Prop() value!: string;
   /**
    * ISO-4217 currency code if input is for a money value
@@ -30,7 +31,7 @@ export class BiggiveTextInput {
           </span>
         </div>
         <div class="sleeve">
-          <div class="inner-sleave">
+          <div class="inner-sleeve">
             {currencySymbol && <span class="currency-symbol">{currencySymbol}</span>}
             <slot name="input" />
             <div style={{ clear: 'both' }}></div>
@@ -38,5 +39,17 @@ export class BiggiveTextInput {
         </div>
       </div>
     );
+  }
+
+  componentDidLoad() {
+    const nativeInput: HTMLElement | null = this.host.querySelector(`[slot="input"]`);
+    const sleave = this.host.shadowRoot!.querySelector('.sleeve')!;
+
+    if (!nativeInput) {
+      throw new Error('Input slot element required for biggive-text-input');
+    }
+
+    nativeInput.addEventListener('focusin', () => sleave.classList.add('focused'));
+    nativeInput.addEventListener('focusout', () => sleave.classList.remove('focused'));
   }
 }
