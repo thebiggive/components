@@ -46,9 +46,12 @@ const Template = (args: any) => `
                     </biggive-accordion>
                     `;
 
-export const AccordionComponent = Template.bind({});
-AccordionComponent.args = {
-  spaceBelow: 4,
-  textColour: 'black',
-  headingColour: 'primary',
+export const AccordionComponent = {
+  render: Template,
+
+  args: {
+    spaceBelow: 4,
+    textColour: 'black',
+    headingColour: 'primary',
+  },
 };

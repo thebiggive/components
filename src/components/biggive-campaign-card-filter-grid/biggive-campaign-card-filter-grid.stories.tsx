@@ -98,14 +98,17 @@ const Template = (args: any) => `
 
 document.addEventListener('doSearchAndFilterUpdate', ($event: CustomEvent) => console.log($event.detail));
 
-export const CampaignCardFilterGridComponent = Template.bind({});
-CampaignCardFilterGridComponent.args = {
-  categoryOptions: JSON.stringify(['ABC', 'DEF']),
-  beneficiaryOptions: JSON.stringify(['ABC', 'DEF']),
-  locationOptions: JSON.stringify(['ABC', 'DEF']),
-  searchText: '',
-  selectedSortByOption: null,
-  selectedFilterCategory: null,
-  selectedFilterBeneficiary: null,
-  selectedFilterLocation: null,
+export const CampaignCardFilterGridComponent = {
+  render: Template,
+
+  args: {
+    categoryOptions: JSON.stringify(['ABC', 'DEF']),
+    beneficiaryOptions: JSON.stringify(['ABC', 'DEF']),
+    locationOptions: JSON.stringify(['ABC', 'DEF']),
+    searchText: '',
+    selectedSortByOption: null,
+    selectedFilterCategory: null,
+    selectedFilterBeneficiary: null,
+    selectedFilterLocation: null,
+  },
 };

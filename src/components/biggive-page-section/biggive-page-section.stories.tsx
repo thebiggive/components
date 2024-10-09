@@ -49,11 +49,14 @@ const Template = (args: any) => `
         </biggive-page-section>
         `;
 
-export const PageSectionComponent = Template.bind({});
-PageSectionComponent.args = {
-  colourScheme: 'primary',
-  spaceBelow: 4,
-  maxWidth: 100,
-  sectionStyleTop: 'straight',
-  sectionStyleBottom: 'straight',
+export const PageSectionComponent = {
+  render: Template,
+
+  args: {
+    colourScheme: 'primary',
+    spaceBelow: 4,
+    maxWidth: 100,
+    sectionStyleTop: 'straight',
+    sectionStyleBottom: 'straight',
+  },
 };

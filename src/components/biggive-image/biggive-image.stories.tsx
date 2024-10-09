@@ -50,13 +50,16 @@ const Template = (args: any) => `
               </biggive-image>
               `;
 
-export const ImageComponent = Template.bind({});
-ImageComponent.args = {
-  spaceAbove: 4,
-  spaceBelow: 4,
-  imageUrl: 'https://media.istockphoto.com/vectors/childish-seamless-dotted-pattern-with-colorful-doodle-letters-fun-vector-id1208462693',
-  imageAltText: 'Image description',
-  width: 0,
-  height: 0,
-  sizeUnit: null,
+export const ImageComponent = {
+  render: Template,
+
+  args: {
+    spaceAbove: 4,
+    spaceBelow: 4,
+    imageUrl: 'https://media.istockphoto.com/vectors/childish-seamless-dotted-pattern-with-colorful-doodle-letters-fun-vector-id1208462693',
+    imageAltText: 'Image description',
+    width: 0,
+    height: 0,
+    sizeUnit: null,
+  },
 };

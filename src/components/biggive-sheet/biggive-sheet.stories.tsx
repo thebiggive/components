@@ -28,9 +28,12 @@ const Template = (args: any) => `
             <div><a href="#test-sheet">Click here to open</a></div>
             `;
 
-export const SheetComponent = Template.bind({});
-SheetComponent.args = {
-  id: 'test-sheet',
-  backgroundColour: 'primary',
-  textColour: 'white',
+export const SheetComponent = {
+  render: Template,
+
+  args: {
+    id: 'test-sheet',
+    backgroundColour: 'primary',
+    textColour: 'white',
+  },
 };

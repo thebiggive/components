@@ -29,9 +29,12 @@ const Template = (args: any) => `
   </biggive-progress-bar>
   `;
 
-export const ProgressBarComponent = Template.bind({});
-ProgressBarComponent.args = {
-  spaceBelow: '2',
-  colourScheme: 'primary',
-  counter: 50,
+export const ProgressBarComponent = {
+  render: Template,
+
+  args: {
+    spaceBelow: '2',
+    colourScheme: 'primary',
+    counter: 50,
+  },
 };

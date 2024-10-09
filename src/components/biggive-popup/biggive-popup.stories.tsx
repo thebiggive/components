@@ -7,4 +7,6 @@ const Template = () => `
           </biggive-popup>
           `;
 
-export const PopupComponent = Template.bind({});
+export const PopupComponent = {
+  render: Template,
+};

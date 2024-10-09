@@ -71,18 +71,21 @@ const Template = (args: any) => `
     </biggive-button>
     `;
 
-export const ButtonComponent = Template.bind({});
-ButtonComponent.args = {
-  spaceBelow: 0,
-  colourScheme: 'primary',
-  isPastCampaign: false,
-  isFutureCampaign: false,
-  datetime: '29/11/2022, 12:00',
-  label: 'Donate now',
-  url: 'http://www.google.com',
-  openInNewTab: false,
-  fullWidth: false,
-  size: 'medium',
-  rounded: false,
-  centered: false,
+export const ButtonComponent = {
+  render: Template,
+
+  args: {
+    spaceBelow: 0,
+    colourScheme: 'primary',
+    isPastCampaign: false,
+    isFutureCampaign: false,
+    datetime: '29/11/2022, 12:00',
+    label: 'Donate now',
+    url: 'http://www.google.com',
+    openInNewTab: false,
+    fullWidth: false,
+    size: 'medium',
+    rounded: false,
+    centered: false,
+  },
 };

@@ -82,22 +82,25 @@ const Template = (args: any) => `
             </biggive-totalizer>
             `;
 
-export const TotalizerComponent = Template.bind({});
-TotalizerComponent.args = {
-  spaceBelow: 4,
-  primaryColour: 'primary',
-  primaryTextColour: 'white',
-  secondaryColour: 'secondary',
-  secondaryTextColour: 'black',
-  mainMessage: '£500 raised inc. Gift Aid',
-  tickerItems: [
-    {
-      label: 'Total Raised',
-      figure: '£1,000,000',
-    },
-    {
-      label: 'Match Funds Remaining',
-      figure: '£500,000',
-    },
-  ],
+export const TotalizerComponent = {
+  render: Template,
+
+  args: {
+    spaceBelow: 4,
+    primaryColour: 'primary',
+    primaryTextColour: 'white',
+    secondaryColour: 'secondary',
+    secondaryTextColour: 'black',
+    mainMessage: '£500 raised inc. Gift Aid',
+    tickerItems: [
+      {
+        label: 'Total Raised',
+        figure: '£1,000,000',
+      },
+      {
+        label: 'Match Funds Remaining',
+        figure: '£500,000',
+      },
+    ],
+  },
 };

@@ -17,4 +17,6 @@ const Template = (args: any) => `
       </biggive-page-column>
       `;
 
-export const PageColumnComponent = Template.bind({});
+export const PageColumnComponent = {
+  render: Template,
+};

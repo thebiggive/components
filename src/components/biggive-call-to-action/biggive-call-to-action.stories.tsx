@@ -183,26 +183,29 @@ const Template = (args: any) => `
       </biggive-call-to-action>
       `;
 
-export const CallToActionComponent = Template.bind({});
-CallToActionComponent.args = {
-  spaceAbove: 0,
-  spaceBelow: 0,
-  defaultTextColour: 'primary',
-  slugSize: 4,
-  slugColour: '',
-  slug: 'Test Slug',
-  mainTitleSize: 2,
-  mainTitleColour: '',
-  mainTitle: 'Test title',
-  subtitleSize: 4,
-  subtitleColour: '',
-  subtitle: 'Test subtitle',
-  teaserColour: '',
-  teaser: 'Test teaser',
-  primaryButtonUrl: '#',
-  primaryButtonLabel: 'Click me',
-  primaryButtonColourScheme: 'primary',
-  secondaryButtonUrl: '#',
-  secondaryButtonLabel: 'Click me',
-  secondaryButtonColourScheme: 'clear-primary',
+export const CallToActionComponent = {
+  render: Template,
+
+  args: {
+    spaceAbove: 0,
+    spaceBelow: 0,
+    defaultTextColour: 'primary',
+    slugSize: 4,
+    slugColour: '',
+    slug: 'Test Slug',
+    mainTitleSize: 2,
+    mainTitleColour: '',
+    mainTitle: 'Test title',
+    subtitleSize: 4,
+    subtitleColour: '',
+    subtitle: 'Test subtitle',
+    teaserColour: '',
+    teaser: 'Test teaser',
+    primaryButtonUrl: '#',
+    primaryButtonLabel: 'Click me',
+    primaryButtonColourScheme: 'primary',
+    secondaryButtonUrl: '#',
+    secondaryButtonLabel: 'Click me',
+    secondaryButtonColourScheme: 'clear-primary',
+  },
 };

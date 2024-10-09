@@ -123,18 +123,21 @@ const Template = (args: any) => `
                       </biggive-timeline>
                       `;
 
-export const TimelineComponent = Template.bind({});
-TimelineComponent.args = {
-  spaceBelow: 4,
-  textColour: 'black',
-  selectedTextColour: 'primary',
-  navigationHighlightColour: 'grey-medium',
-  selectedNavigationHighlightColour: 'primary',
-  buttonBackgroundColour: 'white',
-  buttonIconColour: 'primary',
-  entryBackgroundColour: 'white',
-  entryHighlightColour: 'tertiary',
-  entryDateColour: 'black',
-  entryTitleColour: 'primary',
-  entryContentColour: 'black',
+export const TimelineComponent = {
+  render: Template,
+
+  args: {
+    spaceBelow: 4,
+    textColour: 'black',
+    selectedTextColour: 'primary',
+    navigationHighlightColour: 'grey-medium',
+    selectedNavigationHighlightColour: 'primary',
+    buttonBackgroundColour: 'white',
+    buttonIconColour: 'primary',
+    entryBackgroundColour: 'white',
+    entryHighlightColour: 'tertiary',
+    entryDateColour: 'black',
+    entryTitleColour: 'primary',
+    entryContentColour: 'black',
+  },
 };

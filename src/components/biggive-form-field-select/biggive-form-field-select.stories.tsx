@@ -9,4 +9,6 @@ const Template = () => `
 
 document.addEventListener('doOptionSelect', () => alert('doOptionSelect event emitted!'));
 
-export const SearchComponent = Template.bind({});
+export const SearchComponent = {
+  render: Template,
+};

@@ -103,9 +103,12 @@ const Template = (args: any) => `
           </biggive-grid>
           `;
 
-export const GridComponent = Template.bind({});
-GridComponent.args = {
-  spaceBelow: 4,
-  columnCount: '3',
-  columnGap: '4',
+export const GridComponent = {
+  render: Template,
+
+  args: {
+    spaceBelow: 4,
+    columnCount: '3',
+    columnGap: '4',
+  },
 };

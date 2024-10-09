@@ -45,11 +45,14 @@ const Template = (args: any) => `
             </biggive-misc-icon>
             `;
 
-export const GenericIconComponent = Template.bind({});
-GenericIconComponent.args = {
-  backgroundColour: 'primary',
-  iconColour: 'white',
-  iconGroup: 'misc',
-  icon: 'AlarmClock',
-  url: '#',
+export const GenericIconComponent = {
+  render: Template,
+
+  args: {
+    backgroundColour: 'primary',
+    iconColour: 'white',
+    iconGroup: 'misc',
+    icon: 'AlarmClock',
+    url: '#',
+  },
 };

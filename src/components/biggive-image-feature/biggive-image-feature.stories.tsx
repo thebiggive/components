@@ -102,19 +102,22 @@ const Template = (args: any) => `
             </biggive-image-feature>
             `;
 
-export const ImageFeatureComponent = Template.bind({});
-ImageFeatureComponent.args = {
-  spaceBelow: 4,
-  defaultTextColour: 'primary',
-  imageUrl: 'https://media.istockphoto.com/vectors/childish-seamless-dotted-pattern-with-colorful-doodle-letters-fun-vector-id1208462693',
-  imageAltText: 'Image description',
-  slug: 'Test slug',
-  slugColour: null,
-  mainTitle: 'Test title',
-  mainTitleColour: null,
-  teaser: 'This is the teaser content for the video',
-  teaserColour: null,
-  buttonUrl: '#',
-  buttonLabel: 'Find out more',
-  buttonColourScheme: 'primary',
+export const ImageFeatureComponent = {
+  render: Template,
+
+  args: {
+    spaceBelow: 4,
+    defaultTextColour: 'primary',
+    imageUrl: 'https://media.istockphoto.com/vectors/childish-seamless-dotted-pattern-with-colorful-doodle-letters-fun-vector-id1208462693',
+    imageAltText: 'Image description',
+    slug: 'Test slug',
+    slugColour: null,
+    mainTitle: 'Test title',
+    mainTitleColour: null,
+    teaser: 'This is the teaser content for the video',
+    teaserColour: null,
+    buttonUrl: '#',
+    buttonLabel: 'Find out more',
+    buttonColourScheme: 'primary',
+  },
 };

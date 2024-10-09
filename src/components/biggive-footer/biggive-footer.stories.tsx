@@ -37,4 +37,6 @@ const Template = () => `
       </biggive-footer>
       `;
 
-export const FooterComponent = Template.bind({});
+export const FooterComponent = {
+  render: Template,
+};

@@ -141,21 +141,24 @@ const Template = (args: any) => `
               </biggive-basic-card>
               `;
 
-export const BasicCardComponent = Template.bind({});
-BasicCardComponent.args = {
-  spaceBelow: 4,
-  icon: true,
-  iconColour: 'primary',
-  backgroundColour: 'white',
-  backgroundImageUrl: 'https://media.istockphoto.com/vectors/childish-seamless-dotted-pattern-with-colorful-doodle-letters-fun-vector-id1208462693',
-  cardColour: 'white',
-  textColour: 'white',
-  mainTitle: 'Sample main title',
-  subtitle: 'Sample subtitle',
-  teaser: 'teaser',
-  buttonUrl: '#',
-  buttonLabel: 'Click here',
-  buttonColourScheme: 'clear-primary',
-  clipBottomLeftCorner: true,
-  clipTopRightCorner: true,
+export const BasicCardComponent = {
+  render: Template,
+
+  args: {
+    spaceBelow: 4,
+    icon: true,
+    iconColour: 'primary',
+    backgroundColour: 'white',
+    backgroundImageUrl: 'https://media.istockphoto.com/vectors/childish-seamless-dotted-pattern-with-colorful-doodle-letters-fun-vector-id1208462693',
+    cardColour: 'white',
+    textColour: 'white',
+    mainTitle: 'Sample main title',
+    subtitle: 'Sample subtitle',
+    teaser: 'teaser',
+    buttonUrl: '#',
+    buttonLabel: 'Click here',
+    buttonColourScheme: 'clear-primary',
+    clipBottomLeftCorner: true,
+    clipTopRightCorner: true,
+  },
 };

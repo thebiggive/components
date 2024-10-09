@@ -136,4 +136,6 @@ const Template = () => `
     </biggive-main-menu>
       `;
 
-export const MainMenu = Template.bind({});
+export const MainMenu = {
+  render: Template,
+};

@@ -37,10 +37,13 @@ const Template = (args: any) => `
           </biggive-social-icon>
           `;
 
-export const SocialIconComponent = Template.bind({});
-SocialIconComponent.args = {
-  backgroundColour: 'primary',
-  iconColour: 'white',
-  service: 'Twitter',
-  url: '#',
+export const SocialIconComponent = {
+  render: Template,
+
+  args: {
+    backgroundColour: 'primary',
+    iconColour: 'white',
+    service: 'Twitter',
+    url: '#',
+  },
 };

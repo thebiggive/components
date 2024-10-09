@@ -33,23 +33,26 @@ const Template = (args: any) => `
     </biggive-hero-image>
     `;
 
-export const HeroImageComponent = Template.bind({});
-HeroImageComponent.args = {
-  spaceBelow: 0,
-  colourScheme: 'primary',
-  slug: 'Test slug',
-  slugColour: null,
-  logo: 'https://media.istockphoto.com/vectors/childish-seamless-dotted-pattern-with-colorful-doodle-letters-fun-vector-id1208462693',
-  logoHeight: 'medium',
-  logoAltText: 'Logo description',
-  mainImage: 'https://media.istockphoto.com/vectors/childish-seamless-dotted-pattern-with-colorful-doodle-letters-fun-vector-id1208462693',
-  mainImageAlignHorizontal: 'center',
-  mainImageAlignVertical: 'center',
-  mainTitle: 'Test title',
-  mainTitleColour: null,
-  teaser: 'We run match funding campaigns to make an extraordinary difference to the world’s big challenges.',
-  teaserColour: null,
-  buttonUrl: '#',
-  buttonLabel: 'Donate now',
-  buttonColourScheme: 'primary',
+export const HeroImageComponent = {
+  render: Template,
+
+  args: {
+    spaceBelow: 0,
+    colourScheme: 'primary',
+    slug: 'Test slug',
+    slugColour: null,
+    logo: 'https://media.istockphoto.com/vectors/childish-seamless-dotted-pattern-with-colorful-doodle-letters-fun-vector-id1208462693',
+    logoHeight: 'medium',
+    logoAltText: 'Logo description',
+    mainImage: 'https://media.istockphoto.com/vectors/childish-seamless-dotted-pattern-with-colorful-doodle-letters-fun-vector-id1208462693',
+    mainImageAlignHorizontal: 'center',
+    mainImageAlignVertical: 'center',
+    mainTitle: 'Test title',
+    mainTitleColour: null,
+    teaser: 'We run match funding campaigns to make an extraordinary difference to the world’s big challenges.',
+    teaserColour: null,
+    buttonUrl: '#',
+    buttonLabel: 'Donate now',
+    buttonColourScheme: 'primary',
+  },
 };
