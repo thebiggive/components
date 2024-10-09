@@ -1,5 +1,19 @@
 export default {
   title: 'Components/Header and Footer',
+  args: {
+    blogUrlPrefix: 'https://biggive.org',
+    donateUrlPrefix: 'https://donate.biggive.org',
+    experienceUrlPrefix: 'https://community.biggive.org',
+    isLoggedIn: false,
+    myAccountflagEnabled: true,
+  },
+  argTypes: {
+    blogUrlPrefix: { control: 'text' },
+    donateUrlPrefix: { control: 'text' },
+    experienceUrlPrefix: { control: 'text' },
+    isLoggedIn: { control: 'boolean' },
+    myAccountflagEnabled: { control: 'boolean' },
+  },
 };
 
 const Template = () => `
