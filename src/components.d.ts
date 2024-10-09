@@ -539,7 +539,7 @@ export namespace Components {
          */
         "backgroundColour": 'white' | 'grey';
         /**
-          * JSON array of category key/values, or takes a stringified equiavalent (for Storybook)
+          * JSON array of label+value objects, or takes a stringified equiavalent (for Storybook)
          */
         "options": string | Array<{ label: string; value: string }>;
         /**
@@ -2163,7 +2163,7 @@ declare namespace LocalJSX {
          */
         "backgroundColour"?: 'white' | 'grey';
         /**
-          * JSON array of category key/values, or takes a stringified equiavalent (for Storybook)
+          * JSON array of label+value objects, or takes a stringified equiavalent (for Storybook)
          */
         "options": string | Array<{ label: string; value: string }>;
         /**

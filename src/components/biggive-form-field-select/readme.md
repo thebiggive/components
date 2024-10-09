@@ -10,7 +10,7 @@
 | Property               | Attribute                | Description                                                                           | Type                                            | Default      |
 | ---------------------- | ------------------------ | ------------------------------------------------------------------------------------- | ----------------------------------------------- | ------------ |
 | `backgroundColour`     | `background-colour`      | Must match background of containing element, or unintended shape will appear.         | `"grey" \| "white"`                             | `undefined`  |
-| `options` _(required)_ | `options`                | JSON array of category key/values, or takes a stringified equiavalent (for Storybook) | `string \| { label: string; value: string; }[]` | `undefined`  |
+| `options` _(required)_ | `options`                | JSON array of label+value objects, or takes a stringified equiavalent (for Storybook) | `string \| { label: string; value: string; }[]` | `undefined`  |
 | `placeholder`          | `placeholder`            | Placeholder                                                                           | `string \| undefined`                           | `undefined`  |
 | `prompt` _(required)_  | `prompt`                 | Displayed as 'eyebrow' label over the top border of the box.                          | `null \| string`                                | `undefined`  |
 | `selectStyle`          | `select-style`           |                                                                                       | `"bordered" \| "underlined"`                    | `'bordered'` |
