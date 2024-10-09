@@ -22,7 +22,7 @@ export class BiggiveMainMenu {
 
   @Prop() experienceUrlPrefix: string;
 
-  @Prop() myAccountflagEnabled = false;
+  @Prop() myAccountFlagEnabled = false;
 
   /**
    * Whether the current user is logged in (i.e. is assumed to have a valid JWT). They get links to some
@@ -111,7 +111,7 @@ export class BiggiveMainMenu {
   private getSecondaryNavLinks() {
     return (
       <ul>
-        {this.myAccountflagEnabled && !this.isLoggedIn && (
+        {this.myAccountFlagEnabled && !this.isLoggedIn && (
           <li>
             <a href={makeURL('Donate', this.donateUrlPrefix, 'login')}>Donor Login</a>
           </li>

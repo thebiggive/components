@@ -3,7 +3,7 @@ const args = {
   donateUrlPrefix: 'https://donate.biggive.org',
   experienceUrlPrefix: 'https://community.biggive.org',
   isLoggedIn: false,
-  myAccountflagEnabled: true,
+  myAccountFlagEnabled: true,
 };
 
 export default {
@@ -14,7 +14,7 @@ export default {
     donateUrlPrefix: { control: 'text' },
     experienceUrlPrefix: { control: 'text' },
     isLoggedIn: { control: 'boolean' },
-    myAccountflagEnabled: { control: 'boolean' },
+    myAccountFlagEnabled: { control: 'boolean' },
   },
 };
 
@@ -24,7 +24,7 @@ const Template = () => `
         donate-url-prefix="${args.donateUrlPrefix}"
         experience-url-prefix="${args.experienceUrlPrefix}"
         is-logged-in="${args.isLoggedIn}"
-        my-account-flag-enabled="${args.myAccountflagEnabled}"
+        my-account-flag-enabled="${args.myAccountFlagEnabled}"
     ></biggive-main-menu>
       `;
 
