@@ -84,14 +84,17 @@ const Template = (args: any) => `
               </biggive-image-card>
               `;
 
-export const ImageCardComponent = Template.bind({});
-ImageCardComponent.args = {
-  spaceBelow: 4,
-  backgroundColour: 'white',
-  teaser: 'teaser',
-  buttonUrl: '#',
-  buttonLabel: 'Click here',
-  buttonColourScheme: 'clear-primary',
-  clipBottomLeftCorner: true,
-  clipTopRightCorner: true,
+export const ImageCardComponent = {
+  render: Template,
+
+  args: {
+    spaceBelow: 4,
+    backgroundColour: 'white',
+    teaser: 'teaser',
+    buttonUrl: '#',
+    buttonLabel: 'Click here',
+    buttonColourScheme: 'clear-primary',
+    clipBottomLeftCorner: true,
+    clipTopRightCorner: true,
+  },
 };

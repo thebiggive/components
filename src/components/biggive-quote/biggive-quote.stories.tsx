@@ -35,11 +35,14 @@ const Template = (args: any) => `
               </biggive-quote>
               `;
 
-export const QuoteComponent = Template.bind({});
-QuoteComponent.args = {
-  spaceBelow: 4,
-  defaultTextColour: 'black',
-  quote:
-    'Lorem ipsum dolor sit amet, has quod diam dolore cu, at solet interesset eam, cu nec affert quando legendos. Ut libris aperiam quo. Et tollit intellegebat mea. Dico nostrud vivendum no his, nam ne sumo illum iudicabit. Cu nec velit argumentum, no quando offendit neglegentur ius.  ',
-  attribution: 'this is the attribution',
+export const QuoteComponent = {
+  render: Template,
+
+  args: {
+    spaceBelow: 4,
+    defaultTextColour: 'black',
+    quote:
+      'Lorem ipsum dolor sit amet, has quod diam dolore cu, at solet interesset eam, cu nec affert quando legendos. Ut libris aperiam quo. Et tollit intellegebat mea. Dico nostrud vivendum no his, nam ne sumo illum iudicabit. Cu nec velit argumentum, no quando offendit neglegentur ius.  ',
+    attribution: 'this is the attribution',
+  },
 };

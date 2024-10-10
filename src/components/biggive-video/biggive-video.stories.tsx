@@ -30,9 +30,12 @@ const Template = (args: any) => `
             
             `;
 
-export const VideoComponent = Template.bind({});
-VideoComponent.args = {
-  spaceAbove: 4,
-  spaceBelow: 4,
-  videoUrl: 'https://www.youtube.com/embed/Ru4vGXMavf4',
+export const VideoComponent = {
+  render: Template,
+
+  args: {
+    spaceAbove: 4,
+    spaceBelow: 4,
+    videoUrl: 'https://www.youtube.com/embed/Ru4vGXMavf4',
+  },
 };

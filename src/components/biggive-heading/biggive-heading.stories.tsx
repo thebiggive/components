@@ -59,13 +59,16 @@ const Template = (args: any) => `
               </biggive-heading>
             `;
 
-export const HeadingComponent = Template.bind({});
-HeadingComponent.args = {
-  spaceAbove: 0,
-  spaceBelow: 0,
-  colour: 'primary',
-  htmlElement: 'h1',
-  size: '1',
-  align: 'left',
-  text: 'This is the heading',
+export const HeadingComponent = {
+  render: Template,
+
+  args: {
+    spaceAbove: 0,
+    spaceBelow: 0,
+    colour: 'primary',
+    htmlElement: 'h1',
+    size: '1',
+    align: 'left',
+    text: 'This is the heading',
+  },
 };

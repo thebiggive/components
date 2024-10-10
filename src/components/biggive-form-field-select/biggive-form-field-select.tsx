@@ -19,7 +19,7 @@ export class BiggiveFormFieldSelect {
   @Prop({ mutable: true }) selectedLabel: string | null;
 
   /**
-   * JSON array of category key/values, or takes a stringified equiavalent (for Storybook)
+   * JSON array of label+value objects, or takes a stringified equiavalent (for Storybook)
    */
   @Prop() options!: string | Array<{ label: string; value: string }>;
   @Prop() selectStyle: 'bordered' | 'underlined' = 'bordered';
@@ -50,16 +50,7 @@ export class BiggiveFormFieldSelect {
   render() {
     const greyIfRequired = this.backgroundColour === 'grey' ? ' grey' : '';
 
-    let options: Array<{ label: string; value: string }>;
-    if (typeof this.options === 'string') {
-      let parsed = JSON.parse(this.options) as unknown;
-      if (!Array.isArray(parsed)) {
-        throw new Error('Options should be an Array<{ label: string; value: string }>');
-      }
-      options = parsed;
-    } else {
-      options = this.options;
-    }
+    let options = this.formatOptions(this.options);
 
     if (typeof this.placeholder === 'string' && typeof this.selectedValue !== 'string') {
       options = [{ value: '__placeholder__', label: this.placeholder }, ...options];
@@ -98,5 +89,20 @@ export class BiggiveFormFieldSelect {
         </label>
       </div>
     );
+  }
+
+  private formatOptions(options: string | Array<{ label: string; value: string }>): {
+    label: string;
+    value: string;
+  }[] {
+    if (typeof options === 'string') {
+      options = JSON.parse(options);
+    }
+
+    if (Array.isArray(options)) {
+      return options;
+    }
+
+    return Object.entries(options).map(entry => ({ value: entry[0], label: entry[1] }));
   }
 }

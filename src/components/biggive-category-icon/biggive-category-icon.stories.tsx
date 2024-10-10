@@ -41,11 +41,14 @@ const Template = (args: any) => `
             </biggive-category-icon>
             `;
 
-export const CategoryIconComponent = Template.bind({});
-CategoryIconComponent.args = {
-  backgroundColour: 'primary',
-  iconColour: 'white',
-  icon: 'Animals',
-  url: '#',
-  label: 'Category label',
+export const CategoryIconComponent = {
+  render: Template,
+
+  args: {
+    backgroundColour: 'primary',
+    iconColour: 'white',
+    icon: 'Animals',
+    url: '#',
+    label: 'Category label',
+  },
 };

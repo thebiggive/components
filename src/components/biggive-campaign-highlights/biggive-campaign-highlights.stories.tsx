@@ -81,21 +81,24 @@ const Template = (args: any) => `
         </biggive-campaign-highlights>
         `;
 
-export const CampaignHighlightsComponent = Template.bind({});
-CampaignHighlightsComponent.args = {
-  spaceBelow: 0,
-  banner: 'https://media.istockphoto.com/vectors/childish-seamless-dotted-pattern-with-colorful-doodle-letters-fun-vector-id1208462693',
-  campaignTitle: 'this is my sample title',
-  championName: 'The Champion Name',
-  championUrl: 'https://thebiggive.org.uk',
-  currencyCode: 'GBP',
-  primaryFigureLabel: 'Total raised',
-  primaryFigureAmount: 1000,
-  secondaryFigureLabel: 'Total remaining',
-  secondaryFigureAmount: 1000,
-  progressBarCounter: 100,
-  primaryStatIcon: 'AlarmClock',
-  primaryStatText: 'this is the text',
-  secondaryStatIcon: 'Heart',
-  secondaryStatText: 'this is the text',
+export const CampaignHighlightsComponent = {
+  render: Template,
+
+  args: {
+    spaceBelow: 0,
+    banner: 'https://media.istockphoto.com/vectors/childish-seamless-dotted-pattern-with-colorful-doodle-letters-fun-vector-id1208462693',
+    campaignTitle: 'this is my sample title',
+    championName: 'The Champion Name',
+    championUrl: 'https://thebiggive.org.uk',
+    currencyCode: 'GBP',
+    primaryFigureLabel: 'Total raised',
+    primaryFigureAmount: 1000,
+    secondaryFigureLabel: 'Total remaining',
+    secondaryFigureAmount: 1000,
+    progressBarCounter: 100,
+    primaryStatIcon: 'AlarmClock',
+    primaryStatText: 'this is the text',
+    secondaryStatIcon: 'Heart',
+    secondaryStatText: 'this is the text',
+  },
 };

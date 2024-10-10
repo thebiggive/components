@@ -96,22 +96,25 @@ const Template = (args: any) => `
       </biggive-image-button>
       `;
 
-export const ImageButtonComponent = Template.bind({});
-ImageButtonComponent.args = {
-  spaceBelow: 0,
-  backgroundColour: 'white',
-  backgroundPadding: 3,
-  text: 'This is the button text',
-  textColour: 'black',
-  imageUrl: '',
-  imageStyle: 'cover',
-  url: 'http://www.google.com',
-  openInNewTab: false,
-  size: 'medium',
-  arrow: true,
-  arrowColour: 'black',
-  circle: false,
-  shadow: false,
-  centered: false,
-  rounded: false,
+export const ImageButtonComponent = {
+  render: Template,
+
+  args: {
+    spaceBelow: 0,
+    backgroundColour: 'white',
+    backgroundPadding: 3,
+    text: 'This is the button text',
+    textColour: 'black',
+    imageUrl: '',
+    imageStyle: 'cover',
+    url: 'http://www.google.com',
+    openInNewTab: false,
+    size: 'medium',
+    arrow: true,
+    arrowColour: 'black',
+    circle: false,
+    shadow: false,
+    centered: false,
+    rounded: false,
+  },
 };

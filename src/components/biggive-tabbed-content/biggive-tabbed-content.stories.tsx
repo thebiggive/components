@@ -72,13 +72,16 @@ const Template = (args: any) => `
                 </biggive-tabbed-content>
                 `;
 
-export const TabbedContentComponent = Template.bind({});
-TabbedContentComponent.args = {
-  spaceBelow: 4,
-  textColour: 'black',
-  selectedTextColour: 'primary',
-  navigationHighlightColour: 'grey-medium',
-  selectedNavigationHighlightColour: 'primary',
-  buttonBackgroundColour: 'white',
-  buttonIconColour: 'primary',
+export const TabbedContentComponent = {
+  render: Template,
+
+  args: {
+    spaceBelow: 4,
+    textColour: 'black',
+    selectedTextColour: 'primary',
+    navigationHighlightColour: 'grey-medium',
+    selectedNavigationHighlightColour: 'primary',
+    buttonBackgroundColour: 'white',
+    buttonIconColour: 'primary',
+  },
 };

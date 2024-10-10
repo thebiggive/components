@@ -21,8 +21,11 @@ const Template = (args: any) => `
                 </biggive-icon-group>
                 `;
 
-export const IconGroupComponent = Template.bind({});
-IconGroupComponent.args = {
-  spaceBelow: 4,
-  label: 'Icon Group',
+export const IconGroupComponent = {
+  render: Template,
+
+  args: {
+    spaceBelow: 4,
+    label: 'Icon Group',
+  },
 };

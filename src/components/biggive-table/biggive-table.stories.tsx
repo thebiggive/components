@@ -68,11 +68,14 @@ const Template = (args: any) => `
               </biggive-table>
               `;
 
-export const TableComponent = Template.bind({});
-TableComponent.args = {
-  spaceBelow: 4,
-  headerTextColour: 'white',
-  headerBackgroundColour: 'primary',
-  bodyTextColour: 'black',
-  bodyBackgroundColour: 'white',
+export const TableComponent = {
+  render: Template,
+
+  args: {
+    spaceBelow: 4,
+    headerTextColour: 'white',
+    headerBackgroundColour: 'primary',
+    bodyTextColour: 'black',
+    bodyBackgroundColour: 'white',
+  },
 };

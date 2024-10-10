@@ -17,7 +17,10 @@ const Template = (args: any) => `
     </biggive-page-columns>
     `;
 
-export const PageColumnsComponent = Template.bind({});
-PageColumnsComponent.args = {
-  spaceBelow: '4',
+export const PageColumnsComponent = {
+  render: Template,
+
+  args: {
+    spaceBelow: '4',
+  },
 };

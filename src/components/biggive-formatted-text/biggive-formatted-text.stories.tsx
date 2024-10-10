@@ -47,8 +47,11 @@ const Template = (args: any) => `
             </biggive-formatted-text>
           `;
 
-export const FormattedTextComponent = Template.bind({});
-FormattedTextComponent.args = {
-  spaceBelow: 0,
-  defaultTextColour: 'primary',
+export const FormattedTextComponent = {
+  render: Template,
+
+  args: {
+    spaceBelow: 0,
+    defaultTextColour: 'primary',
+  },
 };

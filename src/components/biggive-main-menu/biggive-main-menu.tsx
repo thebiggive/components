@@ -22,7 +22,7 @@ export class BiggiveMainMenu {
 
   @Prop() experienceUrlPrefix: string;
 
-  @Prop() myAccountflagEnabled = false;
+  @Prop() myAccountFlagEnabled = false;
 
   /**
    * Whether the current user is logged in (i.e. is assumed to have a valid JWT). They get links to some
@@ -63,7 +63,8 @@ export class BiggiveMainMenu {
     // height of millions of pixels, presumably due to a layout logic loop. So for as long as we use
     // this body padding workaround, we need a safe maximum value, currently 130px, beyond which
     // we will never further displace the main content.
-    document.body.style.paddingTop = Math.min(130, this.host.offsetHeight).toString() + 'px';
+    const offsetHeight = isNaN(this.host.offsetHeight) ? 0 : this.host.offsetHeight;
+    document.body.style.paddingTop = Math.min(130, offsetHeight).toString() + 'px';
   }
 
   componentDidRender() {
@@ -110,7 +111,7 @@ export class BiggiveMainMenu {
   private getSecondaryNavLinks() {
     return (
       <ul>
-        {this.myAccountflagEnabled && !this.isLoggedIn && (
+        {this.myAccountFlagEnabled && !this.isLoggedIn && (
           <li>
             <a href={makeURL('Donate', this.donateUrlPrefix, 'login')}>Donor Login</a>
           </li>

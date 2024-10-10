@@ -52,11 +52,14 @@ const Template = (args: any) => `
             </biggive-boxed-content>
             `;
 
-export const BoxedContentComponent = Template.bind({});
-BoxedContentComponent.args = {
-  spaceBelow: 4,
-  horizontalPadding: '3',
-  verticalPadding: '4',
-  backgroundColour: 'white',
-  shadow: true,
+export const BoxedContentComponent = {
+  render: Template,
+
+  args: {
+    spaceBelow: 4,
+    horizontalPadding: '3',
+    verticalPadding: '4',
+    backgroundColour: 'white',
+    shadow: true,
+  },
 };

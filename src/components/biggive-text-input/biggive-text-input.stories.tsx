@@ -21,15 +21,18 @@ const Template = (args: Args) => `
     ${args.input}
 </biggive-text-input>`;
 
-export const TextInput = Template.bind({});
-TextInput.args = {
-  currency: 'GBP',
-  spaceBelow: 0,
-  selectStyle: 'bordered',
-  input: `<input
-    id="enter-donation-amount"
-    slot="input"
-    value="60.00"
-    />`,
-  label: `<label for="enter-donation-amount" slot="label">Enter your donation amount</label>`,
-} as Args;
+export const TextInput = {
+  render: Template,
+
+  args: {
+    currency: 'GBP',
+    spaceBelow: 0,
+    selectStyle: 'bordered',
+    input: `<input
+      id="enter-donation-amount"
+      slot="input"
+      value="60.00"
+      />`,
+    label: `<label for="enter-donation-amount" slot="label">Enter your donation amount</label>`,
+  } as Args,
+};

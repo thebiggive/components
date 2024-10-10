@@ -98,21 +98,24 @@ const Template = (args: any) => `
         </biggive-icon-button>
         `;
 
-export const IconButtonComponent = Template.bind({});
-IconButtonComponent.args = {
-  spaceBelow: 0,
-  backgroundColour: 'white',
-  backgroundPadding: 3,
-  text: 'This is the button text',
-  textColour: 'black',
-  icon: '',
-  url: 'http://www.google.com',
-  openInNewTab: false,
-  size: 'medium',
-  arrow: true,
-  arrowColour: 'black',
-  circle: false,
-  shadow: false,
-  centered: false,
-  rounded: false,
+export const IconButtonComponent = {
+  render: Template,
+
+  args: {
+    spaceBelow: 0,
+    backgroundColour: 'white',
+    backgroundPadding: 3,
+    text: 'This is the button text',
+    textColour: 'black',
+    icon: '',
+    url: 'http://www.google.com',
+    openInNewTab: false,
+    size: 'medium',
+    arrow: true,
+    arrowColour: 'black',
+    circle: false,
+    shadow: false,
+    centered: false,
+    rounded: false,
+  },
 };

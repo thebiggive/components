@@ -66,17 +66,20 @@ const Template = (args: any) => `
               </biggive-article-card>
               `;
 
-export const ArticleCardComponent = Template.bind({});
-ArticleCardComponent.args = {
-  spaceBelow: 4,
-  backgroundColour: 'white',
-  backgroundColourHover: 'tertiary',
-  slug: '• Blog Post   • Mental Health',
-  date: 'September 2022',
-  mainTitle: 'Sample main title',
-  imageUrl: 'https://media.istockphoto.com/vectors/childish-seamless-dotted-pattern-with-colorful-doodle-letters-fun-vector-id1208462693',
-  imageAltText: 'Image description',
-  imageLabel: 'By Joe Bloggs',
-  buttonUrl: '#',
-  buttonLabel: 'Click here',
+export const ArticleCardComponent = {
+  render: Template,
+
+  args: {
+    spaceBelow: 4,
+    backgroundColour: 'white',
+    backgroundColourHover: 'tertiary',
+    slug: '• Blog Post   • Mental Health',
+    date: 'September 2022',
+    mainTitle: 'Sample main title',
+    imageUrl: 'https://media.istockphoto.com/vectors/childish-seamless-dotted-pattern-with-colorful-doodle-letters-fun-vector-id1208462693',
+    imageAltText: 'Image description',
+    imageLabel: 'By Joe Bloggs',
+    buttonUrl: '#',
+    buttonLabel: 'Click here',
+  },
 };

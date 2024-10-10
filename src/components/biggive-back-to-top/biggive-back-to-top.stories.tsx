@@ -7,4 +7,6 @@ const Template = () => `
       </biggive-back-to-top>
       `;
 
-export const BackToTopComponent = Template.bind({});
+export const BackToTopComponent = {
+  render: Template,
+};

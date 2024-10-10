@@ -37,10 +37,13 @@ const Template = (args: any) => `
           </biggive-misc-icon>
           `;
 
-export const MiscIconComponent = Template.bind({});
-MiscIconComponent.args = {
-  backgroundColour: 'primary',
-  iconColour: 'white',
-  icon: 'AlarmClock',
-  url: '#',
+export const MiscIconComponent = {
+  render: Template,
+
+  args: {
+    backgroundColour: 'primary',
+    iconColour: 'white',
+    icon: 'AlarmClock',
+    url: '#',
+  },
 };

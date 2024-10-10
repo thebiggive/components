@@ -539,7 +539,7 @@ export namespace Components {
          */
         "backgroundColour": 'white' | 'grey';
         /**
-          * JSON array of category key/values, or takes a stringified equiavalent (for Storybook)
+          * JSON array of label+value objects, or takes a stringified equiavalent (for Storybook)
          */
         "options": string | Array<{ label: string; value: string }>;
         /**
@@ -832,7 +832,7 @@ export namespace Components {
           * Whether the current user is logged in (i.e. is assumed to have a valid JWT). They get links to some extra content if they are.
          */
         "isLoggedIn": boolean;
-        "myAccountflagEnabled": boolean;
+        "myAccountFlagEnabled": boolean;
     }
     interface BiggiveMiscIcon {
         /**
@@ -2163,7 +2163,7 @@ declare namespace LocalJSX {
          */
         "backgroundColour"?: 'white' | 'grey';
         /**
-          * JSON array of category key/values, or takes a stringified equiavalent (for Storybook)
+          * JSON array of label+value objects, or takes a stringified equiavalent (for Storybook)
          */
         "options": string | Array<{ label: string; value: string }>;
         /**
@@ -2457,7 +2457,7 @@ declare namespace LocalJSX {
           * Whether the current user is logged in (i.e. is assumed to have a valid JWT). They get links to some extra content if they are.
          */
         "isLoggedIn"?: boolean;
-        "myAccountflagEnabled"?: boolean;
+        "myAccountFlagEnabled"?: boolean;
     }
     interface BiggiveMiscIcon {
         /**

@@ -147,24 +147,27 @@ const Template = (args: any) => `
       </biggive-campaign-card>
       `;
 
-export const CampaignCardComponent = Template.bind({});
-CampaignCardComponent.args = {
-  spaceBelow: 0,
-  banner: 'https://media.istockphoto.com/vectors/childish-seamless-dotted-pattern-with-colorful-doodle-letters-fun-vector-id1208462693',
-  currencyCode: 'GBP',
-  isPastCampaign: false,
-  isFutureCampaign: false,
-  datetime: '29/11/2022, 12:00',
-  primaryFigureLabel: 'Total raised',
-  primaryFigureAmount: 1000,
-  secondaryFigureLabel: 'Total remaining',
-  secondaryFigureAmount: 1000,
-  campaignTitle: 'My Campaign Title',
-  campaignType: 'Match funding',
-  organisationName: 'My Test Organisation',
-  progressBarCounter: 100,
-  donateButtonLabel: 'Donate now',
-  donateButtonUrl: '#',
-  moreInfoButtonLabel: 'More information',
-  moreInfoButtonUrl: '#',
+export const CampaignCardComponent = {
+  render: Template,
+
+  args: {
+    spaceBelow: 0,
+    banner: 'https://media.istockphoto.com/vectors/childish-seamless-dotted-pattern-with-colorful-doodle-letters-fun-vector-id1208462693',
+    currencyCode: 'GBP',
+    isPastCampaign: false,
+    isFutureCampaign: false,
+    datetime: '29/11/2022, 12:00',
+    primaryFigureLabel: 'Total raised',
+    primaryFigureAmount: 1000,
+    secondaryFigureLabel: 'Total remaining',
+    secondaryFigureAmount: 1000,
+    campaignTitle: 'My Campaign Title',
+    campaignType: 'Match funding',
+    organisationName: 'My Test Organisation',
+    progressBarCounter: 100,
+    donateButtonLabel: 'Donate now',
+    donateButtonUrl: '#',
+    moreInfoButtonLabel: 'More information',
+    moreInfoButtonUrl: '#',
+  },
 };
