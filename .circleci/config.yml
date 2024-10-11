@@ -1,9 +1,10 @@
 version: 2.1
 
 orbs:
-  aws-s3: circleci/aws-s3@3.0.0 # 3.1.1 is broken: https://github.com/CircleCI-Public/aws-s3-orb/issues/45
+  aws-cli: circleci/aws-cli@5.1.0
+  aws-s3: circleci/aws-s3@4.0.0
   browser-tools: circleci/browser-tools@1.4.8
-  jira: circleci/jira@1.3.1
+  jira: circleci/jira@2.1.0
 
 defaults: &defaults
   working_directory: ~/components
@@ -61,18 +62,17 @@ jobs:
       - run:
           name: Build Storybook
           command: npm run build-storybook
+      - aws-cli/setup:
+          aws_access_key_id: AWS_ACCESS_KEY_ID
+          aws_secret_access_key: AWS_SECRET_ACCESS_KEY
       - aws-s3/sync:
           from: src/assets
           to: 's3://tbg-production-component-library/assets'
-          arguments: |
-            --acl public-read \
-            --cache-control "max-age=3600"
+          arguments: '--acl public-read --cache-control "max-age=3600"'
       - aws-s3/sync:
           from: storybook-static
           to: 's3://tbg-production-component-library'
-          arguments: |
-            --acl public-read \
-            --cache-control "max-age=3600"
+          arguments: '--acl public-read --cache-control "max-age=3600"'
 
   # Publishes `@biggive/components` *and* `@biggive/components-angular` (building both on the fly).
   publish:
@@ -125,6 +125,8 @@ workflows:
             - jira
           post-steps:
             - jira/notify:
+                pipeline_id: << pipeline.id >>
+                pipeline_number: << pipeline.number >>
                 job_type: build
                 environment_type: development
 
@@ -145,6 +147,8 @@ workflows:
             - npm-publish
           post-steps:
             - jira/notify:
+                pipeline_id: << pipeline.id >>
+                pipeline_number: << pipeline.number >>
                 job_type: deployment
                 environment_type: production
 
@@ -162,5 +166,7 @@ workflows:
             - jira
           post-steps:
             - jira/notify:
+                pipeline_id: << pipeline.id >>
+                pipeline_number: << pipeline.number >>
                 job_type: deployment
                 environment_type: production
