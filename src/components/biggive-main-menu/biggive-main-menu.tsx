@@ -163,7 +163,7 @@ export class BiggiveMainMenu {
             ></biggive-social-icon>
             <biggive-social-icon service="Instagram" url="https://www.instagram.com/biggiveorg" background-colour="tertiary" icon-colour="black"></biggive-social-icon>
           </div>
-          <div class="nav-secondary">{this.getSecondaryNavLinks()}</div>
+          <div class="nav-secondary">{() => this.getSecondaryNavLinks()}</div>
         </div>
         <nav role="navigation" aria-label="Main Menu">
           <div class="navbar">
@@ -312,7 +312,7 @@ export class BiggiveMainMenu {
                     </ul>
                   </li>
                 </ul>
-                <div class="mobile-only">{this.getSecondaryNavLinks()}</div>
+                <div class="mobile-only">{() => this.getSecondaryNavLinks()}</div>
               </div>
               <div class="mobile-social-icon-wrap mobile-only">
                 <biggive-social-icon service="Facebook" url="https://www.facebook.com/BigGive.org" background-colour="tertiary" icon-colour="black"></biggive-social-icon>
