@@ -15,12 +15,12 @@ const Template = () => `
         </ul>
         <div slot="nav-secondary-title">Resources</div>
         <ul slot="nav-secondary">
-          <li><a href="#">Contact us</a></li>
+          <li><a href="#">Support</a></li>
           <li><a href="#">Charity login</a></li>
         </ul>
         <div slot="nav-tertiary-title">About</div>
         <ul slot="nav-tertiary">
-          <li><a href="#">Contact us</a></li>
+          <li><a href="#">Support</a></li>
           <li><a href="#">Charity login</a></li>
         </ul>
         <ul slot="nav-postscript">

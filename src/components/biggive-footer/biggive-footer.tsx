@@ -164,7 +164,7 @@ export class BiggiveFooter {
               </HeadingTag>
               <ul slot="nav-tertiary">
                 <li>
-                  <a href={makeURL('Blog', this.blogUrlPrefix, 'faqs')}>Contact us</a>
+                  <a href={makeURL('Blog', this.blogUrlPrefix, 'faqs')}>Support</a>
                 </li>
                 <li>
                   <a href={makeURL('Blog', this.blogUrlPrefix, 'our-story')}>Our Story</a>
