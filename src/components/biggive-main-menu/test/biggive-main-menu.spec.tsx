@@ -40,7 +40,7 @@ describe('biggive-main-menu', () => {
               </li>
               <li>
                 <a href="https://read-the-blog-here.biggive.org/faqs">
-                  Contact Us
+                  Support
                 </a>
               </li>
             </ul>
@@ -226,7 +226,7 @@ describe('biggive-main-menu', () => {
                     </li>
                     <li>
                       <a href="https://read-the-blog-here.biggive.org/faqs">
-                        Contact Us
+                        Support
                       </a>
                     </li>
                   </ul>
