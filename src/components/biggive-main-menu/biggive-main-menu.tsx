@@ -125,7 +125,7 @@ export class BiggiveMainMenu {
           <a href={makeURL('Experience', this.experienceUrlPrefix, 'charities/s/login')}>Charity Login</a>
         </li>
         <li>
-          <a href={makeURL('Blog', this.blogUrlPrefix, 'faqs')}>Support</a>
+          <a href={makeURL('Blog', this.blogUrlPrefix, 'support')}>Support</a>
         </li>
       </ul>
     );
