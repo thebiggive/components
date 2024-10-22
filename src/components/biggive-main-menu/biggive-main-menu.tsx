@@ -76,7 +76,7 @@ export class BiggiveMainMenu {
 
     const subMenuElements = this.host.shadowRoot!.querySelectorAll<HTMLElement>('.sub-menu');
     if (subMenuElements.length === 0) {
-      console.error('Missing subMenuElements');
+      throw new Error('Missing subMenuElements');
     }
 
     subMenuElements.forEach(subMenuElement => {
@@ -93,7 +93,7 @@ export class BiggiveMainMenu {
     const subSubMenuElements = this.host.shadowRoot!.querySelectorAll<HTMLElement>('.sub-sub-menu');
 
     if (subSubMenuElements.length === 0) {
-      console.error('Missing subSubMenuElements');
+      throw new Error('Missing subSubMenuElements');
     }
 
     subSubMenuElements.forEach(subSubMenuElement => {
@@ -109,6 +109,15 @@ export class BiggiveMainMenu {
   }
 
   private getSecondaryNavLinks() {
+    console.log('getting secondary nav links');
+    console.log({
+      myAccountFlagEnabled: this.myAccountFlagEnabled,
+      isLoggedIn: this.isLoggedIn,
+      donateUrlPrefix: this.donateUrlPrefix,
+      experienceUrlPrefix: this.experienceUrlPrefix,
+      blogUrlPrefix: this.blogUrlPrefix,
+    });
+
     return (
       <ul>
         {this.myAccountFlagEnabled && !this.isLoggedIn && (
@@ -148,6 +157,8 @@ export class BiggiveMainMenu {
 
     const homePageLink = ccIsOpenNowIsh ? '/?noredirect' : '/';
 
+    const secondaryNavLinks = this.getSecondaryNavLinks();
+
     return (
       <Host>
         <div class="row row-top">
@@ -163,7 +174,7 @@ export class BiggiveMainMenu {
             ></biggive-social-icon>
             <biggive-social-icon service="Instagram" url="https://www.instagram.com/biggiveorg" background-colour="tertiary" icon-colour="black"></biggive-social-icon>
           </div>
-          <div class="nav-secondary">{this.getSecondaryNavLinks()}</div>
+          <div class="nav-secondary">{secondaryNavLinks}</div>
         </div>
         <nav role="navigation" aria-label="Main Menu">
           <div class="navbar">
@@ -312,7 +323,7 @@ export class BiggiveMainMenu {
                     </ul>
                   </li>
                 </ul>
-                <div class="mobile-only">{this.getSecondaryNavLinks()}</div>
+                <div class="mobile-only">{secondaryNavLinks}</div>
               </div>
               <div class="mobile-social-icon-wrap mobile-only">
                 <biggive-social-icon service="Facebook" url="https://www.facebook.com/BigGive.org" background-colour="tertiary" icon-colour="black"></biggive-social-icon>
