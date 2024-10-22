@@ -643,6 +643,10 @@ export namespace Components {
          */
         "mainImageAlignVertical": string;
         /**
+          * Determines whether the main image is clipped to a triangle shape (default) or used as a background for the entire component. Clipping can leave a lot of blank space.
+         */
+        "mainImageShape": 'triangle'|'rectangle';
+        /**
           * Hero image title, typically the page.
          */
         "mainTitle": string;
@@ -2266,6 +2270,10 @@ declare namespace LocalJSX {
           * Vertical alignment of image
          */
         "mainImageAlignVertical"?: string;
+        /**
+          * Determines whether the main image is clipped to a triangle shape (default) or used as a background for the entire component. Clipping can leave a lot of blank space.
+         */
+        "mainImageShape"?: 'triangle'|'rectangle';
         /**
           * Hero image title, typically the page.
          */

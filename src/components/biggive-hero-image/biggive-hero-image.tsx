@@ -51,6 +51,12 @@ export class BiggiveHeroImage {
     @Prop() mainImage: string|null = null;
 
   /**
+   * Determines whether the main image is clipped to a triangle shape (default) or used as
+   * a background for the entire component. Clipping can leave a lot of blank space.
+   */
+  @Prop() mainImageShape: 'triangle'|'rectangle' = 'triangle';
+
+  /**
    * Horizontal alignment of image
    */
     @Prop() mainImageAlignHorizontal: string = 'center';
@@ -97,9 +103,11 @@ export class BiggiveHeroImage {
     const teaserClasses = 'teaser ' + (typeof this.teaserColour === 'string' && this.teaserColour.length > 0 ? `text-colour-${this.teaserColour}` : '');
 
     return (
-      <div class={'container colour-scheme-' + this.colourScheme + ' space-below-' + this.spaceBelow}>
+      <div class={'container colour-scheme-' + this.colourScheme + ' space-below-' + this.spaceBelow}
+           style={this.mainImageShape === 'rectangle' ?  {'background-image': 'url(' + this.mainImage + ')'} : {}}
+      >
         <div class="sleeve">
-          <div class="content-wrap">
+          <div class="content-wrap" >
             {this.logo !== undefined && this.logo !== null ? (
               <div class={'logo image-wrap logo-height-'+this.logoHeight}>
                 <img src={this.logo} alt={this.logoAltText} title={this.logoAltText}/>
@@ -113,13 +121,17 @@ export class BiggiveHeroImage {
               : null
             }
           </div>
-          <div class="graphic-wrap">
-            {this.mainImage !== null ? (
-              <div class="image-wrap" role="presentation" style={{ 'background-image': 'url(' + this.mainImage + ')', 'background-position': this.mainImageAlignHorizontal + ' ' + this.mainImageAlignVertical }}>
+            {this.mainImageShape === 'triangle' && this.mainImage !== null ? (
+              <div class="graphic-wrap">
+              <div
+                class="image-wrap"
+                role="presentation"
+                style={{ 'background-image': 'url(' + this.mainImage + ')', 'background-position': this.mainImageAlignHorizontal + ' ' + this.mainImageAlignVertical }}
+              >
+              </div>
               </div>
             ) : null}
           </div>
-        </div>
       </div>
     );
   }
