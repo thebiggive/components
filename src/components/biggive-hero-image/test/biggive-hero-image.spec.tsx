@@ -37,7 +37,6 @@ describe('biggive-hero-image', () => {
                  this is the intro text which I want to add
                </div>
              </div>
-             <div class="graphic-wrap"></div>
            </div>
           </div>
         </mock:shadow-root>
