@@ -157,7 +157,10 @@ export class BiggiveMainMenu {
 
     const homePageLink = ccIsOpenNowIsh ? '/?noredirect' : '/';
 
-    const secondaryNavLinks = this.getSecondaryNavLinks();
+    // calling same function twice because using same JSX node twice is not allowed
+    // see https://stenciljs.com/docs/templating-jsx#avoid-shared-jsx-nodes
+    const secondaryNavLinksA = this.getSecondaryNavLinks();
+    const secondaryNavLinksB = this.getSecondaryNavLinks();
 
     return (
       <Host>
@@ -174,7 +177,7 @@ export class BiggiveMainMenu {
             ></biggive-social-icon>
             <biggive-social-icon service="Instagram" url="https://www.instagram.com/biggiveorg" background-colour="tertiary" icon-colour="black"></biggive-social-icon>
           </div>
-          <div class="nav-secondary">{secondaryNavLinks}</div>
+          <div class="nav-secondary">{secondaryNavLinksA}</div>
         </div>
         <nav role="navigation" aria-label="Main Menu">
           <div class="navbar">
@@ -323,7 +326,7 @@ export class BiggiveMainMenu {
                     </ul>
                   </li>
                 </ul>
-                <div class="mobile-only">{secondaryNavLinks}</div>
+                <div class="mobile-only">{secondaryNavLinksB}</div>
               </div>
               <div class="mobile-social-icon-wrap mobile-only">
                 <biggive-social-icon service="Facebook" url="https://www.facebook.com/BigGive.org" background-colour="tertiary" icon-colour="black"></biggive-social-icon>
