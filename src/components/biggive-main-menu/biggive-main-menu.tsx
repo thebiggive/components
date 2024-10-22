@@ -67,7 +67,7 @@ export class BiggiveMainMenu {
     document.body.style.paddingTop = Math.min(130, offsetHeight).toString() + 'px';
   }
 
-  componentDidRender() {
+  componentDidLoad() {
     this.host.classList.add('fixed');
     window.addEventListener('resize', () => {
       this.setHeaderSize();
