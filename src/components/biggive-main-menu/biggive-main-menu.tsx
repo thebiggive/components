@@ -108,16 +108,7 @@ export class BiggiveMainMenu {
   }
 
   private getSecondaryNavLinks() {
-    console.log('getting secondary nav links');
-    console.log({
-      myAccountFlagEnabled: this.myAccountFlagEnabled,
-      isLoggedIn: this.isLoggedIn,
-      donateUrlPrefix: this.donateUrlPrefix,
-      experienceUrlPrefix: this.experienceUrlPrefix,
-      blogUrlPrefix: this.blogUrlPrefix,
-    });
-
-    return (
+     return (
       <ul>
         {this.myAccountFlagEnabled && !this.isLoggedIn && (
           <li>

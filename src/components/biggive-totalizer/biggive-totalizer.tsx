@@ -39,8 +39,6 @@ export class BiggiveTotalizer {
   @Prop() mainMessage: string;
 
   private setSpeed(itemsWidth: number, containerWidth: number) {
-    console.log('setSpeed() called with itemsWidth=' + itemsWidth + ', containerWidth=' + containerWidth);
-
     if (containerWidth === this.lastWrapperWidth) {
       // Some browsers fire 'resize' overzealously on scroll; we don't want to cause extra paints if nothing
       // relevant changed.
