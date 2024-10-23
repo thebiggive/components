@@ -100,7 +100,9 @@ export class BiggiveHeroImage {
 
   render() {
     const mainTitleClasses = 'main-title ' + (typeof this.mainTitleColour === 'string' && this.mainTitleColour.length > 0 ? `text-colour-${this.mainTitleColour}` : '');
-    const teaserClasses = 'teaser ' + (typeof this.teaserColour === 'string' && this.teaserColour.length > 0 ? `text-colour-${this.teaserColour}` : '');
+    const teaserClasses = 'teaser ' +
+      (this.buttonLabel?.length > 0 ? 'teaser-with-space ' : '') +
+      (typeof this.teaserColour === 'string' && this.teaserColour.length > 0 ? `text-colour-${this.teaserColour}` : '');
 
     return (
       <div class={'container colour-scheme-' + this.colourScheme + ' space-below-' + this.spaceBelow}
