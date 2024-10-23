@@ -96,8 +96,6 @@ const Template = (args: any) => `
       </biggive-campaign-card-filter-grid>
       `;
 
-document.addEventListener('doSearchAndFilterUpdate', ($event: CustomEvent) => console.log($event.detail));
-
 export const CampaignCardFilterGridComponent = {
   render: Template,
 
