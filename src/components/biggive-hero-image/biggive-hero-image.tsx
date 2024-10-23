@@ -104,7 +104,7 @@ export class BiggiveHeroImage {
 
     return (
       <div class={'container colour-scheme-' + this.colourScheme + ' space-below-' + this.spaceBelow}
-           style={this.mainImageShape === 'rectangle' ?  {'background-image': 'url(' + this.mainImage + ')'} : {}}
+           style={this.mainImageShape === 'rectangle' ?  {'background-image': 'url(' + this.mainImage + ')', 'background-size': 'cover'} : {}}
       >
         <div class="sleeve">
           <div class="content-wrap" >
