@@ -100,7 +100,9 @@ export class BiggiveHeroImage {
 
   render() {
     const mainTitleClasses = 'main-title ' + (typeof this.mainTitleColour === 'string' && this.mainTitleColour.length > 0 ? `text-colour-${this.mainTitleColour}` : '');
-    const teaserClasses = 'teaser ' + (typeof this.teaserColour === 'string' && this.teaserColour.length > 0 ? `text-colour-${this.teaserColour}` : '');
+    const teaserClasses = 'teaser ' +
+      (this.buttonLabel?.length > 0 ? 'teaser-with-space ' : '') +
+      (typeof this.teaserColour === 'string' && this.teaserColour.length > 0 ? `text-colour-${this.teaserColour}` : '');
 
     return (
       <div class={'container colour-scheme-' + this.colourScheme + ' space-below-' + this.spaceBelow}
@@ -113,7 +115,10 @@ export class BiggiveHeroImage {
                 <img src={this.logo} alt={this.logoAltText} title={this.logoAltText}/>
               </div>
             ) : <div class={'logo-space logo-height-'+this.logoHeight}></div>}
-            <div class={'slug text-colour-'+this.slugColour}>{this.slug}</div>
+            {this.logo?.length > 0 || this.slug?.length > 0
+              ? (<div class={'slug text-colour-'+this.slugColour}>{this.slug}</div>)
+              : null
+            }
             <h1 class={mainTitleClasses}>{this.mainTitle}</h1>
             <div class={teaserClasses}>{this.teaser}</div>
             {this.buttonLabel != null && this.buttonUrl != null
