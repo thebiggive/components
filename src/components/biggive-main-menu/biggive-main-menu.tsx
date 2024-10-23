@@ -12,15 +12,14 @@ export class BiggiveMainMenu {
   @Element() host: HTMLBiggiveMainMenuElement;
 
   // URL prefixes vary by environment, and components library is not best placed to know what they are, so we
-  // take them as props
-  @Prop() blogUrlPrefix: string;
+  // take them as props. But somehow on first render the prop passed in doesn't seem to be used, so the defaults
+  // below are the values currently used in our prod site. They should be replaced by other values in other
+  // environments.
+  @Prop() blogUrlPrefix: string = 'https://biggive.org';
 
-  /**
-   * E.g. "https://donate.biggive.org" for production (currently)
-   */
-  @Prop() donateUrlPrefix: string;
+  @Prop() donateUrlPrefix: string = 'https://donate.biggive.org';
 
-  @Prop() experienceUrlPrefix: string;
+  @Prop() experienceUrlPrefix: string = 'https://community.biggive.org';
 
   @Prop() myAccountFlagEnabled = false;
 

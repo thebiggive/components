@@ -827,9 +827,6 @@ export namespace Components {
     interface BiggiveMainMenu {
         "blogUrlPrefix": string;
         "closeMobileMenuFromOutside": () => Promise<void>;
-        /**
-          * E.g. "https://donate.biggive.org" for production (currently)
-         */
         "donateUrlPrefix": string;
         "experienceUrlPrefix": string;
         /**
@@ -2456,9 +2453,6 @@ declare namespace LocalJSX {
     }
     interface BiggiveMainMenu {
         "blogUrlPrefix"?: string;
-        /**
-          * E.g. "https://donate.biggive.org" for production (currently)
-         */
         "donateUrlPrefix"?: string;
         "experienceUrlPrefix"?: string;
         /**

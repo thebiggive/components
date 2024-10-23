@@ -7,13 +7,13 @@
 
 ## Properties
 
-| Property               | Attribute                 | Description                                                                                                                    | Type      | Default     |
-| ---------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | --------- | ----------- |
-| `blogUrlPrefix`        | `blog-url-prefix`         |                                                                                                                                | `string`  | `undefined` |
-| `donateUrlPrefix`      | `donate-url-prefix`       | E.g. "https://donate.biggive.org" for production (currently)                                                                   | `string`  | `undefined` |
-| `experienceUrlPrefix`  | `experience-url-prefix`   |                                                                                                                                | `string`  | `undefined` |
-| `isLoggedIn`           | `is-logged-in`            | Whether the current user is logged in (i.e. is assumed to have a valid JWT). They get links to some extra content if they are. | `boolean` | `false`     |
-| `myAccountFlagEnabled` | `my-account-flag-enabled` |                                                                                                                                | `boolean` | `false`     |
+| Property               | Attribute                 | Description                                                                                                                    | Type      | Default                           |
+| ---------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | --------- | --------------------------------- |
+| `blogUrlPrefix`        | `blog-url-prefix`         |                                                                                                                                | `string`  | `'https://biggive.org'`           |
+| `donateUrlPrefix`      | `donate-url-prefix`       |                                                                                                                                | `string`  | `'https://donate.biggive.org'`    |
+| `experienceUrlPrefix`  | `experience-url-prefix`   |                                                                                                                                | `string`  | `'https://community.biggive.org'` |
+| `isLoggedIn`           | `is-logged-in`            | Whether the current user is logged in (i.e. is assumed to have a valid JWT). They get links to some extra content if they are. | `boolean` | `false`                           |
+| `myAccountFlagEnabled` | `my-account-flag-enabled` |                                                                                                                                | `boolean` | `false`                           |
 
 
 ## Methods
