@@ -108,7 +108,7 @@ export class BiggiveMainMenu {
   }
 
   private getSecondaryNavLinks() {
-     return (
+    return (
       <ul>
         {this.myAccountFlagEnabled && !this.isLoggedIn && (
           <li>
