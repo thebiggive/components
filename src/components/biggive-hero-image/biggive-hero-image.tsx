@@ -115,7 +115,10 @@ export class BiggiveHeroImage {
                 <img src={this.logo} alt={this.logoAltText} title={this.logoAltText}/>
               </div>
             ) : <div class={'logo-space logo-height-'+this.logoHeight}></div>}
-            <div class={'slug text-colour-'+this.slugColour}>{this.slug}</div>
+            {this.logo?.length > 0 || this.slug?.length > 0
+              ? (<div class={'slug text-colour-'+this.slugColour}>{this.slug}</div>)
+              : null
+            }
             <h1 class={mainTitleClasses}>{this.mainTitle}</h1>
             <div class={teaserClasses}>{this.teaser}</div>
             {this.buttonLabel != null && this.buttonUrl != null
