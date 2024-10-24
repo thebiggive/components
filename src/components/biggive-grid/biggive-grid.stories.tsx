@@ -35,7 +35,7 @@ const Template = (args: any) => `
               space-below='4'
               icon-colour='primary'
               background-image-url='https://media.istockphoto.com/vectors/childish-seamless-dotted-pattern-with-colorful-doodle-letters-fun-vector-id1208462693'
-              main-title='Sample main title'
+              main-title='Middle East Humanitarian Appeal'
               subtitle='Sample subtitle'
               button-url='#'
               button-label='Click here'
