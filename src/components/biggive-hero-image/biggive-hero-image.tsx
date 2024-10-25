@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
-import { Component, Prop, h } from '@stencil/core';
-import { brandColour } from '../../globals/brand-colour';
-import { spacingOption } from '../../globals/spacing-option';
+import {Component, h, Prop} from '@stencil/core';
+import {brandColour} from '../../globals/brand-colour';
+import {spacingOption} from '../../globals/spacing-option';
 
 
 @Component({
@@ -104,6 +104,11 @@ export class BiggiveHeroImage {
       (this.buttonLabel?.length > 0 ? 'teaser-with-space ' : '') +
       (typeof this.teaserColour === 'string' && this.teaserColour.length > 0 ? `text-colour-${this.teaserColour}` : '');
 
+    // Charities can use line breaks in their copy so we convert them to BR tags to display. Using this rather than
+    // `pre` or `pre-wrap` so that literal whitespace inserted into the rendered output doesn't affect the layout.
+    // Assuming that this is needed only for the teaser, and the main title would never contain a line break.
+    const teaserLines = this.lineBreakToBr(this.teaser);
+
     return (
       <div class={'container colour-scheme-' + this.colourScheme + ' space-below-' + this.spaceBelow}
            style={this.mainImageShape === 'rectangle' ?  {'background-image': 'url(' + this.mainImage + ')', 'background-size': 'cover'} : {}}
@@ -120,7 +125,7 @@ export class BiggiveHeroImage {
               : null
             }
             <h1 class={mainTitleClasses}>{this.mainTitle}</h1>
-            <div class={teaserClasses}>{this.teaser}</div>
+            <div class={teaserClasses}>{teaserLines}</div>
             {this.buttonLabel != null && this.buttonUrl != null
               ? <biggive-button colour-scheme={this.buttonColourScheme} url={this.buttonUrl} label={this.buttonLabel}></biggive-button>
               : null
@@ -139,5 +144,16 @@ export class BiggiveHeroImage {
           </div>
       </div>
     );
+  }
+
+  /**
+   * Takes a string that may contain any form of newlines, and returns an array that alternates
+   * between substrings found between the newlines and <br/> elements as objects.
+   */
+  private lineBreakToBr(string: string): unknown[] {
+    return string.split(/\r?\n|\r|\n/g)
+      .map(line => [line, <br/>])
+      .flat()
+      .slice(0, -1);
   }
 }
