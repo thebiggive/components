@@ -97,7 +97,7 @@
 
 
 
-@media screen and (max-width: $screen-tablet-max) {
+@media screen and (max-width: $screen-large) {
 
   @for $i from 1 through 6 {
     .column-count-#{$i}  ::slotted(*) { width: calc( 51% - (($spacer-4 * 1) / 2)) };
