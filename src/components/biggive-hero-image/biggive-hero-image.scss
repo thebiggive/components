@@ -26,7 +26,6 @@
     width: 40%;
     position: relative;
     z-index: 1;
-    white-space: pre-wrap; // helps render out \n
     padding: $spacer-8 $spacer-6 $spacer-6 $spacer-0;
 
     .logo, .logo-space {
