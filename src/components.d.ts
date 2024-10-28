@@ -669,7 +669,7 @@ export namespace Components {
         /**
           * Introductory teaser text
          */
-        "teaser": string;
+        "teaser": string|undefined;
         /**
           * Teaser colour
          */
@@ -2294,7 +2294,7 @@ declare namespace LocalJSX {
         /**
           * Introductory teaser text
          */
-        "teaser"?: string;
+        "teaser"?: string|undefined;
         /**
           * Teaser colour
          */
