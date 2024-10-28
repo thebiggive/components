@@ -77,7 +77,7 @@ export class BiggiveHeroImage {
   /**
    * Introductory teaser text
    */
-  @Prop() teaser: string;
+  @Prop() teaser: string|undefined;
   /**
    * Teaser colour
    */
@@ -150,7 +150,11 @@ export class BiggiveHeroImage {
    * Takes a string that may contain any form of newlines, and returns an array that alternates
    * between substrings found between the newlines and <br/> elements as objects.
    */
-  private lineBreakToBr(string: string): unknown[] {
+  private lineBreakToBr(string: string|undefined): unknown[] {
+    if (string == undefined) {
+      return [];
+    }
+
     return string.split(/\r?\n|\r|\n/g)
       .map(line => [line, <br/>])
       .flat()
