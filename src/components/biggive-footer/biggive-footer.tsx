@@ -74,7 +74,7 @@ export class BiggiveFooter {
 
           <div class="row row-bottom">
             <div class="postscript-wrap">
-              <img class="fr-logo" src={getAssetPath('assets/images/fundraising-regulator.png')} alt="Registered with FUNDRAISING REGULATOR" />
+              <img class="fr-logo" src={getAssetPath('/assets/images/fundraising-regulator.png')} alt="Registered with FUNDRAISING REGULATOR" />
 
               <nav class="nav nav-postscript" aria-label="Legal"></nav>
             </div>
@@ -195,7 +195,7 @@ export class BiggiveFooter {
 
           <div class="row row-bottom">
             <div class="postscript-wrap">
-              <img class="fr-logo" src={getAssetPath('assets/images/fundraising-regulator.png')} alt="Registered with FUNDRAISING REGULATOR" />
+              <img class="fr-logo" src={getAssetPath('/assets/images/fundraising-regulator.png')} alt="Registered with FUNDRAISING REGULATOR" />
 
               <nav class="nav nav-postscript" aria-label="Legal">
                 <ul slot="nav-postscript">
