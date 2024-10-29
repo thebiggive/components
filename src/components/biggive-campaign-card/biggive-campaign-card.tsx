@@ -130,7 +130,7 @@ export class BiggiveCampaignCard {
               </div>
             ) : null}
 
-            {this.banner !== null ? (
+            {this.banner !== null && this.banner !== undefined ? (
               <div class="image-wrap banner" role="presentation" style={{ 'background-image': 'url(' + this.banner + ')' }}></div>
             ) : (
               <div class="image-wrap banner"></div>
