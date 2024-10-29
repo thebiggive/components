@@ -106,7 +106,7 @@ For now:
   addition to an `angular.json` `"styles"` key:
   `"node_modules/@biggive/components/dist/biggive/assets/fonts/EuclidTriangle/stylesheet.css"`
 * Images are also copied with a Stencil `copy` task, and fixed references use getAssetPath() plus
-  a path, e.g. `getAssetPath('assets/images/banner.png')`. See the
+  a path, e.g. `getAssetPath('/assets/images/banner.png')`. See the
   [Stencil asset docs](https://stenciljs.com/docs/assets) for more on this. Angular seems to be
   able to use this without `setAssetPath()` if we config its `"assets"` key to put files in the same
   folder as the app's own images. This is the approach taken on [this proof of concept branch](https://github.com/thebiggive/donate-frontend/tree/COM-5-proof-of-concept).
