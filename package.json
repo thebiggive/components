@@ -44,9 +44,9 @@
     "@stencil/core": "~4.22.0"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^2.0.2",
-    "@stencil-community/eslint-plugin": "~0.8.0",
-    "@stencil/angular-output-target": "~0.9.0",
+    "@chromatic-com/storybook": "^3.2.2",
+    "@stencil-community/eslint-plugin": "~0.9.0",
+    "@stencil/angular-output-target": "~0.10.0",
     "@stencil/sass": "^3.0.8",
     "@storybook/addon-actions": "^8.1.6",
     "@storybook/addon-essentials": "^8.1.6",
