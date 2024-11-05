@@ -73,6 +73,10 @@ export class BiggiveMainMenu {
     });
     this.setHeaderSize();
 
+    // repeat setting header size in attempt to workaround issue in COM-102 comments with the total raised box
+    // being hidden behind menu in some cases on Safari.
+    window.setTimeout(() => this.setHeaderSize(), 200);
+
     const subMenuElements = this.host.shadowRoot!.querySelectorAll<HTMLElement>('.sub-menu');
     if (subMenuElements.length === 0) {
       throw new Error('Missing subMenuElements');
