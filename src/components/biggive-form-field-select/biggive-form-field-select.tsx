@@ -95,6 +95,10 @@ export class BiggiveFormFieldSelect {
     label: string;
     value: string;
   }[] {
+    if (options === undefined) {
+      return [];
+    }
+
     if (typeof options === 'string') {
       options = JSON.parse(options);
     }
