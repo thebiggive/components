@@ -7,7 +7,7 @@ import { makeURL } from '../../util/helper-methods';
   shadow: true,
 })
 export class BiggiveMainMenu {
-  private lastOffsetHeight = 0;
+  private lastScrollHeight = 0;
 
   @Element() host: HTMLBiggiveMainMenuElement;
 
@@ -50,20 +50,24 @@ export class BiggiveMainMenu {
   }
 
   private setHeaderSize() {
-    if (this.host.offsetHeight === this.lastOffsetHeight) {
+    if (this.host.scrollHeight === this.lastScrollHeight) {
       // Some browsers fire 'resize' overzealously on scroll; we don't want to cause extra paints if nothing
       // relevant changed.
       return;
     }
 
-    this.lastOffsetHeight = this.host.offsetHeight;
+    this.lastScrollHeight = this.host.scrollHeight;
 
     // Some resize edge cases lead Firefox, and maybe others, to go haywire and get a host offset
     // height of millions of pixels, presumably due to a layout logic loop. So for as long as we use
     // this body padding workaround, we need a safe maximum value, currently 130px, beyond which
     // we will never further displace the main content.
-    const offsetHeight = isNaN(this.host.offsetHeight) ? 0 : this.host.offsetHeight;
-    document.body.style.paddingTop = Math.min(130, offsetHeight).toString() + 'px';
+    // (Possibly scrollHeight could have the same issue, not tested.)
+    const scrollHeight = isNaN(this.host.scrollHeight) ? 60 : this.host.scrollHeight;
+    console.log('scroll height', this.host.scrollHeight);
+    console.log('offset height', this.host.offsetHeight);
+
+    document.body.style.paddingTop = Math.min(130, scrollHeight).toString() + 'px';
   }
 
   componentDidLoad() {
@@ -72,10 +76,6 @@ export class BiggiveMainMenu {
       this.setHeaderSize();
     });
     this.setHeaderSize();
-
-    // repeat setting header size in attempt to workaround issue in COM-102 comments with the total raised box
-    // being hidden behind menu in some cases on Safari.
-    window.setTimeout(() => this.setHeaderSize(), 1000);
 
     const subMenuElements = this.host.shadowRoot!.querySelectorAll<HTMLElement>('.sub-menu');
     if (subMenuElements.length === 0) {
