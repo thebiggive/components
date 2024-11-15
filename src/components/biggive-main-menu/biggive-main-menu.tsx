@@ -64,8 +64,6 @@ export class BiggiveMainMenu {
     // we will never further displace the main content.
     // (Possibly scrollHeight could have the same issue, not tested.)
     const scrollHeight = isNaN(this.host.scrollHeight) ? 60 : this.host.scrollHeight;
-    console.log('scroll height', this.host.scrollHeight);
-    console.log('offset height', this.host.offsetHeight);
 
     document.body.style.paddingTop = Math.min(130, scrollHeight).toString() + 'px';
   }
@@ -138,12 +136,12 @@ export class BiggiveMainMenu {
     /** ten minutes in advance to account for a *very* slow browser following the link and/or clock skew.
      * There's not really any harm in doing this early unless its soo early that people start sharing the noredirect link more than we'd like.
      */
-    const CCOpenDate = new Date('2023-11-27T23:50:00+00:00');
+    const CCOpenDate = new Date('2024-12-02T23:50:00+00:00');
 
     /**
      * Ten minutes late. Again doing this late doesn't hurt.
      */
-    const CCCloseDate = new Date('2023-12-05T12:10:00+00:00');
+    const CCCloseDate = new Date('2024-12-10T12:10:00+00:00');
 
     const now = new Date();
 
