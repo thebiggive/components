@@ -34,7 +34,7 @@
 
 ### `unfocusInputs() => Promise<void>`
 
-
+Typically on non-negligible scroll away from the search area.
 
 #### Returns
 

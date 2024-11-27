@@ -54,7 +54,7 @@ export class BiggiveCampaignCardFilterGrid {
   /**
    * Typically on non-negligible scroll away from the search area.
    */
-  @Method() async nonNegligiblePageScroll() {
+  @Method() async unfocusInputs() {
     this.unfocusTextInput();
   }
 
