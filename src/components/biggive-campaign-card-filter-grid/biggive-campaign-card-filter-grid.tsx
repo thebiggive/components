@@ -1,4 +1,4 @@
-import { Component, Element, Event, EventEmitter, h, Listen, Prop, State } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, h, Method, Prop, State } from '@stencil/core';
 import { faMagnifyingGlass } from '@fortawesome/pro-solid-svg-icons';
 
 const sortOptionLabels = {
@@ -51,8 +51,11 @@ export class BiggiveCampaignCardFilterGrid {
     filterLocation: string | null;
   }>;
 
-  @Listen('nonNegligiblePageScroll') // Typically away from the search area
-  handlePageScroll() {
+  @Method()
+  /**
+   * Typically on non-negligible scroll away from the search area.
+   */
+  async unfocusInputs() {
     this.unfocusTextInput();
   }
 
