@@ -412,6 +412,10 @@ export namespace Components {
           * Space below component
          */
         "spaceBelow": number;
+        /**
+          * Typically on non-negligible scroll away from the search area.
+         */
+        "unfocusInputs": () => Promise<void>;
     }
     interface BiggiveCampaignHighlights {
         /**
