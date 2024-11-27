@@ -412,6 +412,7 @@ export namespace Components {
           * Space below component
          */
         "spaceBelow": number;
+        "unfocusInputs": () => Promise<void>;
     }
     interface BiggiveCampaignHighlights {
         /**

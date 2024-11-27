@@ -30,6 +30,19 @@
 | `doSearchAndFilterUpdate` | This event `doSearchAndFilterUpdate` event is emitted and propogates to the parent component which handles it | `CustomEvent<{ searchText: string \| null; sortBy: string \| null; filterCategory: string \| null; filterBeneficiary: string \| null; filterLocation: string \| null; }>` |
 
 
+## Methods
+
+### `unfocusInputs() => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Depends on
