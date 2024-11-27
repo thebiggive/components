@@ -1,4 +1,4 @@
-import { Component, Element, Event, EventEmitter, h, Prop, State } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, h, Listen, Prop, State } from '@stencil/core';
 import { faMagnifyingGlass } from '@fortawesome/pro-solid-svg-icons';
 
 const sortOptionLabels = {
@@ -18,6 +18,19 @@ export type sortOptionLabel = (typeof sortOptionLabels)[sortOptionKey];
   shadow: true,
 })
 export class BiggiveCampaignCardFilterGrid {
+  private sortByPlaceholderText = 'Sort by';
+  private beneficiariesPlaceHolderText = 'Select beneficiary';
+  private categoriesPlaceHolderText = 'Select category';
+  private locationsPlaceHolderText = 'Select location';
+  private initialSortByOption: sortOptionLabel;
+
+  /**
+   * This and similar properties represent selections made in the popup but not yet applied.
+   */
+  private newSelectedFilterCategory: string | null = null;
+  private newSelectedFilterBeneficiary: string | null = null;
+  private newSelectedFilterLocation: string | null = null;
+
   @Element() el: HTMLBiggiveCampaignCardFilterGridElement;
 
   /**
@@ -38,10 +51,10 @@ export class BiggiveCampaignCardFilterGrid {
     filterLocation: string | null;
   }>;
 
-  private sortByPlaceholderText = 'Sort by';
-  private beneficiariesPlaceHolderText = 'Select beneficiary';
-  private categoriesPlaceHolderText = 'Select category';
-  private locationsPlaceHolderText = 'Select location';
+  @Listen('nonNegligiblePageScroll') // Typically away from the search area
+  handlePageScroll() {
+    this.unfocusTextInput();
+  }
 
   /**
    * Space below component
@@ -119,15 +132,6 @@ export class BiggiveCampaignCardFilterGrid {
    */
   @State() filtersApplied: boolean;
 
-  private initialSortByOption: sortOptionLabel;
-
-  /**
-   * This and similar properties represent selections made in the popup but not yet applied.
-   */
-  private newSelectedFilterCategory: string | null = null;
-  private newSelectedFilterBeneficiary: string | null = null;
-  private newSelectedFilterLocation: string | null = null;
-
   private categoryFilterSelectionChanged = (value: string) => {
     this.newSelectedFilterCategory = value;
   };
@@ -201,6 +205,7 @@ export class BiggiveCampaignCardFilterGrid {
   }
 
   private handleSearchButtonPressed = () => {
+    this.unfocusTextInput();
     this.doSearchAndFilterUpdate.emit(this.getSearchAndFilterObject());
 
     if (this.hasSearchTerm()) {
@@ -214,6 +219,7 @@ export class BiggiveCampaignCardFilterGrid {
 
   private handleEnterPressed = (ev: KeyboardEvent) => {
     if (ev.key === 'Enter') {
+      this.unfocusTextInput();
       this.doSearchAndFilterUpdate.emit(this.getSearchAndFilterObject());
     }
   };
@@ -230,6 +236,8 @@ export class BiggiveCampaignCardFilterGrid {
   };
 
   private handleClearAll = () => {
+    this.unfocusTextInput();
+
     // Set the 'Filters' button back to the primary background colour
     this.filtersApplied = false;
 
@@ -267,6 +275,17 @@ export class BiggiveCampaignCardFilterGrid {
       filterLocation: null,
     });
   };
+
+  /**
+   * We've seen desktop Safari jump to this input when it's focused at times when that's
+   * unhelpful, so on a few occasions we proactively blur it.
+   */
+  private unfocusTextInput() {
+    const input = this.el.shadowRoot?.querySelector('.input-text') as HTMLInputElement | undefined;
+    if (input) {
+      input.blur();
+    }
+  }
 
   componentWillRender() {
     this.filtersApplied = this.selectedFilterCategory !== null || this.selectedFilterBeneficiary !== null || this.selectedFilterLocation !== null;
