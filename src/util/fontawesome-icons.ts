@@ -1,4 +1,4 @@
-import { faAccessibleIcon, IconDefinition, faFacebookF, faTwitter, faYoutube, faInstagram, faLinkedinIn, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faAccessibleIcon, IconDefinition, faFacebookF, faYoutube, faInstagram, faLinkedinIn, faWhatsapp, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import {
   faBaby,
   faBalanceScale,
@@ -93,7 +93,7 @@ export class FontAwesomeIconsService {
       },
       {
         name: 'Twitter',
-        icon: faTwitter,
+        icon: faXTwitter,
       },
       {
         name: 'Instagram',
