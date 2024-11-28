@@ -26,7 +26,7 @@ describe('biggive-main-menu', () => {
         <div class="row row-top">
           <div class="social-icon-wrap">
             <biggive-social-icon background-colour="tertiary" icon-colour="black" service="Facebook" url="https://www.facebook.com/BigGive.org"></biggive-social-icon>
-            <biggive-social-icon background-colour="tertiary" icon-colour="black" service="Twitter" url="https://twitter.com/BigGive"></biggive-social-icon>
+            <biggive-social-icon background-colour="tertiary" icon-colour="black" service="Twitter" url="https://x.com/BigGive"></biggive-social-icon>
             <biggive-social-icon background-colour="tertiary" icon-colour="black" service="LinkedIn" url="https://uk.linkedin.com/company/big-give"></biggive-social-icon>
             <biggive-social-icon background-colour="tertiary" icon-colour="black" service="YouTube" url="https://www.youtube.com/channel/UC9_wH1aaTuZurJ-F9R8GDcA"></biggive-social-icon>
             <biggive-social-icon background-colour="tertiary" icon-colour="black" service="Instagram" url="https://www.instagram.com/biggiveorg"></biggive-social-icon>
@@ -234,7 +234,7 @@ describe('biggive-main-menu', () => {
               </div>
               <div class="mobile-only mobile-social-icon-wrap">
                 <biggive-social-icon background-colour="tertiary" icon-colour="black" service="Facebook" url="https://www.facebook.com/BigGive.org"></biggive-social-icon>
-                <biggive-social-icon background-colour="tertiary" icon-colour="black" service="Twitter" url="https://twitter.com/BigGive"></biggive-social-icon>
+                <biggive-social-icon background-colour="tertiary" icon-colour="black" service="Twitter" url="https://x.com/BigGive"></biggive-social-icon>
                 <biggive-social-icon background-colour="tertiary" icon-colour="black" service="LinkedIn" url="https://uk.linkedin.com/company/big-give"></biggive-social-icon>
                 <biggive-social-icon background-colour="tertiary" icon-colour="black" service="YouTube" url="https://www.youtube.com/channel/UC9_wH1aaTuZurJ-F9R8GDcA"></biggive-social-icon>
                 <biggive-social-icon background-colour="tertiary" icon-colour="black" service="Instagram" url="https://www.instagram.com/biggiveorg"></biggive-social-icon>
