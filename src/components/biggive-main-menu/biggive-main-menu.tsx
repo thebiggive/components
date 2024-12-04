@@ -63,7 +63,9 @@ export class BiggiveMainMenu {
     // this body padding workaround, we need a safe maximum value, currently 130px, beyond which
     // we will never further displace the main content.
     // (Possibly scrollHeight could have the same issue, not tested.)
-    const scrollHeight = isNaN(this.host.scrollHeight) ? 60 : this.host.scrollHeight;
+    // We have also seen intermittent scrolling scenarios where `scrollHeight` is spuriously less than 60px,
+    // maybe related to browsers / OSes with "overscroll" features. So we also now set a fixed minimum of 60px.
+    const scrollHeight = isNaN(this.host.scrollHeight) ? 60 : Math.max(60, this.host.scrollHeight);
 
     document.body.style.paddingTop = Math.min(130, scrollHeight).toString() + 'px';
   }
