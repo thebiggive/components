@@ -284,9 +284,7 @@ export class BiggiveCampaignCardFilterGrid {
    */
   private unfocusTextInput() {
     const input = this.el.shadowRoot?.querySelector('.input-text') as HTMLInputElement | undefined;
-    if (input) {
-      input.blur();
-    }
+    input?.blur();
   }
 
   componentWillRender() {

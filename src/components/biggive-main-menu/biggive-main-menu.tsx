@@ -40,6 +40,10 @@ export class BiggiveMainMenu {
     mobileMenu!.style.left = '0';
   };
 
+  private logOut = () => {
+    alert('This would be the logout function');
+  };
+
   private closeMobileMenu = () => {
     const mobileMenu = this.host.shadowRoot!.querySelector<HTMLElement>('.nav-links');
     mobileMenu!.style.left = '-100%';
@@ -82,11 +86,15 @@ export class BiggiveMainMenu {
       throw new Error('Missing subMenuElements');
     }
 
+    console.log({subMenuElements});
+
     subMenuElements.forEach(subMenuElement => {
       // the subMenuLink is a sibling element to the actual sub-menu
       const subMenuLink = subMenuElement.parentElement?.querySelector('a');
 
       subMenuLink!.onclick = () => {
+        console.log('clicked');
+        console.log({subMenuLink});
         const subMenuArrow = subMenuLink!.querySelector('.sub-menu-arrow');
         subMenuArrow!.classList.toggle('transform-90');
         subMenuElement.classList.toggle('display-sub-menu');
@@ -121,7 +129,18 @@ export class BiggiveMainMenu {
         )}
         {this.isLoggedIn && (
           <li>
-            <a href={makeURL('Donate', this.donateUrlPrefix, 'my-account')}>My Account</a>
+            <a onClick={this.noNav}>
+              My Account
+              <biggive-misc-icon class="bx bxs-chevron-down sub-menu-arrow arrow" background-colour="blue" icon-colour="white" icon="CaretRight"></biggive-misc-icon>
+            </a>
+            <ul class="sub-menu sub-menu-main" id="my-account-sub-menu">
+              <li>
+                <a href={makeURL('Donate', this.donateUrlPrefix, 'my-account')}>Your details</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">Log out</a>
+              </li>
+            </ul>
           </li>
         )}
         <li>
