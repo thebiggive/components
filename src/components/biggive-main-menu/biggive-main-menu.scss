@@ -438,7 +438,6 @@ nav {
   top: $upper-nav-height-desktop;
   left: 0;
   line-height: 40px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   border-radius: 0 0 4px 4px;
   display: none;
   background-color: $colour-primary-blue;
@@ -450,32 +449,9 @@ nav {
     display: none;
   }
 
-  a {
-    color: black;
-    font-size: 15px;
-    font-weight: 500;
-
-    a {
-      width: 100%;
-      display: block;
-    }
-  }
-
-  .more {
-    .sub-sub-menu {
-      position: absolute;
-      top: 0;
-      left: 100%;
-      border-radius: 0 4px 4px 4px;
-      z-index: 1;
-      display: none;
-    }
-  }
-
   @media (max-width: $screen-large) {
     position: static !important;
     background: none;
-    box-shadow: none;
   }
 }
 
@@ -493,7 +469,6 @@ nav {
 
 .nav-secondary li {
   position: relative !important;
-  //outline: 5px solid greenyellow;
   &:hover {
     .sub-menu-arrow {
       transform: rotate(90deg);
@@ -507,7 +482,3 @@ nav {
     }
   }
 }
-
-
-
-//* { outline: 1px dotted green}
