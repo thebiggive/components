@@ -1,4 +1,4 @@
-import {Component, Element, Event, EventEmitter, h, Host, Method, Prop} from '@stencil/core';
+import { Component, Element, Event, EventEmitter, h, Host, Method, Prop } from '@stencil/core';
 import { makeURL } from '../../util/helper-methods';
 
 @Component({
@@ -94,7 +94,7 @@ export class BiggiveMainMenu {
       throw new Error('Missing subMenuElements');
     }
 
-    console.log({subMenuElements});
+    console.log({ subMenuElements });
 
     subMenuElements.forEach(subMenuElement => {
       // the subMenuLink is a sibling element to the actual sub-menu
@@ -102,7 +102,7 @@ export class BiggiveMainMenu {
 
       subMenuLink!.onclick = () => {
         console.log('clicked');
-        console.log({subMenuLink});
+        console.log({ subMenuLink });
         const subMenuArrow = subMenuLink!.querySelector('.sub-menu-arrow');
         subMenuArrow!.classList.toggle('transform-90');
         subMenuElement.classList.toggle('display-sub-menu');
@@ -153,7 +153,9 @@ export class BiggiveMainMenu {
                 <a href={makeURL('Donate', this.donateUrlPrefix, 'my-account')}>Your details</a>
               </li>
               <li>
-                <a href="javascript:void(0)" onClick={this.logOut}>Log out</a>
+                <a href="javascript:void(0)" onClick={this.logOut}>
+                  Log out
+                </a>
               </li>
             </ul>
           </li>
