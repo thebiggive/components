@@ -16,6 +16,13 @@
 | `myAccountFlagEnabled` | `my-account-flag-enabled` |                                                                                                                                | `boolean` | `false`                           |
 
 
+## Events
+
+| Event           | Description | Type                |
+| --------------- | ----------- | ------------------- |
+| `logoutClicked` |             | `CustomEvent<void>` |
+
+
 ## Methods
 
 ### `closeMobileMenuFromOutside() => Promise<void>`
@@ -33,14 +40,14 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [biggive-social-icon](../biggive-social-icon)
 - [biggive-misc-icon](../biggive-misc-icon)
+- [biggive-social-icon](../biggive-social-icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  biggive-main-menu --> biggive-social-icon
   biggive-main-menu --> biggive-misc-icon
+  biggive-main-menu --> biggive-social-icon
   style biggive-main-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

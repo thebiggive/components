@@ -1160,6 +1160,10 @@ export interface BiggiveImageButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLBiggiveImageButtonElement;
 }
+export interface BiggiveMainMenuCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLBiggiveMainMenuElement;
+}
 declare global {
     interface HTMLBiggiveAccordionElement extends Components.BiggiveAccordion, HTMLStencilElement {
     }
@@ -1424,7 +1428,18 @@ declare global {
         prototype: HTMLBiggiveImageFeatureElement;
         new (): HTMLBiggiveImageFeatureElement;
     };
+    interface HTMLBiggiveMainMenuElementEventMap {
+        "logoutClicked": void;
+    }
     interface HTMLBiggiveMainMenuElement extends Components.BiggiveMainMenu, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLBiggiveMainMenuElementEventMap>(type: K, listener: (this: HTMLBiggiveMainMenuElement, ev: BiggiveMainMenuCustomEvent<HTMLBiggiveMainMenuElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLBiggiveMainMenuElementEventMap>(type: K, listener: (this: HTMLBiggiveMainMenuElement, ev: BiggiveMainMenuCustomEvent<HTMLBiggiveMainMenuElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLBiggiveMainMenuElement: {
         prototype: HTMLBiggiveMainMenuElement;
@@ -2464,6 +2479,7 @@ declare namespace LocalJSX {
          */
         "isLoggedIn"?: boolean;
         "myAccountFlagEnabled"?: boolean;
+        "onLogoutClicked"?: (event: BiggiveMainMenuCustomEvent<void>) => void;
     }
     interface BiggiveMiscIcon {
         /**
