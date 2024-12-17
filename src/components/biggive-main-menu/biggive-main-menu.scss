@@ -81,7 +81,7 @@ a {
 
     .social-icon-item {
       margin-right: $spacer-2;
-    }    
+    }
   }
 
   .nav-secondary {
@@ -381,10 +381,6 @@ nav {
               display: block;
             }
 
-            .display-sub-menu {
-              display: block !important;
-            }
-
             .sub-menu {
               position: relative;
               top: 0;
@@ -429,6 +425,60 @@ nav {
   @media (max-width: 370px) {
     nav .navbar .nav-links {
       max-width: 100%;
+    }
+  }
+}
+
+.display-sub-menu, .display-sub-menu li {
+  display: block !important;
+}
+
+.sub-menu-main {
+  position: absolute;
+  top: $upper-nav-height-desktop;
+  left: 0;
+  line-height: 40px;
+  border-radius: 0 0 4px 4px;
+  display: none;
+  background-color: $colour-primary-blue;
+  z-index: 2;
+
+  li {
+    border-right: none !important;
+    padding: 0 22px;
+    display: none;
+  }
+
+  @media (max-width: $screen-large) {
+    position: static !important;
+    background: none;
+  }
+}
+
+.arrow {
+  margin-left: 5px;
+  text-align: center;
+  display: inline-block;
+  color: black;
+  transition: all 0.3s ease;
+
+  &.transform-90 {
+    transform: rotate(90deg);
+  }
+}
+
+.nav-secondary li {
+  position: relative !important;
+  &:hover {
+    .sub-menu-arrow {
+      transform: rotate(90deg);
+    }
+
+    .sub-menu-main {
+      display: block;
+      li {
+        display: block;
+      }
     }
   }
 }

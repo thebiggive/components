@@ -1,4 +1,4 @@
-import { Component, Element, h, Host, Method, Prop } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, h, Host, Method, Prop } from '@stencil/core';
 import { makeURL } from '../../util/helper-methods';
 
 @Component({
@@ -29,6 +29,14 @@ export class BiggiveMainMenu {
    */
   @Prop() isLoggedIn = false;
 
+  @Event({
+    eventName: 'logoutClicked',
+    bubbles: true,
+    cancelable: true,
+    composed: true,
+  })
+  logoutClicked: EventEmitter<void>;
+
   @Method()
   async closeMobileMenuFromOutside() {
     const mobileMenu = this.host.shadowRoot!.querySelector<HTMLElement>('.nav-links');
@@ -38,6 +46,10 @@ export class BiggiveMainMenu {
   private openMobileMenu = () => {
     const mobileMenu = this.host.shadowRoot!.querySelector<HTMLElement>('.nav-links');
     mobileMenu!.style.left = '0';
+  };
+
+  private logOut = () => {
+    this.logoutClicked.emit();
   };
 
   private closeMobileMenu = () => {
@@ -82,6 +94,7 @@ export class BiggiveMainMenu {
       throw new Error('Missing subMenuElements');
     }
 
+
     subMenuElements.forEach(subMenuElement => {
       // the subMenuLink is a sibling element to the actual sub-menu
       const subMenuLink = subMenuElement.parentElement?.querySelector('a');
@@ -111,7 +124,9 @@ export class BiggiveMainMenu {
     });
   }
 
-  private getSecondaryNavLinks() {
+  private getSecondaryNavLinks(layout: 'desktop' | 'mobile') {
+    const chevronIconColour = layout === 'desktop' ? 'white' : 'black';
+    const chevronBackgroundColour = layout === 'desktop' ? 'blue' : 'white';
     return (
       <ul>
         {this.myAccountFlagEnabled && !this.isLoggedIn && (
@@ -121,7 +136,25 @@ export class BiggiveMainMenu {
         )}
         {this.isLoggedIn && (
           <li>
-            <a href={makeURL('Donate', this.donateUrlPrefix, 'my-account')}>My Account</a>
+            <a onClick={this.noNav}>
+              My Account
+              <biggive-misc-icon
+                class="bx bxs-chevron-down sub-menu-arrow arrow"
+                background-colour={chevronBackgroundColour}
+                icon-colour={chevronIconColour}
+                icon="CaretRight"
+              ></biggive-misc-icon>
+            </a>
+            <ul class="sub-menu sub-menu-main" id="my-account-sub-menu">
+              <li>
+                <a href={makeURL('Donate', this.donateUrlPrefix, 'my-account')}>Your details</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)" onClick={this.logOut}>
+                  Log out
+                </a>
+              </li>
+            </ul>
           </li>
         )}
         <li>
@@ -153,8 +186,8 @@ export class BiggiveMainMenu {
 
     // calling same function twice because using same JSX node twice is not allowed
     // see https://stenciljs.com/docs/templating-jsx#avoid-shared-jsx-nodes
-    const secondaryNavLinksA = this.getSecondaryNavLinks();
-    const secondaryNavLinksB = this.getSecondaryNavLinks();
+    const secondaryNavLinksForDesktop = this.getSecondaryNavLinks('desktop');
+    const secondaryNavLinksForMobile = this.getSecondaryNavLinks('mobile');
 
     return (
       <Host>
@@ -171,7 +204,7 @@ export class BiggiveMainMenu {
             ></biggive-social-icon>
             <biggive-social-icon service="Instagram" url="https://www.instagram.com/biggiveorg" background-colour="tertiary" icon-colour="black"></biggive-social-icon>
           </div>
-          <div class="nav-secondary">{secondaryNavLinksA}</div>
+          <div class="nav-secondary">{secondaryNavLinksForDesktop}</div>
         </div>
         <nav role="navigation" aria-label="Main Menu">
           <div class="navbar">
@@ -320,7 +353,7 @@ export class BiggiveMainMenu {
                     </ul>
                   </li>
                 </ul>
-                <div class="mobile-only">{secondaryNavLinksB}</div>
+                <div class="mobile-only">{secondaryNavLinksForMobile}</div>
               </div>
               <div class="mobile-social-icon-wrap mobile-only">
                 <biggive-social-icon service="Facebook" url="https://www.facebook.com/BigGive.org" background-colour="tertiary" icon-colour="black"></biggive-social-icon>
