@@ -94,15 +94,12 @@ export class BiggiveMainMenu {
       throw new Error('Missing subMenuElements');
     }
 
-    console.log({ subMenuElements });
 
     subMenuElements.forEach(subMenuElement => {
       // the subMenuLink is a sibling element to the actual sub-menu
       const subMenuLink = subMenuElement.parentElement?.querySelector('a');
 
       subMenuLink!.onclick = () => {
-        console.log('clicked');
-        console.log({ subMenuLink });
         const subMenuArrow = subMenuLink!.querySelector('.sub-menu-arrow');
         subMenuArrow!.classList.toggle('transform-90');
         subMenuElement.classList.toggle('display-sub-menu');
