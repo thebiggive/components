@@ -94,12 +94,29 @@ export class BiggiveMainMenu {
       throw new Error('Missing subMenuElements');
     }
 
+    /**
+     * Closes all the sub-menus except the one exception.
+     */
+    const closeAllSubMenus = ({ except }: { except: HTMLAnchorElement }) => {
+      subMenuElements.forEach(subMenuElement => {
+        const link = subMenuElement.parentElement?.querySelector('a');
+
+        if (link === except) {
+          return;
+        }
+
+        link?.classList.remove('transform-90');
+        subMenuElement.classList.remove('display-sub-menu');
+      });
+    };
+
     subMenuElements.forEach(subMenuElement => {
       // the subMenuLink is a sibling element to the actual sub-menu
       const subMenuLink = subMenuElement.parentElement?.querySelector('a');
 
       subMenuLink!.onclick = () => {
         const subMenuArrow = subMenuLink!.querySelector('.sub-menu-arrow');
+        closeAllSubMenus({ except: subMenuLink! });
         subMenuArrow!.classList.toggle('transform-90');
         subMenuElement.classList.toggle('display-sub-menu');
       };
