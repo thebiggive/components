@@ -433,6 +433,11 @@ nav {
   display: block !important;
 }
 
+#nav-primary .display-sub-menu, #nav-primary .display-sub-menu li {
+  background-color: white;
+}
+
+
 .sub-menu-main {
   position: absolute;
   top: $upper-nav-height-desktop;
