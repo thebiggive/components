@@ -94,7 +94,6 @@ export class BiggiveMainMenu {
       throw new Error('Missing subMenuElements');
     }
 
-
     subMenuElements.forEach(subMenuElement => {
       // the subMenuLink is a sibling element to the actual sub-menu
       const subMenuLink = subMenuElement.parentElement?.querySelector('a');
