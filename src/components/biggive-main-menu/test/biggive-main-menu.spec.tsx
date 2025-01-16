@@ -1,8 +1,7 @@
 import { newSpecPage } from '@stencil/core/testing';
 import { BiggiveMainMenu } from '../biggive-main-menu';
 
-const getExpectedHtml = (pageKnowsAboutAppWideRedirect: boolean): string => 
-  `
+const getExpectedHtml = (pageKnowsAboutAppWideRedirect: boolean): string => `
 <biggive-main-menu
   blog-url-prefix="https://read-the-blog-here.biggive.org"
   class="fixed"
