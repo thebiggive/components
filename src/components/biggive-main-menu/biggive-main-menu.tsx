@@ -24,6 +24,15 @@ export class BiggiveMainMenu {
   @Prop() myAccountFlagEnabled = false;
 
   /**
+   * We don't want to make the ?noredirect version proliferate too much so err on not
+   * including this. We also don't really want every single page to have to get highlight cards
+   * to set this property. So for now, typically only meta-campaign bothers to get the correct value
+   * to set this true if appropriate. That's the page which is the destination of the redirect so is
+   * arguably the only place where it's essential that the menu lets you go to the 'normal' home page.
+   */
+  @Prop() someCampaignHasHomePageRedirect = false;
+
+  /**
    * Whether the current user is logged in (i.e. is assumed to have a valid JWT). They get links to some
    * extra content if they are.
    */
@@ -184,21 +193,7 @@ export class BiggiveMainMenu {
   }
 
   render() {
-    /** ten minutes in advance to account for a *very* slow browser following the link and/or clock skew.
-     * There's not really any harm in doing this early unless its soo early that people start sharing the noredirect link more than we'd like.
-     */
-    const CCOpenDate = new Date('2024-12-02T23:50:00+00:00');
-
-    /**
-     * Ten minutes late. Again doing this late doesn't hurt.
-     */
-    const CCCloseDate = new Date('2024-12-10T12:10:00+00:00');
-
-    const now = new Date();
-
-    const ccIsOpenNowIsh = now > CCOpenDate && now < CCCloseDate;
-
-    const homePageLink = ccIsOpenNowIsh ? '/?noredirect' : '/';
+    const homePageLink = this.someCampaignHasHomePageRedirect ? '/?noredirect' : '/';
 
     // calling same function twice because using same JSX node twice is not allowed
     // see https://stenciljs.com/docs/templating-jsx#avoid-shared-jsx-nodes

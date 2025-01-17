@@ -838,6 +838,10 @@ export namespace Components {
          */
         "isLoggedIn": boolean;
         "myAccountFlagEnabled": boolean;
+        /**
+          * We don't want to make the ?noredirect version proliferate too much so err on not including this. We also don't really want every single page to have to get highlight cards to set this property. So for now, typically only meta-campaign bothers to get the correct value to set this true if appropriate. That's the page which is the destination of the redirect so is arguably the only place where it's essential that the menu lets you go to the 'normal' home page.
+         */
+        "someCampaignHasHomePageRedirect": boolean;
     }
     interface BiggiveMiscIcon {
         /**
@@ -2480,6 +2484,10 @@ declare namespace LocalJSX {
         "isLoggedIn"?: boolean;
         "myAccountFlagEnabled"?: boolean;
         "onLogoutClicked"?: (event: BiggiveMainMenuCustomEvent<void>) => void;
+        /**
+          * We don't want to make the ?noredirect version proliferate too much so err on not including this. We also don't really want every single page to have to get highlight cards to set this property. So for now, typically only meta-campaign bothers to get the correct value to set this true if appropriate. That's the page which is the destination of the redirect so is arguably the only place where it's essential that the menu lets you go to the 'normal' home page.
+         */
+        "someCampaignHasHomePageRedirect"?: boolean;
     }
     interface BiggiveMiscIcon {
         /**
