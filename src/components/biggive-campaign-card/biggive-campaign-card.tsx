@@ -79,14 +79,14 @@ export class BiggiveCampaignCard {
   @Prop() donateButtonColourScheme: string = 'primary';
 
   /**
-   * More information button label
+   * More information button label. If falsy then more info link will not be displayed.
    */
-  @Prop() moreInfoButtonLabel: string = 'Find out more';
+  @Prop() moreInfoButtonLabel: string | undefined = 'Find out more';
 
   /**
    * More information button url
    */
-  @Prop() moreInfoButtonUrl: string;
+  @Prop() moreInfoButtonUrl?: string;
 
   /**
    * Donate button colour scheme
@@ -116,7 +116,7 @@ export class BiggiveCampaignCard {
   }
 
   private handleCardGeneralClick = (event: any) => {
-    this.doCardGeneralClick.emit({ event, url: this.moreInfoButtonUrl });
+    this.doCardGeneralClick.emit({ event, url: this.moreInfoButtonUrl! });
   };
 
   render() {
@@ -172,7 +172,9 @@ export class BiggiveCampaignCard {
             ) : (
               <biggive-button full-width="true" colour-scheme={this.donateButtonColourScheme} url={this.donateButtonUrl} label={this.donateButtonLabel}></biggive-button>
             )}
-            <biggive-button full-width="true" colour-scheme={this.moreInfoButtonColourScheme} url={this.moreInfoButtonUrl} label={this.moreInfoButtonLabel}></biggive-button>
+            {this.moreInfoButtonLabel && (
+              <biggive-button full-width="true" colour-scheme={this.moreInfoButtonColourScheme} url={this.moreInfoButtonUrl} label={this.moreInfoButtonLabel} />
+            )}
           </div>
         </div>
       </div>

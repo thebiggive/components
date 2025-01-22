@@ -327,13 +327,13 @@ export namespace Components {
          */
         "moreInfoButtonColourScheme": string;
         /**
-          * More information button label
+          * More information button label. If falsy then more info link will not be displayed.
          */
-        "moreInfoButtonLabel": string;
+        "moreInfoButtonLabel": string | undefined;
         /**
           * More information button url
          */
-        "moreInfoButtonUrl": string;
+        "moreInfoButtonUrl"?: string;
         /**
           * Display name of the charity or non-profit.
          */
@@ -1948,9 +1948,9 @@ declare namespace LocalJSX {
          */
         "moreInfoButtonColourScheme"?: string;
         /**
-          * More information button label
+          * More information button label. If falsy then more info link will not be displayed.
          */
-        "moreInfoButtonLabel"?: string;
+        "moreInfoButtonLabel"?: string | undefined;
         /**
           * More information button url
          */
