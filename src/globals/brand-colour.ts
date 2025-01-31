@@ -14,6 +14,7 @@ export type brandColour =
   | 'brand-emf-yellow'
   | 'brand-c4c-orange'
   | 'brand-afa-pink'
+  | 'brand-scw-magenta'
   | 'brand-grey'
   | 'brand-mhf-turquoise'
   | 'white'

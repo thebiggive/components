@@ -1,6 +1,8 @@
 @use "sass:map";
 // Should only be used for Sass variables, mixins and functions; not contain any CSS.
 // https://github.com/ionic-team/stencil-sass#inject-globals-sass-paths
+// @see brand-colour variables in src/globals/brand-colour.ts, this and that should be updated together.
+
 
 $screen-mobile-x-small: 350px;
 $screen-mobile-small: 450px;
@@ -24,6 +26,7 @@ $colour-brand-emf-yellow: #FFE500; // Emergency Match Fund
 $colour-brand-c4c-orange: #F07D00; // Champions for Children
 $colour-brand-mhf-turquoise: #62CFC9; // Mental Health Fund
 $colour-brand-afa-pink: #BF387D; // Arts for Impact
+$colour-brand-scw-magenta: #EE2C65; // Small Charity Week
 $colour-brand-grey: #CBC8C8;
 
 $colour-white: #FFFFFF;
@@ -61,6 +64,7 @@ $colours: (
 
     // We do not include "brand-6" here because for historical reasons its grey in some contexts and turquoise in others.
     "brand-afa-pink": $colour-brand-afa-pink,
+    "brand-scw-magenta": $colour-brand-scw-magenta,
     "brand-mhf-turquoise": $colour-brand-mhf-turquoise,
     "brand-grey": $colour-brand-grey,
     "white": $colour-white,

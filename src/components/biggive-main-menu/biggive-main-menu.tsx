@@ -23,6 +23,8 @@ export class BiggiveMainMenu {
 
   @Prop() myAccountFlagEnabled = false;
 
+  @Prop() smallCharityWeekEnabled = false;
+
   /**
    * We don't want to make the ?noredirect version proliferate too much so err on not
    * including this. We also don't really want every single page to have to get highlight cards
@@ -303,6 +305,13 @@ export class BiggiveMainMenu {
                               Arts for Impact
                             </a>
                           </li>
+                          {this.smallCharityWeekEnabled && (
+                            <li>
+                              <a href={makeURL('Blog', this.blogUrlPrefix, 'small-charity-week/')} class="icon-small-charity">
+                                Small Charity Week
+                              </a>
+                            </li>
+                          )}
                           <li>
                             <a href={makeURL('Blog', this.blogUrlPrefix, 'anchor-match-fund/')} class="icon-anchor-match">
                               Anchor Match Fund

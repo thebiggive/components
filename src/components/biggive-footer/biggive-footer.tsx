@@ -18,6 +18,8 @@ export class BiggiveFooter {
   @Prop() donateUrlPrefix: string;
   @Prop() blogUrlPrefix: string | undefined;
   @Prop() experienceUrlPrefix: string | undefined;
+  @Prop() smallCharityWeekEnabled = false;
+
   private year: string = new Date().getFullYear().toString();
 
   /**
@@ -127,6 +129,13 @@ export class BiggiveFooter {
                     Arts for Impact
                   </a>
                 </li>
+                {this.smallCharityWeekEnabled && (
+                  <li>
+                    <a href={makeURL('Blog', this.blogUrlPrefix, 'small-charity-week')} class="icon-small-charity">
+                      Small Charity Week
+                    </a>
+                  </li>
+                )}
                 <li>
                   <a href={makeURL('Blog', this.blogUrlPrefix, 'emergency-campaigns/')} class="icon-emergency">
                     Emergency Match Fund

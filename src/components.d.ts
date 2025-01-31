@@ -530,6 +530,7 @@ export namespace Components {
         "donateUrlPrefix": string;
         "experienceUrlPrefix": string | undefined;
         "headingLevel": 1 | 2 | 3 | 4 | 5 | 6;
+        "smallCharityWeekEnabled": boolean;
         /**
           * Conditionally render footer menu: hard-coded (preset) when set to true, dynamic (slot-based) when set to false
          */
@@ -838,6 +839,7 @@ export namespace Components {
          */
         "isLoggedIn": boolean;
         "myAccountFlagEnabled": boolean;
+        "smallCharityWeekEnabled": boolean;
         /**
           * We don't want to make the ?noredirect version proliferate too much so err on not including this. We also don't really want every single page to have to get highlight cards to set this property. So for now, typically only meta-campaign bothers to get the correct value to set this true if appropriate. That's the page which is the destination of the redirect so is arguably the only place where it's essential that the menu lets you go to the 'normal' home page.
          */
@@ -2174,6 +2176,7 @@ declare namespace LocalJSX {
         "donateUrlPrefix"?: string;
         "experienceUrlPrefix"?: string | undefined;
         "headingLevel"?: 1 | 2 | 3 | 4 | 5 | 6;
+        "smallCharityWeekEnabled"?: boolean;
         /**
           * Conditionally render footer menu: hard-coded (preset) when set to true, dynamic (slot-based) when set to false
          */
@@ -2484,6 +2487,7 @@ declare namespace LocalJSX {
         "isLoggedIn"?: boolean;
         "myAccountFlagEnabled"?: boolean;
         "onLogoutClicked"?: (event: BiggiveMainMenuCustomEvent<void>) => void;
+        "smallCharityWeekEnabled"?: boolean;
         /**
           * We don't want to make the ?noredirect version proliferate too much so err on not including this. We also don't really want every single page to have to get highlight cards to set this property. So for now, typically only meta-campaign bothers to get the correct value to set this true if appropriate. That's the page which is the destination of the redirect so is arguably the only place where it's essential that the menu lets you go to the 'normal' home page.
          */
