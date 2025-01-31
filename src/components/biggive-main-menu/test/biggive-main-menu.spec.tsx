@@ -23,6 +23,11 @@ const getExpectedHtml = (pageKnowsAboutAppWideRedirect: boolean): string => `
       <div class="nav-secondary">
         <ul>
           <li>
+             <a href="https://donate-here.biggive.org/login">
+                  Donor Login
+             </a>
+           </li>
+           <li>
             <a href="https://have-an-experience-here.biggive.org/charities/s/login">
               Charity Login
             </a>
@@ -208,6 +213,11 @@ const getExpectedHtml = (pageKnowsAboutAppWideRedirect: boolean): string => `
             </ul>
             <div class="mobile-only">
               <ul>
+                <li>
+                  <a href="https://donate-here.biggive.org/login">
+                      Donor Login
+                  </a>
+                </li>
                 <li>
                   <a href="https://have-an-experience-here.biggive.org/charities/s/login">
                     Charity Login

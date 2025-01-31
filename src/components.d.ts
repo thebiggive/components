@@ -838,7 +838,6 @@ export namespace Components {
           * Whether the current user is logged in (i.e. is assumed to have a valid JWT). They get links to some extra content if they are.
          */
         "isLoggedIn": boolean;
-        "myAccountFlagEnabled": boolean;
         "smallCharityWeekEnabled": boolean;
         /**
           * We don't want to make the ?noredirect version proliferate too much so err on not including this. We also don't really want every single page to have to get highlight cards to set this property. So for now, typically only meta-campaign bothers to get the correct value to set this true if appropriate. That's the page which is the destination of the redirect so is arguably the only place where it's essential that the menu lets you go to the 'normal' home page.
@@ -2485,7 +2484,6 @@ declare namespace LocalJSX {
           * Whether the current user is logged in (i.e. is assumed to have a valid JWT). They get links to some extra content if they are.
          */
         "isLoggedIn"?: boolean;
-        "myAccountFlagEnabled"?: boolean;
         "onLogoutClicked"?: (event: BiggiveMainMenuCustomEvent<void>) => void;
         "smallCharityWeekEnabled"?: boolean;
         /**

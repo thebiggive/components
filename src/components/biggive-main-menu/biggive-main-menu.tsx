@@ -21,8 +21,6 @@ export class BiggiveMainMenu {
 
   @Prop() experienceUrlPrefix: string = 'https://community.biggive.org';
 
-  @Prop() myAccountFlagEnabled = false;
-
   @Prop() smallCharityWeekEnabled = false;
 
   /**
@@ -156,7 +154,7 @@ export class BiggiveMainMenu {
     const chevronBackgroundColour = layout === 'desktop' ? 'blue' : 'white';
     return (
       <ul>
-        {this.myAccountFlagEnabled && !this.isLoggedIn && (
+        {!this.isLoggedIn && (
           <li>
             <a href={makeURL('Donate', this.donateUrlPrefix, 'login')}>Donor Login</a>
           </li>
