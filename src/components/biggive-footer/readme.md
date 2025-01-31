@@ -7,13 +7,14 @@
 
 ## Properties
 
-| Property              | Attribute               | Description                                                                                                                 | Type                         | Default     |
-| --------------------- | ----------------------- | --------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | ----------- |
-| `blogUrlPrefix`       | `blog-url-prefix`       |                                                                                                                             | `string \| undefined`        | `undefined` |
-| `donateUrlPrefix`     | `donate-url-prefix`     | URL prefixes vary by environment, and components library is not best placed to know what they are, so we take them as props | `string`                     | `undefined` |
-| `experienceUrlPrefix` | `experience-url-prefix` |                                                                                                                             | `string \| undefined`        | `undefined` |
-| `headingLevel`        | `heading-level`         |                                                                                                                             | `1 \| 2 \| 3 \| 4 \| 5 \| 6` | `5`         |
-| `usePresetFooter`     | `use-preset-footer`     | Conditionally render footer menu: hard-coded (preset) when set to true, dynamic (slot-based) when set to false              | `boolean`                    | `false`     |
+| Property                  | Attribute                    | Description                                                                                                                 | Type                         | Default     |
+| ------------------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | ----------- |
+| `blogUrlPrefix`           | `blog-url-prefix`            |                                                                                                                             | `string \| undefined`        | `undefined` |
+| `donateUrlPrefix`         | `donate-url-prefix`          | URL prefixes vary by environment, and components library is not best placed to know what they are, so we take them as props | `string`                     | `undefined` |
+| `experienceUrlPrefix`     | `experience-url-prefix`      |                                                                                                                             | `string \| undefined`        | `undefined` |
+| `headingLevel`            | `heading-level`              |                                                                                                                             | `1 \| 2 \| 3 \| 4 \| 5 \| 6` | `5`         |
+| `smallCharityWeekEnabled` | `small-charity-week-enabled` |                                                                                                                             | `boolean`                    | `false`     |
+| `usePresetFooter`         | `use-preset-footer`          | Conditionally render footer menu: hard-coded (preset) when set to true, dynamic (slot-based) when set to false              | `boolean`                    | `false`     |
 
 
 ## Dependencies

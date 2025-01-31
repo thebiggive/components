@@ -21,7 +21,7 @@ export class BiggiveMainMenu {
 
   @Prop() experienceUrlPrefix: string = 'https://community.biggive.org';
 
-  @Prop() myAccountFlagEnabled = false;
+  @Prop() smallCharityWeekEnabled = false;
 
   /**
    * We don't want to make the ?noredirect version proliferate too much so err on not
@@ -154,7 +154,7 @@ export class BiggiveMainMenu {
     const chevronBackgroundColour = layout === 'desktop' ? 'blue' : 'white';
     return (
       <ul>
-        {this.myAccountFlagEnabled && !this.isLoggedIn && (
+        {!this.isLoggedIn && (
           <li>
             <a href={makeURL('Donate', this.donateUrlPrefix, 'login')}>Donor Login</a>
           </li>
@@ -303,6 +303,13 @@ export class BiggiveMainMenu {
                               Arts for Impact
                             </a>
                           </li>
+                          {this.smallCharityWeekEnabled && (
+                            <li>
+                              <a href={makeURL('Blog', this.blogUrlPrefix, 'small-charity-week/')} class="icon-small-charity">
+                                Small Charity Week
+                              </a>
+                            </li>
+                          )}
                           <li>
                             <a href={makeURL('Blog', this.blogUrlPrefix, 'anchor-match-fund/')} class="icon-anchor-match">
                               Anchor Match Fund
