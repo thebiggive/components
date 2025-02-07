@@ -7,6 +7,12 @@
     "plugin:prettier/recommended",
     "plugin:storybook/recommended"
   ],
+  "ignorePatterns": [
+    "dist/",
+    "loader/",
+    "www/",
+    "/stencil.config.ts"
+  ],
   "plugins": [
     "prettier"
   ],
