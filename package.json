@@ -41,7 +41,7 @@
     "@fortawesome/pro-duotone-svg-icons": "^6.6.0",
     "@fortawesome/pro-regular-svg-icons": "^6.6.0",
     "@fortawesome/pro-solid-svg-icons": "^6.6.0",
-    "@stencil/core": "~4.25.1"
+    "@stencil/core": "4.23.*"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",
