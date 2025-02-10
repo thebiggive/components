@@ -27,16 +27,12 @@ export const config: Config = {
       type: 'dist-hydrate-script',
     },
     {
-      type: 'dist',
-      esmLoaderPath: '../loader',
+      type: 'dist-custom-elements', // Uses default `dist/components`.
+      customElementsExportBehavior: 'single-export-module',
       copy: [
         { src: 'assets/fonts', warn: true },
         { src: 'assets/images', warn: true },
       ],
-    },
-    {
-      type: 'dist-custom-elements', // Uses default `dist/components`.
-      customElementsExportBehavior: 'single-export-module'
     },
     {
       type: 'docs-readme',
