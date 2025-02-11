@@ -3,33 +3,109 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "components": {
-      "projectType": "library",
-      "root": "projects/components",
-      "sourceRoot": "projects/components/src",
-      "prefix": "lib",
+    "components2": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
+        }
+      },
+      "root": "projects/components2",
+      "sourceRoot": "projects/components2/src",
+      "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "project": "projects/components/ng-package.json"
+            "outputPath": "dist/components2",
+            "index": "projects/components2/src/index.html",
+            "browser": "projects/components2/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/components2/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/components2/public"
+              }
+            ],
+            "styles": [
+              "projects/components2/src/styles.scss"
+            ],
+            "scripts": [],
+            "server": "projects/components2/src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "projects/components2/src/server.ts"
+            }
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/components/tsconfig.lib.prod.json"
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
             },
             "development": {
-              "tsConfig": "projects/components/tsconfig.lib.json"
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
         },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "components2:build:production"
+            },
+            "development": {
+              "buildTarget": "components2:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n"
+        },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/components/src/test.ts",
-            "tsConfig": "projects/components/tsconfig.spec.json",
-            "karmaConfig": "projects/components/karma.conf.js"
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/components2/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/components2/public"
+              }
+            ],
+            "styles": [
+              "projects/components2/src/styles.scss"
+            ],
+            "scripts": []
           }
         }
       }
