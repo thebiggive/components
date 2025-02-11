@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { newSpecPage } from '@stencil/core/testing';
 import { BiggiveHeroImage } from '../biggive-hero-image';
 
