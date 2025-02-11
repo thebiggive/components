@@ -1,12 +1,14 @@
 {
-  "name": "components",
+  "name": "@biggive/components-angular",
+  "description": "Angular-packaged components for @biggive apps",
+  "_comment": "Version number below is automatically replaced during CircleCI build.",
   "version": "0.0.1",
   "peerDependencies": {
-    "@angular/common": "^19.1.0",
-    "@angular/core": "^19.1.0"
+    "@angular/common": "^18.0.0||^19.1.0",
+    "@angular/core": "^18.0.0||^19.1.0",
+    "@biggive/components": "*"
   },
   "dependencies": {
-    "tslib": "^2.3.0"
-  },
-  "sideEffects": false
+    "tslib": "^2.6.2"
+  }
 }
