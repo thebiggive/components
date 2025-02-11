@@ -1,19 +1,11 @@
-import { CommonModule } from '@angular/common';
-import { APP_INITIALIZER, NgModule } from '@angular/core';
-import { DIRECTIVES } from './stencil-generated';
-
-import { defineCustomElements } from '@biggive/components/loader';
+import { NgModule } from '@angular/core';
 
 @NgModule({
-  imports: [CommonModule],
-  declarations: [...DIRECTIVES],
-  exports: [...DIRECTIVES],
-  providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: () => defineCustomElements,
-      multi: true,
-    },
+  declarations: [
   ],
+  imports: [
+  ],
+  exports: [
+  ]
 })
 export class ComponentsModule { }
