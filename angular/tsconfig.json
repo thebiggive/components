@@ -6,6 +6,9 @@
     "paths": {
       "@biggive/components": [
         "./dist/components"
+      ],
+      "components": [
+        "./dist/components"
       ]
     },
     "outDir": "./dist/out-tsc",
