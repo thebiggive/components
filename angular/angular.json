@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "components2": {
+    "components": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,35 +17,35 @@
           "standalone": false
         }
       },
-      "root": "projects/components2",
-      "sourceRoot": "projects/components2/src",
+      "root": "projects/components",
+      "sourceRoot": "projects/components/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/components2",
-            "index": "projects/components2/src/index.html",
-            "browser": "projects/components2/src/main.ts",
+            "outputPath": "dist/components",
+            "index": "projects/components/src/index.html",
+            "browser": "projects/components/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
-            "tsConfig": "projects/components2/tsconfig.app.json",
+            "tsConfig": "projects/components/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "projects/components2/public"
+                "input": "projects/components/public"
               }
             ],
             "styles": [
-              "projects/components2/src/styles.scss"
+              "projects/components/src/styles.scss"
             ],
             "scripts": [],
-            "server": "projects/components2/src/main.server.ts",
+            "server": "projects/components/src/main.server.ts",
             "prerender": true,
             "ssr": {
-              "entry": "projects/components2/src/server.ts"
+              "entry": "projects/components/src/server.ts"
             }
           },
           "configurations": {
@@ -76,10 +76,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "components2:build:production"
+              "buildTarget": "components:build:production"
             },
             "development": {
-              "buildTarget": "components2:build:development"
+              "buildTarget": "components:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -94,16 +94,16 @@
               "zone.js",
               "zone.js/testing"
             ],
-            "tsConfig": "projects/components2/tsconfig.spec.json",
+            "tsConfig": "projects/components/tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "projects/components2/public"
+                "input": "projects/components/public"
               }
             ],
             "styles": [
-              "projects/components2/src/styles.scss"
+              "projects/components/src/styles.scss"
             ],
             "scripts": []
           }
