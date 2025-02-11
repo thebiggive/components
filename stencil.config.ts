@@ -21,7 +21,7 @@ export const config: Config = {
       // TODO once we have Stencil v4 working generally, it could well be good to try "standalone" which uses
       // `dist-custom-elements` instead of `dist` and might make things more efficient in Donate.
       // See https://stenciljs.com/docs/angular#outputtype
-      outputType: 'standalone',
+      outputType: 'component',
     }),
     {
       type: 'dist-hydrate-script',
