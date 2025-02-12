@@ -17,7 +17,6 @@
 | `centered`          | `centered`           |             | `boolean`                                                                                                                                                                                                                                                                                                                          | `false`     |
 | `circle`            | `circle`             |             | `boolean`                                                                                                                                                                                                                                                                                                                          | `false`     |
 | `icon`              | `icon`               |             | `string`                                                                                                                                                                                                                                                                                                                           | `undefined` |
-| `iconGroup`         | `icon-group`         |             | `"beneficiary" \| "category" \| "misc" \| "social"`                                                                                                                                                                                                                                                                                | `undefined` |
 | `openInNewTab`      | `open-in-new-tab`    |             | `boolean`                                                                                                                                                                                                                                                                                                                          | `false`     |
 | `rounded`           | `rounded`            |             | `boolean`                                                                                                                                                                                                                                                                                                                          | `false`     |
 | `shadow`            | `shadow`             |             | `boolean`                                                                                                                                                                                                                                                                                                                          | `false`     |
@@ -34,6 +33,19 @@
 | --------------- | ----------- | ---------------------------------------------- |
 | `doButtonClick` |             | `CustomEvent<{ event: object; url: string; }>` |
 
+
+## Dependencies
+
+### Depends on
+
+- [biggive-misc-icon](../biggive-misc-icon)
+
+### Graph
+```mermaid
+graph TD;
+  biggive-icon-button --> biggive-misc-icon
+  style biggive-icon-button fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

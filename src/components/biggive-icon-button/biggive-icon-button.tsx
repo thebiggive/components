@@ -26,8 +26,6 @@ export class BiggiveIconButton {
 
   @Prop() textColour: brandColour = 'black';
 
-  @Prop() iconGroup: 'beneficiary' | 'misc' | 'social' | 'category';
-
   @Prop() icon: string;
 
   @Prop() url: string;

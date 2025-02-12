@@ -638,7 +638,6 @@ export namespace Components {
         "centered": boolean;
         "circle": boolean;
         "icon": string;
-        "iconGroup": 'beneficiary' | 'misc' | 'social' | 'category';
         "openInNewTab": boolean;
         "rounded": boolean;
         "shadow": boolean;
@@ -2211,7 +2210,6 @@ declare namespace LocalJSX {
         "centered"?: boolean;
         "circle"?: boolean;
         "icon"?: string;
-        "iconGroup"?: 'beneficiary' | 'misc' | 'social' | 'category';
         "onDoButtonClick"?: (event: BiggiveIconButtonCustomEvent<{ event: object; url: string }>) => void;
         "openInNewTab"?: boolean;
         "rounded"?: boolean;
