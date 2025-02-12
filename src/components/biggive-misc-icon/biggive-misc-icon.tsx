@@ -5,7 +5,7 @@ import { FontAwesomeIconsService } from '../../util/fontawesome-icons';
 @Component({
   tag: 'biggive-misc-icon',
   styleUrl: 'biggive-misc-icon.scss',
-  shadow: false,
+  shadow: true,
 })
 export class BiggiveMiscIcon {
   /**

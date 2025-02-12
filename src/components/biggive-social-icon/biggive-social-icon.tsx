@@ -8,7 +8,7 @@ import { FontAwesomeIconsService } from '../../util/fontawesome-icons';
 @Component({
   tag: 'biggive-social-icon',
   styleUrl: 'biggive-social-icon.scss',
-  shadow: false,
+  shadow: true,
 })
 export class BiggiveSocialIcon {
   /**

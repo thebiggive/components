@@ -5,7 +5,7 @@ import { spacingOption } from '../../globals/spacing-option';
 @Component({
   tag: 'biggive-table',
   styleUrl: 'biggive-table.scss',
-  shadow: false,
+  shadow: true,
 })
 export class BiggiveTable {
   @Prop() spaceBelow: spacingOption = 0;
