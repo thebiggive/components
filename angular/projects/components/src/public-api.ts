@@ -2,7 +2,8 @@
  * Public API Surface of components
  */
 
-export * from './lib/components.module';
-
-export { DIRECTIVES } from './lib/stencil-generated';
+// Directives
 export * from './lib/stencil-generated/components';
+
+// Package module
+export { ComponentsModule } from './lib/components.module';
