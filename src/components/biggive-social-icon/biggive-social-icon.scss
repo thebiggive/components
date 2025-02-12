@@ -8,6 +8,7 @@
 .social-icon-item {
   margin-right: 6px;
   @include icon-large();
+  @include icon-hoverable();
 
   &.wide {
     margin-right: 30px;

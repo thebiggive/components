@@ -216,6 +216,15 @@
   vertical-align: -.125rem;
 }
 
+@mixin icon-hoverable() {
+  &:hover {
+    background-color: $colour-white;
+    svg {
+      fill: $colour-black;
+    }
+  }
+}
+
 @mixin icon-large() {
   width: $icon-size-large;
   height: $icon-size-large;
@@ -244,12 +253,7 @@
   &.colour-scheme-black {background-color: $colour-grey-light; svg {fill: $colour-grey-light;}}
   &.colour-scheme-black {background-color: $colour-grey-medium; svg {fill: $colour-grey-medium;}}
   &.colour-scheme-black {background-color: $colour-grey-dark; svg {fill: $colour-grey-dark;}}
-  &:hover {
-    background-color: $colour-white;
-    svg {
-      fill: $colour-black;
-    }
-  }
+
   a {
     display: grid;
     position: relative;
