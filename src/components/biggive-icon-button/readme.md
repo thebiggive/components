@@ -35,19 +35,6 @@
 | `doButtonClick` |             | `CustomEvent<{ event: object; url: string; }>` |
 
 
-## Dependencies
-
-### Depends on
-
-- [biggive-generic-icon](../biggive-generic-icon)
-
-### Graph
-```mermaid
-graph TD;
-  biggive-icon-button --> biggive-generic-icon
-  style biggive-icon-button fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

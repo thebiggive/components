@@ -73,28 +73,6 @@ export namespace Components {
         "teaser": string;
         "textColour": brandColour;
     }
-    interface BiggiveBeneficiaryIcon {
-        /**
-          * Background colour
-         */
-        "backgroundColour": string;
-        /**
-          * Icon
-         */
-        "icon": string;
-        /**
-          * Background colour
-         */
-        "iconColour": string;
-        /**
-          * Label
-         */
-        "label": string;
-        /**
-          * Url
-         */
-        "url": string;
-    }
     interface BiggiveBiographyCard {
         "backgroundColour": brandColour;
         "borderWidth": spacingOption;
@@ -475,28 +453,6 @@ export namespace Components {
          */
         "spaceBelow": number;
     }
-    interface BiggiveCategoryIcon {
-        /**
-          * Background colour
-         */
-        "backgroundColour": string;
-        /**
-          * Icon
-         */
-        "icon": string;
-        /**
-          * Background colour
-         */
-        "iconColour": string;
-        /**
-          * Label
-         */
-        "label": string;
-        /**
-          * Url
-         */
-        "url": string;
-    }
     interface BiggiveContainerCard {
         "backgroundColour": brandColour;
         "backgroundImageUrl": string;
@@ -578,13 +534,6 @@ export namespace Components {
           * Space below component
          */
         "spaceBelow": number;
-    }
-    interface BiggiveGenericIcon {
-        "backgroundColour": brandColour;
-        "icon": string;
-        "iconColour": brandColour;
-        "iconGroup": 'beneficiary' | 'misc' | 'social' | 'category';
-        "url": string;
     }
     interface BiggiveGrid {
         "columnCount": number;
@@ -1200,12 +1149,6 @@ declare global {
         prototype: HTMLBiggiveBasicCardElement;
         new (): HTMLBiggiveBasicCardElement;
     };
-    interface HTMLBiggiveBeneficiaryIconElement extends Components.BiggiveBeneficiaryIcon, HTMLStencilElement {
-    }
-    var HTMLBiggiveBeneficiaryIconElement: {
-        prototype: HTMLBiggiveBeneficiaryIconElement;
-        new (): HTMLBiggiveBeneficiaryIconElement;
-    };
     interface HTMLBiggiveBiographyCardElement extends Components.BiggiveBiographyCard, HTMLStencilElement {
     }
     var HTMLBiggiveBiographyCardElement: {
@@ -1293,12 +1236,6 @@ declare global {
         prototype: HTMLBiggiveCampaignHighlightsElement;
         new (): HTMLBiggiveCampaignHighlightsElement;
     };
-    interface HTMLBiggiveCategoryIconElement extends Components.BiggiveCategoryIcon, HTMLStencilElement {
-    }
-    var HTMLBiggiveCategoryIconElement: {
-        prototype: HTMLBiggiveCategoryIconElement;
-        new (): HTMLBiggiveCategoryIconElement;
-    };
     interface HTMLBiggiveContainerCardElement extends Components.BiggiveContainerCard, HTMLStencilElement {
     }
     var HTMLBiggiveContainerCardElement: {
@@ -1350,12 +1287,6 @@ declare global {
     var HTMLBiggiveFormattedTextElement: {
         prototype: HTMLBiggiveFormattedTextElement;
         new (): HTMLBiggiveFormattedTextElement;
-    };
-    interface HTMLBiggiveGenericIconElement extends Components.BiggiveGenericIcon, HTMLStencilElement {
-    }
-    var HTMLBiggiveGenericIconElement: {
-        prototype: HTMLBiggiveGenericIconElement;
-        new (): HTMLBiggiveGenericIconElement;
     };
     interface HTMLBiggiveGridElement extends Components.BiggiveGrid, HTMLStencilElement {
     }
@@ -1590,7 +1521,6 @@ declare global {
         "biggive-article-card": HTMLBiggiveArticleCardElement;
         "biggive-back-to-top": HTMLBiggiveBackToTopElement;
         "biggive-basic-card": HTMLBiggiveBasicCardElement;
-        "biggive-beneficiary-icon": HTMLBiggiveBeneficiaryIconElement;
         "biggive-biography-card": HTMLBiggiveBiographyCardElement;
         "biggive-boxed-content": HTMLBiggiveBoxedContentElement;
         "biggive-branded-image": HTMLBiggiveBrandedImageElement;
@@ -1599,14 +1529,12 @@ declare global {
         "biggive-campaign-card": HTMLBiggiveCampaignCardElement;
         "biggive-campaign-card-filter-grid": HTMLBiggiveCampaignCardFilterGridElement;
         "biggive-campaign-highlights": HTMLBiggiveCampaignHighlightsElement;
-        "biggive-category-icon": HTMLBiggiveCategoryIconElement;
         "biggive-container-card": HTMLBiggiveContainerCardElement;
         "biggive-cookie-banner": HTMLBiggiveCookieBannerElement;
         "biggive-footer": HTMLBiggiveFooterElement;
         "biggive-form": HTMLBiggiveFormElement;
         "biggive-form-field-select": HTMLBiggiveFormFieldSelectElement;
         "biggive-formatted-text": HTMLBiggiveFormattedTextElement;
-        "biggive-generic-icon": HTMLBiggiveGenericIconElement;
         "biggive-grid": HTMLBiggiveGridElement;
         "biggive-heading": HTMLBiggiveHeadingElement;
         "biggive-hero-image": HTMLBiggiveHeroImageElement;
@@ -1697,28 +1625,6 @@ declare namespace LocalJSX {
         "subtitle"?: string;
         "teaser"?: string;
         "textColour"?: brandColour;
-    }
-    interface BiggiveBeneficiaryIcon {
-        /**
-          * Background colour
-         */
-        "backgroundColour"?: string;
-        /**
-          * Icon
-         */
-        "icon"?: string;
-        /**
-          * Background colour
-         */
-        "iconColour"?: string;
-        /**
-          * Label
-         */
-        "label"?: string;
-        /**
-          * Url
-         */
-        "url"?: string;
     }
     interface BiggiveBiographyCard {
         "backgroundColour"?: brandColour;
@@ -2108,28 +2014,6 @@ declare namespace LocalJSX {
          */
         "spaceBelow"?: number;
     }
-    interface BiggiveCategoryIcon {
-        /**
-          * Background colour
-         */
-        "backgroundColour"?: string;
-        /**
-          * Icon
-         */
-        "icon"?: string;
-        /**
-          * Background colour
-         */
-        "iconColour"?: string;
-        /**
-          * Label
-         */
-        "label"?: string;
-        /**
-          * Url
-         */
-        "url"?: string;
-    }
     interface BiggiveContainerCard {
         "backgroundColour"?: brandColour;
         "backgroundImageUrl"?: string;
@@ -2223,13 +2107,6 @@ declare namespace LocalJSX {
           * Space below component
          */
         "spaceBelow"?: number;
-    }
-    interface BiggiveGenericIcon {
-        "backgroundColour"?: brandColour;
-        "icon"?: string;
-        "iconColour"?: brandColour;
-        "iconGroup"?: 'beneficiary' | 'misc' | 'social' | 'category';
-        "url"?: string;
     }
     interface BiggiveGrid {
         "columnCount"?: number;
@@ -2791,7 +2668,6 @@ declare namespace LocalJSX {
         "biggive-article-card": BiggiveArticleCard;
         "biggive-back-to-top": BiggiveBackToTop;
         "biggive-basic-card": BiggiveBasicCard;
-        "biggive-beneficiary-icon": BiggiveBeneficiaryIcon;
         "biggive-biography-card": BiggiveBiographyCard;
         "biggive-boxed-content": BiggiveBoxedContent;
         "biggive-branded-image": BiggiveBrandedImage;
@@ -2800,14 +2676,12 @@ declare namespace LocalJSX {
         "biggive-campaign-card": BiggiveCampaignCard;
         "biggive-campaign-card-filter-grid": BiggiveCampaignCardFilterGrid;
         "biggive-campaign-highlights": BiggiveCampaignHighlights;
-        "biggive-category-icon": BiggiveCategoryIcon;
         "biggive-container-card": BiggiveContainerCard;
         "biggive-cookie-banner": BiggiveCookieBanner;
         "biggive-footer": BiggiveFooter;
         "biggive-form": BiggiveForm;
         "biggive-form-field-select": BiggiveFormFieldSelect;
         "biggive-formatted-text": BiggiveFormattedText;
-        "biggive-generic-icon": BiggiveGenericIcon;
         "biggive-grid": BiggiveGrid;
         "biggive-heading": BiggiveHeading;
         "biggive-hero-image": BiggiveHeroImage;
@@ -2850,7 +2724,6 @@ declare module "@stencil/core" {
             "biggive-article-card": LocalJSX.BiggiveArticleCard & JSXBase.HTMLAttributes<HTMLBiggiveArticleCardElement>;
             "biggive-back-to-top": LocalJSX.BiggiveBackToTop & JSXBase.HTMLAttributes<HTMLBiggiveBackToTopElement>;
             "biggive-basic-card": LocalJSX.BiggiveBasicCard & JSXBase.HTMLAttributes<HTMLBiggiveBasicCardElement>;
-            "biggive-beneficiary-icon": LocalJSX.BiggiveBeneficiaryIcon & JSXBase.HTMLAttributes<HTMLBiggiveBeneficiaryIconElement>;
             "biggive-biography-card": LocalJSX.BiggiveBiographyCard & JSXBase.HTMLAttributes<HTMLBiggiveBiographyCardElement>;
             "biggive-boxed-content": LocalJSX.BiggiveBoxedContent & JSXBase.HTMLAttributes<HTMLBiggiveBoxedContentElement>;
             "biggive-branded-image": LocalJSX.BiggiveBrandedImage & JSXBase.HTMLAttributes<HTMLBiggiveBrandedImageElement>;
@@ -2859,14 +2732,12 @@ declare module "@stencil/core" {
             "biggive-campaign-card": LocalJSX.BiggiveCampaignCard & JSXBase.HTMLAttributes<HTMLBiggiveCampaignCardElement>;
             "biggive-campaign-card-filter-grid": LocalJSX.BiggiveCampaignCardFilterGrid & JSXBase.HTMLAttributes<HTMLBiggiveCampaignCardFilterGridElement>;
             "biggive-campaign-highlights": LocalJSX.BiggiveCampaignHighlights & JSXBase.HTMLAttributes<HTMLBiggiveCampaignHighlightsElement>;
-            "biggive-category-icon": LocalJSX.BiggiveCategoryIcon & JSXBase.HTMLAttributes<HTMLBiggiveCategoryIconElement>;
             "biggive-container-card": LocalJSX.BiggiveContainerCard & JSXBase.HTMLAttributes<HTMLBiggiveContainerCardElement>;
             "biggive-cookie-banner": LocalJSX.BiggiveCookieBanner & JSXBase.HTMLAttributes<HTMLBiggiveCookieBannerElement>;
             "biggive-footer": LocalJSX.BiggiveFooter & JSXBase.HTMLAttributes<HTMLBiggiveFooterElement>;
             "biggive-form": LocalJSX.BiggiveForm & JSXBase.HTMLAttributes<HTMLBiggiveFormElement>;
             "biggive-form-field-select": LocalJSX.BiggiveFormFieldSelect & JSXBase.HTMLAttributes<HTMLBiggiveFormFieldSelectElement>;
             "biggive-formatted-text": LocalJSX.BiggiveFormattedText & JSXBase.HTMLAttributes<HTMLBiggiveFormattedTextElement>;
-            "biggive-generic-icon": LocalJSX.BiggiveGenericIcon & JSXBase.HTMLAttributes<HTMLBiggiveGenericIconElement>;
             "biggive-grid": LocalJSX.BiggiveGrid & JSXBase.HTMLAttributes<HTMLBiggiveGridElement>;
             "biggive-heading": LocalJSX.BiggiveHeading & JSXBase.HTMLAttributes<HTMLBiggiveHeadingElement>;
             "biggive-hero-image": LocalJSX.BiggiveHeroImage & JSXBase.HTMLAttributes<HTMLBiggiveHeroImageElement>;
