@@ -1,12 +1,5 @@
 import { IconDefinition, faFacebookF, faYoutube, faInstagram, faLinkedinIn, faWhatsapp, faXTwitter } from '@fortawesome/free-brands-svg-icons';
-import {
-  faBars,
-  faPlus,
-  faX,
-  faFilter,
-  faFilterSlash,
-  faGlobe,
-} from '@fortawesome/pro-solid-svg-icons';
+import { faBars, faPlus, faX, faFilter, faFilterSlash, faGlobe } from '@fortawesome/pro-solid-svg-icons';
 import { faCaretRight } from '@fortawesome/pro-duotone-svg-icons';
 import { faHeart, faAlarmClock } from '@fortawesome/pro-solid-svg-icons';
 import { faTimer } from '@fortawesome/pro-regular-svg-icons';
