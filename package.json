@@ -41,7 +41,7 @@
     "@fortawesome/pro-duotone-svg-icons": "^6.6.0",
     "@fortawesome/pro-regular-svg-icons": "^6.6.0",
     "@fortawesome/pro-solid-svg-icons": "^6.6.0",
-    "@stencil/core": "4.26.*"
+    "@stencil/core": "4.27.*"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",
@@ -67,7 +67,7 @@
     "jest-cli": "^29.7.0",
     "lint-staged": "^15.2.0",
     "prettier": "^3.1.1",
-    "puppeteer": "24.2.*",
+    "puppeteer": "24.3.*",
     "storybook": "^8.1.6"
   },
   "license": "MIT"
