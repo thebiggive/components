@@ -10,6 +10,8 @@ updates:
     schedule:
       interval: "daily"
     ignore:
+      - dependency-name: "@stencil/core"
+        versions: [">=4.26.0"]
       - dependency-name: storybook
         update-types: ["version-update:semver-major"]
       - dependency-name: storybook/addon-actions
