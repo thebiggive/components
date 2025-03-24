@@ -27,12 +27,14 @@ Used to indicate and link to a charity's social page, or their own web site.
 
  - [biggive-footer](../biggive-footer)
  - [biggive-main-menu](../biggive-main-menu)
+ - [philco-footer](../philco-footer)
 
 ### Graph
 ```mermaid
 graph TD;
   biggive-footer --> biggive-social-icon
   biggive-main-menu --> biggive-social-icon
+  philco-footer --> biggive-social-icon
   style biggive-social-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

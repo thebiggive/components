@@ -68,56 +68,6 @@ export class PhilcoMainMenu {
       this.setHeaderSize();
     });
     this.setHeaderSize();
-
-    const subMenuElements = this.host.shadowRoot!.querySelectorAll<HTMLElement>('.sub-menu');
-    if (subMenuElements.length === 0) {
-      throw new Error('Missing subMenuElements');
-    }
-
-    /**
-     * Closes all the sub-menus except the one exception.
-     */
-    const closeAllSubMenus = ({ except }: { except: HTMLAnchorElement }) => {
-      subMenuElements.forEach(subMenuElement => {
-        const link = subMenuElement.parentElement?.querySelector('a');
-
-        if (link === except) {
-          return;
-        }
-
-        link?.classList.remove('transform-90');
-        subMenuElement.classList.remove('display-sub-menu');
-      });
-    };
-
-    subMenuElements.forEach(subMenuElement => {
-      // the subMenuLink is a sibling element to the actual sub-menu
-      const subMenuLink = subMenuElement.parentElement?.querySelector('a');
-
-      subMenuLink!.onclick = () => {
-        const subMenuArrow = subMenuLink!.querySelector('.sub-menu-arrow');
-        closeAllSubMenus({ except: subMenuLink! });
-        subMenuArrow!.classList.toggle('transform-90');
-        subMenuElement.classList.toggle('display-sub-menu');
-      };
-    });
-
-    const subSubMenuElements = this.host.shadowRoot!.querySelectorAll<HTMLElement>('.sub-sub-menu');
-
-    if (subSubMenuElements.length === 0) {
-      throw new Error('Missing subSubMenuElements');
-    }
-
-    subSubMenuElements.forEach(subSubMenuElement => {
-      // the subSubMenuLink is a sibling element to the actual sub-sub-menu
-      const subSubMenuLink = subSubMenuElement!.parentElement!.querySelector('a');
-
-      subSubMenuLink!.onclick = () => {
-        const subMenuArrow = subSubMenuLink!.querySelector('.sub-sub-menu-arrow');
-        subMenuArrow!.classList.toggle('transform-90');
-        subSubMenuElement.classList.toggle('display-sub-menu');
-      };
-    });
   }
 
   render() {
