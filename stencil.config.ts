@@ -32,6 +32,7 @@ export const config: Config = {
       copy: [
         { src: 'assets/fonts', warn: true },
         { src: 'assets/images', warn: true },
+        { src: 'pages', warn: true  },
       ],
     },
     {
@@ -47,7 +48,8 @@ export const config: Config = {
         copy: [
         { src: 'assets/fonts', warn: true },
         { src: 'assets/images', warn: true },
-      ],
+        { src: 'pages', warn: true  },
+        ],
     },
   ],
   devServer: {

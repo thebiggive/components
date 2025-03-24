@@ -224,3 +224,8 @@ These can be added to an HTML page with the following code:
   </biggive-grid>
 ```
 
+### Philco
+
+Some of the components will need variants or alternate versions for use on the upcoming Philco site. For details see
+[philco.md](./docs/philco.md)
+
