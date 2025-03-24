@@ -1088,6 +1088,10 @@ export namespace Components {
          */
         "videoUrl": string;
     }
+    interface PhilcoMainMenu {
+        "closeMobileMenuFromOutside": () => Promise<void>;
+        "philcoUrlPrefix": string;
+    }
 }
 export interface BiggiveButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1116,6 +1120,10 @@ export interface BiggiveImageButtonCustomEvent<T> extends CustomEvent<T> {
 export interface BiggiveMainMenuCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLBiggiveMainMenuElement;
+}
+export interface PhilcoMainMenuCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLPhilcoMainMenuElement;
 }
 declare global {
     interface HTMLBiggiveAccordionElement extends Components.BiggiveAccordion, HTMLStencilElement {
@@ -1514,6 +1522,23 @@ declare global {
         prototype: HTMLBiggiveVideoFeatureElement;
         new (): HTMLBiggiveVideoFeatureElement;
     };
+    interface HTMLPhilcoMainMenuElementEventMap {
+        "logoutClicked": void;
+    }
+    interface HTMLPhilcoMainMenuElement extends Components.PhilcoMainMenu, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPhilcoMainMenuElementEventMap>(type: K, listener: (this: HTMLPhilcoMainMenuElement, ev: PhilcoMainMenuCustomEvent<HTMLPhilcoMainMenuElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPhilcoMainMenuElementEventMap>(type: K, listener: (this: HTMLPhilcoMainMenuElement, ev: PhilcoMainMenuCustomEvent<HTMLPhilcoMainMenuElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLPhilcoMainMenuElement: {
+        prototype: HTMLPhilcoMainMenuElement;
+        new (): HTMLPhilcoMainMenuElement;
+    };
     interface HTMLElementTagNameMap {
         "biggive-accordion": HTMLBiggiveAccordionElement;
         "biggive-accordion-entry": HTMLBiggiveAccordionEntryElement;
@@ -1565,6 +1590,7 @@ declare global {
         "biggive-totalizer-ticker-item": HTMLBiggiveTotalizerTickerItemElement;
         "biggive-video": HTMLBiggiveVideoElement;
         "biggive-video-feature": HTMLBiggiveVideoFeatureElement;
+        "philco-main-menu": HTMLPhilcoMainMenuElement;
     }
 }
 declare namespace LocalJSX {
@@ -2660,6 +2686,10 @@ declare namespace LocalJSX {
          */
         "videoUrl"?: string;
     }
+    interface PhilcoMainMenu {
+        "onLogoutClicked"?: (event: PhilcoMainMenuCustomEvent<void>) => void;
+        "philcoUrlPrefix"?: string;
+    }
     interface IntrinsicElements {
         "biggive-accordion": BiggiveAccordion;
         "biggive-accordion-entry": BiggiveAccordionEntry;
@@ -2711,6 +2741,7 @@ declare namespace LocalJSX {
         "biggive-totalizer-ticker-item": BiggiveTotalizerTickerItem;
         "biggive-video": BiggiveVideo;
         "biggive-video-feature": BiggiveVideoFeature;
+        "philco-main-menu": PhilcoMainMenu;
     }
 }
 export { LocalJSX as JSX };
@@ -2775,6 +2806,7 @@ declare module "@stencil/core" {
             "biggive-totalizer-ticker-item": LocalJSX.BiggiveTotalizerTickerItem & JSXBase.HTMLAttributes<HTMLBiggiveTotalizerTickerItemElement>;
             "biggive-video": LocalJSX.BiggiveVideo & JSXBase.HTMLAttributes<HTMLBiggiveVideoElement>;
             "biggive-video-feature": LocalJSX.BiggiveVideoFeature & JSXBase.HTMLAttributes<HTMLBiggiveVideoFeatureElement>;
+            "philco-main-menu": LocalJSX.PhilcoMainMenu & JSXBase.HTMLAttributes<HTMLPhilcoMainMenuElement>;
         }
     }
 }

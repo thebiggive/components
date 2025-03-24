@@ -23,6 +23,7 @@
  - [biggive-campaign-highlights](../biggive-campaign-highlights)
  - [biggive-icon-button](../biggive-icon-button)
  - [biggive-main-menu](../biggive-main-menu)
+ - [philco-main-menu](../philco-main-menu)
 
 ### Graph
 ```mermaid
@@ -31,6 +32,7 @@ graph TD;
   biggive-campaign-highlights --> biggive-misc-icon
   biggive-icon-button --> biggive-misc-icon
   biggive-main-menu --> biggive-misc-icon
+  philco-main-menu --> biggive-misc-icon
   style biggive-misc-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

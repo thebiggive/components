@@ -7,6 +7,7 @@ export const config: Config = {
   plugins: [
     sass({
       injectGlobalPaths: [
+        'src/globals/philco-variables.scss',
         'src/globals/variables.scss',
         'src/globals/mixins.scss',
         'src/globals/global.scss'
