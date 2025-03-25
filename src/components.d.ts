@@ -960,6 +960,7 @@ export namespace Components {
          */
         "currency": 'GBP' | 'USD' | undefined;
         "selectStyle": 'bordered' | 'underlined';
+        "siteDesign": 'biggive' | 'philco';
         "spaceBelow": number;
         "value": string;
     }
@@ -2575,6 +2576,7 @@ declare namespace LocalJSX {
          */
         "currency"?: 'GBP' | 'USD' | undefined;
         "selectStyle"?: 'bordered' | 'underlined';
+        "siteDesign"?: 'biggive' | 'philco';
         "spaceBelow"?: number;
         "value": string;
     }

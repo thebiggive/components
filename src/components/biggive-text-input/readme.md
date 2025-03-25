@@ -18,6 +18,7 @@ Please ensure input is styled as width: 100%.
 | -------------------- | -------------- | ---------------------------------------------------- | ----------------------------- | ------------ |
 | `currency`           | `currency`     | ISO-4217 currency code if input is for a money value | `"GBP" \| "USD" \| undefined` | `undefined`  |
 | `selectStyle`        | `select-style` |                                                      | `"bordered" \| "underlined"`  | `'bordered'` |
+| `siteDesign`         | `site-design`  |                                                      | `"biggive" \| "philco"`       | `'biggive'`  |
 | `spaceBelow`         | `space-below`  |                                                      | `number`                      | `0`          |
 | `value` _(required)_ | `value`        |                                                      | `string`                      | `undefined`  |
 
