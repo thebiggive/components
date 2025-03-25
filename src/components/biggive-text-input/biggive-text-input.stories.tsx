@@ -12,6 +12,7 @@ type Args = {
 
 const Template = (args: Args) => `
 <p></p>
+<div style="padding: 1em; background-color: ${args.backgroundColor}">
 <biggive-text-input
  currency="${args.currency}"
  space-below="${args.spaceBelow}"
@@ -19,12 +20,13 @@ const Template = (args: Args) => `
  >
     ${args.label}
     ${args.input}
-</biggive-text-input>`;
-
+</biggive-text-input>
+  </div>`;
 export const TextInput = {
   render: Template,
 
   args: {
+    backgroundColor: '#F6F6F6',
     currency: 'GBP',
     spaceBelow: 0,
     selectStyle: 'bordered',
