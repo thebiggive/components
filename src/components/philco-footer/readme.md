@@ -16,19 +16,6 @@
 | `smallCharityWeekEnabled` | `small-charity-week-enabled` |                                                                                                                             | `boolean`                    | `false`     |
 
 
-## Dependencies
-
-### Depends on
-
-- [biggive-social-icon](../biggive-social-icon)
-
-### Graph
-```mermaid
-graph TD;
-  philco-footer --> biggive-social-icon
-  style philco-footer fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
