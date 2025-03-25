@@ -1,31 +1,15 @@
-const args = {
-  blogUrlPrefix: 'https://biggive.org',
-  donateUrlPrefix: 'https://donate.biggive.org',
-  experienceUrlPrefix: 'https://community.biggive.org',
-  isLoggedIn: false,
-  myAccountFlagEnabled: true,
-};
+const args = {};
 
 export default {
-  title: 'Components/Header and Footer',
+  title: 'Philco/Header and Footer',
   args,
-  argTypes: {
-    blogUrlPrefix: { control: 'text' },
-    donateUrlPrefix: { control: 'text' },
-    experienceUrlPrefix: { control: 'text' },
-    isLoggedIn: { control: 'boolean' },
-    myAccountFlagEnabled: { control: 'boolean' },
-  },
+  argTypes: {},
 };
 
 const Template = () => `
-    <biggive-main-menu
-        blog-url-prefix="${args.blogUrlPrefix}"
-        donate-url-prefix="${args.donateUrlPrefix}"
-        experience-url-prefix="${args.experienceUrlPrefix}"
-        is-logged-in="${args.isLoggedIn}"
-        my-account-flag-enabled="${args.myAccountFlagEnabled}"
-    ></biggive-main-menu>
+    <philco-main-menu
+      philco-url-prefix="http://localhost:30003"
+    ></philco-main-menu>
       `;
 
 export const MainMenu = {
