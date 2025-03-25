@@ -34,6 +34,16 @@ export const TextInput = {
       id="enter-donation-amount"
       slot="input"
       value="60.00"
+      style="
+        outline: none;
+        border: none;
+        text-align: right;
+        background-color: transparent;
+        width: 100%;
+        padding: 0; /* We rely on containing element margin, and don't want vendor-dependent extra padding. */
+        font-size: 18px;
+        line-height: 27px;
+      "
       />`,
     label: `<label for="enter-donation-amount" slot="label">Enter your donation amount</label>`,
   } as Args,
