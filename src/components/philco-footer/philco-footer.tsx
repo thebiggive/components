@@ -1,5 +1,5 @@
-import { Component, Element, getAssetPath, h, Prop } from "@stencil/core";
-import { makeURL } from "../../util/helper-methods";
+import { Component, Element, getAssetPath, h, Prop } from '@stencil/core';
+import { makeURL } from '../../util/helper-methods';
 
 @Component({
   tag: 'philco-footer',
@@ -68,8 +68,7 @@ export class PhilcoFooter {
 
         <div class="row row-bottom">
           <div class="postscript-wrap">
-            <img class="fr-logo" src={getAssetPath('/assets/images/fundraising-regulator.png')}
-                 alt="Registered with FUNDRAISING REGULATOR" />
+            <img class="fr-logo" src={getAssetPath('/assets/images/fundraising-regulator.png')} alt="Registered with FUNDRAISING REGULATOR" />
 
             <nav class="nav nav-postscript" aria-label="Legal">
               <ul slot="nav-postscript">
@@ -88,8 +87,7 @@ export class PhilcoFooter {
               </ul>
             </nav>
           </div>
-          <p>&copy; 2007 – {this.year} The Big Give Trust (1136547) | Company number 07273065 | Dragon Court, 27-29
-            Macklin Street, London WC2B 5LX, United Kingdom</p>
+          <p>&copy; 2007 – {this.year} The Big Give Trust (1136547) | Company number 07273065 | Dragon Court, 27-29 Macklin Street, London WC2B 5LX, United Kingdom</p>
         </div>
       </footer>
     );
