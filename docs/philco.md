@@ -7,6 +7,7 @@ there:
 - [biggive-button](../src/components/biggive-button/readme.md)
 - [biggive-quote](../src/components/biggive-quote/readme.md)
 - [biggive-basic-card](../src/components/biggive-basic-card/readme.md)
+- [biggive-quote](../src/components/biggive-quote/readme.md)
 - [biggive-text-input](../src/components/biggive-text-input/readme.md)
 - [biggive-page-section](../src/components/biggive-page-section/readme.md)
 
@@ -14,8 +15,6 @@ For biggive-page the change needed is just allowing use of the Philco colours (w
 generally), and allowing an angled top and bottom border. May be able to copy MIT licenced code for that from
 https://github.com/NigelOToole/angled-edges/blob/master/assets/styles/angled-edges.scss (found via
 https://kilianvalkhof.com/2017/design/sloped-edges-with-consistent-angle-in-css/).
-
-
 
 There are also some new components built or required specifically for philco:
 
