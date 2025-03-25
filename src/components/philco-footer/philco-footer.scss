@@ -105,6 +105,7 @@ nav ul li a {
 
 footer .row-bottom {
   background-color: $colour-black;
+  color: $colour-philco-white;
   padding: $spacer-6 $spacer-6 $spacer-3 $spacer-6;
   border-top: 1px solid $colour-white;
 
@@ -126,6 +127,7 @@ footer .row-bottom {
   .nav.nav-postscript {
     text-align: right;
     flex-grow: 1;
+    color: $colour-philco-white;
 
     @media screen and (max-width: $screen-tablet-max) {
       text-align: center;
@@ -144,6 +146,10 @@ footer .row-bottom {
       display: block;
       width: 100%;
       margin-left: 0;
+    }
+
+    a {
+      color: $colour-philco-white;
     }
   }
 

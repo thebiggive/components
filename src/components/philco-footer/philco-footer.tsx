@@ -94,28 +94,28 @@ export class PhilcoFooter {
               <biggive-social-icon
                 service="Facebook"
                 url="https://www.facebook.com/BigGive.org"
-                background-colour="tertiary"
+                background-colour="philco-orange"
                 icon-colour="black"
                 wide={true}
               ></biggive-social-icon>
-              <biggive-social-icon service="Twitter" url="https://x.com/BigGive" background-colour="tertiary"
+              <biggive-social-icon service="Twitter" url="https://x.com/BigGive" background-colour="philco-orange"
                                    icon-colour="black" wide={true}></biggive-social-icon>
               <biggive-social-icon
                 service="LinkedIn"
                 url="https://uk.linkedin.com/company/big-give"
-                background-colour="tertiary"
+                background-colour="philco-orange"
                 icon-colour="black"
                 wide={true}
               ></biggive-social-icon>
               <biggive-social-icon
                 service="YouTube"
                 url="https://www.youtube.com/channel/UC9_wH1aaTuZurJ-F9R8GDcA"
-                background-colour="tertiary"
+                background-colour="philco-orange"
                 icon-colour="black"
                 wide={true}
               ></biggive-social-icon>
               <biggive-social-icon service="Instagram" url="https://www.instagram.com/biggiveorg"
-                                   background-colour="tertiary" icon-colour="black"></biggive-social-icon>
+                                   background-colour="philco-orange" icon-colour="black"></biggive-social-icon>
             </div>
           </div>
           <p>&copy; 2007 – {this.year} The Big Give Trust (1136547) | Company number 07273065 | Dragon Court, 27-29
