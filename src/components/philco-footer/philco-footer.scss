@@ -32,53 +32,6 @@ nav {
 nav ul li a {
   color: $colour-philco-gray-90;
   text-decoration: none;
-  // target all classes prefixed with 'icon-' so we don't repeat code
-  &[class^='icon-'],
-  &[class*='icon-'] {
-    padding-left: 20px;
-    background-repeat: no-repeat;
-    background-size: auto 10px;
-    background-position: left center;
-  }
-
-  &.icon-green {
-    background-image: url(/assets/images/triangles-combined-green-match-white.svg);
-  }
-
-  &.icon-children {
-    background-image: url(/assets/images/triangles-combined-children-white.svg);
-  }
-
-  &.icon-christmas {
-    background-image: url(/assets/images/triangles-combined-christmas-challenge-white.svg);
-  }
-
-  &.icon-green-match {
-    background-image: url(/assets/images/triangles-combined-green-match-white.svg);
-  }
-
-  &.icon-women-girls {
-    background-image: url(/assets/images/triangles-combined-women-girls-white.svg);
-  }
-
-  &.icon-mental-health {
-    background-image: url(/assets/images/triangles-combined-mental-health-white.svg);
-  }
-
-  &.icon-anchor-match {
-    background-image: url(/assets/images/triangles-combined-anchor-white.svg);
-  }
-
-  &.icon-emergency {
-    background-image: url(/assets/images/triangles-combined-emergency-white.svg);
-  }
-
-  &.icon-arts {
-    background-image: url(/assets/images/triangles-combined-arts-white.svg);
-  }
-
-  &.icon-small-charity {
-    background-image: url(/assets/images/triangles-combined-small-charity-week-white.svg);
   }
 }
 

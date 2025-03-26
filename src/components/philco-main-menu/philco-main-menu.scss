@@ -17,56 +17,6 @@
   font-family: 'Euclid Triangle', sans-serif;
 }
 
-a {
-  // target all classes prefixed with 'icon-' so we don't repeat code
-  &[class^='icon-'],
-  &[class*='icon-'] {
-    padding-left: 20px;
-    background-repeat: no-repeat;
-    background-size: auto 10px;
-    background-position: left center;
-  }
-
-  &.icon-green {
-    background-image: url(/assets/images/triangles-combined.svg);
-  }
-
-  &.icon-children {
-    background-image: url(/assets/images/triangles-combined-children.svg);
-  }
-
-  &.icon-christmas {
-    background-image: url(/assets/images/triangles-combined-christmas-challenge.svg);
-  }
-
-  &.icon-green-match {
-    background-image: url(/assets/images/triangles-combined-green-match.svg);
-  }
-
-  &.icon-women-girls {
-    background-image: url(/assets/images/triangles-combined-women-girls.svg);
-  }
-
-  &.icon-mental-health {
-    background-image: url(/assets/images/triangles-combined-mental-health.svg);
-  }
-
-  &.icon-anchor-match {
-    background-image: url(/assets/images/triangles-combined-anchor.svg);
-  }
-
-  &.icon-small-charity {
-    background-image: url(/assets/images/triangles-combined-small-charity-week.svg);
-  }
-
-  &.icon-emergency {
-    background-image: url(/assets/images/triangles-combined-emergency.svg);
-  }
-
-  &.icon-arts-impact {
-    background-image: url(/assets/images/triangles-combined-arts-black.svg);
-  }
-}
 
 .mobile-only {
   display: none !important;
@@ -78,15 +28,6 @@ a {
   display: flex;
   max-height: $icon-size-large + 2 * $spacer-2;
 
-  .social-icon-wrap {
-    display: flex;
-    min-height: $icon-size-large; // Avoid broken content padding offset, due to menu height changing after component load.
-    margin-right: $spacer-2;
-
-    .social-icon-item {
-      margin-right: $spacer-2;
-    }
-  }
 
   .nav-secondary {
     margin-left: auto;
