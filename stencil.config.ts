@@ -7,6 +7,7 @@ export const config: Config = {
   plugins: [
     sass({
       injectGlobalPaths: [
+        'src/globals/philco-variables.scss',
         'src/globals/variables.scss',
         'src/globals/mixins.scss',
         'src/globals/global.scss'
@@ -32,6 +33,7 @@ export const config: Config = {
       copy: [
         { src: 'assets/fonts', warn: true },
         { src: 'assets/images', warn: true },
+        { src: 'pages', warn: true  },
       ],
     },
     {
@@ -47,7 +49,8 @@ export const config: Config = {
         copy: [
         { src: 'assets/fonts', warn: true },
         { src: 'assets/images', warn: true },
-      ],
+        { src: 'pages', warn: true  },
+        ],
     },
   ],
   devServer: {

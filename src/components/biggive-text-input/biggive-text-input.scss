@@ -31,10 +31,19 @@
     }
   }
 
+
+  &.philco .prompt {
+    color: $colour-philco-gray-90;
+
+    > span {
+      background-color: $colour-philco-white;
+    }
+  }
+
   @include standard-font();
   position: relative;
   text-align: left;
-  &.select-style-bordered {
+  &.select-style-bordered.biggive{
     .sleeve {
       @include font-size-large();
       font-weight: bolder;
@@ -59,22 +68,29 @@
             0 100%,   /* bottom left */
             0 100%      /* bottom left */
           );
-        &:after {
-          content: '';
-          display: block;
-          position: absolute;
-          right: 20px;
-          top: 18px;
-          width: 10px;
-          height: 10px;
-          background-size: contain;
-          background-repeat: no-repeat;
-          background-position: center center;
-        }
+          &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            right: 20px;
+            top: 18px;
+            width: 10px;
+            height: 10px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center;
+          }
       }
       &.focused {
         background-color: $colour-tertiary-coral;
       }
+    }
+  }
+  &.select-style-bordered.philco {
+    .inner-sleeve {
+      border: 2px solid $colour-philco-gray-90;
+      border-radius: 6px;
+      padding: 12px;
     }
   }
 }

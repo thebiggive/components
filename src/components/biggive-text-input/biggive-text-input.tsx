@@ -20,11 +20,12 @@ export class BiggiveTextInput {
   @Prop() currency: 'GBP' | 'USD' | undefined;
   @Prop() spaceBelow: number = 0;
   @Prop() selectStyle: 'bordered' | 'underlined' = 'bordered';
+  @Prop() siteDesign: 'biggive' | 'philco' = 'biggive';
 
   render() {
     const currencySymbol = this.currency === 'GBP' ? '£' : this.currency === 'USD' ? '$' : undefined;
     return (
-      <div class={'text-input space-below-' + this.spaceBelow + ' select-style-' + this.selectStyle}>
+      <div class={'text-input space-below-' + this.spaceBelow + ' select-style-' + this.selectStyle + ' ' + this.siteDesign}>
         <div class="prompt">
           <span>
             <slot name="label" />
