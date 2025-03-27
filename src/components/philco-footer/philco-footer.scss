@@ -34,6 +34,14 @@ nav ul li a {
   text-decoration: none;
 }
 
+.row-logo {
+  background-color: $colour-philco-white;
+  padding: 100px $spacer-6 0 $spacer-6;
+  img {
+    height: 34px;
+  }
+}
+
 .row-top {
   // @todo-COM-104: Replace background image below with a black-on-white PhilCo logo
   //background-image: url(/assets/images/biggive-triangle-green.svg);
@@ -41,7 +49,7 @@ nav ul li a {
   background-size: auto 75px;
   background-position: $spacer-6 30px;
   background-color: $colour-philco-white;
-  padding: 100px $spacer-6 $spacer-6 $spacer-6;
+  padding: 0 $spacer-6 $spacer-6 $spacer-6;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -60,10 +68,6 @@ footer .row-bottom {
   color: $colour-philco-white;
   padding: $spacer-6 $spacer-6 $spacer-3 $spacer-6;
   border-top: 1px solid $colour-white;
-
-  .fr-logo {
-    width: 135px;
-  }
 
   .postscript-wrap {
     display: flex;
@@ -125,8 +129,11 @@ footer .row-bottom {
 }
 
 @media screen and (max-width: $screen-tablet-max) {
+  .row-logo {
+    padding-left: $spacer-3 $spacer-3 0 $spacer-3;
+  }
   .row-top {
-    padding: $spacer-3;
+    padding: 0 $spacer-3 $spacer-3 $spacer-3;
   }
 }
 
@@ -137,9 +144,14 @@ footer .row-bottom {
     margin-bottom: $spacer-4;
   }
 
+  .row-logo {
+    padding-top: 80px;
+    padding-left: 15px;
+  }
+
   .row-top {
     background-size: auto 50px;
-    padding-top: 80px;
+    padding-top: 0;
     padding-left: 15px;
     background-position: 15px 30px;
 

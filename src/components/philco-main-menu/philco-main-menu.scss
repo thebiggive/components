@@ -109,8 +109,14 @@ nav {
     }
 
     .logo {
-      min-width: 180px;
-      width: 180px;
+      min-width: 10px;
+      width: 100px;
+
+      img {
+      height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
 
       a {
         font-size: 30px;
@@ -118,6 +124,12 @@ nav {
         text-decoration: none;
         font-weight: 600;
         display: grid;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: contain;
+        }
       }
     }
 
@@ -182,8 +194,13 @@ nav {
   nav {
     .navbar {
       .logo {
-        min-width: 120px;
-        width: 120px;
+        min-width: 100px;
+        width: 100px;
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: contain;
+        }
       }
 
       .nav-links {

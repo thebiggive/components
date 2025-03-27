@@ -1,4 +1,4 @@
-import { Component, Element, Event, EventEmitter, h, Host, Method, Prop } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, getAssetPath, h, Host, Method, Prop } from '@stencil/core';
 import { makeURL } from '../../util/helper-methods';
 
 @Component({
@@ -79,7 +79,7 @@ export class PhilcoMainMenu {
           <div class="navbar">
             <div class="logo">
               <a href={this.philcoUrlPrefix + homePageLink} aria-label="Home">
-                PhilC
+                <img src={getAssetPath('/assets/images/philco/Philcologo-white.png')} alt="PhilCo" />
               </a>
             </div>
             <biggive-misc-icon class="bx bx-menu" background-colour="transparent" icon-colour="white" icon="MenuOpen" onClick={this.openMobileMenu}></biggive-misc-icon>

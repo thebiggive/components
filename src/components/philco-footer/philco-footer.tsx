@@ -27,6 +27,12 @@ export class PhilcoFooter {
 
     return (
       <footer class="footer">
+        <div class="row row-logo">
+          <div class="logo">
+            <img src={getAssetPath('/assets/images/philco/Philcologo-black.png')} alt="PhilCo" />
+          </div>
+        </div>
+
         <div class="row row-top">
           <nav class="nav nav-primary" aria-labelledby="footer-primary-heading">
             <HeadingTag class="heading" id="footer-primary-heading">
@@ -68,8 +74,6 @@ export class PhilcoFooter {
 
         <div class="row row-bottom">
           <div class="postscript-wrap">
-            <img class="fr-logo" src={getAssetPath('/assets/images/fundraising-regulator.png')} alt="Registered with FUNDRAISING REGULATOR" />
-
             <nav class="nav nav-postscript" aria-label="Legal">
               <ul slot="nav-postscript">
                 <li>
