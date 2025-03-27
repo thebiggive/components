@@ -27,6 +27,12 @@ export class PhilcoFooter {
 
     return (
       <footer class="footer">
+        <div class="row row-logo">
+          <div class="logo">
+            <img src={getAssetPath('/assets/images/philco/Philcologo-black.png')} alt="PhilCo"/>
+          </div>
+        </div>
+
         <div class="row row-top">
           <nav class="nav nav-primary" aria-labelledby="footer-primary-heading">
             <HeadingTag class="heading" id="footer-primary-heading">
