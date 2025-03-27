@@ -29,7 +29,7 @@ export class PhilcoFooter {
       <footer class="footer">
         <div class="row row-logo">
           <div class="logo">
-            <img src={getAssetPath('/assets/images/philco/Philcologo-black.png')} alt="PhilCo"/>
+            <img src={getAssetPath('/assets/images/philco/Philcologo-black.png')} alt="PhilCo" />
           </div>
         </div>
 
