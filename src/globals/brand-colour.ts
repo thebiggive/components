@@ -22,4 +22,12 @@ export type brandColour =
   | 'grey-extra-light'
   | 'grey-light'
   | 'grey-medium'
-  | 'grey-dark';
+  | 'grey-dark'
+  | 'philco-orange'
+  | 'philco-gray-90'
+  | 'philco-gray-70'
+  | 'philco-white'
+  | 'philco-success-green'
+  | 'philco-error-coral'
+  | 'philco-gray-30'
+  | 'philco-gray-20';

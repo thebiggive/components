@@ -105,8 +105,48 @@
   }
 }
 
+.button-philco-gray-90 {
+  color: $colour-philco-white;
+  &:hover {
+    color: $colour-philco-gray-90;
+    background-color: $colour-philco-orange;
+  }
+}
+
+.button-philco-orange {
+  color: $colour-philco-gray-90;
+  &:hover {
+    color: $colour-philco-white;
+    background-color: $colour-philco-gray-90;
+  }
+}
+
+.button-philco-white {
+  color: $colour-philco-gray-90;
+  &:hover {
+
+    color: $colour-philco-gray-90 !important;
+    background-color: $colour-philco-orange !important;
+  }
+}
+
+.container.philco a {
+  border-color: transparent;
+}
+
+.container.disabled.philco .button {
+  cursor: not-allowed;
+  background-color: $colour-philco-gray-30 !important;
+
+  color: $colour-philco-white;
+  &:hover {
+    background-color: $colour-philco-gray-30;
+    color: $colour-philco-white;
+  }
+}
+
 .button-black {
-  color: $colour-white;
+  color: $colour-philco-gray-90;
   &:hover {
     background-color: $colour-white;
   }

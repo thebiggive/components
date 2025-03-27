@@ -96,8 +96,15 @@ export class PhilcoMainMenu {
                   <li>
                     <a href={makeURL('Blog', this.philcoUrlPrefix, 'charities')}>News</a>
                   </li>
-                  <li>
-                    <a href={makeURL('Blog', this.philcoUrlPrefix, 'funders')}>Sign up</a>
+                  <li class="signup">
+                    <biggive-button
+                      label="Sign up"
+                      site-design="philco"
+                      colour-scheme="philco-white"
+                      rounded={true}
+                      url={makeURL('Blog', this.philcoUrlPrefix, 'sign-up')}
+                      size="small"
+                    ></biggive-button>
                   </li>
                 </ul>
               </div>
