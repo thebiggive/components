@@ -7,9 +7,7 @@ there. Those that we have developed are marked with [✓]
 - [biggive-button](../src/components/biggive-button/readme.md) [✓]
 - [biggive-quote](../src/components/biggive-quote/readme.md) [ ]
 - [biggive-basic-card](../src/components/biggive-basic-card/readme.md) [ ]
-- [biggive-quote](../src/components/biggive-quote/readme.md) [ ]
 - [biggive-text-input](../src/components/biggive-text-input/readme.md) [✓]
-- [biggive-page-section](../src/components/biggive-page-section/readme.md) [ ]
 
 For biggive-page the change needed is just allowing use of the Philco colours (which is already done within the library
 generally), and allowing an angled top and bottom border. May be able to copy MIT licenced code for that from
