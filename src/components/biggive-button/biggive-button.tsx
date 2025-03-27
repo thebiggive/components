@@ -1,5 +1,5 @@
 import { Component, Event, EventEmitter, Prop, h } from '@stencil/core';
-import { brandColour } from "../../globals/brand-colour";
+import { brandColour } from '../../globals/brand-colour';
 
 @Component({
   tag: 'biggive-button',
