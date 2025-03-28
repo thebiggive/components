@@ -3,7 +3,7 @@
 }
 
 .footer {
-  @include standard-font();
+  @include philco-body-font();
   color: $colour-philco-gray-90;
 }
 
@@ -12,7 +12,9 @@ nav {
   margin: 0;
   padding: 0;
   .heading {
-    @include heading-5();
+    @include philco-heading-font();
+    @include font-size-large();
+    text-transform: uppercase;
     border-bottom: 1px solid $colour-philco-gray-90;
     padding-bottom: $spacer-2;
     margin-bottom: $spacer-2;

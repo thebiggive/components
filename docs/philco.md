@@ -24,4 +24,4 @@ And others still to build include:
 
 # Testing
 
-To test all philco components together on a page on a dev machine, visit http://localhost:3939/pages/philco.html
+To test all philco components together on a page on a dev machine, `npm run start` and visit http://localhost:3939/pages/philco.html

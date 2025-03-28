@@ -12,6 +12,8 @@ updates:
     ignore:
       - dependency-name: "@stencil/core"
         versions: [">=4.26.0"]
+      - dependency-name: "@stencil/sass"
+        versions: [">=3.0.13"]
       - dependency-name: storybook
         update-types: ["version-update:semver-major"]
       - dependency-name: storybook/addon-actions
