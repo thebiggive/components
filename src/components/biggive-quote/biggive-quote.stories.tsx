@@ -1,4 +1,4 @@
-import { colorSelector } from "../../color-selector";
+import { colorSelector } from '../../color-selector';
 
 export default {
   title: 'Components/Content',

@@ -1,4 +1,4 @@
-import { colorSelector } from "../../color-selector";
+import { colorSelector } from '../../color-selector';
 
 export default {
   title: 'Components/Content',
@@ -65,30 +65,7 @@ export default {
       name: 'Primary button colour scheme',
       control: {
         type: 'select',
-        options: [
-          'primary',
-          'secondary',
-          'tertiary',
-
-
-
-
-
-
-          'white',
-          'black',
-          'clear-primary',
-          'clear-secondary',
-          'clear-tertiary',
-
-
-
-
-
-
-          'clear-white',
-          'clear-black',
-        ],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black', 'clear-primary', 'clear-secondary', 'clear-tertiary', 'clear-white', 'clear-black'],
       },
     },
     secondaryButtonUrl: {
@@ -101,30 +78,7 @@ export default {
       name: 'Secondary button colour scheme',
       control: {
         type: 'select',
-        options: [
-          'primary',
-          'secondary',
-          'tertiary',
-
-
-
-
-
-
-          'white',
-          'black',
-          'clear-primary',
-          'clear-secondary',
-          'clear-tertiary',
-
-
-
-
-
-
-          'clear-white',
-          'clear-black',
-        ],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black', 'clear-primary', 'clear-secondary', 'clear-tertiary', 'clear-white', 'clear-black'],
       },
     },
   },

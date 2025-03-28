@@ -39,31 +39,7 @@ export default {
       name: 'Icon colour',
       control: {
         type: 'select',
-        options: [
-          'primary',
-          'secondary',
-          'tertiary',
-
-
-
-
-
-
-          'white',
-          'black',
-          'red',
-          'clear-primary',
-          'clear-secondary',
-          'clear-tertiary',
-
-
-
-
-
-
-          'clear-white',
-          'clear-black',
-        ],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black', 'red', 'clear-primary', 'clear-secondary', 'clear-tertiary', 'clear-white', 'clear-black'],
       },
     },
     mainTitle: {
@@ -85,30 +61,7 @@ export default {
       name: 'Button colour scheme',
       control: {
         type: 'select',
-        options: [
-          'primary',
-          'secondary',
-          'tertiary',
-
-
-
-
-
-
-          'white',
-          'black',
-          'clear-primary',
-          'clear-secondary',
-          'clear-tertiary',
-
-
-
-
-
-
-          'clear-white',
-          'clear-black',
-        ],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black', 'clear-primary', 'clear-secondary', 'clear-tertiary', 'clear-white', 'clear-black'],
       },
     },
     clipBottomLeftCorner: {

@@ -59,30 +59,7 @@ export default {
       name: 'Donate button colour scheme',
       control: {
         type: 'select',
-        options: [
-          'primary',
-          'secondary',
-          'tertiary',
-
-
-
-
-
-
-          'white',
-          'black',
-          'clear-primary',
-          'clear-secondary',
-          'clear-tertiary',
-
-
-
-
-
-
-          'clear-white',
-          'clear-black',
-        ],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black', 'clear-primary', 'clear-secondary', 'clear-tertiary', 'clear-white', 'clear-black'],
       },
     },
     moreInfoButtonUrl: {
@@ -95,30 +72,7 @@ export default {
       name: 'More info button colour scheme',
       control: {
         type: 'select',
-        options: [
-          'primary',
-          'secondary',
-          'tertiary',
-
-
-
-
-
-
-          'white',
-          'black',
-          'clear-primary',
-          'clear-secondary',
-          'clear-tertiary',
-
-
-
-
-
-
-          'clear-white',
-          'clear-black',
-        ],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black', 'clear-primary', 'clear-secondary', 'clear-tertiary', 'clear-white', 'clear-black'],
       },
     },
   },
