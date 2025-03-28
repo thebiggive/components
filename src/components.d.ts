@@ -896,6 +896,7 @@ export namespace Components {
         "defaultTextColour": brandColour;
         "quote": string;
         "quoteIconColour": brandColour;
+        "siteDesign": 'biggive' | 'philco';
         "spaceBelow": spacingOption;
     }
     interface BiggiveSheet {
@@ -2517,6 +2518,7 @@ declare namespace LocalJSX {
         "defaultTextColour"?: brandColour;
         "quote"?: string;
         "quoteIconColour"?: brandColour;
+        "siteDesign"?: 'biggive' | 'philco';
         "spaceBelow"?: spacingOption;
     }
     interface BiggiveSheet {

@@ -17,6 +17,10 @@ export default {
     attribution: {
       name: 'Quote',
     },
+    siteDesign: {
+      type: 'select',
+      options: ['biggive', 'philco'],
+    },
   },
 };
 
@@ -26,6 +30,7 @@ const Template = (args: any) => `
                 default-text-colour="${args.defaultTextColour}"
                 quote="${args.quote}"
                 attribution="${args.attribution}"
+                site-design="${args.siteDesign}"
                 >
 
               </biggive-quote>
