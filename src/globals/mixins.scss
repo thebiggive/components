@@ -9,9 +9,12 @@
 }
 
 @mixin philco-body-font() {
-  font-family: 'Bitter', sans-serif;
-  font-size: 18px;
-  line-height: 24px;
+  font-family: 'Bitter', serif;
+  font-size: 16px;
+}
+
+@mixin philco-heading-font() {
+  font-family: 'Garage Gothic', sans-serif;
 }
 
 @mixin font-size-xx-small() {
@@ -340,7 +343,7 @@
   &:focus {
     outline: 0;
   }
-  &:placeholder {
+  &::placeholder {
     color: $colour-grey-dark;
   }
 }
