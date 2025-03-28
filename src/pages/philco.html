@@ -12,12 +12,17 @@
 
   <style>
     body {
+      /*
+         background colour shows through in triangles above and below any page sections that use the crop-left / crop-right
+         diagonal edge feature. This means we we can only support those sections being used if there are white (or whatever
+         the body background is) coloured sections immediately before and after.
+       */
+      background-color: #ffffff;
       margin: 0;
       padding: 0;
     }
   </style>
 </head>
-<body style="background-color: #F1F1F1;">
 
 <philco-main-menu
   philco-url-prefix="http://localhost:30003"
@@ -43,7 +48,9 @@ and the part of the teaser up to the word "philanthropy," should be bold.
 
 
 
-<biggive-page-section>
+<biggive-page-section
+  colour-scheme="philco-white"
+>
 
 
 
@@ -75,7 +82,11 @@ Sign up today
 </pre>
 
 </biggive-page-section>
-<biggive-page-section>
+<biggive-page-section
+  colour-scheme="philco-orange"
+  section-style-top="crop-left"
+  section-style-bottom="crop-right"
+>
 
   <h2>Sample buttons</h2>
   <b>Primary Buttons</b>

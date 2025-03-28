@@ -103,6 +103,8 @@
     background-color: $colour;
     @if $brand == 'white' or $brand == 'grey-extra-light' or $brand == 'grey-light' {
       color: $colour-black;
+    } @else if $brand == 'philco-white' {
+      color: $colour-philco-gray-90;
     } @else {
       color: $colour-white;
     }

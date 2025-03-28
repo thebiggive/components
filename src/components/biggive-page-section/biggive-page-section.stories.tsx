@@ -1,36 +1,29 @@
 import { colorSelector } from '../../color-selector';
+import { sectionStyles } from './biggive-page-section-prop-types';
 
 export default {
   title: 'Components/Layout',
   argTypes: {
     spaceBelow: {
       name: 'Space below',
-      control: {
-        type: 'select',
-        options: [0, 1, 2, 3, 4, 5, 6],
-      },
+      type: 'select',
+      options: [0, 1, 2, 3, 4, 5, 6],
     },
     maxWidth: {
       name: 'Max width',
-      control: {
-        type: 'select',
-        options: [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100],
-      },
+      type: 'select',
+      options: [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100],
     },
     colourScheme: colorSelector,
     sectionStyleTop: {
       name: 'Section style - top',
-      control: {
-        type: 'select',
-        options: ['straight', 'crop-left', 'crop-right'],
-      },
+      type: 'select',
+      options: sectionStyles,
     },
     sectionStyleBottom: {
       name: 'Section style - bottom',
-      control: {
-        type: 'select',
-        options: ['straight', 'crop-left', 'crop-right'],
-      },
+      type: 'select',
+      options: sectionStyles,
     },
   },
 };
