@@ -19,7 +19,7 @@ export default {
       name: 'Default text colour',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
       },
     },
     slugSize: {
@@ -33,7 +33,7 @@ export default {
       name: 'Slug colour',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
       },
     },
     slug: {
@@ -50,7 +50,7 @@ export default {
       name: 'Main title colour',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
       },
     },
     mainTitle: {
@@ -67,7 +67,7 @@ export default {
       name: 'Subtitle colour',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
       },
     },
     subtitle: {
@@ -77,7 +77,7 @@ export default {
       name: 'Teaser colour',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
       },
     },
     teaser: {
@@ -97,23 +97,23 @@ export default {
           'primary',
           'secondary',
           'tertiary',
-          'brand-1',
-          'brand-2',
-          'brand-3',
-          'brand-4',
-          'brand-5',
-          'brand-6',
+
+
+
+
+
+
           'white',
           'black',
           'clear-primary',
           'clear-secondary',
           'clear-tertiary',
-          'clear-brand-1',
-          'clear-brand-2',
-          'clear-brand-3',
-          'clear-brand-4',
-          'clear-brand-5',
-          'clear-brand-6',
+
+
+
+
+
+
           'clear-white',
           'clear-black',
         ],
@@ -133,23 +133,23 @@ export default {
           'primary',
           'secondary',
           'tertiary',
-          'brand-1',
-          'brand-2',
-          'brand-3',
-          'brand-4',
-          'brand-5',
-          'brand-6',
+
+
+
+
+
+
           'white',
           'black',
           'clear-primary',
           'clear-secondary',
           'clear-tertiary',
-          'clear-brand-1',
-          'clear-brand-2',
-          'clear-brand-3',
-          'clear-brand-4',
-          'clear-brand-5',
-          'clear-brand-6',
+
+
+
+
+
+
           'clear-white',
           'clear-black',
         ],

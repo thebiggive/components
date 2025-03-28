@@ -12,42 +12,42 @@ export default {
       name: 'Default text colour',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
       },
     },
     selectedTextColour: {
       name: 'Selected text colour',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
       },
     },
     navigationHighlightColour: {
       name: 'Navigation highlight colour',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
       },
     },
     selectedNavigationHighlightColour: {
       name: 'Selected navigation highlight colour',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
       },
     },
     buttonBackgroundColour: {
       name: 'Button background colour',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
       },
     },
     buttonIconColour: {
       name: 'Button icon colour',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
       },
     },
 
@@ -55,7 +55,7 @@ export default {
       name: 'Entry background colour',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
       },
     },
 
@@ -63,7 +63,7 @@ export default {
       name: 'Entry highlight colour',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
       },
     },
 
@@ -71,7 +71,7 @@ export default {
       name: 'Entry date colour',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
       },
     },
 
@@ -79,7 +79,7 @@ export default {
       name: 'Entry title colour',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
       },
     },
 
@@ -87,7 +87,7 @@ export default {
       name: 'Entry text colour',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
       },
     },
   },
@@ -95,7 +95,7 @@ export default {
 
 const Template = (args: any) => `
                       <biggive-timeline
-                        space-below="${args.spaceBelow}"  
+                        space-below="${args.spaceBelow}"
                         text-colour="${args.textColour}"
                         selected-text-colour="${args.selectedTextColour}"
                         navigation-highlight-colour="${args.navigationHighlightColour}"

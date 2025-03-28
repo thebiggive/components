@@ -12,7 +12,7 @@ export default {
       name: 'Background colour',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black', 'transparent'],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black', 'transparent'],
       },
     },
     backgroundImageUrl: {
@@ -22,14 +22,14 @@ export default {
       name: 'Card colour',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black', 'transparent'],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black', 'transparent'],
       },
     },
     textColour: {
       name: 'Text colour',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black', 'transparent'],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black', 'transparent'],
       },
     },
     icon: {
@@ -43,24 +43,24 @@ export default {
           'primary',
           'secondary',
           'tertiary',
-          'brand-1',
-          'brand-2',
-          'brand-3',
-          'brand-4',
-          'brand-5',
-          'brand-6',
+
+
+
+
+
+
           'white',
           'black',
           'red',
           'clear-primary',
           'clear-secondary',
           'clear-tertiary',
-          'clear-brand-1',
-          'clear-brand-2',
-          'clear-brand-3',
-          'clear-brand-4',
-          'clear-brand-5',
-          'clear-brand-6',
+
+
+
+
+
+
           'clear-white',
           'clear-black',
         ],
@@ -89,23 +89,23 @@ export default {
           'primary',
           'secondary',
           'tertiary',
-          'brand-1',
-          'brand-2',
-          'brand-3',
-          'brand-4',
-          'brand-5',
-          'brand-6',
+
+
+
+
+
+
           'white',
           'black',
           'clear-primary',
           'clear-secondary',
           'clear-tertiary',
-          'clear-brand-1',
-          'clear-brand-2',
-          'clear-brand-3',
-          'clear-brand-4',
-          'clear-brand-5',
-          'clear-brand-6',
+
+
+
+
+
+
           'clear-white',
           'clear-black',
         ],

@@ -19,7 +19,7 @@ export default {
       name: 'Colour scheme',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
       },
     },
     sectionStyleTop: {
@@ -41,9 +41,9 @@ export default {
 
 const Template = (args: any) => `
         <biggive-page-section
-          space-below="${args.spaceBelow}" 
-          max-width="${args.maxWidth}"  
-          colour-scheme="${args.colourScheme}"    
+          space-below="${args.spaceBelow}"
+          max-width="${args.maxWidth}"
+          colour-scheme="${args.colourScheme}"
           section-style-top="${args.sectionStyleTop}"
           section-style-bottom="${args.sectionStyleBottom}">
         </biggive-page-section>

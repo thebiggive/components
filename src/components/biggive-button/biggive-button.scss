@@ -27,19 +27,6 @@
       @include button-rounded();
     }
 }
-// brand-6 color ambiguity (for now keeping its definition outside of the brand colors loop)
-.button-clear-brand-6 {
-    color: $colour-brand-grey;
-    background-color: transparent;
-    text-decoration: underline;
-    border: 0;
-    padding-left: 0;
-    padding-right: 0;
-    &:hover {
-      text-decoration: none;
-      background-color: transparent;
-    }
-}
 
 @each $brand, $colour in $brandColours {
   .button-#{$brand} {
@@ -50,16 +37,6 @@
       color: $colour;
       background-color: $colour-white; // may be overriden by following rules
     }
-  }
-}
-
-// not part of loop, 6 is deprecated
-.button-brand-6 {
-  color: $colour-white;
-  background-color: $colour-brand-grey;
-  border-color: $colour-brand-grey;
-  &:hover {
-    background-color: $colour-black;
   }
 }
 

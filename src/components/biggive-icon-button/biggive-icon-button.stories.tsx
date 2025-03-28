@@ -12,7 +12,7 @@ export default {
       name: 'Background colour',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
       },
     },
     backgroundPadding: {
@@ -32,7 +32,7 @@ export default {
       name: 'Text colour',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
       },
     },
     url: {
@@ -56,7 +56,7 @@ export default {
       name: 'Arrow colour',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
       },
     },
     circle: {

@@ -12,14 +12,14 @@ export default {
       name: 'Text colour',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
       },
     },
     headingColour: {
       name: 'Heading colour',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
       },
     },
   },
@@ -27,7 +27,7 @@ export default {
 
 const Template = (args: any) => `
                     <biggive-accordion
-                      space-below="${args.spaceBelow}"  
+                      space-below="${args.spaceBelow}"
                       text-colour="${args.textColour}"
                       heading-colour="${args.headingColour}"
                       >

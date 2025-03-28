@@ -26,7 +26,7 @@ export default {
       name: 'Background colour',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
       },
     },
     shadow: {
@@ -37,14 +37,14 @@ export default {
 
 const Template = (args: any) => `
             <biggive-boxed-content
-              space-below="${args.spaceBelow}"  
-              horizontal-padding="${args.horizontalPadding}"   
-              vertical-padding="${args.verticalPadding}"    
+              space-below="${args.spaceBelow}"
+              horizontal-padding="${args.horizontalPadding}"
+              vertical-padding="${args.verticalPadding}"
               background-colour="${args.backgroundColour}"
               shadow="${args.shadow}"
               >
-  
-              <biggive-quote 
+
+              <biggive-quote
                 attribution="Joe Bloggs"
                 quote="Lorem ipsum">
               </biggive-quote>

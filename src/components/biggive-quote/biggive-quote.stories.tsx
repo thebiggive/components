@@ -12,7 +12,7 @@ export default {
       name: 'Default text colour',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
       },
     },
     quote: {
@@ -26,12 +26,12 @@ export default {
 
 const Template = (args: any) => `
               <biggive-quote
-                space-below="${args.spaceBelow}"  
+                space-below="${args.spaceBelow}"
                 default-text-colour="${args.defaultTextColour}"
-                quote="${args.quote}"   
-                attribution="${args.attribution}"    
+                quote="${args.quote}"
+                attribution="${args.attribution}"
                 >
-    
+
               </biggive-quote>
               `;
 
