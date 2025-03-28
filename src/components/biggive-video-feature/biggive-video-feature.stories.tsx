@@ -39,13 +39,7 @@ export default {
     buttonLabel: {
       name: 'Button label',
     },
-    primaryButtonColourScheme: {
-      name: 'Button colour scheme',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black', 'clear-primary', 'clear-secondary', 'clear-tertiary', 'clear-white', 'clear-black'],
-      },
-    },
+    primaryButtonColourScheme: colorSelector,
   },
 };
 

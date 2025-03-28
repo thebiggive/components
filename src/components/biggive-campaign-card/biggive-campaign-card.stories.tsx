@@ -1,3 +1,5 @@
+import { colorSelector } from '../../color-selector';
+
 export default {
   title: 'Components/Campaign Features',
   argTypes: {
@@ -55,13 +57,7 @@ export default {
     donateButtonLabel: {
       name: 'Donate button label',
     },
-    donateButtonColourScheme: {
-      name: 'Donate button colour scheme',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black', 'clear-primary', 'clear-secondary', 'clear-tertiary', 'clear-white', 'clear-black'],
-      },
-    },
+    donateButtonColourScheme: colorSelector,
     moreInfoButtonUrl: {
       name: 'More info button url',
     },

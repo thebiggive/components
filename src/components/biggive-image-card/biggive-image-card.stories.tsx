@@ -1,3 +1,5 @@
+import { colorSelector } from '../../color-selector';
+
 export default {
   title: 'Components/Content',
   argTypes: {
@@ -8,20 +10,8 @@ export default {
         options: [0, 1, 2, 3, 4, 5, 6],
       },
     },
-    backgroundColour: {
-      name: 'Background colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black', 'transparent'],
-      },
-    },
-    teaserColour: {
-      name: 'Text colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black', 'transparent'],
-      },
-    },
+    backgroundColour: colorSelector,
+    teaserColour: colorSelector,
     teaser: {
       name: 'Teaser',
     },

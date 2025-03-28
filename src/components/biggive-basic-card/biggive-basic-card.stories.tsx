@@ -1,3 +1,5 @@
+import { colorSelector } from '../../color-selector';
+
 export default {
   title: 'Components/Content',
   argTypes: {
@@ -8,40 +10,16 @@ export default {
         options: [0, 1, 2, 3, 4, 5, 6],
       },
     },
-    backgroundColour: {
-      name: 'Background colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black', 'transparent'],
-      },
-    },
+    backgroundColour: colorSelector,
     backgroundImageUrl: {
       name: 'Background image URL',
     },
-    cardColour: {
-      name: 'Card colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black', 'transparent'],
-      },
-    },
-    textColour: {
-      name: 'Text colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black', 'transparent'],
-      },
-    },
+    cardColour: colorSelector,
+    textColour: colorSelector,
     icon: {
       name: 'Icon',
     },
-    iconColour: {
-      name: 'Icon colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black', 'red', 'clear-primary', 'clear-secondary', 'clear-tertiary', 'clear-white', 'clear-black'],
-      },
-    },
+    iconColour: colorSelector,
     mainTitle: {
       name: 'Title',
     },
@@ -57,13 +35,7 @@ export default {
     buttonLabel: {
       name: 'Button label',
     },
-    buttonColourScheme: {
-      name: 'Button colour scheme',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black', 'clear-primary', 'clear-secondary', 'clear-tertiary', 'clear-white', 'clear-black'],
-      },
-    },
+    buttonColourScheme: colorSelector,
     clipBottomLeftCorner: {
       name: 'Clip bottom left corner',
     },

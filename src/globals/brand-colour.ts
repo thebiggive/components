@@ -8,6 +8,12 @@ export const brandColours = [
   'tertiary', // coral
   'white',
   'black',
+  // clear colour scheme variants include transparency along with the selected colour:
+  'clear-primary',
+  'clear-secondary',
+  'clear-tertiary',
+  'clear-white',
+  'clear-black',
   'brand-cc-red',
   'brand-wgmf-purple',
   'brand-gmf-green',

@@ -61,26 +61,14 @@ export default {
     primaryButtonLabel: {
       name: 'Primary button label',
     },
-    primaryButtonColourScheme: {
-      name: 'Primary button colour scheme',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black', 'clear-primary', 'clear-secondary', 'clear-tertiary', 'clear-white', 'clear-black'],
-      },
-    },
+    primaryButtonColourScheme: colorSelector,
     secondaryButtonUrl: {
       name: 'Secondary button url',
     },
     secondaryButtonLabel: {
       name: 'Secondary button label',
     },
-    secondaryButtonColourScheme: {
-      name: 'Secondary button colour scheme',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black', 'clear-primary', 'clear-secondary', 'clear-tertiary', 'clear-white', 'clear-black'],
-      },
-    },
+    secondaryButtonColourScheme: colorSelector,
   },
 };
 
