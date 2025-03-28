@@ -1,3 +1,5 @@
+import { colorSelector } from "../../color-selector";
+
 export default {
   title: 'Components/Content',
   argTypes: {
@@ -10,31 +12,19 @@ export default {
     },
     headerTextColour: {
       name: 'Header text colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
     headerBackgroundColour: {
       name: 'Header background colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
     bodyTextColour: {
       name: 'Body text colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
     bodyBackgroundColour: {
       name: 'Body background colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
   },
 };

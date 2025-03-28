@@ -1,3 +1,5 @@
+import { colorSelector } from '../../color-selector';
+
 export default {
   title: 'Components/Layout',
   argTypes: {
@@ -10,85 +12,52 @@ export default {
     },
     textColour: {
       name: 'Default text colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
     selectedTextColour: {
       name: 'Selected text colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
     navigationHighlightColour: {
       name: 'Navigation highlight colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
     selectedNavigationHighlightColour: {
       name: 'Selected navigation highlight colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
     buttonBackgroundColour: {
       name: 'Button background colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
     buttonIconColour: {
       name: 'Button icon colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
 
     entryBackgroundColour: {
       name: 'Entry background colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
 
     entryHighlightColour: {
       name: 'Entry highlight colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
 
     entryDateColour: {
       name: 'Entry date colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
 
     entryTitleColour: {
       name: 'Entry title colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
 
     entryTextColour: {
       name: 'Entry text colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
   },
 };

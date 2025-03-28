@@ -1,19 +1,15 @@
+import { colorSelector } from "../../color-selector";
+
 export default {
   title: 'Components/Content',
   argTypes: {
     backgroundColour: {
       name: 'Background colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
     textColour: {
       name: 'Text colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
   },
 };

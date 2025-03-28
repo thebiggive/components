@@ -1,3 +1,5 @@
+import { colorSelector } from "../../color-selector";
+
 export default {
   title: 'Components/Content',
   argTypes: {
@@ -10,10 +12,7 @@ export default {
     },
     colourScheme: {
       name: 'Colour scheme',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
     counter: {
       name: 'Counter',

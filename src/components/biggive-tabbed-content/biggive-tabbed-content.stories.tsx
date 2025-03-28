@@ -1,3 +1,5 @@
+import { colorSelector } from "../../color-selector";
+
 export default {
   title: 'Components/Layout',
   argTypes: {
@@ -10,45 +12,27 @@ export default {
     },
     textColour: {
       name: 'Default text colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
     selectedTextColour: {
       name: 'Selected text colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
     navigationHighlightColour: {
       name: 'Navigation highlight colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
     selectedNavigationHighlightColour: {
       name: 'Selected navigation highlight colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
     buttonBackgroundColour: {
       name: 'Button background colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
     buttonIconColour: {
       name: 'Button icon colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
   },
 };

@@ -1,19 +1,15 @@
+import { colorSelector } from "../../color-selector";
+
 export default {
   title: 'Components/Icons',
   argTypes: {
     backgroundColour: {
       name: 'Background Colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
     iconColour: {
       name: 'Icon Colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
     service: {
       name: 'Service',

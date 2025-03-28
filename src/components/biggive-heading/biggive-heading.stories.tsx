@@ -1,3 +1,5 @@
+import { colorSelector } from "../../color-selector";
+
 export default {
   title: 'Components/Content',
   argTypes: {
@@ -17,10 +19,7 @@ export default {
     },
     colour: {
       name: 'Heading colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
     htmlElement: {
       name: 'HTML element',

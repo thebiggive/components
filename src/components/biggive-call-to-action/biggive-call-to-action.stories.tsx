@@ -1,3 +1,5 @@
+import { colorSelector } from "../../color-selector";
+
 export default {
   title: 'Components/Content',
   argTypes: {
@@ -17,10 +19,7 @@ export default {
     },
     defaultTextColour: {
       name: 'Default text colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
     slugSize: {
       name: 'Slug size',
@@ -31,10 +30,7 @@ export default {
     },
     slugColour: {
       name: 'Slug colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
     slug: {
       name: 'Slug',
@@ -48,10 +44,7 @@ export default {
     },
     mainTitleColour: {
       name: 'Main title colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
     mainTitle: {
       name: 'Main title',
@@ -65,20 +58,14 @@ export default {
     },
     subtitleColour: {
       name: 'Subtitle colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
     subtitle: {
       name: 'Subtitle',
     },
     teaserColour: {
       name: 'Teaser colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
     teaser: {
       name: 'Teaser',

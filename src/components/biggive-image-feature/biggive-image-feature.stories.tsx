@@ -1,3 +1,5 @@
+import { colorSelector } from "../../color-selector";
+
 export default {
   title: 'Components/Content',
   argTypes: {
@@ -10,10 +12,7 @@ export default {
     },
     defaultTextColour: {
       name: 'Default text colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
     imageUrl: {
       name: 'Image URL',
@@ -26,30 +25,21 @@ export default {
     },
     slugColour: {
       name: 'Slug colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
     mainTitle: {
       name: 'Main title',
     },
     mainTitleColour: {
       name: 'Main title colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
     teaser: {
       name: 'Teaser',
     },
     teaserColour: {
       name: 'Teaser colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black'],
-      },
+      control: colorSelector,
     },
     buttonUrl: {
       name: 'Button url',
