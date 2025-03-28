@@ -3,14 +3,8 @@ import { colorSelector } from "../../color-selector";
 export default {
   title: 'Components/Content',
   argTypes: {
-    backgroundColour: {
-      name: 'Background colour',
-      control: colorSelector,
-    },
-    textColour: {
-      name: 'Text colour',
-      control: colorSelector,
-    },
+    backgroundColour: colorSelector,
+    textColour: colorSelector,
   },
 };
 

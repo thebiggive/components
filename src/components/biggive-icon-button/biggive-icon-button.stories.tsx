@@ -10,10 +10,7 @@ export default {
         options: [0, 1, 2, 3, 4, 5, 6],
       },
     },
-    backgroundColour: {
-      name: 'Background colour',
-      control: colorSelector,
-    },
+    backgroundColour: colorSelector,
     backgroundPadding: {
       name: 'Background padding',
       control: {
@@ -27,10 +24,7 @@ export default {
     text: {
       name: 'Text',
     },
-    textColour: {
-      name: 'Text colour',
-      control: colorSelector,
-    },
+    textColour: colorSelector,
     url: {
       name: 'Url',
     },
@@ -48,10 +42,7 @@ export default {
       name: 'Arrow',
       options: [true, false],
     },
-    arrowColour: {
-      name: 'Arrow colour',
-      control: colorSelector,
-    },
+    arrowColour: colorSelector,
     circle: {
       name: 'Circle',
       options: [true, false],

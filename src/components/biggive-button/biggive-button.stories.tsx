@@ -10,10 +10,7 @@ export default {
         options: [0, 1, 2, 3, 4, 5, 6],
       },
     },
-    colourScheme: {
-      name: 'Colour scheme',
-      control: colorSelector,
-    },
+    colourScheme: colorSelector,
     isPastCampaign: {
       name: 'Is Past Campaign',
       options: [true, false],

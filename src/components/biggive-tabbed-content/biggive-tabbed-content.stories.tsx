@@ -10,30 +10,12 @@ export default {
         options: [0, 1, 2, 3, 4, 5, 6],
       },
     },
-    textColour: {
-      name: 'Default text colour',
-      control: colorSelector,
-    },
-    selectedTextColour: {
-      name: 'Selected text colour',
-      control: colorSelector,
-    },
-    navigationHighlightColour: {
-      name: 'Navigation highlight colour',
-      control: colorSelector,
-    },
-    selectedNavigationHighlightColour: {
-      name: 'Selected navigation highlight colour',
-      control: colorSelector,
-    },
-    buttonBackgroundColour: {
-      name: 'Button background colour',
-      control: colorSelector,
-    },
-    buttonIconColour: {
-      name: 'Button icon colour',
-      control: colorSelector,
-    },
+    textColour: colorSelector,
+    selectedTextColour: colorSelector,
+    navigationHighlightColour: colorSelector,
+    selectedNavigationHighlightColour: colorSelector,
+    buttonBackgroundColour: colorSelector,
+    buttonIconColour: colorSelector,
   },
 };
 

@@ -17,10 +17,7 @@ export default {
         options: [0, 1, 2, 3, 4, 5, 6],
       },
     },
-    defaultTextColour: {
-      name: 'Default text colour',
-      control: colorSelector,
-    },
+    defaultTextColour: colorSelector,
     slugSize: {
       name: 'Slug size',
       control: {
@@ -28,10 +25,7 @@ export default {
         options: [1, 2, 3, 4, 5],
       },
     },
-    slugColour: {
-      name: 'Slug colour',
-      control: colorSelector,
-    },
+    slugColour: colorSelector,
     slug: {
       name: 'Slug',
     },
@@ -42,10 +36,7 @@ export default {
         options: [1, 2, 3, 4, 5],
       },
     },
-    mainTitleColour: {
-      name: 'Main title colour',
-      control: colorSelector,
-    },
+    mainTitleColour: colorSelector,
     mainTitle: {
       name: 'Main title',
     },
@@ -56,17 +47,11 @@ export default {
         options: [1, 2, 3, 4, 5],
       },
     },
-    subtitleColour: {
-      name: 'Subtitle colour',
-      control: colorSelector,
-    },
+    subtitleColour: colorSelector,
     subtitle: {
       name: 'Subtitle',
     },
-    teaserColour: {
-      name: 'Teaser colour',
-      control: colorSelector,
-    },
+    teaserColour: colorSelector,
     teaser: {
       name: 'Teaser',
     },

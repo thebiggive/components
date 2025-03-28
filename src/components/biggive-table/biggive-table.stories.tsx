@@ -10,22 +10,10 @@ export default {
         options: [0, 1, 2, 3, 4, 5, 6],
       },
     },
-    headerTextColour: {
-      name: 'Header text colour',
-      control: colorSelector,
-    },
-    headerBackgroundColour: {
-      name: 'Header background colour',
-      control: colorSelector,
-    },
-    bodyTextColour: {
-      name: 'Body text colour',
-      control: colorSelector,
-    },
-    bodyBackgroundColour: {
-      name: 'Body background colour',
-      control: colorSelector,
-    },
+    headerTextColour: colorSelector,
+    headerBackgroundColour: colorSelector,
+    bodyTextColour: colorSelector,
+    bodyBackgroundColour: colorSelector,
   },
 };
 

@@ -1,4 +1,4 @@
-import { colorSelector } from "../../color-selector";
+import { colorSelector } from '../../color-selector';
 
 export default {
   title: 'Components/Content',
@@ -10,10 +10,7 @@ export default {
         options: [0, 1, 2, 3, 4, 5, 6],
       },
     },
-    defaultTextColour: {
-      name: 'Default text colour',
-      control: colorSelector,
-    },
+    defaultTextColour: colorSelector,
     imageUrl: {
       name: 'Image URL',
     },
@@ -23,24 +20,15 @@ export default {
     slug: {
       name: 'Slug',
     },
-    slugColour: {
-      name: 'Slug colour',
-      control: colorSelector,
-    },
+    slugColour: colorSelector,
     mainTitle: {
       name: 'Main title',
     },
-    mainTitleColour: {
-      name: 'Main title colour',
-      control: colorSelector,
-    },
+    mainTitleColour: colorSelector,
     teaser: {
       name: 'Teaser',
     },
-    teaserColour: {
-      name: 'Teaser colour',
-      control: colorSelector,
-    },
+    teaserColour: colorSelector,
     buttonUrl: {
       name: 'Button url',
     },
@@ -51,24 +39,7 @@ export default {
       name: 'Button colour scheme',
       control: {
         type: 'select',
-        options: [
-          'primary',
-          'secondary',
-          'tertiary',
-
-
-
-
-
-
-          'white',
-          'black',
-          'clear-primary',
-          'clear-secondary',
-          'clear-tertiary',
-          'clear-white',
-          'clear-black',
-        ],
+        options: ['primary', 'secondary', 'tertiary', 'white', 'black', 'clear-primary', 'clear-secondary', 'clear-tertiary', 'clear-white', 'clear-black'],
       },
     },
   },

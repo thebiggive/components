@@ -10,22 +10,10 @@ export default {
         options: [0, 1, 2, 3, 4, 5, 6],
       },
     },
-    primaryColour: {
-      name: 'Primary colour',
-      control: colorSelector,
-    },
-    primaryTextColour: {
-      name: 'Primary text colour',
-      control: colorSelector,
-    },
-    secondaryColour: {
-      name: 'Secondary colour',
-      control: colorSelector,
-    },
-    secondaryTextColour: {
-      name: 'Secondary text colour',
-      control: colorSelector,
-    },
+    primaryColour: colorSelector,
+    primaryTextColour: colorSelector,
+    secondaryColour: colorSelector,
+    secondaryTextColour: colorSelector,
     includingGiftAid: {
       name: 'Include Gift Aid',
     },

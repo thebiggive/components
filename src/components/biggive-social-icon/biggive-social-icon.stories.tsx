@@ -3,14 +3,8 @@ import { colorSelector } from "../../color-selector";
 export default {
   title: 'Components/Icons',
   argTypes: {
-    backgroundColour: {
-      name: 'Background Colour',
-      control: colorSelector,
-    },
-    iconColour: {
-      name: 'Icon Colour',
-      control: colorSelector,
-    },
+    backgroundColour: colorSelector,
+    iconColour: colorSelector,
     service: {
       name: 'Service',
       control: {

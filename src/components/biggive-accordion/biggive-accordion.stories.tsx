@@ -10,14 +10,8 @@ export default {
         options: [0, 1, 2, 3, 4, 5, 6],
       },
     },
-    textColour: {
-      name: 'Text colour',
-      control: colorSelector,
-    },
-    headingColour: {
-      name: 'Heading colour',
-      control: colorSelector,
-    },
+    textColour: colorSelector,
+    headingColour: colorSelector,
   },
 };
 

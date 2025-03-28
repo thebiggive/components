@@ -17,10 +17,7 @@ export default {
         options: [0, 1, 2, 3, 4, 5, 6],
       },
     },
-    colour: {
-      name: 'Heading colour',
-      control: colorSelector,
-    },
+    colour: colorSelector,
     htmlElement: {
       name: 'HTML element',
       control: {
