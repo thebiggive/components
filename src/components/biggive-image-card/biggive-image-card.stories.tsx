@@ -21,13 +21,7 @@ export default {
     buttonLabel: {
       name: 'Button label',
     },
-    buttonColourScheme: {
-      name: 'Button colour scheme',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black', 'clear-primary', 'clear-secondary', 'clear-tertiary', 'clear-white', 'clear-black'],
-      },
-    },
+    buttonColourScheme: colorSelector,
     clipBottomLeftCorner: {
       name: 'Clip bottom left corner',
     },

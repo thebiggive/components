@@ -64,13 +64,7 @@ export default {
     moreInfoButtonLabel: {
       name: 'More info button label',
     },
-    moreInfoButtonColourScheme: {
-      name: 'More info button colour scheme',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'white', 'black', 'clear-primary', 'clear-secondary', 'clear-tertiary', 'clear-white', 'clear-black'],
-      },
-    },
+    moreInfoButtonColourScheme: colorSelector,
   },
 };
 
