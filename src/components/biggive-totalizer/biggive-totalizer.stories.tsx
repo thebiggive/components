@@ -1,3 +1,5 @@
+import { colorSelector } from '../../color-selector';
+
 export default {
   title: 'Components/Content',
   argTypes: {
@@ -8,34 +10,10 @@ export default {
         options: [0, 1, 2, 3, 4, 5, 6],
       },
     },
-    primaryColour: {
-      name: 'Primary colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
-    primaryTextColour: {
-      name: 'Primary text colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
-    secondaryColour: {
-      name: 'Secondary colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
-    secondaryTextColour: {
-      name: 'Secondary text colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
+    primaryColour: colorSelector,
+    primaryTextColour: colorSelector,
+    secondaryColour: colorSelector,
+    secondaryTextColour: colorSelector,
     includingGiftAid: {
       name: 'Include Gift Aid',
     },

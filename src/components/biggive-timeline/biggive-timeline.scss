@@ -80,11 +80,11 @@
           margin: 0 0 5px 0;
         }
       }
-      
+
     }
   }
 
-  @each $key, $colour in $brandColoursIncBrand6Turquoise {
+  @each $key, $colour in $brandColours {
     &.text-colour-#{$key} .navigation li { color: $colour; }
     &.navigation-highlight-colour-#{$key} .navigation ul {border-color: $colour; }
     &.selected-text-colour-#{$key} .navigation li.selected { color: $colour; }

@@ -1,3 +1,5 @@
+import { colorSelector } from '../../color-selector';
+
 export default {
   title: 'Components/Buttons',
   argTypes: {
@@ -8,13 +10,7 @@ export default {
         options: [0, 1, 2, 3, 4, 5, 6],
       },
     },
-    colourScheme: {
-      name: 'Colour scheme',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
+    colourScheme: colorSelector,
     isPastCampaign: {
       name: 'Is Past Campaign',
       options: [true, false],

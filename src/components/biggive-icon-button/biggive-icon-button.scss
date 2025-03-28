@@ -3,7 +3,7 @@
 @include text-colours();
 
 :host {
-  display: contents; 
+  display: contents;
 }
 
 .container {
@@ -46,7 +46,7 @@
 
     .arrow-wrap {
       margin: auto 0 auto auto;
-      @each $key, $colour in $brandColoursIncBrand6Turquoise {
+      @each $key, $colour in $brandColours {
         &.arrow-colour-#{$key} .arrow-wrap svg path { stroke: $colour; }
       }
     }
@@ -68,7 +68,7 @@
     &.size-medium {
       width: 45px;
       height: 45px;
-    }  
+    }
     &.size-large {
       width: 60px;
       height: 60px;
@@ -93,11 +93,11 @@
 
   }
 
-  @each $key, $colour in $brandColoursIncBrand6Turquoise {
+  @each $key, $colour in $brandColours {
     &.arrow-colour-#{$key} .arrow-wrap svg path { stroke: $colour; }
 
   }
-  
+
 
 
 }

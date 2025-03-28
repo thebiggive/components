@@ -238,14 +238,8 @@
   &.colour-scheme-primary {background-color: $colour-primary-blue; svg {fill: $colour-white;}}
   &.colour-scheme-secondary {background-color: $colour-secondary-green; svg {fill: $colour-black;}}
   &.colour-scheme-tertiary {background-color: $colour-tertiary-coral; svg {fill: $colour-black;}}
-  &.colour-scheme-brand-1 {background-color: $colour-brand-cc-red; svg {fill: $colour-black;}}
-  &.colour-scheme-brand-2 {background-color: $colour-brand-wgmf-purple; svg {fill: $colour-black;}}
-  &.colour-scheme-brand-3 {background-color: $colour-brand-gmf-green; svg {fill: $colour-black;}}
-  &.colour-scheme-brand-4 {background-color: $colour-brand-emf-yellow; svg {fill: $colour-black;}}
-  &.colour-scheme-brand-5 {background-color: $colour-brand-c4c-orange; svg {fill: $colour-black;}}
   &.colour-scheme-mhf-turquoise {background-color: $colour-brand-mhf-turquoise; svg {fill: $colour-black;}}
   &.colour-scheme-brand-grey {background-color: $colour-brand-grey; svg {fill: $colour-black;}}
-  &.colour-scheme-brand-6 {background-color: $colour-brand-grey; svg {fill: $colour-black;}}
   &.colour-scheme-brand-afa-pink {background-color: $colour-brand-afa-pink; svg {fill: $colour-black;}}
   &.colour-scheme-white {background-color: $colour-white; svg {fill: $colour-black;}}
   &.colour-scheme-black {background-color: $colour-black; svg {fill: $colour-white;}}
@@ -583,27 +577,19 @@
 }
 
 @mixin backgrounds {
-  @each $brand, $colour in $colours {
+  @each $brand, $colour in $brandColours {
     .background-colour-hover-#{$brand}:hover,
     .background-colour-#{$brand} {
       background-color: $colour;
     }
   }
-  .background-colour-hover-brand-6:hover,
-  .background-colour-brand-6 {
-      background-color: $colour-brand-mhf-turquoise;
-  }
 }
 
 @mixin fills {
-  @each $brand, $colour in $colours {
+  @each $brand, $colour in $brandColours {
     .fill-#{$brand} {
       fill: $colour;
     }
-  }
-
-  .fill-brand-6 {
-      fill: $colour-brand-grey;
   }
 }
 
@@ -654,14 +640,10 @@
 }
 
 @mixin text-colours {
-  @each $brand, $colour in $colours {
+  @each $brand, $colour in $brandColours {
     .text-colour-hover-#{$brand}:hover,
     .text-colour-#{$brand}{
         color: $colour;
     }
-  }
-  .text-colour-hover-brand-6:hover,
-  .text-colour-brand-6 {
-      color: $colour-brand-grey;
   }
 }

@@ -27,21 +27,8 @@
       @include button-rounded();
     }
 }
-// brand-6 color ambiguity (for now keeping its definition outside of the brand colors loop)
-.button-clear-brand-6 {
-    color: $colour-brand-grey;
-    background-color: transparent;
-    text-decoration: underline;
-    border: 0;
-    padding-left: 0;
-    padding-right: 0;
-    &:hover {
-      text-decoration: none;
-      background-color: transparent;
-    }
-}
 
-@each $brand, $colour in $colours {
+@each $brand, $colour in $brandColours {
   .button-#{$brand} {
     color: $colour-white; // may be overridden by following rules. Later CSS rules have priority.
     background-color: $colour;
@@ -53,28 +40,12 @@
   }
 }
 
-// not part of loop, 6 is deprecated
-.button-brand-6 {
-  color: $colour-white;
-  background-color: $colour-brand-grey;
-  border-color: $colour-brand-grey;
-  &:hover {
-    background-color: $colour-black;
-  }
-}
-
 .button-secondary {
   color: $colour-black;
   &:hover {
     color: $colour-black;
     background-color: $colour-white;
     border-color: $colour-black;
-  }
-}
-
-.button-brand-4 {
-  &:hover {
-    background-color: $colour-black;
   }
 }
 
@@ -105,8 +76,48 @@
   }
 }
 
+.button-philco-gray-90 {
+  color: $colour-philco-white;
+  &:hover {
+    color: $colour-philco-gray-90;
+    background-color: $colour-philco-orange;
+  }
+}
+
+.button-philco-orange {
+  color: $colour-philco-gray-90;
+  &:hover {
+    color: $colour-philco-white;
+    background-color: $colour-philco-gray-90;
+  }
+}
+
+.button-philco-white {
+  color: $colour-philco-gray-90;
+  &:hover {
+
+    color: $colour-philco-gray-90 !important;
+    background-color: $colour-philco-orange !important;
+  }
+}
+
+.container.philco a {
+  border-color: transparent;
+}
+
+.container.disabled.philco .button {
+  cursor: not-allowed;
+  background-color: $colour-philco-gray-30 !important;
+
+  color: $colour-philco-white;
+  &:hover {
+    background-color: $colour-philco-gray-30;
+    color: $colour-philco-white;
+  }
+}
+
 .button-black {
-  color: $colour-white;
+  color: $colour-philco-gray-90;
   &:hover {
     background-color: $colour-white;
   }
@@ -143,7 +154,7 @@
     @include button-rounded();
  }
 
- @each $brand, $colour in $colours {
+ @each $brand, $colour in $brandColours {
     .button-clear-#{$brand} {
         color: $colour;
         background-color: transparent;

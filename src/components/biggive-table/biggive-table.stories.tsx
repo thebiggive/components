@@ -1,3 +1,5 @@
+import { colorSelector } from '../../color-selector';
+
 export default {
   title: 'Components/Content',
   argTypes: {
@@ -8,34 +10,10 @@ export default {
         options: [0, 1, 2, 3, 4, 5, 6],
       },
     },
-    headerTextColour: {
-      name: 'Header text colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
-    headerBackgroundColour: {
-      name: 'Header background colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
-    bodyTextColour: {
-      name: 'Body text colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
-    bodyBackgroundColour: {
-      name: 'Body background colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
+    headerTextColour: colorSelector,
+    headerBackgroundColour: colorSelector,
+    bodyTextColour: colorSelector,
+    bodyBackgroundColour: colorSelector,
   },
 };
 
@@ -46,7 +24,7 @@ const Template = (args: any) => `
                 header-background-colour="${args.headerBackgroundColour}"
                 body-text-colour="${args.bodyTextColour}"
                 body-background-colour="${args.bodyBackgroundColour}"/>
-  
+
                 <table>
                     <thead>
                         <tr>

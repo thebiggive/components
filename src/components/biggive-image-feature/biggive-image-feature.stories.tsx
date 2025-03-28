@@ -1,3 +1,5 @@
+import { colorSelector } from '../../color-selector';
+
 export default {
   title: 'Components/Content',
   argTypes: {
@@ -8,13 +10,7 @@ export default {
         options: [0, 1, 2, 3, 4, 5, 6],
       },
     },
-    defaultTextColour: {
-      name: 'Default text colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
+    defaultTextColour: colorSelector,
     imageUrl: {
       name: 'Image URL',
     },
@@ -24,63 +20,22 @@ export default {
     slug: {
       name: 'Slug',
     },
-    slugColour: {
-      name: 'Slug colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
+    slugColour: colorSelector,
     mainTitle: {
       name: 'Main title',
     },
-    mainTitleColour: {
-      name: 'Main title colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
+    mainTitleColour: colorSelector,
     teaser: {
       name: 'Teaser',
     },
-    teaserColour: {
-      name: 'Teaser colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
+    teaserColour: colorSelector,
     buttonUrl: {
       name: 'Button url',
     },
     buttonLabel: {
       name: 'Button label',
     },
-    primaryButtonColourScheme: {
-      name: 'Button colour scheme',
-      control: {
-        type: 'select',
-        options: [
-          'primary',
-          'secondary',
-          'tertiary',
-          'brand-1',
-          'brand-2',
-          'brand-3',
-          'brand-4',
-          'brand-5',
-          'brand-6',
-          'white',
-          'black',
-          'clear-primary',
-          'clear-secondary',
-          'clear-tertiary',
-          'clear-white',
-          'clear-black',
-        ],
-      },
-    },
+    primaryButtonColourScheme: colorSelector,
   },
 };
 

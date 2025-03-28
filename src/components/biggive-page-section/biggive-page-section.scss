@@ -95,7 +95,7 @@
   bottom: 0;
 }
 
-@each $brand, $colour in $colours {
+@each $brand, $colour in $brandColours {
   .container.background-color-#{$brand}:before,
   .container.background-color-#{$brand}:after,
   .container.background-color-#{$brand} .sleeve:before,
@@ -107,13 +107,5 @@
       color: $colour-white;
     }
   }
-}
-
-.container.background-color-brand-6:before,
-.container.background-color-brand-6:after,
-.container.background-color-brand-6 .sleeve:before,
-.container.background-color-brand-6 .sleeve {
-  background-color: $colour-brand-mhf-turquoise;
-  color: $colour-white;
 }
 

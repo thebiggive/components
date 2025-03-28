@@ -1,4 +1,5 @@
 import { Component, Event, EventEmitter, Prop, h } from '@stencil/core';
+import { brandColour } from '../../globals/brand-colour';
 
 @Component({
   tag: 'biggive-button',
@@ -22,7 +23,7 @@ export class BiggiveButton {
   /**
    * Colour Scheme
    */
-  @Prop() colourScheme: string = 'primary';
+  @Prop() colourScheme: brandColour = 'primary';
 
   /**
    * Text
@@ -61,6 +62,14 @@ export class BiggiveButton {
 
   @Prop() buttonId: undefined | string = undefined;
 
+  @Prop() siteDesign: 'biggive' | 'philco' = 'biggive';
+
+  /**
+   * For use only in philco site - the Big Give site does not use disabled
+   * buttons and does not have a design for such.
+   */
+  @Prop() disabled = false;
+
   private handleButtonClick = (event: any) => {
     this.doButtonClick.emit({ event: event, url: event.target.parentElement.href });
   };
@@ -72,15 +81,17 @@ export class BiggiveButton {
     const href = this.url || 'javascript:void(0);';
 
     return (
-      <div class={'container space-below-' + this.spaceBelow + ' centered-' + this.centered}>
+      <div class={'container space-below-' + this.spaceBelow + ' centered-' + this.centered + ' ' + this.siteDesign + (this.disabled ? ' disabled' : '')}>
         <a
+          pointer-events={this.disabled ? 'none' : 'auto'}
+          aria-disabled={this.disabled}
           role="button"
           href={href}
           target={this.openInNewTab ? '_blank' : '_self'}
           id={this.buttonId}
           class={'button button-' + this.colourScheme + ' full-width-' + this.fullWidth.toString() + ' size-' + this.size + ' rounded-' + this.rounded.toString()}
         >
-          <span onClick={this.handleButtonClick}>{this.label}</span>
+          <span onClick={this.disabled ? () => {} : this.handleButtonClick}>{this.label}</span>
         </a>
       </div>
     );

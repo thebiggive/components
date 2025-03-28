@@ -1,3 +1,5 @@
+import { colorSelector } from '../../color-selector';
+
 export default {
   title: 'Components/Layout',
   argTypes: {
@@ -8,26 +10,14 @@ export default {
         options: [0, 1, 2, 3, 4, 5, 6],
       },
     },
-    textColour: {
-      name: 'Text colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
-    headingColour: {
-      name: 'Heading colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
+    textColour: colorSelector,
+    headingColour: colorSelector,
   },
 };
 
 const Template = (args: any) => `
                     <biggive-accordion
-                      space-below="${args.spaceBelow}"  
+                      space-below="${args.spaceBelow}"
                       text-colour="${args.textColour}"
                       heading-colour="${args.headingColour}"
                       >

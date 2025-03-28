@@ -1,3 +1,5 @@
+import { colorSelector } from '../../color-selector';
+
 export default {
   title: 'Components/Layout',
   argTypes: {
@@ -15,13 +17,7 @@ export default {
         options: [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100],
       },
     },
-    colourScheme: {
-      name: 'Colour scheme',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
+    colourScheme: colorSelector,
     sectionStyleTop: {
       name: 'Section style - top',
       control: {
@@ -41,9 +37,9 @@ export default {
 
 const Template = (args: any) => `
         <biggive-page-section
-          space-below="${args.spaceBelow}" 
-          max-width="${args.maxWidth}"  
-          colour-scheme="${args.colourScheme}"    
+          space-below="${args.spaceBelow}"
+          max-width="${args.maxWidth}"
+          colour-scheme="${args.colourScheme}"
           section-style-top="${args.sectionStyleTop}"
           section-style-bottom="${args.sectionStyleBottom}">
         </biggive-page-section>
