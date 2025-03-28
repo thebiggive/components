@@ -1,3 +1,5 @@
+import { colorSelector } from '../../color-selector';
+
 export default {
   title: 'Components/Content',
   argTypes: {
@@ -15,13 +17,7 @@ export default {
         options: [0, 1, 2, 3, 4, 5, 6],
       },
     },
-    defaultTextColour: {
-      name: 'Default text colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
+    defaultTextColour: colorSelector,
     slugSize: {
       name: 'Slug size',
       control: {
@@ -29,13 +25,7 @@ export default {
         options: [1, 2, 3, 4, 5],
       },
     },
-    slugColour: {
-      name: 'Slug colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
+    slugColour: colorSelector,
     slug: {
       name: 'Slug',
     },
@@ -46,13 +36,7 @@ export default {
         options: [1, 2, 3, 4, 5],
       },
     },
-    mainTitleColour: {
-      name: 'Main title colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
+    mainTitleColour: colorSelector,
     mainTitle: {
       name: 'Main title',
     },
@@ -63,23 +47,11 @@ export default {
         options: [1, 2, 3, 4, 5],
       },
     },
-    subtitleColour: {
-      name: 'Subtitle colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
+    subtitleColour: colorSelector,
     subtitle: {
       name: 'Subtitle',
     },
-    teaserColour: {
-      name: 'Teaser colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
+    teaserColour: colorSelector,
     teaser: {
       name: 'Teaser',
     },
@@ -89,72 +61,14 @@ export default {
     primaryButtonLabel: {
       name: 'Primary button label',
     },
-    primaryButtonColourScheme: {
-      name: 'Primary button colour scheme',
-      control: {
-        type: 'select',
-        options: [
-          'primary',
-          'secondary',
-          'tertiary',
-          'brand-1',
-          'brand-2',
-          'brand-3',
-          'brand-4',
-          'brand-5',
-          'brand-6',
-          'white',
-          'black',
-          'clear-primary',
-          'clear-secondary',
-          'clear-tertiary',
-          'clear-brand-1',
-          'clear-brand-2',
-          'clear-brand-3',
-          'clear-brand-4',
-          'clear-brand-5',
-          'clear-brand-6',
-          'clear-white',
-          'clear-black',
-        ],
-      },
-    },
+    primaryButtonColourScheme: colorSelector,
     secondaryButtonUrl: {
       name: 'Secondary button url',
     },
     secondaryButtonLabel: {
       name: 'Secondary button label',
     },
-    secondaryButtonColourScheme: {
-      name: 'Secondary button colour scheme',
-      control: {
-        type: 'select',
-        options: [
-          'primary',
-          'secondary',
-          'tertiary',
-          'brand-1',
-          'brand-2',
-          'brand-3',
-          'brand-4',
-          'brand-5',
-          'brand-6',
-          'white',
-          'black',
-          'clear-primary',
-          'clear-secondary',
-          'clear-tertiary',
-          'clear-brand-1',
-          'clear-brand-2',
-          'clear-brand-3',
-          'clear-brand-4',
-          'clear-brand-5',
-          'clear-brand-6',
-          'clear-white',
-          'clear-black',
-        ],
-      },
-    },
+    secondaryButtonColourScheme: colorSelector,
   },
 };
 

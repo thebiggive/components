@@ -11,6 +11,14 @@
   @include standard-font();
   height: 100%;
   background-color: white;
+  &.philco {
+    background-color: transparent;
+    .image-wrap {
+     svg {
+        height: 90px;
+      }
+    }
+  }
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -29,7 +37,7 @@
     margin-bottom: $spacer-4;
   }
 
-  @each $key, $colour in $brandColoursIncBrand6Turquoise {
+  @each $key, $colour in $brandColours {
     &.quote-icon-colour-#{$key} .image-wrap path { fill: $colour; }
   }
 
@@ -54,5 +62,10 @@
 
   @media screen and (max-width: $screen-mobile-small) {
     padding: $spacer-3;
+  }
+
+  &.philco .attribution {
+    font-weight: bolder;
+    color: $colour-philco-gray-70;
   }
 }

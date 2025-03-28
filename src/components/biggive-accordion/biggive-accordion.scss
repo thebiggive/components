@@ -42,7 +42,7 @@
     }
   }
 
-  @each $key, $colour in $brandColoursIncBrand6Turquoise {
+  @each $key, $colour in $brandColours {
     &.heading-colour-#{$key} .entry h3.heading svg path { stroke: $colour; }
     &.heading-colour-#{$key} h3.heading { color: $colour; }
     &.text-colour-#{$key} .content { color: $colour; }

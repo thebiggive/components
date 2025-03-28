@@ -1,3 +1,5 @@
+import { colorSelector } from '../../color-selector';
+
 export default {
   title: 'Components/Layout',
   argTypes: {
@@ -8,54 +10,18 @@ export default {
         options: [0, 1, 2, 3, 4, 5, 6],
       },
     },
-    textColour: {
-      name: 'Default text colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
-    selectedTextColour: {
-      name: 'Selected text colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
-    navigationHighlightColour: {
-      name: 'Navigation highlight colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
-    selectedNavigationHighlightColour: {
-      name: 'Selected navigation highlight colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
-    buttonBackgroundColour: {
-      name: 'Button background colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
-    buttonIconColour: {
-      name: 'Button icon colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
+    textColour: colorSelector,
+    selectedTextColour: colorSelector,
+    navigationHighlightColour: colorSelector,
+    selectedNavigationHighlightColour: colorSelector,
+    buttonBackgroundColour: colorSelector,
+    buttonIconColour: colorSelector,
   },
 };
 
 const Template = (args: any) => `
                 <biggive-tabbed-content
-                  space-below="${args.spaceBelow}"  
+                  space-below="${args.spaceBelow}"
                   text-colour="${args.textColour}"
                   selected-text-colour="${args.selectedTextColour}"
                   navigation-highlight-colour="${args.navigationHighlightColour}"

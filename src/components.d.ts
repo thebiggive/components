@@ -151,7 +151,11 @@ export namespace Components {
         /**
           * Colour Scheme
          */
-        "colourScheme": string;
+        "colourScheme": brandColour;
+        /**
+          * For use only in philco site - the Big Give site does not use disabled buttons and does not have a design for such.
+         */
+        "disabled": boolean;
         /**
           * Display full width
          */
@@ -168,6 +172,7 @@ export namespace Components {
           * Rounded corners
          */
         "rounded": boolean;
+        "siteDesign": 'biggive' | 'philco';
         /**
           * Size
          */
@@ -891,6 +896,7 @@ export namespace Components {
         "defaultTextColour": brandColour;
         "quote": string;
         "quoteIconColour": brandColour;
+        "siteDesign": 'biggive' | 'philco';
         "spaceBelow": spacingOption;
     }
     interface BiggiveSheet {
@@ -1747,7 +1753,11 @@ declare namespace LocalJSX {
         /**
           * Colour Scheme
          */
-        "colourScheme"?: string;
+        "colourScheme"?: brandColour;
+        /**
+          * For use only in philco site - the Big Give site does not use disabled buttons and does not have a design for such.
+         */
+        "disabled"?: boolean;
         /**
           * Display full width
          */
@@ -1765,6 +1775,7 @@ declare namespace LocalJSX {
           * Rounded corners
          */
         "rounded"?: boolean;
+        "siteDesign"?: 'biggive' | 'philco';
         /**
           * Size
          */
@@ -2507,6 +2518,7 @@ declare namespace LocalJSX {
         "defaultTextColour"?: brandColour;
         "quote"?: string;
         "quoteIconColour"?: brandColour;
+        "siteDesign"?: 'biggive' | 'philco';
         "spaceBelow"?: spacingOption;
     }
     interface BiggiveSheet {

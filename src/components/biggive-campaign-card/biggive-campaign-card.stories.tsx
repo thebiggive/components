@@ -1,3 +1,5 @@
+import { colorSelector } from '../../color-selector';
+
 export default {
   title: 'Components/Campaign Features',
   argTypes: {
@@ -55,72 +57,14 @@ export default {
     donateButtonLabel: {
       name: 'Donate button label',
     },
-    donateButtonColourScheme: {
-      name: 'Donate button colour scheme',
-      control: {
-        type: 'select',
-        options: [
-          'primary',
-          'secondary',
-          'tertiary',
-          'brand-1',
-          'brand-2',
-          'brand-3',
-          'brand-4',
-          'brand-5',
-          'brand-6',
-          'white',
-          'black',
-          'clear-primary',
-          'clear-secondary',
-          'clear-tertiary',
-          'clear-brand-1',
-          'clear-brand-2',
-          'clear-brand-3',
-          'clear-brand-4',
-          'clear-brand-5',
-          'clear-brand-6',
-          'clear-white',
-          'clear-black',
-        ],
-      },
-    },
+    donateButtonColourScheme: colorSelector,
     moreInfoButtonUrl: {
       name: 'More info button url',
     },
     moreInfoButtonLabel: {
       name: 'More info button label',
     },
-    moreInfoButtonColourScheme: {
-      name: 'More info button colour scheme',
-      control: {
-        type: 'select',
-        options: [
-          'primary',
-          'secondary',
-          'tertiary',
-          'brand-1',
-          'brand-2',
-          'brand-3',
-          'brand-4',
-          'brand-5',
-          'brand-6',
-          'white',
-          'black',
-          'clear-primary',
-          'clear-secondary',
-          'clear-tertiary',
-          'clear-brand-1',
-          'clear-brand-2',
-          'clear-brand-3',
-          'clear-brand-4',
-          'clear-brand-5',
-          'clear-brand-6',
-          'clear-white',
-          'clear-black',
-        ],
-      },
-    },
+    moreInfoButtonColourScheme: colorSelector,
   },
 };
 

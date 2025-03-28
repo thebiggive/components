@@ -1,3 +1,5 @@
+import { colorSelector } from '../../color-selector';
+
 export default {
   title: 'Components/Buttons',
   argTypes: {
@@ -8,13 +10,7 @@ export default {
         options: [0, 1, 2, 3, 4, 5, 6],
       },
     },
-    backgroundColour: {
-      name: 'Background colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
+    backgroundColour: colorSelector,
     backgroundPadding: {
       name: 'Background padding',
       control: {
@@ -28,13 +24,7 @@ export default {
     text: {
       name: 'Text',
     },
-    textColour: {
-      name: 'Text colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
+    textColour: colorSelector,
     url: {
       name: 'Url',
     },
@@ -52,13 +42,7 @@ export default {
       name: 'Arrow',
       options: [true, false],
     },
-    arrowColour: {
-      name: 'Arrow colour',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'tertiary', 'brand-1', 'brand-2', 'brand-3', 'brand-4', 'brand-5', 'brand-6', 'white', 'black'],
-      },
-    },
+    arrowColour: colorSelector,
     circle: {
       name: 'Circle',
       options: [true, false],

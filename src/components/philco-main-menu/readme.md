@@ -37,11 +37,13 @@ Type: `Promise<void>`
 ### Depends on
 
 - [biggive-misc-icon](../biggive-misc-icon)
+- [biggive-button](../biggive-button)
 
 ### Graph
 ```mermaid
 graph TD;
   philco-main-menu --> biggive-misc-icon
+  philco-main-menu --> biggive-button
   style philco-main-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

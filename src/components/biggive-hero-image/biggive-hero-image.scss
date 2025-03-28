@@ -13,7 +13,7 @@
   position: relative;
   margin-bottom: $spacer-4;
   min-height: 32.5vw;
-  @each $key, $colour in $brandColoursIncBrand6Turquoise {
+  @each $key, $colour in $brandColours {
     &.colour-scheme-#{$key} { color: $colour; }
   }
   .sleeve {
