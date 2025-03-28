@@ -45,7 +45,7 @@ $colour-grey-background: #F6F6F6; // Main app background in donate-frontend
  *
  * NOTE: brand-1 to brand-5 are deprecated, please use the color brands instead
  */
-$colours: (
+$brandColours: (
     "primary": $colour-primary-blue,
     "secondary": $colour-secondary-green,
     "tertiary": $colour-tertiary-coral,
@@ -83,9 +83,6 @@ $colours: (
     "philco-gray-30": $colour-philco-gray-30,
     "philco-gray-20": $colour-philco-gray-20,
 );
-
-// preserving the use of turquoise by some components
-$brandColoursIncBrand6Turquoise: map.merge($colours, ("brand-6": $colour-brand-mhf-turquoise));
 
 $spacer-0: 0;
 $spacer-1: 5px;

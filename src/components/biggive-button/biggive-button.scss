@@ -41,7 +41,7 @@
     }
 }
 
-@each $brand, $colour in $colours {
+@each $brand, $colour in $brandColours {
   .button-#{$brand} {
     color: $colour-white; // may be overridden by following rules. Later CSS rules have priority.
     background-color: $colour;
@@ -183,7 +183,7 @@
     @include button-rounded();
  }
 
- @each $brand, $colour in $colours {
+ @each $brand, $colour in $brandColours {
     .button-clear-#{$brand} {
         color: $colour;
         background-color: transparent;

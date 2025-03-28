@@ -80,30 +80,30 @@
 
 
   .clip-bottom-left-corner-false.clip-top-right-corner-true {
-    
+
       @include corner-clip-medium-top-right();
-    
+
   }
   .clip-bottom-left-corner-true.clip-top-right-corner-false {
       @include corner-clip-medium-bottom-left();
   }
-    
+
   .clip-bottom-left-corner-true.clip-top-right-corner-true {
       @include corner-clip-medium-bottom-left-top-right();
-    
+
   }
 
-  
 
-  @each $key, $colour in $brandColoursIncBrand6Turquoise {
+
+  @each $key, $colour in $brandColours {
     .main-title-colour-#{$key} h3 { color: $colour; }
     .slug-colour-#{$key} .slug { color: $colour; }
     .date-colour-#{$key} .date { color: $colour; }
     .image-label-colour-#{$key} .image-label { color: $colour; }
   }
-  
-  
-  
+
+
+
 
 
 }

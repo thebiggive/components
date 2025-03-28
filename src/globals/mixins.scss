@@ -583,7 +583,7 @@
 }
 
 @mixin backgrounds {
-  @each $brand, $colour in $colours {
+  @each $brand, $colour in $brandColours {
     .background-colour-hover-#{$brand}:hover,
     .background-colour-#{$brand} {
       background-color: $colour;
@@ -596,7 +596,7 @@
 }
 
 @mixin fills {
-  @each $brand, $colour in $colours {
+  @each $brand, $colour in $brandColours {
     .fill-#{$brand} {
       fill: $colour;
     }
@@ -654,7 +654,7 @@
 }
 
 @mixin text-colours {
-  @each $brand, $colour in $colours {
+  @each $brand, $colour in $brandColours {
     .text-colour-hover-#{$brand}:hover,
     .text-colour-#{$brand}{
         color: $colour;
