@@ -11,11 +11,14 @@ export default {
       },
     },
     backgroundColour: colorSelector,
+    textColour: colorSelector,
     backgroundImageUrl: {
       name: 'Background image URL',
     },
+    mainImageUrl: {
+      type: 'string',
+    },
     cardColour: colorSelector,
-    textColour: colorSelector,
     icon: {
       name: 'Icon',
     },
@@ -35,12 +38,19 @@ export default {
     buttonLabel: {
       name: 'Button label',
     },
+    buttonAlign: {
+      options: ['center', 'left'],
+    },
     buttonColourScheme: colorSelector,
     clipBottomLeftCorner: {
       name: 'Clip bottom left corner',
     },
     clipTopRight: {
       name: 'Clip top right corner',
+    },
+    siteDesign: {
+      type: 'select',
+      options: ['biggive', 'philco'],
     },
   },
 };
@@ -54,14 +64,20 @@ const Template = (args: any) => `
                 text-colour="${args.textColour}"
                 icon="${args.icon}"
                 icon-colour="${args.iconColour}"
-                mainTitle="${args.mainTitle}"
+                text-colour="${args.textColour}",
+                main-title="${args.mainTitle}"
+                main-image-url="${args.mainImageUrl}"
                 subtitle="${args.subtitle}"
+                author="${args.author}"
+                date="${args.date}"
                 teaser="${args.teaser}"
                 button-label="${args.buttonLabel}"
+                button-align="${args.buttonAlign}"
                 button-url="${args.buttonUrl}"
-                button-colour-ccheme="${args.buttonColourScheme}"
+                button-colour-scheme="${args.buttonColourScheme}"
                 clip-bottom-left-corner="${args.clipBottomLeftCorner}"
                 clip-top-right-corner="${args.clipTopRightCorner}"
+                site-design="${args.siteDesign}"
                 >
               </biggive-basic-card>
               `;
@@ -79,11 +95,41 @@ export const BasicCardComponent = {
     textColour: 'white',
     mainTitle: 'Sample main title',
     subtitle: 'Sample subtitle',
+    author: '',
+    date: '',
     teaser: 'teaser',
     buttonUrl: '#',
     buttonLabel: 'Click here',
     buttonColourScheme: 'clear-primary',
     clipBottomLeftCorner: true,
     clipTopRightCorner: true,
+    buttonAlign: 'center',
   },
+};
+
+export const PhilcoNewsLink = {
+  args: {
+    textColor: 'philco-grey-90',
+    spaceBelow: 4,
+    icon: false,
+    iconColour: 'primary',
+    backgroundColour: 'white',
+    backgroundImageUrl: '',
+    cardColour: 'white',
+    textColour: 'philco-grey-90',
+    mainTitle: 'Sample main title',
+    subtitle: '',
+    author: 'Name',
+    date: '2024',
+    teaser: '',
+    buttonUrl: '#',
+    buttonLabel: 'Read More',
+    buttonColourScheme: 'philco-gray-90',
+    clipBottomLeftCorner: false,
+    clipTopRightCorner: false,
+    siteDesign: 'philco',
+    buttonAlign: 'left',
+    mainImageUrl: '',
+  },
+  render: Template,
 };
