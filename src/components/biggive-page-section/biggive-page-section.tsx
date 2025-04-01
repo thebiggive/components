@@ -1,4 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
+import { sectionStyle } from './biggive-page-section-prop-types';
 
 @Component({
   tag: 'biggive-page-section',
@@ -14,12 +15,12 @@ export class BiggivePageSection {
   /**
    * Section style top
    */
-  @Prop() sectionStyleTop: string = 'straight';
+  @Prop() sectionStyleTop: sectionStyle = 'straight';
 
   /**
    * Section style bottom
    */
-  @Prop() sectionStyleBottom: string = 'straight';
+  @Prop() sectionStyleBottom: sectionStyle = 'straight';
 
   /**
    * Colour scheme

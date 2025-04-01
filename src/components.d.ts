@@ -10,11 +10,13 @@ import { brandColour } from "./globals/brand-colour";
 import { sortOptionLabel } from "./components/biggive-campaign-card-filter-grid/biggive-campaign-card-filter-grid";
 import { headingTag } from "./globals/heading-tag";
 import { headingSize } from "./globals/heading-size";
+import { sectionStyle } from "./components/biggive-page-section/biggive-page-section-prop-types";
 export { spacingOption } from "./globals/spacing-option";
 export { brandColour } from "./globals/brand-colour";
 export { sortOptionLabel } from "./components/biggive-campaign-card-filter-grid/biggive-campaign-card-filter-grid";
 export { headingTag } from "./globals/heading-tag";
 export { headingSize } from "./globals/heading-size";
+export { sectionStyle } from "./components/biggive-page-section/biggive-page-section-prop-types";
 export namespace Components {
     interface BiggiveAccordion {
         "headingColour": brandColour;
@@ -859,11 +861,11 @@ export namespace Components {
         /**
           * Section style bottom
          */
-        "sectionStyleBottom": string;
+        "sectionStyleBottom": sectionStyle;
         /**
           * Section style top
          */
-        "sectionStyleTop": string;
+        "sectionStyleTop": sectionStyle;
         /**
           * Space below component
          */
@@ -2483,11 +2485,11 @@ declare namespace LocalJSX {
         /**
           * Section style bottom
          */
-        "sectionStyleBottom"?: string;
+        "sectionStyleBottom"?: sectionStyle;
         /**
           * Section style top
          */
-        "sectionStyleTop"?: string;
+        "sectionStyleTop"?: sectionStyle;
         /**
           * Space below component
          */
