@@ -594,6 +594,15 @@
   }
 }
 
+@mixin borders {
+  @each $brand, $colour in $brandColours {
+    .border-colour-#{$brand} {
+      border-color: $colour;
+    }
+  }
+}
+
+
 @mixin fills {
   @each $brand, $colour in $brandColours {
     .fill-#{$brand} {

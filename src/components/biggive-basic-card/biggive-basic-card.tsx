@@ -10,6 +10,8 @@ import { spacingOption } from '../../globals/spacing-option';
 export class BiggiveBasicCard {
   @Prop() spaceBelow: spacingOption = 0;
 
+  @Prop() siteDesign: 'biggive' | 'philco' = 'biggive';
+
   @Prop() backgroundColour: brandColour = 'primary';
 
   @Prop() backgroundImageUrl: string = '';
@@ -18,13 +20,17 @@ export class BiggiveBasicCard {
 
   @Prop() textColour: brandColour = 'black';
 
-  @Prop() mainImageUrl: string;
+  @Prop() mainImageUrl?: string = undefined;
 
   @Prop() mainImageAltText: string;
 
   @Prop() mainTitle: string;
 
-  @Prop() subtitle: string;
+  @Prop() subtitle: string = '';
+
+  @Prop() author: string = '';
+
+  @Prop() date: string = '';
 
   @Prop() teaser: string;
 
@@ -60,12 +66,15 @@ export class BiggiveBasicCard {
           this.spaceBelow +
           ' background-colour-' +
           this.backgroundColour +
+          (this.siteDesign === 'philco' ? ' border-colour-' + this.backgroundColour : '') +
           ' clip-bottom-left-corner-' +
           this.clipBottomLeftCorner +
           ' clip-top-right-corner-' +
           this.clipTopRightCorner +
           ' add-animation-' +
-          this.addAnimation
+          this.addAnimation +
+          ' ' +
+          this.siteDesign
         }
         style={{ 'background-image': "url('" + this.backgroundImageUrl + "')" }}
       >
@@ -88,11 +97,16 @@ export class BiggiveBasicCard {
                 </div>
               ) : null}
               <HeadingTag class="title">{this.mainTitle}</HeadingTag>
-              <div class="subtitle">{this.subtitle}</div>
+              {this.author !== '' || this.date !== '' ? (
+                <div class="subtitle">
+                  {this.author} <span class="divider">|</span> {this.date}
+                </div>
+              ) : null}
+              {this.subtitle !== '' ? <div class="subtitle">{this.subtitle}</div> : null}
               <div class="teaser">{this.teaser}</div>
               {this.buttonLabel != null && this.buttonUrl != null && this.buttonUrl != '' ? (
                 <div class={'button-wrap align-' + this.buttonAlign}>
-                  <biggive-button colour-scheme={this.buttonColourScheme} url={this.buttonUrl} label={this.buttonLabel}></biggive-button>
+                  <biggive-button colour-scheme={this.buttonColourScheme} url={this.buttonUrl} label={this.buttonLabel} rounded={this.siteDesign === 'philco'}></biggive-button>
                 </div>
               ) : null}
             </div>
