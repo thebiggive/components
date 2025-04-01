@@ -11,14 +11,7 @@ export class PhilcoFooter {
 
   @Prop() headingLevel: 1 | 2 | 3 | 4 | 5 | 6 = 5;
 
-  /**
-   * URL prefixes vary by environment, and components library is not best placed to know what they are, so we
-   * take them as props
-   */
-  @Prop() donateUrlPrefix: string = 'http://';
-  @Prop() blogUrlPrefix: string | undefined = 'http://';
-  @Prop() experienceUrlPrefix: string | undefined = 'http://';
-  @Prop() smallCharityWeekEnabled = false;
+  @Prop() philcoUrlPrefix: string = 'https://philco.org.uk/';
 
   private year: string = new Date().getFullYear().toString();
 
@@ -49,13 +42,13 @@ export class PhilcoFooter {
             </HeadingTag>
             <ul slot="nav-secondary">
               <li>
-                <a href={makeURL('Blog', this.blogUrlPrefix, 'case-studies')}>Home</a>
+                <a href={makeURL('Philco', this.philcoUrlPrefix, '/')}>Home</a>
               </li>
               <li>
-                <a href={makeURL('Blog', this.blogUrlPrefix, 'blog')}>Why become a Philco</a>
+                <a href={makeURL('Philco', this.philcoUrlPrefix, 'why-become-a-philco')}>Why become a Philco</a>
               </li>
               <li>
-                <a href={makeURL('Blog', this.blogUrlPrefix, 'reports-insights')}>Sign Up</a>
+                <a href={makeURL('Philco', this.philcoUrlPrefix, 'sign-up')}>Sign Up</a>
               </li>
             </ul>
           </nav>
@@ -66,7 +59,7 @@ export class PhilcoFooter {
             </HeadingTag>
             <ul slot="nav-tertiary">
               <li>
-                <a href={makeURL('Blog', this.blogUrlPrefix, 'support')}>Download the guide</a>
+                <a href={makeURL('Philco', this.philcoUrlPrefix, 'download-the-guide')}>Download the guide</a>
               </li>
             </ul>
           </nav>
@@ -77,16 +70,13 @@ export class PhilcoFooter {
             <nav class="nav nav-postscript" aria-label="Legal">
               <ul slot="nav-postscript">
                 <li>
-                  <a href={makeURL('Blog', this.blogUrlPrefix, 'terms-and-conditions')}>Terms and Conditions</a>
+                  <a href={makeURL('Philco', this.philcoUrlPrefix, 'terms-and-conditions')}>Terms and Conditions</a>
                 </li>
                 <li>
-                  <a href={makeURL('Blog', this.blogUrlPrefix, 'privacy')}>Privacy Statement</a>
+                  <a href={makeURL('Philco', this.philcoUrlPrefix, 'privacy')}>Privacy Statement</a>
                 </li>
                 <li>
-                  <a href={makeURL('Blog', this.blogUrlPrefix, 'privacy#cookies')}>Cookies Statement</a>
-                </li>
-                <li>
-                  <a href={makeURL('Donate', this.donateUrlPrefix, 'cookie-preferences')}>Cookies Preference Centre</a>
+                  <a href={makeURL('Philco', this.philcoUrlPrefix, 'privacy#cookies')}>Cookies Statement</a>
                 </li>
               </ul>
             </nav>

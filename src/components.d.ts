@@ -1098,14 +1098,8 @@ export namespace Components {
         "videoUrl": string;
     }
     interface PhilcoFooter {
-        "blogUrlPrefix": string | undefined;
-        /**
-          * URL prefixes vary by environment, and components library is not best placed to know what they are, so we take them as props
-         */
-        "donateUrlPrefix": string;
-        "experienceUrlPrefix": string | undefined;
         "headingLevel": 1 | 2 | 3 | 4 | 5 | 6;
-        "smallCharityWeekEnabled": boolean;
+        "philcoUrlPrefix": string;
     }
     interface PhilcoMainMenu {
         "closeMobileMenuFromOutside": () => Promise<void>;
@@ -2720,14 +2714,8 @@ declare namespace LocalJSX {
         "videoUrl"?: string;
     }
     interface PhilcoFooter {
-        "blogUrlPrefix"?: string | undefined;
-        /**
-          * URL prefixes vary by environment, and components library is not best placed to know what they are, so we take them as props
-         */
-        "donateUrlPrefix"?: string;
-        "experienceUrlPrefix"?: string | undefined;
         "headingLevel"?: 1 | 2 | 3 | 4 | 5 | 6;
-        "smallCharityWeekEnabled"?: boolean;
+        "philcoUrlPrefix"?: string;
     }
     interface PhilcoMainMenu {
         "onLogoutClicked"?: (event: PhilcoMainMenuCustomEvent<void>) => void;
