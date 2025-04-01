@@ -29,7 +29,7 @@ export class PhilcoFooter {
         <div class="row row-top">
           <nav class="nav nav-primary" aria-labelledby="footer-primary-heading">
             <HeadingTag class="heading" id="footer-primary-heading">
-              <div slot="nav-primary-title">CONTACT</div>
+              <div slot="nav-primary-title">Contact</div>
             </HeadingTag>
             <ul slot="nav-primary">
               <li>PhilCo@biggive.org</li>
@@ -38,7 +38,7 @@ export class PhilcoFooter {
 
           <nav class="nav nav-secondary" aria-labelledby="footer-secondary-heading-heading">
             <HeadingTag class="heading" id="footer-secondary-heading">
-              <div slot="nav-secondary-title">PHILCO SITE</div>
+              <div slot="nav-secondary-title">Philco Site</div>
             </HeadingTag>
             <ul slot="nav-secondary">
               <li>
@@ -55,7 +55,7 @@ export class PhilcoFooter {
 
           <nav class="nav nav-tertiary" aria-labelledby="footer-tertiary-heading">
             <HeadingTag class="heading" id="footer-tertiary-heading">
-              <div slot="nav-tertiary-title">GUIDE</div>
+              <div slot="nav-tertiary-title">Guide</div>
             </HeadingTag>
             <ul slot="nav-tertiary">
               <li>
