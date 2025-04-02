@@ -10,7 +10,7 @@ describe('biggive-basic-card', () => {
     expect(page.root).toEqualHtml(`
       <biggive-basic-card>
         <mock:shadow-root>
-          <div class="add-animation-false background-colour-primary clip-bottom-left-corner-true clip-top-right-corner-true container space-below-0" style="background-image: url('');">
+          <div class="add-animation-false biggive background-colour-primary clip-bottom-left-corner-true clip-top-right-corner-true container space-below-0" style="background-image: url('');">
             <a>
              <div class="background-colour-white sleeve text-colour-black">
                 <div class="content-wrap">
@@ -26,7 +26,6 @@ describe('biggive-basic-card', () => {
                    </div>
                 </div>
                 <h3 class="title"></h3>
-                 <div class="subtitle"></div>
                  <div class="teaser"></div>
                </div>
               </div>

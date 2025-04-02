@@ -54,6 +54,7 @@ export namespace Components {
     }
     interface BiggiveBasicCard {
         "addAnimation": boolean;
+        "author": string;
         "backgroundColour": brandColour;
         "backgroundImageUrl": string;
         "buttonAlign": string;
@@ -64,12 +65,14 @@ export namespace Components {
         "cardColour": brandColour;
         "clipBottomLeftCorner": boolean;
         "clipTopRightCorner": boolean;
+        "date": string;
         "headingLevel": 1 | 2 | 3 | 4 | 5 | 6;
         "icon": boolean;
         "iconColour": brandColour;
         "mainImageAltText": string;
-        "mainImageUrl": string;
+        "mainImageUrl"?: string;
         "mainTitle": string;
+        "siteDesign": 'biggive' | 'philco';
         "spaceBelow": spacingOption;
         "subtitle": string;
         "teaser": string;
@@ -1650,6 +1653,7 @@ declare namespace LocalJSX {
     }
     interface BiggiveBasicCard {
         "addAnimation"?: boolean;
+        "author"?: string;
         "backgroundColour"?: brandColour;
         "backgroundImageUrl"?: string;
         "buttonAlign"?: string;
@@ -1660,12 +1664,14 @@ declare namespace LocalJSX {
         "cardColour"?: brandColour;
         "clipBottomLeftCorner"?: boolean;
         "clipTopRightCorner"?: boolean;
+        "date"?: string;
         "headingLevel"?: 1 | 2 | 3 | 4 | 5 | 6;
         "icon"?: boolean;
         "iconColour"?: brandColour;
         "mainImageAltText"?: string;
         "mainImageUrl"?: string;
         "mainTitle"?: string;
+        "siteDesign"?: 'biggive' | 'philco';
         "spaceBelow"?: spacingOption;
         "subtitle"?: string;
         "teaser"?: string;
