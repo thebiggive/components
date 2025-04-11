@@ -95,11 +95,5 @@
 
   @each $key, $colour in $brandColours {
     &.arrow-colour-#{$key} .arrow-wrap svg path { stroke: $colour; }
-
   }
-
-
-
 }
-
-

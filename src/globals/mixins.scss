@@ -238,6 +238,7 @@
 @mixin icon-large() {
   width: $icon-size-large;
   height: $icon-size-large;
+  overflow: hidden;
   border-radius: 50%;
   text-align: center;
   transition: all ease-in-out 0.5s;
@@ -260,10 +261,10 @@
 
   a {
     display: grid;
-    position: relative;
-    padding: 10px;
     box-sizing: border-box;
+    padding: 10px;
     height: 100%;
+    width: 100%;
     svg {
       width: 100%;
       height: 100%;
@@ -275,6 +276,7 @@
   @include icon-large();
   width: 30px;
   height: 30px;
+  margin-right: 6px;
   a {
     padding: 6px;
   }
