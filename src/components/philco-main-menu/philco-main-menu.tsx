@@ -91,10 +91,10 @@ export class PhilcoMainMenu {
               <div id="nav-primary">
                 <ul class="links" slot="nav-primary">
                   <li>
-                    <a href={makeURL('Donate', this.philcoUrlPrefix, 'explore')}>Why become a Philco</a>
+                    <a href={makeURL('Philco', this.philcoUrlPrefix, 'why-become-a-philco')}>Why become a Philco</a>
                   </li>
                   <li>
-                    <a href={makeURL('Blog', this.philcoUrlPrefix, 'charities')}>News</a>
+                    <a href={makeURL('Philco', this.philcoUrlPrefix, 'news')}>News</a>
                   </li>
                   <li class="signup">
                     <biggive-button
@@ -102,7 +102,7 @@ export class PhilcoMainMenu {
                       site-design="philco"
                       colour-scheme="philco-white"
                       rounded={true}
-                      url={makeURL('Blog', this.philcoUrlPrefix, 'sign-up')}
+                      url={makeURL('Philco', this.philcoUrlPrefix, 'sign-up')}
                       size="small"
                     ></biggive-button>
                   </li>
