@@ -657,16 +657,6 @@ export namespace Components {
         "textColour": brandColour;
         "url": string;
     }
-    interface BiggiveIconGroup {
-        /**
-          * Label
-         */
-        "label": string;
-        /**
-          * Space below component
-         */
-        "spaceBelow": number;
-    }
     interface BiggiveImage {
         /**
           * Image width
@@ -1346,12 +1336,6 @@ declare global {
         prototype: HTMLBiggiveIconButtonElement;
         new (): HTMLBiggiveIconButtonElement;
     };
-    interface HTMLBiggiveIconGroupElement extends Components.BiggiveIconGroup, HTMLStencilElement {
-    }
-    var HTMLBiggiveIconGroupElement: {
-        prototype: HTMLBiggiveIconGroupElement;
-        new (): HTMLBiggiveIconGroupElement;
-    };
     interface HTMLBiggiveImageElement extends Components.BiggiveImage, HTMLStencilElement {
     }
     var HTMLBiggiveImageElement: {
@@ -1585,7 +1569,6 @@ declare global {
         "biggive-heading": HTMLBiggiveHeadingElement;
         "biggive-hero-image": HTMLBiggiveHeroImageElement;
         "biggive-icon-button": HTMLBiggiveIconButtonElement;
-        "biggive-icon-group": HTMLBiggiveIconGroupElement;
         "biggive-image": HTMLBiggiveImageElement;
         "biggive-image-button": HTMLBiggiveImageButtonElement;
         "biggive-image-card": HTMLBiggiveImageCardElement;
@@ -2277,16 +2260,6 @@ declare namespace LocalJSX {
         "textColour"?: brandColour;
         "url"?: string;
     }
-    interface BiggiveIconGroup {
-        /**
-          * Label
-         */
-        "label"?: string;
-        /**
-          * Space below component
-         */
-        "spaceBelow"?: number;
-    }
     interface BiggiveImage {
         /**
           * Image width
@@ -2751,7 +2724,6 @@ declare namespace LocalJSX {
         "biggive-heading": BiggiveHeading;
         "biggive-hero-image": BiggiveHeroImage;
         "biggive-icon-button": BiggiveIconButton;
-        "biggive-icon-group": BiggiveIconGroup;
         "biggive-image": BiggiveImage;
         "biggive-image-button": BiggiveImageButton;
         "biggive-image-card": BiggiveImageCard;
@@ -2809,7 +2781,6 @@ declare module "@stencil/core" {
             "biggive-heading": LocalJSX.BiggiveHeading & JSXBase.HTMLAttributes<HTMLBiggiveHeadingElement>;
             "biggive-hero-image": LocalJSX.BiggiveHeroImage & JSXBase.HTMLAttributes<HTMLBiggiveHeroImageElement>;
             "biggive-icon-button": LocalJSX.BiggiveIconButton & JSXBase.HTMLAttributes<HTMLBiggiveIconButtonElement>;
-            "biggive-icon-group": LocalJSX.BiggiveIconGroup & JSXBase.HTMLAttributes<HTMLBiggiveIconGroupElement>;
             "biggive-image": LocalJSX.BiggiveImage & JSXBase.HTMLAttributes<HTMLBiggiveImageElement>;
             "biggive-image-button": LocalJSX.BiggiveImageButton & JSXBase.HTMLAttributes<HTMLBiggiveImageButtonElement>;
             "biggive-image-card": LocalJSX.BiggiveImageCard & JSXBase.HTMLAttributes<HTMLBiggiveImageCardElement>;

@@ -1,4 +1,3 @@
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { Component, Prop, h } from '@stencil/core';
 import { FontAwesomeIconsService } from '../../util/fontawesome-icons';
 
@@ -42,23 +41,21 @@ export class BiggiveSocialIcon {
    */
   @Prop() url: string = '#';
 
-  private getSocialIcon(): IconDefinition {
-    var icon = FontAwesomeIconsService.getSocialIcon(this.service);
-    return icon;
-  }
-
   render() {
+    const sIcon = FontAwesomeIconsService.getSocialIcon(this.service);
+
     return (
       <div class={'social-icon-item background-colour-' + this.backgroundColour + (this.wide ? ' wide' : '')}>
         <a href={this.url} aria-label={`${this.labelPrefix} on ${this.service}`} target="_blank" rel="noopener">
           <svg
-            width={this.getSocialIcon().icon[0]}
-            height={this.getSocialIcon().icon[1]}
+            width={sIcon.icon[0]}
+            height={sIcon.icon[1]}
             xmlns="http://www.w3.org/2000/svg"
             class={'fill-' + this.iconColour}
-            viewBox={'0 0 ' + this.getSocialIcon().icon[0] + ' ' + this.getSocialIcon().icon[1]}
+            viewBox={'0 0 ' + sIcon.icon[0] + ' ' + sIcon.icon[1]}
+            overflow="hidden"
           >
-            <path d={this.getSocialIcon().icon[4].toString()} />
+            <path d={sIcon.icon[4].toString()} />
           </svg>
         </a>
       </div>
