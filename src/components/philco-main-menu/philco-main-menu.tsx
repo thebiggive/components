@@ -7,8 +7,6 @@ import { makeURL } from '../../util/helper-methods';
   shadow: true,
 })
 export class PhilcoMainMenu {
-  private lastScrollHeight = 0;
-
   @Element() host: HTMLPhilcoMainMenuElement;
 
   // URL prefixes vary by environment, and components library is not best placed to know what they are, so we
@@ -41,33 +39,8 @@ export class PhilcoMainMenu {
     mobileMenu!.style.left = '-100%';
   };
 
-  private setHeaderSize() {
-    if (this.host.scrollHeight === this.lastScrollHeight) {
-      // Some browsers fire 'resize' overzealously on scroll; we don't want to cause extra paints if nothing
-      // relevant changed.
-      return;
-    }
-
-    this.lastScrollHeight = this.host.scrollHeight;
-
-    // Some resize edge cases lead Firefox, and maybe others, to go haywire and get a host offset
-    // height of millions of pixels, presumably due to a layout logic loop. So for as long as we use
-    // this body padding workaround, we need a safe maximum value, currently 130px, beyond which
-    // we will never further displace the main content.
-    // (Possibly scrollHeight could have the same issue, not tested.)
-    // We have also seen intermittent scrolling scenarios where `scrollHeight` is spuriously less than 60px,
-    // maybe related to browsers / OSes with "overscroll" features. So we also now set a fixed minimum of 60px.
-    const scrollHeight = isNaN(this.host.scrollHeight) ? 60 : Math.max(60, this.host.scrollHeight);
-
-    document.body.style.paddingTop = Math.min(130, scrollHeight).toString() + 'px';
-  }
-
   componentDidLoad() {
     this.host.classList.add('fixed');
-    window.addEventListener('resize', () => {
-      this.setHeaderSize();
-    });
-    this.setHeaderSize();
   }
 
   render() {
