@@ -100,7 +100,7 @@ export const CampaignCardFilterGridComponent = {
   render: Template,
 
   args: {
-    categoryOptions: JSON.stringify(['ABC', 'DEF']),
+    categoryOptions: JSON.stringify(['ABC a longer category test', 'DEF something additional']),
     beneficiaryOptions: JSON.stringify(['ABC', 'DEF']),
     locationOptions: JSON.stringify(['ABC', 'DEF']),
     searchText: '',
