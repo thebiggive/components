@@ -58,6 +58,7 @@
   margin-bottom: 30px;
   padding: 0;
   .button {
+    display: inline-block;
     cursor: pointer;
     border-radius: 20px;
     padding: 5px 50px 5px 20px;
@@ -78,6 +79,7 @@
   .clear-all {
     margin-left: auto;
     a {
+      display: inline-block;
       cursor: pointer;
       border-radius: 20px;
       padding: 5px 20px;
