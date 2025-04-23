@@ -16,6 +16,7 @@
   background-position: center center;
   padding: $spacer-4;
   &.philco {
+    @include philco-body-font();
     border-bottom: 12px;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
@@ -33,6 +34,7 @@
     }
 
     .subtitle {
+      @include philco-button-and-subhead-font();
       color: $colour-philco-gray-70;
       .divider {
         color: $colour-philco-orange;

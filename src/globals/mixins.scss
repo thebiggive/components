@@ -8,6 +8,10 @@
   line-height: 24px;
 }
 
+@mixin philco-button-and-subhead-font() {
+  font-family: 'Bitter', serif;
+}
+
 @mixin philco-body-font() {
   font-family: 'Bitter', serif;
   font-size: 16px;
