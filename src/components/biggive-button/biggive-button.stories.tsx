@@ -3,6 +3,10 @@ import { colorSelector } from '../../color-selector';
 export default {
   title: 'Components/Buttons',
   argTypes: {
+    siteDesign: {
+      type: 'select',
+      options: ['biggive', 'philco'],
+    },
     spaceBelow: {
       name: 'Space below',
       control: {

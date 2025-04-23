@@ -34,7 +34,7 @@
     }
 
     .subtitle {
-      @include philco-button-and-subhead-font();
+      @include philco-subhead-font();
       color: $colour-philco-gray-70;
       .divider {
         color: $colour-philco-orange;

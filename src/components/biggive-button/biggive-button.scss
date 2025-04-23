@@ -5,7 +5,7 @@
 }
 
 .container {
-  @include standard-font();
+  font-family: inherit;
   a {
     display: inline-block;
     &.full-width-true {
@@ -77,7 +77,6 @@
 }
 
 .button-philco-gray-90 {
-  @include philco-button-and-subhead-font();
   color: $colour-philco-white;
   &:hover {
     color: $colour-philco-gray-90;
@@ -86,7 +85,6 @@
 }
 
 .button-philco-orange {
-  @include philco-button-and-subhead-font();
   color: $colour-philco-gray-90;
   &:hover {
     color: $colour-philco-white;
@@ -95,7 +93,6 @@
 }
 
 .button-philco-white {
-  @include philco-button-and-subhead-font();
   color: $colour-philco-gray-90;
   &:hover {
 
@@ -109,7 +106,6 @@
 }
 
 .container.disabled.philco .button {
-  @include philco-button-and-subhead-font();
   cursor: not-allowed;
   background-color: $colour-philco-gray-30 !important;
 
