@@ -5,7 +5,7 @@
 }
 
 .container {
-  @include standard-font();
+  font-family: inherit;
   a {
     display: inline-block;
     &.full-width-true {

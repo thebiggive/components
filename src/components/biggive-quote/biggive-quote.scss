@@ -12,6 +12,7 @@
   height: 100%;
   background-color: white;
   &.philco {
+    @include philco-body-font();
     background-color: transparent;
     .image-wrap {
      svg {
