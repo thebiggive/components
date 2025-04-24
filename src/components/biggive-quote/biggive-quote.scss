@@ -14,7 +14,8 @@
   &.philco {
     background-color: transparent;
     .image-wrap {
-     svg {
+      overflow: hidden;
+      svg {
         width: 100px;
         height: 90px; /* = 86/96*100 */
       }
