@@ -11,40 +11,105 @@
   <script nomodule src="../build/biggive.js"></script>
 
   <style>
-    body {
-      /*
-         background colour shows through in triangles above and below any page sections that use the crop-left / crop-right
-         diagonal edge feature. This means we we can only support those sections being used if there are white (or whatever
-         the body background is) coloured sections immediately before and after.
-       */
-      background-color: #ffffff;
-      margin: 0;
-      padding: 0;
+    body.background-primary {background-color: #2C089B;}
+    body.background-secondary {background-color: #2AF135;}
+    body.background-tertiary {background-color: #FF7272;}
+    body.background-brand-cc-red {background-color: #B30510;}
+    body.background-brand-wgmf-purple {background-color: #6E0887;}
+    body.background-brand-gmf-green {background-color: #50B400;}
+    body.background-brand-emf-yellow {background-color: #FFE500;}
+    body.background-brand-c4c-orange {background-color: #F07D00;}
+    body.background-brand-mhf-turquoise {background-color: #62CFC9;}
+    body.background-brand-afa-pink {background-color: #BF387D;}
+    body.background-brand-scw-magenta {background-color: #EE2C65;}
+    body.background-brand-grey {background-color: #CBC8C8;}
+    body.background-white {background-color: #FFFFFF;}
+    body.background-black {background-color: #000000;}
+    body.background-grey-extra-light {background-color: #D7D7D7;}
+    body.background-grey-light {background-color: #F6F6F6;}
+    body.background-grey-medium {background-color: #8A8A8A;}
+    body.background-grey-dark {background-color: #4A4A4A;}
+    body.background-philco-orange {background-color: #F18A00;}
+    body.background-philco-gray-90 {background-color: #1D1D1B;}
+    body.background-philco-gray-70 {background-color: #7D7D7D;}
+    body.background-philco-white {background-color: #FFFFFF;}
+    body.background-philco-success-green {background-color: #1EC691;}
+    body.background-philco-error-coral {background-color: #F54242;}
+    body.background-philco-gray-30 {background-color: #BBBBBB;}
+    body.background-philco-gray-20 {background-color: #F6F6F6;}
+
+
+    .philco-hero-image {
+      font-family: 'Bitter', serif;
+      container-type: inline-size;
+      min-height: 500px;
+      .textside {
+        h1 {
+          font-family: 'Garage Gothic', sans-serif;
+          font-weight: 700;
+          font-size: 40px;
+          line-height: 60px;
+          font-weight: bold;
+          text-transform: uppercase;
+          position: relative;
+          z-index: 2;
+        }
+        color: #1D1D1B; /* philco-grey-90 */
+      }
     }
+    img {
+
+      position: relative;
+      left: 50%;
+      width: 500px;
+      height: 333px;
+      transform: translateX(-50%);
+    }
+
+    @container (min-width: 1200px) {
+      .textside {
+        max-width: 800px;
+        p {
+          max-width: 500px;
+        }
+      }
+      img {
+        position: absolute;
+        left: auto;
+        top: 0;
+        right: 0;
+        transform: inherit;
+        width: 800px;
+        height: 533px;
+      }
+    }
+
+
   </style>
+
 </head>
+<body  background-philco-orange uses-components philco>
 
 <philco-main-menu
   philco-url-prefix="http://localhost:30003"
 ></philco-main-menu>
 
+<biggive-page-section
+  colour-scheme="philco-orange"  max-width="100"  section-style-top="straight"  section-style-bottom="straight" >
 
-<!--
-todo - work out how to express that the first word of "Transform Capitalism below should be a different colour"
-and the part of the teaser up to the word "philanthropy," should be bold.
--->
+<div class="philco-hero-image">
+  <img fetchpriority="high" decoding="async" src="https://d1842m250x5wwk.cloudfront.net/uploads/sites/2/2025/04/philco-logo-composite.png" width="800" height="533"/>
+  <div class="textside">
+    <h1><span style="color: white">Transform</span> Capitalism For Good</h1>
 
-  <biggive-hero-image
-    slug=""
-    slug-colour=""  logo=""
-    logo-height="1"  logo-alt-text=""
-    main-image=""
-    main-image-align-vertical="center"  main-image-align-horizontal="center"
-    main-title="Transform capitalism for good"  main-title-colour=""
-    teaser=
-      "The PhilCo movement transforms business by committing 10% of shares to philanthropy, creating positive change, building reputation, and ensuring growth. Lead your industry in doing good while thriving"
-    teaser-colour="" >
-  </biggive-hero-image>
+    <p><strong>The PhilCo movement transforms business by committing 10% of
+      shares to philanthropy,</strong> creating positive change, building reputation,
+      and ensuring growth. Lead your industry in doing good while thriving.
+    </p>
+  </div>
+</div>
+
+</biggive-page-section>
 
 
 
@@ -178,37 +243,20 @@ Sign up today
 </biggive-page-section>
 
 <biggive-page-section>
-  <h2>What the Philco Leaders Are Saying</h2>
-  <div style="display: flex;">
-    <div style="flex: 1">
-    <biggive-quote
-      default-text-colour="${args.defaultTextColour}"
-      quote="Philanthropy is the core of who we are. Joining the Philco movement
-      has not only strengthened our commitment to society but also transformed how we
-      do business. It's given us purpose, increased loyalty, and built resilience.
-      Doing good truly makes business better."
-      attribution="Name, title - company name"
-      site-design="philco"
-      quote-icon-colour="philco-orange"
-    >
-    </biggive-quote>
-    </div>
-    <div style="flex: 1">
-      <biggive-quote
-        default-text-colour="${args.defaultTextColour}"
-        quote="Becoming a PhilCo has redefined our approach to business. It’s
-        not just about giving back; it’s about creating a better world while
-        building a stronger, more loyal customer base. The impact on our
-        employees and community has been phenomenal, and we’re thriving
-        because of it."
-        attribution="Name, title - company name"
-        site-design="philco"
-        quote-icon-colour="philco-orange"
-      >
-      </biggive-quote>
-  </div>
-  </div>
-</biggive-page-section>
+
+
+  <biggive-grid
+    space-below="0"  column-count="2"  column-gap="1" >
+
+
+    <biggive-quote quote="Philanthropy is at the core of who we are. Joining the PhilCo movement has not only strengthened our commitment to society but also transformed how we do business. It’s given us purpose, increased loyalty, and built resilience. Doing good truly makes business better."  attribution="Name, Title - company name"  site-design="philco"  space-below="0"  default-text-colour="philco-gray-90"  quote-icon-colour="philco-orange" ></biggive-quote>
+
+
+    <biggive-quote quote="Philanthropy is at the core of who we are. Joining the PhilCo movement has not only strengthened our commitment to society but also transformed how we do business. It’s given us purpose, increased loyalty, and built resilience. Doing good truly makes business better."  attribution="Name, Title - company name"  site-design="philco"  space-below="0"  default-text-colour="philco-gray-90"  quote-icon-colour="philco-orange" ></biggive-quote>
+
+
+
+  </biggive-grid>
 
 <philco-footer
   heading-level=3
