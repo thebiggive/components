@@ -5,7 +5,6 @@
 }
 
 .columns {
-  @include standard-font();
   @include section-container();
   display: flex;
   flex-flow: row wrap;
