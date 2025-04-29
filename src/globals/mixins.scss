@@ -43,7 +43,7 @@
 }
 
 @mixin font-size-philco-medium() {
-  font-size: 16px !important; // Overrides another mixin based on container of e.g. `.button` in biggive-button.
+  font-size: 16px; // Overrides general mixin for e.g. `.button` which is bigger.
   line-height: 1.1;
 }
 
