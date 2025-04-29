@@ -82,6 +82,9 @@
     color: $colour-philco-gray-90;
     background-color: $colour-philco-orange;
   }
+  .button {
+    @include font-size-philco-medium();
+  }
 }
 
 .button-philco-orange {
@@ -90,14 +93,19 @@
     color: $colour-philco-white;
     background-color: $colour-philco-gray-90;
   }
+  .button {
+    @include font-size-philco-medium();
+  }
 }
 
 .button-philco-white {
   color: $colour-philco-gray-90;
   &:hover {
-
     color: $colour-philco-gray-90 !important;
     background-color: $colour-philco-orange !important;
+  }
+  .button {
+    @include font-size-philco-medium();
   }
 }
 
