@@ -653,9 +653,12 @@
 }
 
 @mixin headings-philco {
-  line-height: 1.1;
-  font-weight: 700;
-  text-transform: uppercase;
+  h1, .heading-1, h2, .heading-2, h3, .heading-3 {
+    @include philco-heading-font();
+    line-height: 1.1;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
 
   h1, .heading-1 {
     font-size: 4rem;
