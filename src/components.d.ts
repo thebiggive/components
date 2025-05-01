@@ -532,17 +532,9 @@ export namespace Components {
         "spaceBelow": number;
     }
     interface BiggiveFormattedText {
-        /**
-          * Default text colour
-         */
         "defaultTextColour": string;
-        /**
-          * Width
-         */
         "maxWidth": number;
-        /**
-          * Space below component
-         */
+        "siteDesign": 'biggive' | 'philco';
         "spaceBelow": number;
     }
     interface BiggiveGrid {
@@ -560,6 +552,7 @@ export namespace Components {
         "htmlElement": headingTag;
         "icon": boolean;
         "iconColour": brandColour;
+        "siteDesign": 'biggive' | 'philco';
         "size": headingSize;
         "spaceAbove": spacingOption;
         "spaceBelow": spacingOption;
@@ -2134,17 +2127,9 @@ declare namespace LocalJSX {
         "spaceBelow"?: number;
     }
     interface BiggiveFormattedText {
-        /**
-          * Default text colour
-         */
         "defaultTextColour"?: string;
-        /**
-          * Width
-         */
         "maxWidth"?: number;
-        /**
-          * Space below component
-         */
+        "siteDesign"?: 'biggive' | 'philco';
         "spaceBelow"?: number;
     }
     interface BiggiveGrid {
@@ -2162,6 +2147,7 @@ declare namespace LocalJSX {
         "htmlElement"?: headingTag;
         "icon"?: boolean;
         "iconColour"?: brandColour;
+        "siteDesign"?: 'biggive' | 'philco';
         "size"?: headingSize;
         "spaceAbove"?: spacingOption;
         "spaceBelow"?: spacingOption;

@@ -3,6 +3,10 @@ import { colorSelector } from '../../color-selector';
 export default {
   title: 'Components/Content',
   argTypes: {
+    siteDesign: {
+      type: 'select',
+      options: ['biggive', 'philco'],
+    },
     spaceAbove: {
       name: 'Space above',
       control: {
@@ -44,6 +48,7 @@ export default {
 
 const Template = (args: any) => `
             <biggive-heading
+              site-design="${args.siteDesign}"
               space-above=${args.spaceAbove}
               space-below=${args.spaceBelow}
               colour="${args.colour}"
@@ -51,14 +56,14 @@ const Template = (args: any) => `
               size="${args.size}"
               align="${args.align}"
               text="${args.text}"
-              >
-              </biggive-heading>
+            ></biggive-heading>
             `;
 
 export const HeadingComponent = {
   render: Template,
 
   args: {
+    siteDesign: 'biggive',
     spaceAbove: 0,
     spaceBelow: 0,
     colour: 'primary',

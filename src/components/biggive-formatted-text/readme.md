@@ -7,11 +7,12 @@
 
 ## Properties
 
-| Property            | Attribute             | Description           | Type     | Default     |
-| ------------------- | --------------------- | --------------------- | -------- | ----------- |
-| `defaultTextColour` | `default-text-colour` | Default text colour   | `string` | `'primary'` |
-| `maxWidth`          | `max-width`           | Width                 | `number` | `100`       |
-| `spaceBelow`        | `space-below`         | Space below component | `number` | `0`         |
+| Property            | Attribute             | Description | Type                    | Default     |
+| ------------------- | --------------------- | ----------- | ----------------------- | ----------- |
+| `defaultTextColour` | `default-text-colour` |             | `string`                | `'primary'` |
+| `maxWidth`          | `max-width`           |             | `number`                | `100`       |
+| `siteDesign`        | `site-design`         |             | `"biggive" \| "philco"` | `'biggive'` |
+| `spaceBelow`        | `space-below`         |             | `number`                | `0`         |
 
 
 ----------------------------------------------
