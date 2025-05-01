@@ -1,5 +1,4 @@
 @include alignments();
-@include headings();
 @include spacers();
 
 :host {
@@ -8,11 +7,14 @@
 
 .container {
   &.biggive {
+    @include headings-biggive();
+    // We reset size here but then rely on something else to make it bigger. Confusing
+    // but not worth refactoring rn.
     @include standard-font();
   }
 
   &.philco {
-    @include philco-heading-font();
+    @include headings-philco();
   }
 
   @each $key, $colour in $brandColours {

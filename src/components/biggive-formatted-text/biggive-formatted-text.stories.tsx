@@ -3,6 +3,13 @@ import { colorSelector } from '../../color-selector';
 export default {
   title: 'Components/Content',
   argTypes: {
+    siteDesign: {
+      name: 'Site Design',
+      control: {
+        type: 'select',
+        options: ['biggive', 'philco'],
+      },
+    },
     spaceBelow: {
       name: 'Space below',
       control: {
@@ -47,6 +54,7 @@ export const FormattedTextComponent = {
   render: Template,
 
   args: {
+    siteDesign: 'biggive',
     spaceBelow: 0,
     defaultTextColour: 'primary',
   },
