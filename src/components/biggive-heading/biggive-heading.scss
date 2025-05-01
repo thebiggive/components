@@ -7,7 +7,14 @@
 }
 
 .container {
-  @include standard-font();
+  &.biggive {
+    @include standard-font();
+  }
+
+  &.philco {
+    @include philco-heading-font();
+  }
+
   @each $key, $colour in $brandColours {
     .heading-colour-#{$key} { color: $colour; }
   }

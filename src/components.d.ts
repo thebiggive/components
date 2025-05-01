@@ -560,6 +560,7 @@ export namespace Components {
         "htmlElement": headingTag;
         "icon": boolean;
         "iconColour": brandColour;
+        "siteDesign": 'biggive'|'philco';
         "size": headingSize;
         "spaceAbove": spacingOption;
         "spaceBelow": spacingOption;
@@ -2162,6 +2163,7 @@ declare namespace LocalJSX {
         "htmlElement"?: headingTag;
         "icon"?: boolean;
         "iconColour"?: brandColour;
+        "siteDesign"?: 'biggive'|'philco';
         "size"?: headingSize;
         "spaceAbove"?: spacingOption;
         "spaceBelow"?: spacingOption;

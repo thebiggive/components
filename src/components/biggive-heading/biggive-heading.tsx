@@ -11,27 +11,20 @@ import { spacingOption } from '../../globals/spacing-option';
 })
 export class BiggiveHeading {
   @Prop() spaceAbove: spacingOption = 2;
-
   @Prop() spaceBelow: spacingOption = 4;
-
   @Prop() colour: brandColour = 'primary';
-
   @Prop() htmlElement: headingTag = 'h1';
-
   @Prop() size: headingSize = 1;
-
   @Prop() align: string = 'left';
-
   @Prop() text: string = '';
-
   @Prop() icon: boolean = false;
-
   @Prop() iconColour: brandColour = 'primary';
+  @Prop() siteDesign: 'biggive' | 'philco' = 'biggive';
 
   render() {
     const Tag = this.htmlElement;
     return (
-      <div class={'container align-' + this.align + ' space-above-' + this.spaceAbove + ' space-below-' + this.spaceBelow}>
+      <div class={'container ' + this.siteDesign + ' align-' + this.align + ' space-above-' + this.spaceAbove + ' space-below-' + this.spaceBelow}>
         <Tag class={'heading-colour-' + this.colour + ' icon-colour-' + this.iconColour + ' heading-' + this.size}>
           {this.icon ? (
             <svg viewBox="0 0 102 88">
