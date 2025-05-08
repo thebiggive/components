@@ -56,7 +56,7 @@ export class BiggiveFooter {
               </HeadingTag>
             </nav>
 
-            <nav class="nav nav-secondary" aria-labelledby="footer-secondary-heading-heading">
+            <nav class="nav nav-secondary" aria-labelledby="footer-secondary-heading">
               <HeadingTag class="heading" id="footer-secondary-heading">
                 <slot name="nav-secondary-title"></slot>
               </HeadingTag>
@@ -147,7 +147,7 @@ export class BiggiveFooter {
               </ul>
             </nav>
 
-            <nav class="nav nav-secondary" aria-labelledby="footer-secondary-heading-heading">
+            <nav class="nav nav-secondary" aria-labelledby="footer-secondary-heading">
               <HeadingTag class="heading" id="footer-secondary-heading">
                 <div slot="nav-secondary-title">Resources</div>
               </HeadingTag>
