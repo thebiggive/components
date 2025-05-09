@@ -31,6 +31,11 @@ export class BiggiveFormFieldSelect {
 
   @Prop() selectedOptionColour: 'inherit' | 'blue' = 'blue';
 
+  /**
+   * ID for the select element, used by a label. If not passed then a random id will be generated.
+   */
+  @Prop() selectElementId: string | undefined;
+
   private doOptionSelectCompletedHandler = (event: any) => {
     const value = event.target.value;
     this.selectedValue = value;
@@ -61,33 +66,35 @@ export class BiggiveFormFieldSelect {
       console.error('options undefined');
       options = [];
     }
+    // Give the select a random id so we can reference it from a label
+    const selectId = this.selectElementId || 'select-' + this.getRandomInt().toString();
 
     return (
       <div class="selectWrapper">
-        <label class={greyIfRequired}>
+        <label class={greyIfRequired} htmlFor={selectId}>
           <div class={'prompt' + greyIfRequired}>{this.prompt}</div>
-          <div
-            class={
-              'dropdown space-below-' +
-              this.spaceBelow +
-              ' select-style-' +
-              this.selectStyle +
-              (this.prompt === null ? '  noprompt' : '') +
-              (this.selectedOptionColour === 'inherit' ? ' inherit-colour' : '')
-            }
-          >
-            <div class="sleeve">
-              <select class={greyIfRequired} onChange={this.doOptionSelectCompletedHandler} aria-label={this.prompt === null ? this.placeholder : this.prompt}>
-                {options.map(option => (
-                  <option selected={this.selectedValue === option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-              <div class="arrow"></div>
-            </div>
-          </div>
         </label>
+        <div
+          class={
+            'dropdown space-below-' +
+            this.spaceBelow +
+            ' select-style-' +
+            this.selectStyle +
+            (this.prompt === null ? '  noprompt' : '') +
+            (this.selectedOptionColour === 'inherit' ? ' inherit-colour' : '')
+          }
+        >
+          <div class="sleeve">
+            <select id={selectId} class={greyIfRequired} onChange={this.doOptionSelectCompletedHandler} aria-label={this.prompt === null ? this.placeholder : this.prompt}>
+              {options.map(option => (
+                <option selected={this.selectedValue === option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+            <div class="arrow"></div>
+          </div>
+        </div>
       </div>
     );
   }
@@ -109,5 +116,11 @@ export class BiggiveFormFieldSelect {
     }
 
     return Object.entries(options).map(entry => ({ value: entry[0], label: entry[1] }));
+  }
+
+  private getRandomInt(): number {
+    const min = 1_000_000;
+    const max = 9_999_999;
+    return Math.floor(Math.random() * (max - min) + min);
   }
 }

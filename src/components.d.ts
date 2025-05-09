@@ -521,6 +521,10 @@ export namespace Components {
           * Displayed as 'eyebrow' label over the top border of the box.
          */
         "prompt": string | null;
+        /**
+          * ID for the select element, used by a label. If not passed then a random id will be generated.
+         */
+        "selectElementId": string | undefined;
         "selectStyle": 'bordered' | 'underlined';
         "selectedLabel": string | null;
         "selectedOptionColour": 'inherit' | 'blue';
@@ -2116,6 +2120,10 @@ declare namespace LocalJSX {
           * Displayed as 'eyebrow' label over the top border of the box.
          */
         "prompt": string | null;
+        /**
+          * ID for the select element, used by a label. If not passed then a random id will be generated.
+         */
+        "selectElementId"?: string | undefined;
         "selectStyle"?: 'bordered' | 'underlined';
         "selectedLabel"?: string | null;
         "selectedOptionColour"?: 'inherit' | 'blue';
