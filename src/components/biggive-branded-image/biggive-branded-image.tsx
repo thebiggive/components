@@ -41,13 +41,17 @@ export class BiggiveBrandedImage {
    */
   @Prop() charityUrl: string;
 
+  /**
+   * This is only used as a background, presentational "bonus" so we are setting
+   * `role="presentation"` every time instead of accepting alt text.
+   */
   render() {
     return (
       <div class={'container space-below-' + this.spaceBelow}>
         {<div class="slug">{this.slug}</div>}
         {this.imageUrl !== undefined && this.imageUrl !== null ? (
           <div class="image-wrap">
-            <img src={this.imageUrl} />
+            <img src={this.imageUrl} role="presentation" />
           </div>
         ) : null}
         {this.logoUrl !== undefined && this.logoUrl !== null ? <div class="logo-wrap" style={{ 'background-image': "url('" + this.logoUrl + "')" }}></div> : null}

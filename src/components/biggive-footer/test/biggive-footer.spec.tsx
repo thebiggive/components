@@ -18,7 +18,7 @@ describe('biggive-footer', () => {
             <h5 class="heading" id="footer-primary-heading"><slot name="nav-primary-title"></slot></h5>
           </nav>
 
-          <nav class="nav nav-secondary" aria-labelledby="footer-secondary-heading-heading">
+          <nav class="nav nav-secondary" aria-labelledby="footer-secondary-heading">
             <h5 class="heading" id="footer-secondary-heading"><slot name="nav-secondary-title"></slot></h5>
           </nav>
 
