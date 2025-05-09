@@ -11,7 +11,7 @@
 | ---------------------- | ------------------------ | ------------------------------------------------------------------------------------- | ----------------------------------------------- | ------------ |
 | `backgroundColour`     | `background-colour`      | Must match background of containing element, or unintended shape will appear.         | `"grey" \| "white"`                             | `undefined`  |
 | `options` _(required)_ | `options`                | JSON array of label+value objects, or takes a stringified equiavalent (for Storybook) | `string \| { label: string; value: string; }[]` | `undefined`  |
-| `placeholder`          | `placeholder`            | Placeholder                                                                           | `string \| undefined`                           | `undefined`  |
+| `placeholder`          | `placeholder`            | Placeholder. If there is no `prompt`, this should be a suitable ARIA label.           | `string \| undefined`                           | `undefined`  |
 | `prompt` _(required)_  | `prompt`                 | Displayed as 'eyebrow' label over the top border of the box.                          | `null \| string`                                | `undefined`  |
 | `selectStyle`          | `select-style`           |                                                                                       | `"bordered" \| "underlined"`                    | `'bordered'` |
 | `selectedLabel`        | `selected-label`         |                                                                                       | `null \| string`                                | `undefined`  |

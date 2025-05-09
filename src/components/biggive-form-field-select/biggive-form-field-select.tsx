@@ -42,8 +42,9 @@ export class BiggiveFormFieldSelect {
    * Space below component
    */
   @Prop() spaceBelow: number = 0;
+
   /**
-   * Placeholder
+   * Placeholder. If there is no `prompt`, this should be a suitable ARIA label.
    */
   @Prop() placeholder: string | undefined;
 
@@ -76,7 +77,7 @@ export class BiggiveFormFieldSelect {
             }
           >
             <div class="sleeve">
-              <select class={greyIfRequired} onChange={this.doOptionSelectCompletedHandler}>
+              <select class={greyIfRequired} onChange={this.doOptionSelectCompletedHandler} aria-label={this.prompt === null ? this.placeholder : this.prompt}>
                 {options.map(option => (
                   <option selected={this.selectedValue === option.value} value={option.value}>
                     {option.label}

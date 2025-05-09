@@ -18,7 +18,7 @@ describe('biggive-form-field-select', () => {
               <div class="prompt">What would you like?</div>
               <div class="dropdown select-style-bordered space-below-0">
                 <div class="sleeve">
-                  <select>
+                  <select aria-label="What would you like?">
                     <option value="optionOne">
                       Option one
                     </option>

@@ -514,7 +514,7 @@ export namespace Components {
          */
         "options": string | Array<{ label: string; value: string }>;
         /**
-          * Placeholder
+          * Placeholder. If there is no `prompt`, this should be a suitable ARIA label.
          */
         "placeholder": string | undefined;
         /**
@@ -2109,7 +2109,7 @@ declare namespace LocalJSX {
          */
         "options": string | Array<{ label: string; value: string }>;
         /**
-          * Placeholder
+          * Placeholder. If there is no `prompt`, this should be a suitable ARIA label.
          */
         "placeholder"?: string | undefined;
         /**
