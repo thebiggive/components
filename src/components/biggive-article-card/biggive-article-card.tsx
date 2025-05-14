@@ -52,6 +52,10 @@ export class BiggiveArticleCard {
 
   @Prop() clipTopRightCorner: boolean = true;
 
+  private isEmpty(value: string): boolean {
+    return value === undefined || value === null || value === '';
+  }
+
   render() {
     return (
       <div class={'container space-below-' + this.spaceBelow}>
@@ -83,20 +87,20 @@ export class BiggiveArticleCard {
               {this.date != '' ? <div class="date">{this.date}</div> : null}
             </div>
 
-            {this.mainImageUrl ? (
+            {this.isEmpty(this.mainImageUrl) ? null : (
               <div class="main-image-container">
                 <div class="image-wrap">
                   <img src={this.mainImageUrl} alt={this.mainImageAltText} />
                 </div>
               </div>
-            ) : null}
+            )}
 
             <h3 class="title">
               <a href={this.buttonUrl}>{this.mainTitle}</a>
             </h3>
-            {this.image1Url || this.image2Url ? (
+            {!this.isEmpty(this.image1Url) || !this.isEmpty(this.image2Url) ? (
               <div class="image-group">
-                {(this.image1Url?.length ?? 0) === 0 ? null : (
+                {this.isEmpty(this.image1Url) ? null : (
                   <div class="image-container">
                     <div class="image-wrap" style={{ 'background-image': "url('" + this.image1Url + "')" }}>
                       <img src={this.image1Url} alt={this.image1AltText} />
@@ -104,7 +108,7 @@ export class BiggiveArticleCard {
                   </div>
                 )}
 
-                {(this.image2Url?.length ?? 0) === 0 ? null : (
+                {this.isEmpty(this.image2Url) ? null : (
                   <div class="image-container">
                     <div class="image-wrap" style={{ 'background-image': "url('" + this.image2Url + "')" }}>
                       <img src={this.image2Url} alt={this.image2AltText} />
@@ -114,9 +118,9 @@ export class BiggiveArticleCard {
               </div>
             ) : null}
 
-            {this.imageLabel ? <div class="image-label">{this.imageLabel}</div> : null}
+            {this.isEmpty(this.imageLabel) ? null : <div class="image-label">{this.imageLabel}</div>}
 
-            {this.buttonLabel && this.buttonUrl ? (
+            {!this.isEmpty(this.buttonLabel) && !this.isEmpty(this.buttonUrl) ? (
               <div class="button-wrap align-right">
                 <biggive-button colour-scheme={'clear-' + this.buttonColour} url={this.buttonUrl} label={this.buttonLabel}></biggive-button>
               </div>
