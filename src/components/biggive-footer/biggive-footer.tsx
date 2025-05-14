@@ -1,6 +1,10 @@
 import { Component, Element, getAssetPath, h, Prop } from '@stencil/core';
 import { makeURL } from '../../util/helper-methods';
 
+/**
+ * Should be contained in a `<footer/>` or similar so that the page has appropriate
+ * landmarks.
+ */
 @Component({
   tag: 'biggive-footer',
   styleUrl: 'biggive-footer.scss',
@@ -28,6 +32,12 @@ export class BiggiveFooter {
    */
   @Prop() usePresetFooter = false;
 
+  private logoRow = (<div class="row row-logo">
+    <div class="logo">
+      <img src={getAssetPath('/assets/images/biggive-triangle-green.svg')} alt="Big Give" />
+    </div>
+  </div>);
+
   private appendMenu(menuName: string) {
     var node = this.host.querySelector(`[slot="${menuName}"]`);
     if (node !== null) {
@@ -48,7 +58,8 @@ export class BiggiveFooter {
     const HeadingTag = `h${this.headingLevel}`;
     const slotBasedFooter = () => {
       return (
-        <footer class="footer">
+        <div class="footer">
+          {this.logoRow}
           <div class="row row-top">
             <nav class="nav nav-primary" aria-labelledby="footer-primary-heading">
               <HeadingTag class="heading" id="footer-primary-heading">
@@ -69,14 +80,17 @@ export class BiggiveFooter {
             </nav>
 
             <div class="button-wrap">
-              <biggive-button colour-scheme="white" url="https://biggive.org/charities" label="For charities"></biggive-button>
-              <biggive-button colour-scheme="white" url="https://biggive.org/funders" label="For funders"></biggive-button>
+              <biggive-button colour-scheme="white" url="https://biggive.org/charities"
+                              label="For charities"></biggive-button>
+              <biggive-button colour-scheme="white" url="https://biggive.org/funders"
+                              label="For funders"></biggive-button>
             </div>
           </div>
 
           <div class="row row-bottom">
             <div class="postscript-wrap">
-              <img class="fr-logo" src={getAssetPath('/assets/images/fundraising-regulator.png')} alt="Registered with FUNDRAISING REGULATOR" />
+              <img class="fr-logo" src={getAssetPath('/assets/images/fundraising-regulator.png')}
+                   alt="Registered with FUNDRAISING REGULATOR" />
 
               <nav class="nav nav-postscript" aria-label="Legal"></nav>
             </div>
@@ -84,15 +98,17 @@ export class BiggiveFooter {
             <div class="social-icon-wrap">
               <slot name="social-icons"></slot>
             </div>
-            <p>&copy; 2007 – {this.year} The Big Give Trust (1136547) | Company number 07273065 | Dragon Court, 27-29 Macklin Street, London WC2B 5LX, United Kingdom</p>
+            <p>&copy; 2007 – {this.year} The Big Give Trust (1136547) | Company number 07273065 | Dragon Court, 27-29
+              Macklin Street, London WC2B 5LX, United Kingdom</p>
           </div>
-        </footer>
+        </div>
       );
     };
 
     const presetFooter = () => {
       return (
-        <footer class="footer">
+        <div class="footer">
+          {this.logoRow}
           <div class="row row-top">
             <nav class="nav nav-primary" aria-labelledby="footer-primary-heading">
               <HeadingTag class="heading" id="footer-primary-heading">
@@ -197,14 +213,17 @@ export class BiggiveFooter {
             </nav>
 
             <div class="button-wrap">
-              <biggive-button colour-scheme="white" url={makeURL('Blog', this.blogUrlPrefix, 'charities')} label="For charities"></biggive-button>
-              <biggive-button colour-scheme="white" url={makeURL('Blog', this.blogUrlPrefix, 'funders')} label="For funders"></biggive-button>
+              <biggive-button colour-scheme="white" url={makeURL('Blog', this.blogUrlPrefix, 'charities')}
+                              label="For charities"></biggive-button>
+              <biggive-button colour-scheme="white" url={makeURL('Blog', this.blogUrlPrefix, 'funders')}
+                              label="For funders"></biggive-button>
             </div>
           </div>
 
           <div class="row row-bottom">
             <div class="postscript-wrap">
-              <img class="fr-logo" src={getAssetPath('/assets/images/fundraising-regulator.png')} alt="Registered with FUNDRAISING REGULATOR" />
+              <img class="fr-logo" src={getAssetPath('/assets/images/fundraising-regulator.png')}
+                   alt="Registered with FUNDRAISING REGULATOR" />
 
               <nav class="nav nav-postscript" aria-label="Legal">
                 <ul slot="nav-postscript">
@@ -218,7 +237,8 @@ export class BiggiveFooter {
                     <a href={makeURL('Blog', this.blogUrlPrefix, 'privacy#cookies')}>Cookies Statement</a>
                   </li>
                   <li>
-                    <a href={makeURL('Donate', this.donateUrlPrefix, 'cookie-preferences')}>Cookies Preference Centre</a>
+                    <a href={makeURL('Donate', this.donateUrlPrefix, 'cookie-preferences')}>Cookies Preference
+                      Centre</a>
                   </li>
                 </ul>
               </nav>
@@ -233,7 +253,8 @@ export class BiggiveFooter {
                   icon-colour="black"
                   wide={true}
                 ></biggive-social-icon>
-                <biggive-social-icon service="Twitter" url="https://x.com/BigGive" background-colour="tertiary" icon-colour="black" wide={true}></biggive-social-icon>
+                <biggive-social-icon service="Twitter" url="https://x.com/BigGive" background-colour="tertiary"
+                                     icon-colour="black" wide={true}></biggive-social-icon>
                 <biggive-social-icon
                   service="LinkedIn"
                   url="https://uk.linkedin.com/company/big-give"
@@ -248,12 +269,14 @@ export class BiggiveFooter {
                   icon-colour="black"
                   wide={true}
                 ></biggive-social-icon>
-                <biggive-social-icon service="Instagram" url="https://www.instagram.com/biggiveorg" background-colour="tertiary" icon-colour="black"></biggive-social-icon>
+                <biggive-social-icon service="Instagram" url="https://www.instagram.com/biggiveorg"
+                                     background-colour="tertiary" icon-colour="black"></biggive-social-icon>
               </div>
             </div>
-            <p>&copy; 2007 – {this.year} The Big Give Trust (1136547) | Company number 07273065 | Dragon Court, 27-29 Macklin Street, London WC2B 5LX, United Kingdom</p>
+            <p>&copy; 2007 – {this.year} The Big Give Trust (1136547) | Company number 07273065 | Dragon Court, 27-29
+              Macklin Street, London WC2B 5LX, United Kingdom</p>
           </div>
-        </footer>
+        </div>
       );
     };
 

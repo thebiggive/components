@@ -83,7 +83,7 @@ export class BiggiveArticleCard {
               {this.date != '' ? <div class="date">{this.date}</div> : null}
             </div>
 
-            {this.mainImageUrl != '' ? (
+            {this.mainImageUrl ? (
               <div class="main-image-container">
                 <div class="image-wrap">
                   <img src={this.mainImageUrl} alt={this.mainImageAltText} />
@@ -94,29 +94,29 @@ export class BiggiveArticleCard {
             <h3 class="title">
               <a href={this.buttonUrl}>{this.mainTitle}</a>
             </h3>
-            {this.image1Url != '' || this.image2Url != '' ? (
+            {this.image1Url || this.image2Url ? (
               <div class="image-group">
-                {this.image1Url != '' ? (
+                {(this.image1Url?.length ?? 0) === 0 ? null : (
                   <div class="image-container">
                     <div class="image-wrap" style={{ 'background-image': "url('" + this.image1Url + "')" }}>
                       <img src={this.image1Url} alt={this.image1AltText} />
                     </div>
                   </div>
-                ) : null}
+                )}
 
-                {this.image2Url != '' ? (
+                {(this.image2Url?.length ?? 0) === 0 ? null : (
                   <div class="image-container">
                     <div class="image-wrap" style={{ 'background-image': "url('" + this.image2Url + "')" }}>
                       <img src={this.image2Url} alt={this.image2AltText} />
                     </div>
                   </div>
-                ) : null}
+                )}
               </div>
             ) : null}
 
-            {this.imageLabel != '' ? <div class="image-label">{this.imageLabel}</div> : null}
+            {this.imageLabel ? <div class="image-label">{this.imageLabel}</div> : null}
 
-            {this.buttonLabel != null && this.buttonUrl != null ? (
+            {this.buttonLabel && this.buttonUrl ? (
               <div class="button-wrap align-right">
                 <biggive-button colour-scheme={'clear-' + this.buttonColour} url={this.buttonUrl} label={this.buttonLabel}></biggive-button>
               </div>
