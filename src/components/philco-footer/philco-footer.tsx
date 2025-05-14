@@ -63,7 +63,7 @@ export class PhilcoFooter {
             </HeadingTag>
             <ul slot="nav-tertiary">
               <li>
-                <a href={makeURL('Philco', this.philcoUrlPrefix, 'download-the-guide')}>Download the guide</a>
+                <a href="https://drive.google.com/file/d/1D1GnstpMKnnES1aYj05EVE9_lQtLZLwj/view">Download the guide</a>
               </li>
             </ul>
           </nav>
