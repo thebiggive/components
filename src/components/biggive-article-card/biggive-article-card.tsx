@@ -79,7 +79,9 @@ export class BiggiveArticleCard {
             ' clip-top-right-corner-' +
             this.clipTopRightCorner
           }
-          style={{ 'background-image': "url('" + this.backgroundImageUrl + "')" }}
+          style={{
+            ...(this.backgroundImageUrl.length > 0 ? { 'background-image': "url('" + this.backgroundImageUrl + "')" } : {}),
+          }}
         >
           <div class="content-wrap">
             <div class="meta">
