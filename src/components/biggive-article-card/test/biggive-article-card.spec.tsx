@@ -11,7 +11,7 @@ describe('biggive-article-card', () => {
       <biggive-article-card>
         <mock:shadow-root>
         <div class="container space-below-0">
-           <div class="background-colour-white button-colourblack clip-bottom-left-corner-true clip-top-right-corner-true date-colour-black image-label-colour-black main-title-colour-black sleeve slug-colour-black text-colour-black" style="background-image: url('');">
+           <div class="background-colour-white button-colourblack clip-bottom-left-corner-true clip-top-right-corner-true date-colour-black image-label-colour-black main-title-colour-black sleeve slug-colour-black text-colour-black">
                   <div class="content-wrap">
                     <div class="meta">
                       <div class="slug text-colour-primary"></div>
