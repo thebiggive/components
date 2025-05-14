@@ -52,7 +52,7 @@ export class BiggiveArticleCard {
 
   @Prop() clipTopRightCorner: boolean = true;
 
-  private isEmpty(value: string): boolean {
+  private isEmpty(value: string | undefined | null): boolean {
     return value === undefined || value === null || value === '';
   }
 
