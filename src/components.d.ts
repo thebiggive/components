@@ -488,6 +488,10 @@ export namespace Components {
       }
     | undefined;
     }
+    /**
+     * Should be contained in a `<footer/>` or similar so that the page has appropriate
+     * landmarks.
+     */
     interface BiggiveFooter {
         "blogUrlPrefix": string | undefined;
         /**
@@ -1087,6 +1091,10 @@ export namespace Components {
          */
         "videoUrl": string;
     }
+    /**
+     * Should be contained in a `<footer/>` or similar so that the page has appropriate
+     * landmarks.
+     */
     interface PhilcoFooter {
         "headingLevel": 1 | 2 | 3 | 4 | 5 | 6;
         "philcoUrlPrefix": string;
@@ -1274,6 +1282,10 @@ declare global {
         prototype: HTMLBiggiveCookieBannerElement;
         new (): HTMLBiggiveCookieBannerElement;
     };
+    /**
+     * Should be contained in a `<footer/>` or similar so that the page has appropriate
+     * landmarks.
+     */
     interface HTMLBiggiveFooterElement extends Components.BiggiveFooter, HTMLStencilElement {
     }
     var HTMLBiggiveFooterElement: {
@@ -1519,6 +1531,10 @@ declare global {
         prototype: HTMLBiggiveVideoFeatureElement;
         new (): HTMLBiggiveVideoFeatureElement;
     };
+    /**
+     * Should be contained in a `<footer/>` or similar so that the page has appropriate
+     * landmarks.
+     */
     interface HTMLPhilcoFooterElement extends Components.PhilcoFooter, HTMLStencilElement {
     }
     var HTMLPhilcoFooterElement: {
@@ -2087,6 +2103,10 @@ declare namespace LocalJSX {
       }
     | undefined;
     }
+    /**
+     * Should be contained in a `<footer/>` or similar so that the page has appropriate
+     * landmarks.
+     */
     interface BiggiveFooter {
         "blogUrlPrefix"?: string | undefined;
         /**
@@ -2686,6 +2706,10 @@ declare namespace LocalJSX {
          */
         "videoUrl"?: string;
     }
+    /**
+     * Should be contained in a `<footer/>` or similar so that the page has appropriate
+     * landmarks.
+     */
     interface PhilcoFooter {
         "headingLevel"?: 1 | 2 | 3 | 4 | 5 | 6;
         "philcoUrlPrefix"?: string;
@@ -2767,6 +2791,10 @@ declare module "@stencil/core" {
             "biggive-campaign-highlights": LocalJSX.BiggiveCampaignHighlights & JSXBase.HTMLAttributes<HTMLBiggiveCampaignHighlightsElement>;
             "biggive-container-card": LocalJSX.BiggiveContainerCard & JSXBase.HTMLAttributes<HTMLBiggiveContainerCardElement>;
             "biggive-cookie-banner": LocalJSX.BiggiveCookieBanner & JSXBase.HTMLAttributes<HTMLBiggiveCookieBannerElement>;
+            /**
+             * Should be contained in a `<footer/>` or similar so that the page has appropriate
+             * landmarks.
+             */
             "biggive-footer": LocalJSX.BiggiveFooter & JSXBase.HTMLAttributes<HTMLBiggiveFooterElement>;
             "biggive-form": LocalJSX.BiggiveForm & JSXBase.HTMLAttributes<HTMLBiggiveFormElement>;
             "biggive-form-field-select": LocalJSX.BiggiveFormFieldSelect & JSXBase.HTMLAttributes<HTMLBiggiveFormFieldSelectElement>;
@@ -2809,6 +2837,10 @@ declare module "@stencil/core" {
             "biggive-totalizer-ticker-item": LocalJSX.BiggiveTotalizerTickerItem & JSXBase.HTMLAttributes<HTMLBiggiveTotalizerTickerItemElement>;
             "biggive-video": LocalJSX.BiggiveVideo & JSXBase.HTMLAttributes<HTMLBiggiveVideoElement>;
             "biggive-video-feature": LocalJSX.BiggiveVideoFeature & JSXBase.HTMLAttributes<HTMLBiggiveVideoFeatureElement>;
+            /**
+             * Should be contained in a `<footer/>` or similar so that the page has appropriate
+             * landmarks.
+             */
             "philco-footer": LocalJSX.PhilcoFooter & JSXBase.HTMLAttributes<HTMLPhilcoFooterElement>;
             "philco-main-menu": LocalJSX.PhilcoMainMenu & JSXBase.HTMLAttributes<HTMLPhilcoMainMenuElement>;
         }

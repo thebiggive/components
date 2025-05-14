@@ -17,28 +17,10 @@ describe('biggive-article-card', () => {
                       <div class="slug text-colour-primary"></div>
                       <div class="date"></div>
                     </div>
-                    <div class="main-image-container">
-                      <div class="image-wrap">
-                        <img>
-                      </div>
-                    </div>
                     <h3 class="title">
                       <a></a>
                     </h3>
-                    <div class="image-group">
-                    <div class="image-container">
-                      <div class="image-wrap" style="background-image: url('undefined');">
-                        <img>
-                      </div>
-                    </div>
-                    <div class="image-container">
-                      <div class="image-wrap" style="background-image: url('undefined');">
-                        <img>
-                      </div>
-                   </div>
-                 </div>
-                 <div class="image-label"></div>
-                </div>
+                  </div>
          </div>
         </mock:shadow-root>
       </biggive-article-card>

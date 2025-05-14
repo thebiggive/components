@@ -81,7 +81,7 @@ export class BiggiveBasicCard {
         <a href={this.buttonUrl}>
           <div class={'sleeve background-colour-' + this.cardColour + ' text-colour-' + this.textColour}>
             <div class="content-wrap">
-              {this.icon == true ? (
+              {this.icon ? (
                 <div class="icon">
                   <svg width="53" height="39" viewBox="0 0 53 39" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M38.7009 13.6572L52.3535 38.6959H25.0386L38.7009 13.6572Z" class="fill-black" />
@@ -89,13 +89,13 @@ export class BiggiveBasicCard {
                   </svg>
                 </div>
               ) : null}
-              {this.mainImageUrl != '' ? (
+              {(this.mainImageUrl?.length ?? 0) === 0 ? null : (
                 <div class="main-image-container">
                   <div class="image-wrap">
-                    <img src={this.mainImageUrl} alt={this.mainImageAltText} title={this.mainImageAltText} />
+                    <img src={this.mainImageUrl} alt={this.mainImageAltText} />
                   </div>
                 </div>
-              ) : null}
+              )}
               <HeadingTag class="title">{this.mainTitle}</HeadingTag>
               {this.author !== '' || this.date !== '' ? (
                 <div class="subtitle">

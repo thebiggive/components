@@ -5,6 +5,11 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Should be contained in a `<footer/>` or similar so that the page has appropriate
+landmarks.
+
 ## Properties
 
 | Property          | Attribute           | Description | Type                         | Default                    |

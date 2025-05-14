@@ -1,6 +1,10 @@
 import { Component, Element, getAssetPath, h, Prop } from '@stencil/core';
 import { makeURL } from '../../util/helper-methods';
 
+/**
+ * Should be contained in a `<footer/>` or similar so that the page has appropriate
+ * landmarks.
+ */
 @Component({
   tag: 'biggive-footer',
   styleUrl: 'biggive-footer.scss',
@@ -28,6 +32,14 @@ export class BiggiveFooter {
    */
   @Prop() usePresetFooter = false;
 
+  private logoRow = (
+    <div class="row row-logo">
+      <div class="logo">
+        <img src={getAssetPath('/assets/images/biggive-triangle-green.svg')} alt="Big Give" />
+      </div>
+    </div>
+  );
+
   private appendMenu(menuName: string) {
     var node = this.host.querySelector(`[slot="${menuName}"]`);
     if (node !== null) {
@@ -48,7 +60,8 @@ export class BiggiveFooter {
     const HeadingTag = `h${this.headingLevel}`;
     const slotBasedFooter = () => {
       return (
-        <footer class="footer">
+        <div class="footer">
+          {this.logoRow}
           <div class="row row-top">
             <nav class="nav nav-primary" aria-labelledby="footer-primary-heading">
               <HeadingTag class="heading" id="footer-primary-heading">
@@ -86,13 +99,14 @@ export class BiggiveFooter {
             </div>
             <p>&copy; 2007 – {this.year} The Big Give Trust (1136547) | Company number 07273065 | Dragon Court, 27-29 Macklin Street, London WC2B 5LX, United Kingdom</p>
           </div>
-        </footer>
+        </div>
       );
     };
 
     const presetFooter = () => {
       return (
-        <footer class="footer">
+        <div class="footer">
+          {this.logoRow}
           <div class="row row-top">
             <nav class="nav nav-primary" aria-labelledby="footer-primary-heading">
               <HeadingTag class="heading" id="footer-primary-heading">
@@ -253,7 +267,7 @@ export class BiggiveFooter {
             </div>
             <p>&copy; 2007 – {this.year} The Big Give Trust (1136547) | Company number 07273065 | Dragon Court, 27-29 Macklin Street, London WC2B 5LX, United Kingdom</p>
           </div>
-        </footer>
+        </div>
       );
     };
 

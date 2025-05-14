@@ -24,7 +24,7 @@ nav {
       margin: 0;
       padding: 0;
       list-style-type: none;
-      margin-top: 15px;
+      margin-top: $spacer-3;
     }
   }
 }
@@ -82,13 +82,18 @@ nav ul li a {
   }
 }
 
-.row-top {
-  background-image: url(/assets/images/biggive-triangle-green.svg);
-  background-repeat: no-repeat;
-  background-size: auto 75px;
-  background-position: $spacer-6 30px;
+.row-logo {
   background-color: $colour-primary-blue;
-  padding: 100px $spacer-6 $spacer-6 $spacer-6;
+  padding: $spacer-3 $spacer-6;
+  .logo {
+    height: 75px;
+    width: 87px;
+  }
+}
+
+.row-top {
+  background-color: $colour-primary-blue;
+  padding: 0 $spacer-6 $spacer-6 $spacer-6;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -178,11 +183,16 @@ footer .row-bottom {
     margin-bottom: $spacer-4;
   }
 
+  .row-logo {
+    padding: $spacer-4 $spacer-3 0 $spacer-3;
+    .logo {
+      height: 50px;
+      width: 58px;
+    }
+  }
+
   .row-top {
-    background-size: auto 50px;
-    padding-top: 80px;
-    padding-left: 15px;
-    background-position: 15px 30px;
+    padding-left: $spacer-3;
 
     .button-wrap * {
       width: 100% !important;
