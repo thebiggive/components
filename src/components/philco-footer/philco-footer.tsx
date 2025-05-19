@@ -63,7 +63,9 @@ export class PhilcoFooter {
             </HeadingTag>
             <ul slot="nav-tertiary">
               <li>
-                <a href="https://drive.google.com/file/d/1D1GnstpMKnnES1aYj05EVE9_lQtLZLwj/view">Download the guide</a>
+                <a href="https://drive.google.com/file/d/1D1GnstpMKnnES1aYj05EVE9_lQtLZLwj/view" target="_blank">
+                  Download the guide
+                </a>
               </li>
             </ul>
           </nav>
