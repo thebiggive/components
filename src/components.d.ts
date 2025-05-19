@@ -540,7 +540,10 @@ export namespace Components {
         "spaceBelow": number;
     }
     interface BiggiveFormattedText {
-        "defaultTextColour": string;
+        /**
+          * Text colour. If undefined or blank colour will be inherited as normal from containing element.
+         */
+        "defaultTextColour": brandColour | undefined;
         "maxWidth": number;
         "siteDesign": 'biggive' | 'philco';
         "spaceBelow": number;
@@ -2155,7 +2158,10 @@ declare namespace LocalJSX {
         "spaceBelow"?: number;
     }
     interface BiggiveFormattedText {
-        "defaultTextColour"?: string;
+        /**
+          * Text colour. If undefined or blank colour will be inherited as normal from containing element.
+         */
+        "defaultTextColour"?: brandColour | undefined;
         "maxWidth"?: number;
         "siteDesign"?: 'biggive' | 'philco';
         "spaceBelow"?: number;
