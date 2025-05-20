@@ -41,7 +41,9 @@ describe('biggive-footer', () => {
 
         <div class="row row-bottom">
           <div class="postscript-wrap">
-            <img class="fr-logo" src="/assets/images/fundraising-regulator.png" alt="Registered with FUNDRAISING REGULATOR">
+            <a class="fr-digital-badge" href="https://www.fundraisingregulator.org.uk/validate?registrant=The+Big+Give+Trust ">
+              <img alt="Fundraising Regulator badge with validation link" loading="lazy" src="https://www.fundraisingregulator.org.uk/fr-badge/a9b06226-3edc-4460-b57f-aeedc3c1dea4/en/white" width="200">
+            </a>
             <nav class="nav nav-postscript" aria-label="Legal"></nav>
           </div>
           <div class="social-icon-wrap">
