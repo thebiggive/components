@@ -16,7 +16,11 @@ export const brandColours = [
   'clear-black',
   'brand-cc-red',
   'brand-wgmf-purple',
-  'brand-gmf-green',
+  'brand-gmf-green', // deprecated name
+  'brand-er-green',
+  'brand-er-blue',
+  'brand-er-teal',
+  'brand-er-dark-green',
   'brand-emf-yellow',
   'brand-c4c-orange',
   'brand-afa-pink',

@@ -21,7 +21,13 @@ $colour-tertiary-coral: #FF7272;
 
 $colour-brand-cc-red: #B30510; // Christmas Challenge
 $colour-brand-wgmf-purple: #6E0887; // Women and Girls Match Fund
-$colour-brand-gmf-green: #50B400; // Green Match Fund
+
+$colour-brand-gmf-green: #50B400; // Green Match Fund - deprecated name
+$colour-brand-er-green: #50B400; // Earth Raise
+$colour-brand-er-blue: #0c0068;
+$colour-brand-er-teal: #00a76d;
+$colour-brand-er-dark-green: #002413;
+
 $colour-brand-emf-yellow: #FFE500; // Emergency Match Fund
 $colour-brand-c4c-orange: #F07D00; // Champions for Children
 $colour-brand-mhf-turquoise: #62CFC9; // Mental Health Fund
@@ -51,7 +57,10 @@ $brandColours: (
 
     "brand-cc-red": $colour-brand-cc-red,
     "brand-wgmf-purple": $colour-brand-wgmf-purple,
-    "brand-gmf-green": $colour-brand-gmf-green,
+    "brand-gmf-green": $colour-brand-gmf-green, // deprecated name
+    "colour-brand-er-green": $colour-brand-er-green,
+    "colour-brand-er-blue": $colour-brand-er-blue,
+    "colour-brand-er-teal": $colour-brand-er-teal,
     "brand-emf-yellow": $colour-brand-emf-yellow,
     "brand-c4c-orange": $colour-brand-c4c-orange,
     "brand-afa-pink": $colour-brand-afa-pink,
