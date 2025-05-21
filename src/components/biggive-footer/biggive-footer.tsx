@@ -89,7 +89,7 @@ export class BiggiveFooter {
 
           <div class="row row-bottom">
             <div class="postscript-wrap">
-              <a href="https://www.fundraisingregulator.org.uk/validate?registrant=The+Big+Give+Trust " class="fr-digital-badge">
+              <a href="https://www.fundraisingregulator.org.uk/validate?registrant=The+Big+Give+Trust" class="fr-digital-badge">
                 <img
                   src="https://www.fundraisingregulator.org.uk/fr-badge/a9b06226-3edc-4460-b57f-aeedc3c1dea4/en/white"
                   width="200"
@@ -224,7 +224,7 @@ export class BiggiveFooter {
 
           <div class="row row-bottom">
             <div class="postscript-wrap">
-              <a href="https://www.fundraisingregulator.org.uk/validate?registrant=The+Big+Give+Trust " class="fr-digital-badge">
+              <a href="https://www.fundraisingregulator.org.uk/validate?registrant=The+Big+Give+Trust" class="fr-digital-badge">
                 <img
                   src="https://www.fundraisingregulator.org.uk/fr-badge/a9b06226-3edc-4460-b57f-aeedc3c1dea4/en/white"
                   width="200"
