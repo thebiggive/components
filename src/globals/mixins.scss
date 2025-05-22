@@ -10,16 +10,23 @@
 
 @mixin philco-subhead-font() {
   font-family: 'Bitter', serif;
+  line-height: 1.2rem;
 }
 
 @mixin philco-body-font() {
   font-family: 'Bitter', serif;
   font-size: 16px;
+  line-height: 1.2rem;
 }
 
 @mixin philco-heading-font() {
   font-family: 'Garage Gothic', sans-serif;
   font-weight: 700;
+  // We want this near-zero, replacing often chunky browser default margins, as other things are
+  // typically managing margins. The BG design does a similar thing in the context of just certain
+  // containers; PhilCo pages are few and simple enough that we can do it universally.
+  margin-top: 0.1rem;
+  margin-bottom: 0.1rem;
 }
 
 @mixin font-size-xx-small() {
@@ -44,7 +51,6 @@
 
 @mixin font-size-philco-medium() {
   font-size: 16px; // Overrides general mixin for e.g. `.button` which is bigger.
-  line-height: 1.1;
 }
 
 @mixin font-size-large() {
