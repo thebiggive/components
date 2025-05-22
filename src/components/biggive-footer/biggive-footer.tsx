@@ -89,8 +89,14 @@ export class BiggiveFooter {
 
           <div class="row row-bottom">
             <div class="postscript-wrap">
-              <img class="fr-logo" src={getAssetPath('/assets/images/fundraising-regulator.png')} alt="Registered with FUNDRAISING REGULATOR" />
-
+              <a href="https://www.fundraisingregulator.org.uk/validate?registrant=The+Big+Give+Trust" class="fr-digital-badge">
+                <img
+                  src="https://www.fundraisingregulator.org.uk/fr-badge/a9b06226-3edc-4460-b57f-aeedc3c1dea4/en/white"
+                  width="200"
+                  alt="Fundraising Regulator badge with validation link"
+                  loading="lazy"
+                />
+              </a>
               <nav class="nav nav-postscript" aria-label="Legal"></nav>
             </div>
 
@@ -218,8 +224,14 @@ export class BiggiveFooter {
 
           <div class="row row-bottom">
             <div class="postscript-wrap">
-              <img class="fr-logo" src={getAssetPath('/assets/images/fundraising-regulator.png')} alt="Registered with FUNDRAISING REGULATOR" />
-
+              <a href="https://www.fundraisingregulator.org.uk/validate?registrant=The+Big+Give+Trust" class="fr-digital-badge">
+                <img
+                  src="https://www.fundraisingregulator.org.uk/fr-badge/a9b06226-3edc-4460-b57f-aeedc3c1dea4/en/white"
+                  width="200"
+                  alt="Fundraising Regulator badge with validation link"
+                  loading="lazy"
+                />
+              </a>
               <nav class="nav nav-postscript" aria-label="Legal">
                 <ul slot="nav-postscript">
                   <li>
