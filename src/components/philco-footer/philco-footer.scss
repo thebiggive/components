@@ -4,6 +4,7 @@
 
 .footer {
   @include philco-body-font();
+  line-height: $philco-standard-body-line-height;
   color: $colour-philco-gray-90;
 }
 
