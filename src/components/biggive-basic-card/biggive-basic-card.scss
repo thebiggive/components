@@ -17,6 +17,7 @@
   padding: $spacer-4;
   &.philco {
     @include philco-body-font();
+    line-height: $philco-standard-body-line-height;
     border-bottom: 12px;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;

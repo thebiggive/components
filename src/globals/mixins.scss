@@ -10,13 +10,12 @@
 
 @mixin philco-subhead-font() {
   font-family: 'Bitter', serif;
-  line-height: 1.2rem;
+  line-height: $philco-standard-body-line-height;
 }
 
 @mixin philco-body-font() {
   font-family: 'Bitter', serif;
   font-size: 16px;
-  line-height: 1.2rem;
 }
 
 @mixin philco-heading-font() {

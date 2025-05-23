@@ -13,6 +13,7 @@
   background-color: white;
   &.philco {
     @include philco-body-font();
+    line-height: $philco-standard-body-line-height;
     background-color: transparent;
     .image-wrap {
       overflow: hidden;
