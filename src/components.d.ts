@@ -19,100 +19,246 @@ export { headingSize } from "./globals/heading-size";
 export { sectionStyle } from "./components/biggive-page-section/biggive-page-section-prop-types";
 export namespace Components {
     interface BiggiveAccordion {
+        /**
+          * @default 'primary'
+         */
         "headingColour": brandColour;
+        /**
+          * @default 0
+         */
         "spaceBelow": spacingOption;
+        /**
+          * @default 'black'
+         */
         "textColour": brandColour;
     }
     interface BiggiveAccordionEntry {
+        /**
+          * @default ''
+         */
         "heading": string;
     }
     interface BiggiveArticleCard {
+        /**
+          * @default 'white'
+         */
         "backgroundColour": brandColour;
+        /**
+          * @default ''
+         */
         "backgroundImageUrl": string;
+        /**
+          * @default 'black'
+         */
         "buttonColour": brandColour;
         "buttonLabel": string;
         "buttonUrl": string;
+        /**
+          * @default true
+         */
         "clipBottomLeftCorner": boolean;
+        /**
+          * @default true
+         */
         "clipTopRightCorner": boolean;
         "date": string;
+        /**
+          * @default 'black'
+         */
         "dateColour": brandColour;
         "image1AltText": string;
         "image1Url": string;
         "image2AltText": string;
         "image2Url": string;
         "imageLabel": string;
+        /**
+          * @default 'black'
+         */
         "imageLabelColour": brandColour;
         "mainImageAltText": string;
         "mainImageUrl": string;
         "mainTitle": string;
+        /**
+          * @default 'black'
+         */
         "mainTitleColour": brandColour;
         "slug": string;
+        /**
+          * @default 'black'
+         */
         "slugColour": brandColour;
+        /**
+          * @default 0
+         */
         "spaceBelow": spacingOption;
     }
     interface BiggiveBackToTop {
     }
     interface BiggiveBasicCard {
+        /**
+          * @default false
+         */
         "addAnimation": boolean;
+        /**
+          * @default ''
+         */
         "author": string;
+        /**
+          * @default 'primary'
+         */
         "backgroundColour": brandColour;
+        /**
+          * @default ''
+         */
         "backgroundImageUrl": string;
+        /**
+          * @default 'center'
+         */
         "buttonAlign": string;
+        /**
+          * @default 'clear-primary'
+         */
         "buttonColourScheme": string;
         "buttonLabel": string;
+        /**
+          * @default 'standard'
+         */
         "buttonStyle": string;
         "buttonUrl": string;
+        /**
+          * @default 'white'
+         */
         "cardColour": brandColour;
+        /**
+          * @default true
+         */
         "clipBottomLeftCorner": boolean;
+        /**
+          * @default true
+         */
         "clipTopRightCorner": boolean;
+        /**
+          * @default ''
+         */
         "date": string;
+        /**
+          * @default 3
+         */
         "headingLevel": 1 | 2 | 3 | 4 | 5 | 6;
+        /**
+          * @default true
+         */
         "icon": boolean;
+        /**
+          * @default 'primary'
+         */
         "iconColour": brandColour;
         "mainImageAltText": string;
+        /**
+          * @default undefined
+         */
         "mainImageUrl"?: string;
         "mainTitle": string;
+        /**
+          * @default 'biggive'
+         */
         "siteDesign": 'biggive' | 'philco';
+        /**
+          * @default 0
+         */
         "spaceBelow": spacingOption;
+        /**
+          * @default ''
+         */
         "subtitle": string;
         "teaser": string;
+        /**
+          * @default 'black'
+         */
         "textColour": brandColour;
     }
     interface BiggiveBiographyCard {
+        /**
+          * @default 'white'
+         */
         "backgroundColour": brandColour;
+        /**
+          * @default 0
+         */
         "borderWidth": spacingOption;
+        /**
+          * @default false
+         */
         "circle": boolean;
+        /**
+          * @default 'light'
+         */
         "circleColour": 'light' | 'dark';
+        /**
+          * @default ''
+         */
         "fullName": string;
+        /**
+          * @default 'cover'
+         */
         "imageStyle": 'cover' | 'contain';
+        /**
+          * @default ''
+         */
         "imageUrl": string;
+        /**
+          * @default ''
+         */
         "jobTitle": string;
+        /**
+          * @default '1,1.5'
+         */
         "ratio": '1,1' | '1,1.5' | '1,2';
+        /**
+          * @default false
+         */
         "rounded": boolean;
+        /**
+          * @default 0
+         */
         "spaceBelow": spacingOption;
+        /**
+          * @default 'left'
+         */
         "textAlign": 'center' | 'left' | 'right';
+        /**
+          * @default 'black'
+         */
         "textColour": brandColour;
+        /**
+          * @default ''
+         */
         "url": string;
     }
     interface BiggiveBoxedContent {
         /**
           * Background colour
+          * @default 'white'
          */
         "backgroundColour": string;
         /**
           * Horizontal padding
+          * @default 3
          */
         "horizontalPadding": number;
         /**
           * Shadow
+          * @default true
          */
         "shadow": boolean;
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow": number;
         /**
           * Vertical padding
+          * @default 3
          */
         "verticalPadding": number;
     }
@@ -132,10 +278,12 @@ export namespace Components {
         "charityUrl": string;
         /**
           * Full URL of a image.
+          * @default ''
          */
         "imageUrl": string;
         /**
           * Full URL of the logo.
+          * @default ''
          */
         "logoUrl": string;
         /**
@@ -144,46 +292,62 @@ export namespace Components {
         "slug": string;
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow": number;
     }
     interface BiggiveButton {
+        /**
+          * @default undefined
+         */
         "buttonId": undefined | string;
         /**
           * Centered
+          * @default false
          */
         "centered": boolean;
         /**
           * Colour Scheme
+          * @default 'primary'
          */
         "colourScheme": brandColour;
         /**
           * For use only in philco site - the Big Give site does not use disabled buttons and does not have a design for such.
+          * @default false
          */
         "disabled": boolean;
         /**
           * Display full width
+          * @default false
          */
         "fullWidth": boolean;
         /**
           * Text
+          * @default 'Click me'
          */
         "label": string;
         /**
           * New Tab
+          * @default false
          */
         "openInNewTab": boolean;
         /**
           * Rounded corners
+          * @default false
          */
         "rounded": boolean;
+        /**
+          * @default 'biggive'
+         */
         "siteDesign": 'biggive' | 'philco';
         /**
           * Size
+          * @default 'medium'
          */
         "size": string;
         /**
           * Space below component
+          * @default 1
          */
         "spaceBelow": number;
         /**
@@ -194,6 +358,7 @@ export namespace Components {
     interface BiggiveCallToAction {
         /**
           * Default text colour
+          * @default 'primary'
          */
         "defaultTextColour": string;
         /**
@@ -202,14 +367,17 @@ export namespace Components {
         "mainTitle": string;
         /**
           * Main title colour
+          * @default ''
          */
         "mainTitleColour": string;
         /**
           * Main title size
+          * @default 2
          */
         "mainTitleSize": number;
         /**
           * Primary button Colour Scheme
+          * @default 'primary'
          */
         "primaryButtonColourScheme": string;
         /**
@@ -222,6 +390,7 @@ export namespace Components {
         "primaryButtonUrl": string;
         /**
           * Secondary button Colour Scheme
+          * @default 'primary'
          */
         "secondaryButtonColourScheme": string;
         /**
@@ -238,18 +407,22 @@ export namespace Components {
         "slug": string;
         /**
           * Slug colour
+          * @default ''
          */
         "slugColour": string;
         /**
           * Slug size
+          * @default 4
          */
         "slugSize": number;
         /**
           * Space above component
+          * @default 0
          */
         "spaceAbove": number;
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow": number;
         /**
@@ -258,10 +431,12 @@ export namespace Components {
         "subtitle": string;
         /**
           * Subtitle colour
+          * @default ''
          */
         "subtitleColour": string;
         /**
           * Main title size
+          * @default 4
          */
         "subtitleSize": number;
         /**
@@ -270,6 +445,7 @@ export namespace Components {
         "teaser": string;
         /**
           * Teaser colour
+          * @default ''
          */
         "teaserColour": string;
     }
@@ -292,10 +468,12 @@ export namespace Components {
         "datetime": string;
         /**
           * Donate button colour scheme
+          * @default 'primary'
          */
         "donateButtonColourScheme": string;
         /**
           * Donate button label
+          * @default 'Donate now'
          */
         "donateButtonLabel": string;
         /**
@@ -304,18 +482,22 @@ export namespace Components {
         "donateButtonUrl": string;
         /**
           * Boolean flag telling the component if the campaign is in the future (not open yet).
+          * @default false
          */
         "isFutureCampaign": boolean;
         /**
           * Boolean flag telling the component if the campaign is in the future (not open yet).
+          * @default false
          */
         "isPastCampaign": boolean;
         /**
           * Donate button colour scheme
+          * @default 'clear-primary'
          */
         "moreInfoButtonColourScheme": string;
         /**
           * More information button label
+          * @default 'Find out more'
          */
         "moreInfoButtonLabel": string;
         /**
@@ -348,6 +530,7 @@ export namespace Components {
         "secondaryFigureLabel": string | null;
         /**
           * Space below component
+          * @default 4
          */
         "spaceBelow": number;
     }
@@ -358,6 +541,7 @@ export namespace Components {
         "beneficiaryOptions": string | Record<string, string> | string[];
         /**
           * Defines the text on the search button
+          * @default 'Search'
          */
         "buttonText": string;
         /**
@@ -366,6 +550,7 @@ export namespace Components {
         "categoryOptions": string | Record<string, string> | string[];
         /**
           * Intro
+          * @default 'Find a charity or project'
          */
         "intro": string;
         /**
@@ -374,22 +559,27 @@ export namespace Components {
         "locationOptions": string | Record<string, string> | string[];
         /**
           * Defines the text displayed as the placeholder in the input field before the user types anything
+          * @default 'Search'
          */
         "placeholderText": string;
         /**
           * Optional search text prop. Useful for pre-populating the search field when the page is loaded with a search term already existing in the URL. This can happen when sharing links, or if a donor goes to a campaign page after searching, and then returns to the search results. In such a case, the search box text will clear, unless we use this prop to populate it on rendering. DON-652.
+          * @default null
          */
         "searchText": string | null;
         /**
           * For injecting the chosen beneficiary to filter by, as per the comment above for `selectedSortByOption`.
+          * @default null
          */
         "selectedFilterBeneficiary": string | null;
         /**
           * For injecting the chosen category to filter by, as per the comment above for `selectedSortByOption`.
+          * @default null
          */
         "selectedFilterCategory": string | null;
         /**
           * For injecting the chosen location to filter by, as per the comment above for `selectedSortByOption`.
+          * @default null
          */
         "selectedFilterLocation": string | null;
         /**
@@ -398,6 +588,7 @@ export namespace Components {
         "selectedSortByOption": sortOptionLabel;
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow": number;
         /**
@@ -440,6 +631,7 @@ export namespace Components {
         "primaryStatText": string;
         /**
           * Progress bar percentage
+          * @default 100
          */
         "progressBarCounter": number;
         /**
@@ -460,27 +652,54 @@ export namespace Components {
         "secondaryStatText": string;
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow": number;
     }
     interface BiggiveContainerCard {
+        /**
+          * @default 'primary'
+         */
         "backgroundColour": brandColour;
+        /**
+          * @default ''
+         */
         "backgroundImageUrl": string;
+        /**
+          * @default 'white'
+         */
         "cardColour": brandColour;
+        /**
+          * @default true
+         */
         "clipBottomLeftCorner": boolean;
+        /**
+          * @default true
+         */
         "clipTopRightCorner": boolean;
+        /**
+          * @default 3
+         */
         "headingLevel": 1 | 2 | 3 | 4 | 5 | 6;
+        /**
+          * @default 0
+         */
         "spaceBelow": spacingOption;
+        /**
+          * @default 'black'
+         */
         "textColour": brandColour;
     }
     interface BiggiveCookieBanner {
         /**
           * If true the Preferences modal will be auto-opened - for use when the user has requested to edit their cookie preferences
+          * @default false
          */
         "autoOpenPreferences": boolean;
         "blogUriPrefix": string;
         /**
           * This type is similar to CookiePreferences from donate-frontend/src/app/cookiePreference.service.ts but afaik there isn't a nice way to share a type.  When updating please also update the copy in the type of cookieBannerSavePreferencesSelected - using a named type there caused build problems.  When updating please also update the type of cookieBannerSavePreferencesSelected - I didn't find a way to avoid the duplication.
+          * @default undefined
          */
         "previouslyAgreedCookiePreferences": | {
         analyticsAndTesting: boolean;
@@ -499,10 +718,17 @@ export namespace Components {
          */
         "donateUrlPrefix": string;
         "experienceUrlPrefix": string | undefined;
+        /**
+          * @default 5
+         */
         "headingLevel": 1 | 2 | 3 | 4 | 5 | 6;
+        /**
+          * @default false
+         */
         "smallCharityWeekEnabled": boolean;
         /**
           * Conditionally render footer menu: hard-coded (preset) when set to true, dynamic (slot-based) when set to false
+          * @default false
          */
         "usePresetFooter": boolean;
     }
@@ -529,13 +755,20 @@ export namespace Components {
           * ID for the select element, used by a label. If not passed then a random id will be generated.
          */
         "selectElementId": string | undefined;
+        /**
+          * @default 'bordered'
+         */
         "selectStyle": 'bordered' | 'underlined';
         "selectedLabel": string | null;
+        /**
+          * @default 'blue'
+         */
         "selectedOptionColour": 'inherit' | 'blue';
         "selectedValue": string | null;
         "selectionChanged": (value: string) => void;
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow": number;
     }
@@ -544,34 +777,84 @@ export namespace Components {
           * Text colour. If undefined or blank colour will be inherited as normal from containing element.
          */
         "defaultTextColour": brandColour | undefined;
+        /**
+          * @default 100
+         */
         "maxWidth": number;
+        /**
+          * @default 'biggive'
+         */
         "siteDesign": 'biggive' | 'philco';
+        /**
+          * @default 0
+         */
         "spaceBelow": number;
     }
     interface BiggiveGrid {
+        /**
+          * @default 3
+         */
         "columnCount": number;
+        /**
+          * @default 0
+         */
         "columnGap": spacingOption;
+        /**
+          * @default 4
+         */
         "spaceBelow": number;
         /**
           * Deprecated - should use columGap Instead
+          * @default false
          */
         "spaceBetween": boolean;
     }
     interface BiggiveHeading {
+        /**
+          * @default 'left'
+         */
         "align": string;
+        /**
+          * @default 'primary'
+         */
         "colour": brandColour;
+        /**
+          * @default 'h1'
+         */
         "htmlElement": headingTag;
+        /**
+          * @default false
+         */
         "icon": boolean;
+        /**
+          * @default 'primary'
+         */
         "iconColour": brandColour;
+        /**
+          * @default 'biggive'
+         */
         "siteDesign": 'biggive' | 'philco';
+        /**
+          * @default 1
+         */
         "size": headingSize;
+        /**
+          * @default 2
+         */
         "spaceAbove": spacingOption;
+        /**
+          * @default 4
+         */
         "spaceBelow": spacingOption;
+        /**
+          * @default ''
+         */
         "text": string;
     }
     interface BiggiveHeroImage {
         /**
           * Button Colour Scheme
+          * @default 'primary'
          */
         "buttonColourScheme": brandColour;
         /**
@@ -584,34 +867,42 @@ export namespace Components {
         "buttonUrl": string;
         /**
           * Colour Scheme
+          * @default 'primary'
          */
         "colourScheme": brandColour;
         /**
           * Full URL of a logo image.
+          * @default ''
          */
         "logo": string;
         /**
           * Logo alt text
+          * @default ''
          */
         "logoAltText": string;
         /**
           * Logo container height selection. Numbers are not measurements.
+          * @default 3
          */
         "logoHeight": 1|2|3|4|5|6|7|8|9|10;
         /**
           * Full URL of a main hero image.
+          * @default null
          */
         "mainImage": string|null;
         /**
           * Horizontal alignment of image
+          * @default 'center'
          */
         "mainImageAlignHorizontal": string;
         /**
           * Vertical alignment of image
+          * @default 'center'
          */
         "mainImageAlignVertical": string;
         /**
           * Determines whether the main image is clipped to a triangle shape (default) or used as a background for the entire component. Clipping can leave a lot of blank space.
+          * @default 'triangle'
          */
         "mainImageShape": 'triangle'|'rectangle';
         /**
@@ -632,6 +923,7 @@ export namespace Components {
         "slugColour": brandColour;
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow": spacingOption;
         /**
@@ -644,92 +936,211 @@ export namespace Components {
         "teaserColour"?: brandColour;
     }
     interface BiggiveIconButton {
+        /**
+          * @default false
+         */
         "arrow": boolean;
+        /**
+          * @default 'black'
+         */
         "arrowColour": brandColour;
+        /**
+          * @default 'white'
+         */
         "backgroundColour": brandColour;
+        /**
+          * @default 0
+         */
         "backgroundPadding": spacingOption;
+        /**
+          * @default undefined
+         */
         "buttonId": undefined | string;
+        /**
+          * @default false
+         */
         "centered": boolean;
+        /**
+          * @default false
+         */
         "circle": boolean;
         "icon": string;
+        /**
+          * @default false
+         */
         "openInNewTab": boolean;
+        /**
+          * @default false
+         */
         "rounded": boolean;
+        /**
+          * @default false
+         */
         "shadow": boolean;
+        /**
+          * @default 'medium'
+         */
         "size": 'small' | 'medium' | 'large' | 'x-large' | 'xx-large';
+        /**
+          * @default 1
+         */
         "spaceBelow": spacingOption;
         "text": string;
+        /**
+          * @default 'black'
+         */
         "textColour": brandColour;
         "url": string;
     }
     interface BiggiveImage {
         /**
           * Image width
+          * @default 0
          */
         "height": number;
         /**
           * Image alt text tag.
+          * @default ''
          */
         "imageAltText": string;
         /**
           * Full URL of a image.
+          * @default ''
          */
         "imageUrl": string;
         /**
           * Size unit
+          * @default 'px'
          */
         "sizeUnit": string;
         /**
           * Space above component
+          * @default 0
          */
         "spaceAbove": number;
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow": number;
         /**
           * Image width
+          * @default 0
          */
         "width": number;
     }
     interface BiggiveImageButton {
+        /**
+          * @default false
+         */
         "arrow": boolean;
+        /**
+          * @default 'black'
+         */
         "arrowColour": brandColour;
+        /**
+          * @default 'white'
+         */
         "backgroundColour": brandColour;
+        /**
+          * @default 0
+         */
         "backgroundPadding": spacingOption;
+        /**
+          * @default undefined
+         */
         "buttonId": undefined | string;
+        /**
+          * @default false
+         */
         "centered": boolean;
+        /**
+          * @default false
+         */
         "circle": boolean;
+        /**
+          * @default 'cover'
+         */
         "imageStyle": string;
         "imageUrl": string;
+        /**
+          * @default false
+         */
         "openInNewTab": boolean;
+        /**
+          * @default false
+         */
         "rounded": boolean;
+        /**
+          * @default false
+         */
         "shadow": boolean;
+        /**
+          * @default 'medium'
+         */
         "size": 'small' | 'medium' | 'large' | 'x-large' | 'xx-large';
+        /**
+          * @default 1
+         */
         "spaceBelow": spacingOption;
         "text": string;
+        /**
+          * @default 'black'
+         */
         "textColour": brandColour;
         "url": string;
     }
     interface BiggiveImageCard {
+        /**
+          * @default false
+         */
         "addAnimation": boolean;
+        /**
+          * @default 'primary'
+         */
         "backgroundColour": brandColour;
+        /**
+          * @default 'center'
+         */
         "buttonAlign": string;
+        /**
+          * @default 'clear-primary'
+         */
         "buttonColourScheme": string;
         "buttonLabel": string;
+        /**
+          * @default 'standard'
+         */
         "buttonStyle": string;
         "buttonUrl": string;
+        /**
+          * @default true
+         */
         "clipBottomLeftCorner": boolean;
+        /**
+          * @default true
+         */
         "clipTopRightCorner": boolean;
         "mainImageAltText": string;
         "mainImageUrl": string;
+        /**
+          * @default 0
+         */
         "spaceBelow": spacingOption;
         "teaser": string;
+        /**
+          * @default 'black'
+         */
         "teaserColour": brandColour;
+        /**
+          * @default 'center'
+         */
         "textAlign": 'left' | 'center' | 'right';
     }
     interface BiggiveImageFeature {
         /**
           * Button Colour Scheme
+          * @default 'primary'
          */
         "buttonColourScheme": string;
         /**
@@ -742,14 +1153,17 @@ export namespace Components {
         "buttonUrl": string;
         /**
           * Default text colour
+          * @default 'primary'
          */
         "defaultTextColour": string;
         /**
           * Image alt text tag.
+          * @default ''
          */
         "imageAltText": string;
         /**
           * Full URL of a image.
+          * @default ''
          */
         "imageUrl": string;
         /**
@@ -758,6 +1172,7 @@ export namespace Components {
         "mainTitle": string;
         /**
           * Slug colour
+          * @default ''
          */
         "mainTitleColour": string;
         /**
@@ -766,10 +1181,12 @@ export namespace Components {
         "slug": string;
         /**
           * Slug colour
+          * @default ''
          */
         "slugColour": string;
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow": number;
         /**
@@ -778,27 +1195,43 @@ export namespace Components {
         "teaser": string;
         /**
           * Teaser colour
+          * @default ''
          */
         "teaserColour": string;
     }
     interface BiggiveMainMenu {
+        /**
+          * @default 'https://biggive.org'
+         */
         "blogUrlPrefix": string;
         "closeMobileMenuFromOutside": () => Promise<void>;
+        /**
+          * @default 'https://donate.biggive.org'
+         */
         "donateUrlPrefix": string;
+        /**
+          * @default 'https://community.biggive.org'
+         */
         "experienceUrlPrefix": string;
         /**
           * Whether the current user is logged in (i.e. is assumed to have a valid JWT). They get links to some extra content if they are.
+          * @default false
          */
         "isLoggedIn": boolean;
+        /**
+          * @default false
+         */
         "smallCharityWeekEnabled": boolean;
         /**
           * We don't want to make the ?noredirect version proliferate too much so err on not including this. We also don't really want every single page to have to get highlight cards to set this property. So for now, typically only meta-campaign bothers to get the correct value to set this true if appropriate. That's the page which is the destination of the redirect so is arguably the only place where it's essential that the menu lets you go to the 'normal' home page.
+          * @default false
          */
         "someCampaignHasHomePageRedirect": boolean;
     }
     interface BiggiveMiscIcon {
         /**
           * Background colour
+          * @default 'primary'
          */
         "backgroundColour": string;
         /**
@@ -807,6 +1240,7 @@ export namespace Components {
         "icon": string;
         /**
           * Background colour
+          * @default 'white'
          */
         "iconColour": string;
         /**
@@ -817,6 +1251,7 @@ export namespace Components {
     interface BiggiveNavGroup {
         /**
           * Inline
+          * @default true
          */
         "inline": boolean;
     }
@@ -839,6 +1274,7 @@ export namespace Components {
     interface BiggivePageColumns {
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow": number;
     }
@@ -849,22 +1285,27 @@ export namespace Components {
         "colourScheme": string;
         /**
           * Width
+          * @default 100
          */
         "maxWidth": number;
         /**
           * Bleeds the primary brand colour to the left and right edge of the viewport, even if used within a containing block element.
+          * @default false
          */
         "primaryFullBleed": boolean;
         /**
           * Section style bottom
+          * @default 'straight'
          */
         "sectionStyleBottom": sectionStyle;
         /**
           * Section style top
+          * @default 'straight'
          */
         "sectionStyleTop": sectionStyle;
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow": number;
     }
@@ -872,6 +1313,7 @@ export namespace Components {
         "closeFromOutside": () => Promise<void>;
         /**
           * Function to execute when the modal is closed, whether by the user or programmatically.
+          * @default () => {}
          */
         "modalClosedCallback": () => void;
         "openFromOutside": () => Promise<void>;
@@ -879,31 +1321,59 @@ export namespace Components {
     interface BiggiveProgressBar {
         /**
           * Colour Scheme
+          * @default 'primary'
          */
         "colourScheme": string;
         /**
           * Percentage to show + use for CSS width; round before input if desired
+          * @default 100
          */
         "counter"?: number | null;
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow": number;
     }
     interface BiggiveQuote {
+        /**
+          * @default ''
+         */
         "attribution": string;
+        /**
+          * @default 'black'
+         */
         "defaultTextColour": brandColour;
+        /**
+          * @default ''
+         */
         "quote": string;
+        /**
+          * @default 'primary'
+         */
         "quoteIconColour": brandColour;
+        /**
+          * @default 'biggive'
+         */
         "siteDesign": 'biggive' | 'philco';
+        /**
+          * @default 0
+         */
         "spaceBelow": spacingOption;
     }
     interface BiggiveSheet {
+        /**
+          * @default 'primary'
+         */
         "backgroundColour": brandColour;
         /**
           * A string ID (no spaces) unique within the page context, used to trigger the opening of the sheet from an anchor hash.
+          * @default ''
          */
         "sheetId": string;
+        /**
+          * @default 'white'
+         */
         "textColour": brandColour;
     }
     /**
@@ -912,14 +1382,17 @@ export namespace Components {
     interface BiggiveSocialIcon {
         /**
           * Background colour
+          * @default 'primary'
          */
         "backgroundColour": string;
         /**
           * Icon colour
+          * @default 'white'
          */
         "iconColour": string;
         /**
           * Used within accessible labels for links. Typically a charity name or "Big Give". Can also be "Share".
+          * @default 'Big Give'
          */
         "labelPrefix": string;
         /**
@@ -928,30 +1401,71 @@ export namespace Components {
         "service": 'Facebook' | 'Instagram' | 'LinkedIn' | 'Twitter' | 'Web' | 'Whatsapp' | 'YouTube';
         /**
           * Url
+          * @default '#'
          */
         "url": string;
         /**
           * Used in the social icons in the biggive-footer, which are more spaced out than others across the site. COM-43.
+          * @default false
          */
         "wide": boolean;
     }
     interface BiggiveTab {
+        /**
+          * @default ''
+         */
         "tabTitle": string;
     }
     interface BiggiveTabbedContent {
+        /**
+          * @default 'white'
+         */
         "buttonBackgroundColour": brandColour;
+        /**
+          * @default 'primary'
+         */
         "buttonIconColour": brandColour;
+        /**
+          * @default 'grey-medium'
+         */
         "navigationHighlightColour": brandColour;
+        /**
+          * @default 'primary'
+         */
         "selectedNavigationHighlightColour": brandColour;
+        /**
+          * @default 'primary'
+         */
         "selectedTextColour": brandColour;
+        /**
+          * @default 0
+         */
         "spaceBelow": spacingOption;
+        /**
+          * @default 'black'
+         */
         "textColour": brandColour;
     }
     interface BiggiveTable {
+        /**
+          * @default 'grey-light'
+         */
         "bodyBackgroundColour": brandColour;
+        /**
+          * @default 'black'
+         */
         "bodyTextColour": brandColour;
+        /**
+          * @default 'white'
+         */
         "headerBackgroundColour": brandColour;
+        /**
+          * @default 'primary'
+         */
         "headerTextColour": brandColour;
+        /**
+          * @default 0
+         */
         "spaceBelow": spacingOption;
     }
     /**
@@ -964,23 +1478,68 @@ export namespace Components {
           * ISO-4217 currency code if input is for a money value
          */
         "currency": 'GBP' | 'USD' | undefined;
+        /**
+          * @default 'bordered'
+         */
         "selectStyle": 'bordered' | 'underlined';
+        /**
+          * @default 'biggive'
+         */
         "siteDesign": 'biggive' | 'philco';
+        /**
+          * @default 0
+         */
         "spaceBelow": number;
         "value": string;
     }
     interface BiggiveTimeline {
+        /**
+          * @default 'white'
+         */
         "buttonBackgroundColour": brandColour;
+        /**
+          * @default 'primary'
+         */
         "buttonIconColour": brandColour;
+        /**
+          * @default 'white'
+         */
         "entryBackgroundColour": brandColour;
+        /**
+          * @default 'black'
+         */
         "entryDateColour": brandColour;
+        /**
+          * @default 'secondary'
+         */
         "entryHighlightColour": brandColour;
+        /**
+          * @default 'black'
+         */
         "entryTextColour": brandColour;
+        /**
+          * @default 'primary'
+         */
         "entryTitleColour": brandColour;
+        /**
+          * @default 'grey-medium'
+         */
         "navigationHighlightColour": brandColour;
+        /**
+          * @default 'primary'
+         */
         "selectedNavigationHighlightColour": brandColour;
+        /**
+          * @default 'primary'
+         */
         "selectedTextColour": brandColour;
+        /**
+          * @default 0
+         */
         "spaceBelow": spacingOption;
+        /**
+          * @default 'black'
+         */
         "textColour": brandColour;
     }
     interface BiggiveTimelineEntry {
@@ -997,22 +1556,27 @@ export namespace Components {
         "mainMessage": string;
         /**
           * Primary banner colour
+          * @default 'primary'
          */
         "primaryColour": string;
         /**
           * Primary text colour
+          * @default 'white'
          */
         "primaryTextColour": string;
         /**
           * Secondary banner colour
+          * @default 'secondary'
          */
         "secondaryColour": string;
         /**
           * Secondary text colour
+          * @default 'black'
          */
         "secondaryTextColour": string;
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow": number;
     }
@@ -1029,20 +1593,24 @@ export namespace Components {
     interface BiggiveVideo {
         /**
           * Space above component
+          * @default 0
          */
         "spaceAbove": number;
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow": number;
         /**
           * Full URL of a video.
+          * @default ''
          */
         "videoUrl": string;
     }
     interface BiggiveVideoFeature {
         /**
           * Button Colour Scheme
+          * @default 'primary'
          */
         "buttonColourScheme": string;
         /**
@@ -1055,6 +1623,7 @@ export namespace Components {
         "buttonUrl": string;
         /**
           * Default text colour
+          * @default 'primary'
          */
         "defaultTextColour": string;
         /**
@@ -1063,6 +1632,7 @@ export namespace Components {
         "mainTitle": string;
         /**
           * Slug colour
+          * @default ''
          */
         "mainTitleColour": string;
         /**
@@ -1071,14 +1641,17 @@ export namespace Components {
         "slug": string;
         /**
           * Slug colour
+          * @default ''
          */
         "slugColour": string;
         /**
           * Space above component
+          * @default 0
          */
         "spaceAbove": number;
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow": number;
         /**
@@ -1087,10 +1660,12 @@ export namespace Components {
         "teaser": string;
         /**
           * Teaser colour
+          * @default ''
          */
         "teaserColour": string;
         /**
           * Full URL of a video.
+          * @default ''
          */
         "videoUrl": string;
     }
@@ -1099,7 +1674,13 @@ export namespace Components {
      * landmarks.
      */
     interface PhilcoFooter {
+        /**
+          * @default 5
+         */
         "headingLevel": 1 | 2 | 3 | 4 | 5 | 6;
+        /**
+          * @default 'https://philco.org.uk/'
+         */
         "philcoUrlPrefix": string;
     }
     interface PhilcoMainMenu {
@@ -1617,100 +2198,246 @@ declare global {
 }
 declare namespace LocalJSX {
     interface BiggiveAccordion {
+        /**
+          * @default 'primary'
+         */
         "headingColour"?: brandColour;
+        /**
+          * @default 0
+         */
         "spaceBelow"?: spacingOption;
+        /**
+          * @default 'black'
+         */
         "textColour"?: brandColour;
     }
     interface BiggiveAccordionEntry {
+        /**
+          * @default ''
+         */
         "heading"?: string;
     }
     interface BiggiveArticleCard {
+        /**
+          * @default 'white'
+         */
         "backgroundColour"?: brandColour;
+        /**
+          * @default ''
+         */
         "backgroundImageUrl"?: string;
+        /**
+          * @default 'black'
+         */
         "buttonColour"?: brandColour;
         "buttonLabel"?: string;
         "buttonUrl"?: string;
+        /**
+          * @default true
+         */
         "clipBottomLeftCorner"?: boolean;
+        /**
+          * @default true
+         */
         "clipTopRightCorner"?: boolean;
         "date"?: string;
+        /**
+          * @default 'black'
+         */
         "dateColour"?: brandColour;
         "image1AltText"?: string;
         "image1Url"?: string;
         "image2AltText"?: string;
         "image2Url"?: string;
         "imageLabel"?: string;
+        /**
+          * @default 'black'
+         */
         "imageLabelColour"?: brandColour;
         "mainImageAltText"?: string;
         "mainImageUrl"?: string;
         "mainTitle"?: string;
+        /**
+          * @default 'black'
+         */
         "mainTitleColour"?: brandColour;
         "slug"?: string;
+        /**
+          * @default 'black'
+         */
         "slugColour"?: brandColour;
+        /**
+          * @default 0
+         */
         "spaceBelow"?: spacingOption;
     }
     interface BiggiveBackToTop {
     }
     interface BiggiveBasicCard {
+        /**
+          * @default false
+         */
         "addAnimation"?: boolean;
+        /**
+          * @default ''
+         */
         "author"?: string;
+        /**
+          * @default 'primary'
+         */
         "backgroundColour"?: brandColour;
+        /**
+          * @default ''
+         */
         "backgroundImageUrl"?: string;
+        /**
+          * @default 'center'
+         */
         "buttonAlign"?: string;
+        /**
+          * @default 'clear-primary'
+         */
         "buttonColourScheme"?: string;
         "buttonLabel"?: string;
+        /**
+          * @default 'standard'
+         */
         "buttonStyle"?: string;
         "buttonUrl"?: string;
+        /**
+          * @default 'white'
+         */
         "cardColour"?: brandColour;
+        /**
+          * @default true
+         */
         "clipBottomLeftCorner"?: boolean;
+        /**
+          * @default true
+         */
         "clipTopRightCorner"?: boolean;
+        /**
+          * @default ''
+         */
         "date"?: string;
+        /**
+          * @default 3
+         */
         "headingLevel"?: 1 | 2 | 3 | 4 | 5 | 6;
+        /**
+          * @default true
+         */
         "icon"?: boolean;
+        /**
+          * @default 'primary'
+         */
         "iconColour"?: brandColour;
         "mainImageAltText"?: string;
+        /**
+          * @default undefined
+         */
         "mainImageUrl"?: string;
         "mainTitle"?: string;
+        /**
+          * @default 'biggive'
+         */
         "siteDesign"?: 'biggive' | 'philco';
+        /**
+          * @default 0
+         */
         "spaceBelow"?: spacingOption;
+        /**
+          * @default ''
+         */
         "subtitle"?: string;
         "teaser"?: string;
+        /**
+          * @default 'black'
+         */
         "textColour"?: brandColour;
     }
     interface BiggiveBiographyCard {
+        /**
+          * @default 'white'
+         */
         "backgroundColour"?: brandColour;
+        /**
+          * @default 0
+         */
         "borderWidth"?: spacingOption;
+        /**
+          * @default false
+         */
         "circle"?: boolean;
+        /**
+          * @default 'light'
+         */
         "circleColour"?: 'light' | 'dark';
+        /**
+          * @default ''
+         */
         "fullName"?: string;
+        /**
+          * @default 'cover'
+         */
         "imageStyle"?: 'cover' | 'contain';
+        /**
+          * @default ''
+         */
         "imageUrl"?: string;
+        /**
+          * @default ''
+         */
         "jobTitle"?: string;
+        /**
+          * @default '1,1.5'
+         */
         "ratio"?: '1,1' | '1,1.5' | '1,2';
+        /**
+          * @default false
+         */
         "rounded"?: boolean;
+        /**
+          * @default 0
+         */
         "spaceBelow"?: spacingOption;
+        /**
+          * @default 'left'
+         */
         "textAlign"?: 'center' | 'left' | 'right';
+        /**
+          * @default 'black'
+         */
         "textColour"?: brandColour;
+        /**
+          * @default ''
+         */
         "url"?: string;
     }
     interface BiggiveBoxedContent {
         /**
           * Background colour
+          * @default 'white'
          */
         "backgroundColour"?: string;
         /**
           * Horizontal padding
+          * @default 3
          */
         "horizontalPadding"?: number;
         /**
           * Shadow
+          * @default true
          */
         "shadow"?: boolean;
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow"?: number;
         /**
           * Vertical padding
+          * @default 3
          */
         "verticalPadding"?: number;
     }
@@ -1730,10 +2457,12 @@ declare namespace LocalJSX {
         "charityUrl"?: string;
         /**
           * Full URL of a image.
+          * @default ''
          */
         "imageUrl"?: string;
         /**
           * Full URL of the logo.
+          * @default ''
          */
         "logoUrl"?: string;
         /**
@@ -1742,47 +2471,63 @@ declare namespace LocalJSX {
         "slug"?: string;
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow"?: number;
     }
     interface BiggiveButton {
+        /**
+          * @default undefined
+         */
         "buttonId"?: undefined | string;
         /**
           * Centered
+          * @default false
          */
         "centered"?: boolean;
         /**
           * Colour Scheme
+          * @default 'primary'
          */
         "colourScheme"?: brandColour;
         /**
           * For use only in philco site - the Big Give site does not use disabled buttons and does not have a design for such.
+          * @default false
          */
         "disabled"?: boolean;
         /**
           * Display full width
+          * @default false
          */
         "fullWidth"?: boolean;
         /**
           * Text
+          * @default 'Click me'
          */
         "label"?: string;
         "onDoButtonClick"?: (event: BiggiveButtonCustomEvent<{ event: object; url: string }>) => void;
         /**
           * New Tab
+          * @default false
          */
         "openInNewTab"?: boolean;
         /**
           * Rounded corners
+          * @default false
          */
         "rounded"?: boolean;
+        /**
+          * @default 'biggive'
+         */
         "siteDesign"?: 'biggive' | 'philco';
         /**
           * Size
+          * @default 'medium'
          */
         "size"?: string;
         /**
           * Space below component
+          * @default 1
          */
         "spaceBelow"?: number;
         /**
@@ -1793,6 +2538,7 @@ declare namespace LocalJSX {
     interface BiggiveCallToAction {
         /**
           * Default text colour
+          * @default 'primary'
          */
         "defaultTextColour"?: string;
         /**
@@ -1801,14 +2547,17 @@ declare namespace LocalJSX {
         "mainTitle"?: string;
         /**
           * Main title colour
+          * @default ''
          */
         "mainTitleColour"?: string;
         /**
           * Main title size
+          * @default 2
          */
         "mainTitleSize"?: number;
         /**
           * Primary button Colour Scheme
+          * @default 'primary'
          */
         "primaryButtonColourScheme"?: string;
         /**
@@ -1821,6 +2570,7 @@ declare namespace LocalJSX {
         "primaryButtonUrl"?: string;
         /**
           * Secondary button Colour Scheme
+          * @default 'primary'
          */
         "secondaryButtonColourScheme"?: string;
         /**
@@ -1837,18 +2587,22 @@ declare namespace LocalJSX {
         "slug"?: string;
         /**
           * Slug colour
+          * @default ''
          */
         "slugColour"?: string;
         /**
           * Slug size
+          * @default 4
          */
         "slugSize"?: number;
         /**
           * Space above component
+          * @default 0
          */
         "spaceAbove"?: number;
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow"?: number;
         /**
@@ -1857,10 +2611,12 @@ declare namespace LocalJSX {
         "subtitle"?: string;
         /**
           * Subtitle colour
+          * @default ''
          */
         "subtitleColour"?: string;
         /**
           * Main title size
+          * @default 4
          */
         "subtitleSize"?: number;
         /**
@@ -1869,6 +2625,7 @@ declare namespace LocalJSX {
         "teaser"?: string;
         /**
           * Teaser colour
+          * @default ''
          */
         "teaserColour"?: string;
     }
@@ -1891,10 +2648,12 @@ declare namespace LocalJSX {
         "datetime"?: string;
         /**
           * Donate button colour scheme
+          * @default 'primary'
          */
         "donateButtonColourScheme"?: string;
         /**
           * Donate button label
+          * @default 'Donate now'
          */
         "donateButtonLabel"?: string;
         /**
@@ -1903,18 +2662,22 @@ declare namespace LocalJSX {
         "donateButtonUrl"?: string;
         /**
           * Boolean flag telling the component if the campaign is in the future (not open yet).
+          * @default false
          */
         "isFutureCampaign"?: boolean;
         /**
           * Boolean flag telling the component if the campaign is in the future (not open yet).
+          * @default false
          */
         "isPastCampaign"?: boolean;
         /**
           * Donate button colour scheme
+          * @default 'clear-primary'
          */
         "moreInfoButtonColourScheme"?: string;
         /**
           * More information button label
+          * @default 'Find out more'
          */
         "moreInfoButtonLabel"?: string;
         /**
@@ -1948,6 +2711,7 @@ declare namespace LocalJSX {
         "secondaryFigureLabel"?: string | null;
         /**
           * Space below component
+          * @default 4
          */
         "spaceBelow"?: number;
     }
@@ -1958,6 +2722,7 @@ declare namespace LocalJSX {
         "beneficiaryOptions"?: string | Record<string, string> | string[];
         /**
           * Defines the text on the search button
+          * @default 'Search'
          */
         "buttonText"?: string;
         /**
@@ -1966,6 +2731,7 @@ declare namespace LocalJSX {
         "categoryOptions"?: string | Record<string, string> | string[];
         /**
           * Intro
+          * @default 'Find a charity or project'
          */
         "intro"?: string;
         /**
@@ -1984,22 +2750,27 @@ declare namespace LocalJSX {
   }>) => void;
         /**
           * Defines the text displayed as the placeholder in the input field before the user types anything
+          * @default 'Search'
          */
         "placeholderText"?: string;
         /**
           * Optional search text prop. Useful for pre-populating the search field when the page is loaded with a search term already existing in the URL. This can happen when sharing links, or if a donor goes to a campaign page after searching, and then returns to the search results. In such a case, the search box text will clear, unless we use this prop to populate it on rendering. DON-652.
+          * @default null
          */
         "searchText"?: string | null;
         /**
           * For injecting the chosen beneficiary to filter by, as per the comment above for `selectedSortByOption`.
+          * @default null
          */
         "selectedFilterBeneficiary"?: string | null;
         /**
           * For injecting the chosen category to filter by, as per the comment above for `selectedSortByOption`.
+          * @default null
          */
         "selectedFilterCategory"?: string | null;
         /**
           * For injecting the chosen location to filter by, as per the comment above for `selectedSortByOption`.
+          * @default null
          */
         "selectedFilterLocation"?: string | null;
         /**
@@ -2008,6 +2779,7 @@ declare namespace LocalJSX {
         "selectedSortByOption"?: sortOptionLabel;
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow"?: number;
     }
@@ -2046,6 +2818,7 @@ declare namespace LocalJSX {
         "primaryStatText"?: string;
         /**
           * Progress bar percentage
+          * @default 100
          */
         "progressBarCounter"?: number;
         /**
@@ -2066,22 +2839,48 @@ declare namespace LocalJSX {
         "secondaryStatText"?: string;
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow"?: number;
     }
     interface BiggiveContainerCard {
+        /**
+          * @default 'primary'
+         */
         "backgroundColour"?: brandColour;
+        /**
+          * @default ''
+         */
         "backgroundImageUrl"?: string;
+        /**
+          * @default 'white'
+         */
         "cardColour"?: brandColour;
+        /**
+          * @default true
+         */
         "clipBottomLeftCorner"?: boolean;
+        /**
+          * @default true
+         */
         "clipTopRightCorner"?: boolean;
+        /**
+          * @default 3
+         */
         "headingLevel"?: 1 | 2 | 3 | 4 | 5 | 6;
+        /**
+          * @default 0
+         */
         "spaceBelow"?: spacingOption;
+        /**
+          * @default 'black'
+         */
         "textColour"?: brandColour;
     }
     interface BiggiveCookieBanner {
         /**
           * If true the Preferences modal will be auto-opened - for use when the user has requested to edit their cookie preferences
+          * @default false
          */
         "autoOpenPreferences"?: boolean;
         "blogUriPrefix": string;
@@ -2099,6 +2898,7 @@ declare namespace LocalJSX {
         "onPreferenceModalClosed"?: (event: BiggiveCookieBannerCustomEvent<void>) => void;
         /**
           * This type is similar to CookiePreferences from donate-frontend/src/app/cookiePreference.service.ts but afaik there isn't a nice way to share a type.  When updating please also update the copy in the type of cookieBannerSavePreferencesSelected - using a named type there caused build problems.  When updating please also update the type of cookieBannerSavePreferencesSelected - I didn't find a way to avoid the duplication.
+          * @default undefined
          */
         "previouslyAgreedCookiePreferences"?: | {
         analyticsAndTesting: boolean;
@@ -2117,10 +2917,17 @@ declare namespace LocalJSX {
          */
         "donateUrlPrefix"?: string;
         "experienceUrlPrefix"?: string | undefined;
+        /**
+          * @default 5
+         */
         "headingLevel"?: 1 | 2 | 3 | 4 | 5 | 6;
+        /**
+          * @default false
+         */
         "smallCharityWeekEnabled"?: boolean;
         /**
           * Conditionally render footer menu: hard-coded (preset) when set to true, dynamic (slot-based) when set to false
+          * @default false
          */
         "usePresetFooter"?: boolean;
     }
@@ -2147,13 +2954,20 @@ declare namespace LocalJSX {
           * ID for the select element, used by a label. If not passed then a random id will be generated.
          */
         "selectElementId"?: string | undefined;
+        /**
+          * @default 'bordered'
+         */
         "selectStyle"?: 'bordered' | 'underlined';
         "selectedLabel"?: string | null;
+        /**
+          * @default 'blue'
+         */
         "selectedOptionColour"?: 'inherit' | 'blue';
         "selectedValue"?: string | null;
         "selectionChanged"?: (value: string) => void;
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow"?: number;
     }
@@ -2162,34 +2976,84 @@ declare namespace LocalJSX {
           * Text colour. If undefined or blank colour will be inherited as normal from containing element.
          */
         "defaultTextColour"?: brandColour | undefined;
+        /**
+          * @default 100
+         */
         "maxWidth"?: number;
+        /**
+          * @default 'biggive'
+         */
         "siteDesign"?: 'biggive' | 'philco';
+        /**
+          * @default 0
+         */
         "spaceBelow"?: number;
     }
     interface BiggiveGrid {
+        /**
+          * @default 3
+         */
         "columnCount"?: number;
+        /**
+          * @default 0
+         */
         "columnGap"?: spacingOption;
+        /**
+          * @default 4
+         */
         "spaceBelow"?: number;
         /**
           * Deprecated - should use columGap Instead
+          * @default false
          */
         "spaceBetween"?: boolean;
     }
     interface BiggiveHeading {
+        /**
+          * @default 'left'
+         */
         "align"?: string;
+        /**
+          * @default 'primary'
+         */
         "colour"?: brandColour;
+        /**
+          * @default 'h1'
+         */
         "htmlElement"?: headingTag;
+        /**
+          * @default false
+         */
         "icon"?: boolean;
+        /**
+          * @default 'primary'
+         */
         "iconColour"?: brandColour;
+        /**
+          * @default 'biggive'
+         */
         "siteDesign"?: 'biggive' | 'philco';
+        /**
+          * @default 1
+         */
         "size"?: headingSize;
+        /**
+          * @default 2
+         */
         "spaceAbove"?: spacingOption;
+        /**
+          * @default 4
+         */
         "spaceBelow"?: spacingOption;
+        /**
+          * @default ''
+         */
         "text"?: string;
     }
     interface BiggiveHeroImage {
         /**
           * Button Colour Scheme
+          * @default 'primary'
          */
         "buttonColourScheme"?: brandColour;
         /**
@@ -2202,34 +3066,42 @@ declare namespace LocalJSX {
         "buttonUrl"?: string;
         /**
           * Colour Scheme
+          * @default 'primary'
          */
         "colourScheme"?: brandColour;
         /**
           * Full URL of a logo image.
+          * @default ''
          */
         "logo"?: string;
         /**
           * Logo alt text
+          * @default ''
          */
         "logoAltText"?: string;
         /**
           * Logo container height selection. Numbers are not measurements.
+          * @default 3
          */
         "logoHeight"?: 1|2|3|4|5|6|7|8|9|10;
         /**
           * Full URL of a main hero image.
+          * @default null
          */
         "mainImage"?: string|null;
         /**
           * Horizontal alignment of image
+          * @default 'center'
          */
         "mainImageAlignHorizontal"?: string;
         /**
           * Vertical alignment of image
+          * @default 'center'
          */
         "mainImageAlignVertical"?: string;
         /**
           * Determines whether the main image is clipped to a triangle shape (default) or used as a background for the entire component. Clipping can leave a lot of blank space.
+          * @default 'triangle'
          */
         "mainImageShape"?: 'triangle'|'rectangle';
         /**
@@ -2250,6 +3122,7 @@ declare namespace LocalJSX {
         "slugColour"?: brandColour;
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow"?: spacingOption;
         /**
@@ -2262,94 +3135,213 @@ declare namespace LocalJSX {
         "teaserColour"?: brandColour;
     }
     interface BiggiveIconButton {
+        /**
+          * @default false
+         */
         "arrow"?: boolean;
+        /**
+          * @default 'black'
+         */
         "arrowColour"?: brandColour;
+        /**
+          * @default 'white'
+         */
         "backgroundColour"?: brandColour;
+        /**
+          * @default 0
+         */
         "backgroundPadding"?: spacingOption;
+        /**
+          * @default undefined
+         */
         "buttonId"?: undefined | string;
+        /**
+          * @default false
+         */
         "centered"?: boolean;
+        /**
+          * @default false
+         */
         "circle"?: boolean;
         "icon"?: string;
         "onDoButtonClick"?: (event: BiggiveIconButtonCustomEvent<{ event: object; url: string }>) => void;
+        /**
+          * @default false
+         */
         "openInNewTab"?: boolean;
+        /**
+          * @default false
+         */
         "rounded"?: boolean;
+        /**
+          * @default false
+         */
         "shadow"?: boolean;
+        /**
+          * @default 'medium'
+         */
         "size"?: 'small' | 'medium' | 'large' | 'x-large' | 'xx-large';
+        /**
+          * @default 1
+         */
         "spaceBelow"?: spacingOption;
         "text"?: string;
+        /**
+          * @default 'black'
+         */
         "textColour"?: brandColour;
         "url"?: string;
     }
     interface BiggiveImage {
         /**
           * Image width
+          * @default 0
          */
         "height"?: number;
         /**
           * Image alt text tag.
+          * @default ''
          */
         "imageAltText"?: string;
         /**
           * Full URL of a image.
+          * @default ''
          */
         "imageUrl"?: string;
         /**
           * Size unit
+          * @default 'px'
          */
         "sizeUnit"?: string;
         /**
           * Space above component
+          * @default 0
          */
         "spaceAbove"?: number;
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow"?: number;
         /**
           * Image width
+          * @default 0
          */
         "width"?: number;
     }
     interface BiggiveImageButton {
+        /**
+          * @default false
+         */
         "arrow"?: boolean;
+        /**
+          * @default 'black'
+         */
         "arrowColour"?: brandColour;
+        /**
+          * @default 'white'
+         */
         "backgroundColour"?: brandColour;
+        /**
+          * @default 0
+         */
         "backgroundPadding"?: spacingOption;
+        /**
+          * @default undefined
+         */
         "buttonId"?: undefined | string;
+        /**
+          * @default false
+         */
         "centered"?: boolean;
+        /**
+          * @default false
+         */
         "circle"?: boolean;
+        /**
+          * @default 'cover'
+         */
         "imageStyle"?: string;
         "imageUrl"?: string;
         "onDoButtonClick"?: (event: BiggiveImageButtonCustomEvent<{ event: object; url: string }>) => void;
+        /**
+          * @default false
+         */
         "openInNewTab"?: boolean;
+        /**
+          * @default false
+         */
         "rounded"?: boolean;
+        /**
+          * @default false
+         */
         "shadow"?: boolean;
+        /**
+          * @default 'medium'
+         */
         "size"?: 'small' | 'medium' | 'large' | 'x-large' | 'xx-large';
+        /**
+          * @default 1
+         */
         "spaceBelow"?: spacingOption;
         "text"?: string;
+        /**
+          * @default 'black'
+         */
         "textColour"?: brandColour;
         "url"?: string;
     }
     interface BiggiveImageCard {
+        /**
+          * @default false
+         */
         "addAnimation"?: boolean;
+        /**
+          * @default 'primary'
+         */
         "backgroundColour"?: brandColour;
+        /**
+          * @default 'center'
+         */
         "buttonAlign"?: string;
+        /**
+          * @default 'clear-primary'
+         */
         "buttonColourScheme"?: string;
         "buttonLabel"?: string;
+        /**
+          * @default 'standard'
+         */
         "buttonStyle"?: string;
         "buttonUrl"?: string;
+        /**
+          * @default true
+         */
         "clipBottomLeftCorner"?: boolean;
+        /**
+          * @default true
+         */
         "clipTopRightCorner"?: boolean;
         "mainImageAltText"?: string;
         "mainImageUrl"?: string;
+        /**
+          * @default 0
+         */
         "spaceBelow"?: spacingOption;
         "teaser"?: string;
+        /**
+          * @default 'black'
+         */
         "teaserColour"?: brandColour;
+        /**
+          * @default 'center'
+         */
         "textAlign"?: 'left' | 'center' | 'right';
     }
     interface BiggiveImageFeature {
         /**
           * Button Colour Scheme
+          * @default 'primary'
          */
         "buttonColourScheme"?: string;
         /**
@@ -2362,14 +3354,17 @@ declare namespace LocalJSX {
         "buttonUrl"?: string;
         /**
           * Default text colour
+          * @default 'primary'
          */
         "defaultTextColour"?: string;
         /**
           * Image alt text tag.
+          * @default ''
          */
         "imageAltText"?: string;
         /**
           * Full URL of a image.
+          * @default ''
          */
         "imageUrl"?: string;
         /**
@@ -2378,6 +3373,7 @@ declare namespace LocalJSX {
         "mainTitle"?: string;
         /**
           * Slug colour
+          * @default ''
          */
         "mainTitleColour"?: string;
         /**
@@ -2386,10 +3382,12 @@ declare namespace LocalJSX {
         "slug"?: string;
         /**
           * Slug colour
+          * @default ''
          */
         "slugColour"?: string;
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow"?: number;
         /**
@@ -2398,27 +3396,43 @@ declare namespace LocalJSX {
         "teaser"?: string;
         /**
           * Teaser colour
+          * @default ''
          */
         "teaserColour"?: string;
     }
     interface BiggiveMainMenu {
+        /**
+          * @default 'https://biggive.org'
+         */
         "blogUrlPrefix"?: string;
+        /**
+          * @default 'https://donate.biggive.org'
+         */
         "donateUrlPrefix"?: string;
+        /**
+          * @default 'https://community.biggive.org'
+         */
         "experienceUrlPrefix"?: string;
         /**
           * Whether the current user is logged in (i.e. is assumed to have a valid JWT). They get links to some extra content if they are.
+          * @default false
          */
         "isLoggedIn"?: boolean;
         "onLogoutClicked"?: (event: BiggiveMainMenuCustomEvent<void>) => void;
+        /**
+          * @default false
+         */
         "smallCharityWeekEnabled"?: boolean;
         /**
           * We don't want to make the ?noredirect version proliferate too much so err on not including this. We also don't really want every single page to have to get highlight cards to set this property. So for now, typically only meta-campaign bothers to get the correct value to set this true if appropriate. That's the page which is the destination of the redirect so is arguably the only place where it's essential that the menu lets you go to the 'normal' home page.
+          * @default false
          */
         "someCampaignHasHomePageRedirect"?: boolean;
     }
     interface BiggiveMiscIcon {
         /**
           * Background colour
+          * @default 'primary'
          */
         "backgroundColour"?: string;
         /**
@@ -2427,6 +3441,7 @@ declare namespace LocalJSX {
         "icon"?: string;
         /**
           * Background colour
+          * @default 'white'
          */
         "iconColour"?: string;
         /**
@@ -2437,6 +3452,7 @@ declare namespace LocalJSX {
     interface BiggiveNavGroup {
         /**
           * Inline
+          * @default true
          */
         "inline"?: boolean;
     }
@@ -2459,6 +3475,7 @@ declare namespace LocalJSX {
     interface BiggivePageColumns {
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow"?: number;
     }
@@ -2469,59 +3486,93 @@ declare namespace LocalJSX {
         "colourScheme"?: string;
         /**
           * Width
+          * @default 100
          */
         "maxWidth"?: number;
         /**
           * Bleeds the primary brand colour to the left and right edge of the viewport, even if used within a containing block element.
+          * @default false
          */
         "primaryFullBleed"?: boolean;
         /**
           * Section style bottom
+          * @default 'straight'
          */
         "sectionStyleBottom"?: sectionStyle;
         /**
           * Section style top
+          * @default 'straight'
          */
         "sectionStyleTop"?: sectionStyle;
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow"?: number;
     }
     interface BiggivePopup {
         /**
           * Function to execute when the modal is closed, whether by the user or programmatically.
+          * @default () => {}
          */
         "modalClosedCallback"?: () => void;
     }
     interface BiggiveProgressBar {
         /**
           * Colour Scheme
+          * @default 'primary'
          */
         "colourScheme"?: string;
         /**
           * Percentage to show + use for CSS width; round before input if desired
+          * @default 100
          */
         "counter"?: number | null;
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow"?: number;
     }
     interface BiggiveQuote {
+        /**
+          * @default ''
+         */
         "attribution"?: string;
+        /**
+          * @default 'black'
+         */
         "defaultTextColour"?: brandColour;
+        /**
+          * @default ''
+         */
         "quote"?: string;
+        /**
+          * @default 'primary'
+         */
         "quoteIconColour"?: brandColour;
+        /**
+          * @default 'biggive'
+         */
         "siteDesign"?: 'biggive' | 'philco';
+        /**
+          * @default 0
+         */
         "spaceBelow"?: spacingOption;
     }
     interface BiggiveSheet {
+        /**
+          * @default 'primary'
+         */
         "backgroundColour"?: brandColour;
         /**
           * A string ID (no spaces) unique within the page context, used to trigger the opening of the sheet from an anchor hash.
+          * @default ''
          */
         "sheetId"?: string;
+        /**
+          * @default 'white'
+         */
         "textColour"?: brandColour;
     }
     /**
@@ -2530,14 +3581,17 @@ declare namespace LocalJSX {
     interface BiggiveSocialIcon {
         /**
           * Background colour
+          * @default 'primary'
          */
         "backgroundColour"?: string;
         /**
           * Icon colour
+          * @default 'white'
          */
         "iconColour"?: string;
         /**
           * Used within accessible labels for links. Typically a charity name or "Big Give". Can also be "Share".
+          * @default 'Big Give'
          */
         "labelPrefix"?: string;
         /**
@@ -2546,30 +3600,71 @@ declare namespace LocalJSX {
         "service": 'Facebook' | 'Instagram' | 'LinkedIn' | 'Twitter' | 'Web' | 'Whatsapp' | 'YouTube';
         /**
           * Url
+          * @default '#'
          */
         "url"?: string;
         /**
           * Used in the social icons in the biggive-footer, which are more spaced out than others across the site. COM-43.
+          * @default false
          */
         "wide"?: boolean;
     }
     interface BiggiveTab {
+        /**
+          * @default ''
+         */
         "tabTitle"?: string;
     }
     interface BiggiveTabbedContent {
+        /**
+          * @default 'white'
+         */
         "buttonBackgroundColour"?: brandColour;
+        /**
+          * @default 'primary'
+         */
         "buttonIconColour"?: brandColour;
+        /**
+          * @default 'grey-medium'
+         */
         "navigationHighlightColour"?: brandColour;
+        /**
+          * @default 'primary'
+         */
         "selectedNavigationHighlightColour"?: brandColour;
+        /**
+          * @default 'primary'
+         */
         "selectedTextColour"?: brandColour;
+        /**
+          * @default 0
+         */
         "spaceBelow"?: spacingOption;
+        /**
+          * @default 'black'
+         */
         "textColour"?: brandColour;
     }
     interface BiggiveTable {
+        /**
+          * @default 'grey-light'
+         */
         "bodyBackgroundColour"?: brandColour;
+        /**
+          * @default 'black'
+         */
         "bodyTextColour"?: brandColour;
+        /**
+          * @default 'white'
+         */
         "headerBackgroundColour"?: brandColour;
+        /**
+          * @default 'primary'
+         */
         "headerTextColour"?: brandColour;
+        /**
+          * @default 0
+         */
         "spaceBelow"?: spacingOption;
     }
     /**
@@ -2582,23 +3677,68 @@ declare namespace LocalJSX {
           * ISO-4217 currency code if input is for a money value
          */
         "currency"?: 'GBP' | 'USD' | undefined;
+        /**
+          * @default 'bordered'
+         */
         "selectStyle"?: 'bordered' | 'underlined';
+        /**
+          * @default 'biggive'
+         */
         "siteDesign"?: 'biggive' | 'philco';
+        /**
+          * @default 0
+         */
         "spaceBelow"?: number;
         "value": string;
     }
     interface BiggiveTimeline {
+        /**
+          * @default 'white'
+         */
         "buttonBackgroundColour"?: brandColour;
+        /**
+          * @default 'primary'
+         */
         "buttonIconColour"?: brandColour;
+        /**
+          * @default 'white'
+         */
         "entryBackgroundColour"?: brandColour;
+        /**
+          * @default 'black'
+         */
         "entryDateColour"?: brandColour;
+        /**
+          * @default 'secondary'
+         */
         "entryHighlightColour"?: brandColour;
+        /**
+          * @default 'black'
+         */
         "entryTextColour"?: brandColour;
+        /**
+          * @default 'primary'
+         */
         "entryTitleColour"?: brandColour;
+        /**
+          * @default 'grey-medium'
+         */
         "navigationHighlightColour"?: brandColour;
+        /**
+          * @default 'primary'
+         */
         "selectedNavigationHighlightColour"?: brandColour;
+        /**
+          * @default 'primary'
+         */
         "selectedTextColour"?: brandColour;
+        /**
+          * @default 0
+         */
         "spaceBelow"?: spacingOption;
+        /**
+          * @default 'black'
+         */
         "textColour"?: brandColour;
     }
     interface BiggiveTimelineEntry {
@@ -2615,22 +3755,27 @@ declare namespace LocalJSX {
         "mainMessage"?: string;
         /**
           * Primary banner colour
+          * @default 'primary'
          */
         "primaryColour"?: string;
         /**
           * Primary text colour
+          * @default 'white'
          */
         "primaryTextColour"?: string;
         /**
           * Secondary banner colour
+          * @default 'secondary'
          */
         "secondaryColour"?: string;
         /**
           * Secondary text colour
+          * @default 'black'
          */
         "secondaryTextColour"?: string;
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow"?: number;
     }
@@ -2647,20 +3792,24 @@ declare namespace LocalJSX {
     interface BiggiveVideo {
         /**
           * Space above component
+          * @default 0
          */
         "spaceAbove"?: number;
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow"?: number;
         /**
           * Full URL of a video.
+          * @default ''
          */
         "videoUrl"?: string;
     }
     interface BiggiveVideoFeature {
         /**
           * Button Colour Scheme
+          * @default 'primary'
          */
         "buttonColourScheme"?: string;
         /**
@@ -2673,6 +3822,7 @@ declare namespace LocalJSX {
         "buttonUrl"?: string;
         /**
           * Default text colour
+          * @default 'primary'
          */
         "defaultTextColour"?: string;
         /**
@@ -2681,6 +3831,7 @@ declare namespace LocalJSX {
         "mainTitle"?: string;
         /**
           * Slug colour
+          * @default ''
          */
         "mainTitleColour"?: string;
         /**
@@ -2689,14 +3840,17 @@ declare namespace LocalJSX {
         "slug"?: string;
         /**
           * Slug colour
+          * @default ''
          */
         "slugColour"?: string;
         /**
           * Space above component
+          * @default 0
          */
         "spaceAbove"?: number;
         /**
           * Space below component
+          * @default 0
          */
         "spaceBelow"?: number;
         /**
@@ -2705,10 +3859,12 @@ declare namespace LocalJSX {
         "teaser"?: string;
         /**
           * Teaser colour
+          * @default ''
          */
         "teaserColour"?: string;
         /**
           * Full URL of a video.
+          * @default ''
          */
         "videoUrl"?: string;
     }
@@ -2717,7 +3873,13 @@ declare namespace LocalJSX {
      * landmarks.
      */
     interface PhilcoFooter {
+        /**
+          * @default 5
+         */
         "headingLevel"?: 1 | 2 | 3 | 4 | 5 | 6;
+        /**
+          * @default 'https://philco.org.uk/'
+         */
         "philcoUrlPrefix"?: string;
     }
     interface PhilcoMainMenu {
