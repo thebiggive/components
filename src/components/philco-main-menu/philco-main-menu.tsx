@@ -76,7 +76,6 @@ export class PhilcoMainMenu {
                       colour-scheme="philco-white"
                       rounded={true}
                       url={makeURL('Philco', this.philcoUrlPrefix, 'sign-up')}
-                      size="small"
                     ></biggive-button>
                   </li>
                 </ul>
