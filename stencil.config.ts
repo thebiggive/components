@@ -24,6 +24,9 @@ export const config: Config = {
       // See https://stenciljs.com/docs/angular#outputtype
       outputType: 'component',
     }),
+    // Avoiding having dist-custom-elements too for now. Probably less confusing to omit it unless we find anything
+    // needs it, to make it clear we only use non-standalone Angular module and bootstrap-everything loader
+    // script with WordPress.
     {
       type: 'dist-hydrate-script',
     },
@@ -35,10 +38,6 @@ export const config: Config = {
         { src: 'assets/images', warn: true },
         { src: 'pages', warn: true  },
       ],
-    },
-    {
-      type: 'dist-custom-elements', // Uses default `dist/components`.
-      customElementsExportBehavior: 'single-export-module'
     },
     {
       type: 'docs-readme',
