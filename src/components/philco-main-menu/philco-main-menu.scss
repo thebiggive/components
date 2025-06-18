@@ -182,18 +182,18 @@ nav {
           li {
             display: block;
             border-bottom: 1px solid #e6e6e6;
-            padding: 0 7px;
+            padding: 0 7px 0 17px;
+
+            &.signup {
+              // 10px less on the left so that the big button's text doesn't look so misaligned from the standalone
+              // links. Extra vertical so the surrounding lines look more balanced.
+              padding: 15px 7px 12px 0;
+            }
 
             a {
               width: 100%;
               display: block;
               font-size: 15px;
-
-              &.signup {
-                height: 40px;
-                padding-top: 5px;
-                margin-left: -10px;
-              }
             }
           }
         }
