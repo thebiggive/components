@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { NgModule, provideAppInitializer } from '@angular/core';
 import { DIRECTIVES } from './stencil-generated';
 
 import { defineCustomElements } from '@biggive/components/loader';
@@ -9,11 +9,10 @@ import { defineCustomElements } from '@biggive/components/loader';
   declarations: [...DIRECTIVES],
   exports: [...DIRECTIVES],
   providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: () => defineCustomElements,
-      multi: true,
-    },
+    provideAppInitializer(() => {
+        const initializerFn = (() => defineCustomElements)();
+        return initializerFn();
+      }),
   ],
 })
 export class ComponentsModule { }
