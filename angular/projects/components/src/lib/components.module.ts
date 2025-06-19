@@ -5,8 +5,7 @@ import { DIRECTIVES } from './stencil-generated';
 import { defineCustomElements } from '@biggive/components/loader';
 
 @NgModule({
-  imports: [CommonModule],
-  declarations: [...DIRECTIVES],
+  imports: [CommonModule, ...DIRECTIVES],
   exports: [...DIRECTIVES],
   providers: [
     provideAppInitializer(() => {
