@@ -723,10 +723,6 @@ export namespace Components {
          */
         "headingLevel": 1 | 2 | 3 | 4 | 5 | 6;
         /**
-          * @default false
-         */
-        "smallCharityWeekEnabled": boolean;
-        /**
           * Conditionally render footer menu: hard-coded (preset) when set to true, dynamic (slot-based) when set to false
           * @default false
          */
@@ -2921,10 +2917,6 @@ declare namespace LocalJSX {
           * @default 5
          */
         "headingLevel"?: 1 | 2 | 3 | 4 | 5 | 6;
-        /**
-          * @default false
-         */
-        "smallCharityWeekEnabled"?: boolean;
         /**
           * Conditionally render footer menu: hard-coded (preset) when set to true, dynamic (slot-based) when set to false
           * @default false
