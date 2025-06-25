@@ -55,9 +55,10 @@
 }
 .selected-filter-wrap {
   display: flex;
-  margin-bottom: 30px;
+  margin-bottom: 23px;
   padding: 0;
   .button {
+    margin-bottom: 7px;
     display: inline-block;
     cursor: pointer;
     border-radius: 20px;
