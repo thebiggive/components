@@ -1472,6 +1472,7 @@ export namespace Components {
      * Initially developed for use within the new donate stepper design. Currently has a hard-coded background
      * of $colour-grey-background, intened to appear transparent when used on a page with a matching background.
      * Please ensure input is styled as width: 100%.
+     * Requires slots `label` and `input`.
      */
     interface BiggiveTextInput {
         /**
@@ -1490,7 +1491,6 @@ export namespace Components {
           * @default 0
          */
         "spaceBelow": number;
-        "value": string;
     }
     interface BiggiveTimeline {
         /**
@@ -2072,6 +2072,7 @@ declare global {
      * Initially developed for use within the new donate stepper design. Currently has a hard-coded background
      * of $colour-grey-background, intened to appear transparent when used on a page with a matching background.
      * Please ensure input is styled as width: 100%.
+     * Requires slots `label` and `input`.
      */
     interface HTMLBiggiveTextInputElement extends Components.BiggiveTextInput, HTMLStencilElement {
     }
@@ -3671,6 +3672,7 @@ declare namespace LocalJSX {
      * Initially developed for use within the new donate stepper design. Currently has a hard-coded background
      * of $colour-grey-background, intened to appear transparent when used on a page with a matching background.
      * Please ensure input is styled as width: 100%.
+     * Requires slots `label` and `input`.
      */
     interface BiggiveTextInput {
         /**
@@ -3689,7 +3691,6 @@ declare namespace LocalJSX {
           * @default 0
          */
         "spaceBelow"?: number;
-        "value": string;
     }
     interface BiggiveTimeline {
         /**
@@ -3997,6 +3998,7 @@ declare module "@stencil/core" {
              * Initially developed for use within the new donate stepper design. Currently has a hard-coded background
              * of $colour-grey-background, intened to appear transparent when used on a page with a matching background.
              * Please ensure input is styled as width: 100%.
+             * Requires slots `label` and `input`.
              */
             "biggive-text-input": LocalJSX.BiggiveTextInput & JSXBase.HTMLAttributes<HTMLBiggiveTextInputElement>;
             "biggive-timeline": LocalJSX.BiggiveTimeline & JSXBase.HTMLAttributes<HTMLBiggiveTimelineElement>;

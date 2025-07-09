@@ -5,6 +5,8 @@ import { Component, Element, h, Prop } from '@stencil/core';
  * of $colour-grey-background, intened to appear transparent when used on a page with a matching background.
  *
  * Please ensure input is styled as width: 100%.
+ *
+ * Requires slots `label` and `input`.
  */
 @Component({
   tag: 'biggive-text-input',
@@ -13,7 +15,7 @@ import { Component, Element, h, Prop } from '@stencil/core';
 })
 export class BiggiveTextInput {
   @Element() host: HTMLBiggiveTextInputElement;
-  @Prop() value!: string;
+
   /**
    * ISO-4217 currency code if input is for a money value
    */
