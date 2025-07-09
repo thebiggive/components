@@ -5,8 +5,8 @@ const sortOptionLabels = {
   relevance: 'Relevance',
   amountRaised: 'Most raised',
   leastRaised: 'Least raised',
-  closeToTarget: 'Close to campaign target',
-  matchFundsRemaining: 'Match funds remaining',
+  closeToTarget: 'Nearest target',
+  matchFundsRemaining: 'Most funds remaining',
 } as const;
 
 export type sortOptionKey = keyof typeof sortOptionLabels;
@@ -383,7 +383,8 @@ export class BiggiveCampaignCardFilterGrid {
               >
                 <biggive-form-field-select-option value="amountRaised" label="Most raised"></biggive-form-field-select-option>
                 <biggive-form-field-select-option value="leastRaised" label="Least raised"></biggive-form-field-select-option>
-                <biggive-form-field-select-option value="matchFundsRemaining" label="Match funds remaining"></biggive-form-field-select-option>
+                <biggive-form-field-select-option value="matchFundsRemaining" label="Most funds remaining"></biggive-form-field-select-option>
+                <biggive-form-field-select-option value="closeToTarget" label="Nearest target"></biggive-form-field-select-option>
                 {(this.searchText || '').length > 0 ? <biggive-form-field-select-option value="Relevance" label="Relevance"></biggive-form-field-select-option> : null}
               </biggive-form-field-select>
             </div>
