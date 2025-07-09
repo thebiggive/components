@@ -15,7 +15,7 @@ export default {
     },
     selectedSortByOption: {
       name: 'Selected Sort By Option',
-      options: ['Match funds remaining', 'Most raised', 'Least Raised', 'Relevance'],
+      options: ['Most funds remaining', 'Nearest target', 'Most raised', 'Least Raised', 'Relevance'],
       control: {
         type: 'select',
       },

@@ -8,8 +8,9 @@ describe('biggive-campaign-card-filter-grid', () => {
     // client library may pass in term with casing we didn't expect, but we don't have type checking between there and here
     // so passing it in with a different type to simulate that:
     ['Most Raised' as 'Most raised', 'amountRaised'],
+    ['Nearest target', 'closeToTarget'],
     ['Relevance', undefined], // can not sort by Relevance unless we have a search term.
-    ['Match funds remaining', 'matchFundsRemaining'],
+    ['Most funds remaining', 'matchFundsRemaining'],
   ] as const)('Gets the selected sort order value', (selectedSortByOption, expectedSortByValue) => {
     const sut = new BiggiveCampaignCardFilterGrid();
 
@@ -75,7 +76,8 @@ describe('biggive-campaign-card-filter-grid', () => {
               <biggive-form-field-select id="sort-by" placeholder="Sort by" select-style="underlined">
                 <biggive-form-field-select-option label="Most raised" value="amountRaised"></biggive-form-field-select-option>
                 <biggive-form-field-select-option label="Least raised" value="leastRaised"></biggive-form-field-select-option>
-                <biggive-form-field-select-option label="Match funds remaining" value="matchFundsRemaining"></biggive-form-field-select-option>
+                <biggive-form-field-select-option label="Most funds remaining" value="matchFundsRemaining"></biggive-form-field-select-option>
+                <biggive-form-field-select-option label="Nearest target" value="closeToTarget"></biggive-form-field-select-option>
               </biggive-form-field-select>
             </div>
           </div>
@@ -147,7 +149,8 @@ describe('biggive-campaign-card-filter-grid', () => {
               <biggive-form-field-select id="sort-by" placeholder="Sort by" select-style="underlined">
                 <biggive-form-field-select-option label="Most raised" value="amountRaised"></biggive-form-field-select-option>
                 <biggive-form-field-select-option label="Least raised" value="leastRaised"></biggive-form-field-select-option>
-                <biggive-form-field-select-option label="Match funds remaining" value="matchFundsRemaining"></biggive-form-field-select-option>
+                <biggive-form-field-select-option label="Most funds remaining" value="matchFundsRemaining"></biggive-form-field-select-option>
+                <biggive-form-field-select-option label="Nearest target" value="closeToTarget"></biggive-form-field-select-option>
                 <biggive-form-field-select-option label="Relevance" value="Relevance"></biggive-form-field-select-option>
               </biggive-form-field-select>
             </div>
