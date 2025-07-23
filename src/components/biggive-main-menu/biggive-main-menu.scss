@@ -188,7 +188,9 @@ nav {
               .sub-sub-menu {
                 position: absolute;
                 top: 0;
-                left: 100%;
+                // On tablet & small desktop there's often not enough room for an extra menu to the right,
+                // so left is safest.
+                right: 100%;
                 border-radius: 0 4px 4px 4px;
                 z-index: 1;
                 display: none;
