@@ -851,6 +851,55 @@ export namespace Components {
          */
         "text": string;
     }
+    /**
+     * Heading banner component for use as a page header.
+     * This component provides a banner with a background image, optional logo, and text content.
+     * It supports different heights and customizable colors.
+     */
+    interface BiggiveHeadingBanner {
+        /**
+          * Background color for the banner
+         */
+        "backgroundColour": string;
+        /**
+          * Focal point for the image positioning x and y values are percentages (0-100)
+         */
+        "focalPoint": { x: number; y: number };
+        /**
+          * Height variant of the banner 'tall' for full height, 'short' for reduced height
+          * @default 'tall'
+         */
+        "height": 'short' | 'tall';
+        /**
+          * Optional logo object with URL and alt text
+         */
+        "logo"?: { url: string; alt?: string };
+        /**
+          * URL for the main banner image
+         */
+        "mainImageUrl": string;
+        /**
+          * Main title text for the banner
+         */
+        "mainTitle": string;
+        /**
+          * Optional slightly smaller text to appear above the main title
+          * @default ''
+         */
+        "slug"?: string;
+        /**
+          * Optional teaser text that appears below the main title
+         */
+        "teaser": string;
+        /**
+          * Background color for the text content area
+         */
+        "textBackgroundColour": string;
+        /**
+          * Text color for all text content
+         */
+        "textColour": string;
+    }
     interface BiggiveHeroImage {
         /**
           * Button Colour Scheme
@@ -1906,6 +1955,17 @@ declare global {
         prototype: HTMLBiggiveHeadingElement;
         new (): HTMLBiggiveHeadingElement;
     };
+    /**
+     * Heading banner component for use as a page header.
+     * This component provides a banner with a background image, optional logo, and text content.
+     * It supports different heights and customizable colors.
+     */
+    interface HTMLBiggiveHeadingBannerElement extends Components.BiggiveHeadingBanner, HTMLStencilElement {
+    }
+    var HTMLBiggiveHeadingBannerElement: {
+        prototype: HTMLBiggiveHeadingBannerElement;
+        new (): HTMLBiggiveHeadingBannerElement;
+    };
     interface HTMLBiggiveHeroImageElement extends Components.BiggiveHeroImage, HTMLStencilElement {
     }
     var HTMLBiggiveHeroImageElement: {
@@ -2165,6 +2225,7 @@ declare global {
         "biggive-formatted-text": HTMLBiggiveFormattedTextElement;
         "biggive-grid": HTMLBiggiveGridElement;
         "biggive-heading": HTMLBiggiveHeadingElement;
+        "biggive-heading-banner": HTMLBiggiveHeadingBannerElement;
         "biggive-hero-image": HTMLBiggiveHeroImageElement;
         "biggive-icon-button": HTMLBiggiveIconButtonElement;
         "biggive-image": HTMLBiggiveImageElement;
@@ -3051,6 +3112,55 @@ declare namespace LocalJSX {
          */
         "text"?: string;
     }
+    /**
+     * Heading banner component for use as a page header.
+     * This component provides a banner with a background image, optional logo, and text content.
+     * It supports different heights and customizable colors.
+     */
+    interface BiggiveHeadingBanner {
+        /**
+          * Background color for the banner
+         */
+        "backgroundColour": string;
+        /**
+          * Focal point for the image positioning x and y values are percentages (0-100)
+         */
+        "focalPoint": { x: number; y: number };
+        /**
+          * Height variant of the banner 'tall' for full height, 'short' for reduced height
+          * @default 'tall'
+         */
+        "height"?: 'short' | 'tall';
+        /**
+          * Optional logo object with URL and alt text
+         */
+        "logo"?: { url: string; alt?: string };
+        /**
+          * URL for the main banner image
+         */
+        "mainImageUrl": string;
+        /**
+          * Main title text for the banner
+         */
+        "mainTitle": string;
+        /**
+          * Optional slightly smaller text to appear above the main title
+          * @default ''
+         */
+        "slug"?: string;
+        /**
+          * Optional teaser text that appears below the main title
+         */
+        "teaser": string;
+        /**
+          * Background color for the text content area
+         */
+        "textBackgroundColour": string;
+        /**
+          * Text color for all text content
+         */
+        "textColour": string;
+    }
     interface BiggiveHeroImage {
         /**
           * Button Colour Scheme
@@ -3909,6 +4019,7 @@ declare namespace LocalJSX {
         "biggive-formatted-text": BiggiveFormattedText;
         "biggive-grid": BiggiveGrid;
         "biggive-heading": BiggiveHeading;
+        "biggive-heading-banner": BiggiveHeadingBanner;
         "biggive-hero-image": BiggiveHeroImage;
         "biggive-icon-button": BiggiveIconButton;
         "biggive-image": BiggiveImage;
@@ -3970,6 +4081,12 @@ declare module "@stencil/core" {
             "biggive-formatted-text": LocalJSX.BiggiveFormattedText & JSXBase.HTMLAttributes<HTMLBiggiveFormattedTextElement>;
             "biggive-grid": LocalJSX.BiggiveGrid & JSXBase.HTMLAttributes<HTMLBiggiveGridElement>;
             "biggive-heading": LocalJSX.BiggiveHeading & JSXBase.HTMLAttributes<HTMLBiggiveHeadingElement>;
+            /**
+             * Heading banner component for use as a page header.
+             * This component provides a banner with a background image, optional logo, and text content.
+             * It supports different heights and customizable colors.
+             */
+            "biggive-heading-banner": LocalJSX.BiggiveHeadingBanner & JSXBase.HTMLAttributes<HTMLBiggiveHeadingBannerElement>;
             "biggive-hero-image": LocalJSX.BiggiveHeroImage & JSXBase.HTMLAttributes<HTMLBiggiveHeroImageElement>;
             "biggive-icon-button": LocalJSX.BiggiveIconButton & JSXBase.HTMLAttributes<HTMLBiggiveIconButtonElement>;
             "biggive-image": LocalJSX.BiggiveImage & JSXBase.HTMLAttributes<HTMLBiggiveImageElement>;
