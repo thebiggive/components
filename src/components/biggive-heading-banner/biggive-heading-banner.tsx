@@ -75,13 +75,12 @@ export class BiggiveHeadingBanner {
 
     return string
       .split(/\r?\n|\r|\n/g)
-      .map(line => [line, <br/>])
+      .map(line => [line, <br />])
       .flat()
       .slice(0, -1);
   }
 
   private getParsedFocalPoint(): { x: number; y: number } {
-    if (!this.focalPoint) return {x: 50, y: 50};
     if (typeof this.focalPoint === 'string') {
       return JSON.parse(this.focalPoint);
     }
@@ -89,7 +88,7 @@ export class BiggiveHeadingBanner {
   }
 
   private getParsedLogo(): { url: string; alt?: string } | undefined {
-    if (!this.logo) return undefined;
+    if (this.logo === undefined) return undefined;
     if (typeof this.logo === 'string') {
       return JSON.parse(this.logo);
     }
@@ -132,17 +131,17 @@ export class BiggiveHeadingBanner {
               'color': txtColor,
             }}
           >
-            {(logo ? (
+            {logo ? (
               <div class="logo">
                 <img src={logo.url} alt={logo.alt || ''} />
               </div>
-            ) : null)}
+            ) : null}
 
-            {this.slug ? <div class="slug">{this.slug}</div> : null}
+            {this.slug != undefined ? <div class="slug">{this.slug}</div> : null}
 
             <h1 class="main-title">{this.mainTitle}</h1>
 
-            {this.teaser ? <div class="teaser">{teaserLines}</div> : null}
+            {this.teaser != undefined ? <div class="teaser">{teaserLines}</div> : null}
           </div>
 
           <img
