@@ -18,37 +18,23 @@
         font-family: 'Euclid Triangle', sans-serif;
         background-color: #F1F1F1;
       }
-      .demo-section {
-        max-width: 1200px;
-        margin: 30px auto;
-        padding: 0 20px;
-      }
       h1, h2 {
         color: #2C089B;
-      }
-      .code-example {
-        background-color: #f8f8f8;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        padding: 15px;
-        margin: 20px 0;
-        overflow-x: auto;
-        font-family: monospace;
       }
     </style>
   </head>
   <body>
-    <div class="demo-section">
+  <biggive-page-section>
       <h1>Heading Banner Component Demo</h1>
       <p>This page demonstrates the usage of the new <code>biggive-heading-banner</code> component.</p>
-    </div>
 
+  </biggive-page-section>
     <!-- Example 1: Basic usage -->
     <biggive-heading-banner
       main-title="Double the difference"
       teaser="Hi. We're Big Give. Our match funding campaigns offer a unique opportunity for you to double the difference you can make in the world for the causes close to your heart."
-      main-image-url="/assets/images/homepage-elephant.jpg"
-      background-colour="#F6F6F6"
+      main-image-url="https://picsum.photos/id/901/2000/600"
+      background-colour="#62CFC9"
       focal-point='{"x": 70, "y": 47}'
       text-background-colour="#FF7272"
       text-colour="#000000"
@@ -59,11 +45,10 @@
       <h2>Basic Usage</h2>
       <p>The example above shows the basic usage of the heading banner component with a tall height, coral background for text, and custom focal point for the image.</p>
 
-      <div class="code-example">
 <biggive-heading-banner
   main-title="Double the difference"
   teaser="Hi. We're Big Give. Our match funding campaigns offer a unique opportunity for you to double the difference you can make in the world for the causes close to your heart."
-  main-image-url="/assets/images/homepage-elephant.jpg"
+  main-image-url="https://picsum.photos/id/901/2000/600"
   background-colour="#F6F6F6"
   focal-point='{"x": 70, "y": 47}'
   text-background-colour="#FF7272"
@@ -71,23 +56,21 @@
   height="tall"
 ></biggive-heading-banner>
       </div>
-    </div>
 
     <!-- Example 2: With logo and slug -->
     <biggive-heading-banner
       slug="Small Charity Week"
       main-title="Support small charities"
       teaser="Small charities make a big difference in our communities. Support them through our match funding campaigns."
-      main-image-url="/assets/images/banner-general.jpg"
+      main-image-url="https://picsum.photos/id/901/2000/600"
       background-colour="#F1F1F1"
       focal-point='{"x": 50, "y": 50}'
       text-background-colour="#2C089B"
       text-colour="#FFFFFF"
       height="short"
-      logo='{"url": "/assets/images/sample-champion.png", "alt": "Sample Logo"}'
+      logo='{"url": "https://picsum.photos/id/56/200/200", "alt": "Bokeh"}'
     ></biggive-heading-banner>
 
-    <div class="demo-section">
       <h2>With Logo and Slug</h2>
       <p>This example demonstrates the heading banner with additional optional properties:</p>
       <ul>
@@ -96,25 +79,21 @@
         <li><strong>height</strong>: Set to "short" for a more compact banner</li>
       </ul>
 
-      <div class="code-example">
 
 <biggive-heading-banner
   slug="Small Charity Week"
   main-title="Support small charities"
   teaser="Small charities make a big difference in our communities. Support them through our match funding campaigns."
-  main-image-url="/assets/images/banner-general.jpg"
+  main-image-url="https://picsum.photos/id/901/2000/600"
   background-colour="#F1F1F1"
   focal-point='{"x": 50, "y": 50}'
   text-background-colour="#2C089B"
   text-colour="#FFFFFF"
   height="short"
   logo='{"url": "/assets/images/sample-champion.png", "alt": "Sample Logo"}'
-</biggive-heading-banner>
+></biggive-heading-banner>
 
-      </div>
-    </div>
 
-    <div class="demo-section">
       <h2>Component Properties</h2>
       <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
         <thead>
@@ -188,9 +167,7 @@
           </tr>
         </tbody>
       </table>
-    </div>
 
-    <div class="demo-section">
       <h2>Notes</h2>
       <ul>
         <li>The component uses Shadow DOM for style encapsulation</li>
@@ -198,6 +175,5 @@
         <li>Hex color values can be provided with or without the # prefix</li>
         <li>The focal point controls the positioning of the background image, useful for responsive layouts</li>
       </ul>
-    </div>
   </body>
 </html>

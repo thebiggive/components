@@ -15,7 +15,7 @@ export class BiggiveHeadingBanner {
   /**
    * Optional logo object with URL and alt text
    */
-  @Prop() logo?: { url: string; alt?: string };
+  @Prop() logo?: { url: string; alt?: string } | string;
 
   /**
    * Optional slightly smaller text to appear above the main title
@@ -36,7 +36,7 @@ export class BiggiveHeadingBanner {
    * Focal point for the image positioning
    * x and y values are percentages (0-100)
    */
-  @Prop() focalPoint!: { x: number; y: number };
+  @Prop() focalPoint!: string | { x: number; y: number };
 
   /**
    * Optional teaser text that appears below the main title
@@ -75,9 +75,25 @@ export class BiggiveHeadingBanner {
 
     return string
       .split(/\r?\n|\r|\n/g)
-      .map(line => [line, <br />])
+      .map(line => [line, <br/>])
       .flat()
       .slice(0, -1);
+  }
+
+  private getParsedFocalPoint(): { x: number; y: number } {
+    if (!this.focalPoint) return {x: 50, y: 50};
+    if (typeof this.focalPoint === 'string') {
+      return JSON.parse(this.focalPoint);
+    }
+    return this.focalPoint;
+  }
+
+  private getParsedLogo(): { url: string; alt?: string } | undefined {
+    if (!this.logo) return undefined;
+    if (typeof this.logo === 'string') {
+      return JSON.parse(this.logo);
+    }
+    return this.logo;
   }
 
   render() {
@@ -89,6 +105,7 @@ export class BiggiveHeadingBanner {
     const textBgColor = this.textBackgroundColour.startsWith('#') ? this.textBackgroundColour : `#${this.textBackgroundColour}`;
     const txtColor = this.textColour.startsWith('#') ? this.textColour : `#${this.textColour}`;
 
+    const logo = this.getParsedLogo();
     return (
       <div
         class={{
@@ -104,7 +121,7 @@ export class BiggiveHeadingBanner {
           src={this.mainImageUrl}
           alt=""
           style={{
-            'object-position': `${this.focalPoint.x}% ${this.focalPoint.y}%`,
+            'object-position': `${this.getParsedFocalPoint().x}% ${this.getParsedFocalPoint().y}%`,
           }}
         />
         <div class="sleeve">
@@ -115,11 +132,11 @@ export class BiggiveHeadingBanner {
               'color': txtColor,
             }}
           >
-            {this.logo ? (
+            {(logo ? (
               <div class="logo">
-                <img src={this.logo.url} alt={this.logo.alt || ''} />
+                <img src={logo.url} alt={logo.alt || ''} />
               </div>
-            ) : null}
+            ) : null)}
 
             {this.slug ? <div class="slug">{this.slug}</div> : null}
 
@@ -133,7 +150,7 @@ export class BiggiveHeadingBanner {
             src={this.mainImageUrl}
             alt=""
             style={{
-              'object-position': `${this.focalPoint.x}% ${this.focalPoint.y}%`,
+              'object-position': `${this.getParsedFocalPoint().x}% ${this.getParsedFocalPoint().y}%`,
             }}
           />
         </div>

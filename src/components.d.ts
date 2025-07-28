@@ -864,7 +864,7 @@ export namespace Components {
         /**
           * Focal point for the image positioning x and y values are percentages (0-100)
          */
-        "focalPoint": { x: number; y: number };
+        "focalPoint": string | { x: number; y: number };
         /**
           * Height variant of the banner 'tall' for full height, 'short' for reduced height
           * @default 'tall'
@@ -873,7 +873,7 @@ export namespace Components {
         /**
           * Optional logo object with URL and alt text
          */
-        "logo"?: { url: string; alt?: string };
+        "logo"?: { url: string; alt?: string } | string;
         /**
           * URL for the main banner image
          */
@@ -3125,7 +3125,7 @@ declare namespace LocalJSX {
         /**
           * Focal point for the image positioning x and y values are percentages (0-100)
          */
-        "focalPoint": { x: number; y: number };
+        "focalPoint": string | { x: number; y: number };
         /**
           * Height variant of the banner 'tall' for full height, 'short' for reduced height
           * @default 'tall'
@@ -3134,7 +3134,7 @@ declare namespace LocalJSX {
         /**
           * Optional logo object with URL and alt text
          */
-        "logo"?: { url: string; alt?: string };
+        "logo"?: { url: string; alt?: string } | string;
         /**
           * URL for the main banner image
          */
