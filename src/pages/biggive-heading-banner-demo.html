@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Big Give Heading Banner Component Demo</title>
+
+    <link href="./assets/fonts/EuclidTriangle/stylesheet.css" rel="stylesheet" type="text/css" />
+    <link href="./assets/fonts/philco.css" rel="stylesheet" type="text/css" />
+
+    <script type="module" src="/build/biggive.esm.js"></script>
+    <script nomodule src="/build/biggive.js"></script>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Euclid Triangle', sans-serif;
+        background-color: #F1F1F1;
+      }
+      h1, h2 {
+        color: #2C089B;
+      }
+    </style>
+  </head>
+  <body>
+  <biggive-page-section>
+      <h1>Heading Banner Component Demo</h1>
+      <p>This page demonstrates the usage of the new <code>biggive-heading-banner</code> component.</p>
+
+  </biggive-page-section>
+    <!-- Example 1: Basic usage -->
+    <biggive-heading-banner
+      main-title="Double the difference"
+      teaser="Hi. We're Big Give. Our match funding campaigns offer a unique opportunity for you to double the difference you can make in the world for the causes close to your heart."
+      main-image-url="https://picsum.photos/id/901/2000/600"
+      background-colour="#62CFC9"
+      focal-point='{"x": 70, "y": 47}'
+      text-background-colour="#FF7272"
+      text-colour="#000000"
+      height="tall"
+    ></biggive-heading-banner>
+
+    <biggive-page-section>
+      <h2>Basic Usage</h2>
+      <p>The example above shows the basic usage of the heading banner component with a tall height, coral background for text, and custom focal point for the image.</p>
+    </biggive-page-section>
+
+<biggive-heading-banner
+  main-title="Double the difference"
+  teaser="Hi. We're Big Give. Our match funding campaigns offer a unique opportunity for you to double the difference you can make in the world for the causes close to your heart."
+  main-image-url="https://picsum.photos/id/901/2000/600"
+  background-colour="#F6F6F6"
+  focal-point='{"x": 70, "y": 47}'
+  text-background-colour="#FF7272"
+  text-colour="#000000"
+  height="tall"
+></biggive-heading-banner>
+      </div>
+
+
+    <!-- Example 2: With logo and slug -->
+    <biggive-heading-banner
+      slug="Small Charity Week"
+      main-title="Support small charities"
+      teaser="Small charities make a big difference in our communities. Support them through our match funding campaigns."
+      main-image-url="https://picsum.photos/id/901/2000/600"
+      background-colour="#F1F1F1"
+      focal-point='{"x": 50, "y": 50}'
+      text-background-colour="#2C089B"
+      text-colour="#FFFFFF"
+      height="tall"
+      logo='{"url": "https://picsum.photos/id/56/200/200", "alt": "Bokeh"}'
+    ></biggive-heading-banner>
+
+  <biggive-page-section>
+      <h2>With Logo and Slug</h2>
+      <p>This example demonstrates the heading banner with additional optional properties:</p>
+      <ul>
+        <li><strong>logo</strong>: An object with URL and alt text for a logo image</li>
+        <li><strong>slug</strong>: A smaller text that appears above the main title</li>
+        <li><strong>height</strong>: Set to "short" for a more compact banner</li>
+      </ul>
+  </biggive-page-section>
+
+<biggive-heading-banner
+  slug="Small Charity Week"
+  main-title="Support small charities"
+  teaser="Small charities make a big difference in our communities. Support them through our match funding campaigns."
+  main-image-url="https://picsum.photos/id/901/2000/600"
+  background-colour="#F1F1F1"
+  focal-point='{"x": 50, "y": 50}'
+  text-background-colour="#2C089B"
+  text-colour="#FFFFFF"
+  height="short"
+  logo='{"url": "/assets/images/sample-champion.png", "alt": "Sample Logo"}'
+></biggive-heading-banner>
+
+  <biggive-page-section>
+    <h2>As above but inside a biggive-page-section element</h2>
+    <p>Normally the header would be outside of any section. Putting the header inside a section restricts its width.</p>
+
+    <biggive-heading-banner
+      slug="Small Charity Week"
+      main-title="Support small charities"
+      teaser="Small charities make a big difference in our communities. Support them through our match funding campaigns."
+      main-image-url="https://picsum.photos/id/901/2000/600"
+      background-colour="#F1F1F1"
+      focal-point='{"x": 50, "y": 50}'
+      text-background-colour="#2C089B"
+      text-colour="#FFFFFF"
+      height="short"
+      logo='{"url": "/assets/images/sample-champion.png", "alt": "Sample Logo"}'
+    ></biggive-heading-banner>
+
+  <biggive-page-section>
+      <h2>Component Properties</h2>
+      <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+        <thead>
+          <tr style="background-color: #2C089B; color: white;">
+            <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Property</th>
+            <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Type</th>
+            <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Description</th>
+            <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background-color: white;">
+            <td style="padding: 10px; border: 1px solid #ddd;">main-title</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">string</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Main title text for the banner</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Yes</td>
+          </tr>
+          <tr style="background-color: #f8f8f8;">
+            <td style="padding: 10px; border: 1px solid #ddd;">main-image-url</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">string</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">URL for the main banner image</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Yes</td>
+          </tr>
+          <tr style="background-color: white;">
+            <td style="padding: 10px; border: 1px solid #ddd;">focal-point</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">object</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Focal point for image positioning (x and y values as percentages 0-100)</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Yes</td>
+          </tr>
+          <tr style="background-color: #f8f8f8;">
+            <td style="padding: 10px; border: 1px solid #ddd;">teaser</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">string</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Teaser text that appears below the main title</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Yes</td>
+          </tr>
+          <tr style="background-color: white;">
+            <td style="padding: 10px; border: 1px solid #ddd;">background-colour</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">string</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Background color for the banner</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Yes</td>
+          </tr>
+          <tr style="background-color: #f8f8f8;">
+            <td style="padding: 10px; border: 1px solid #ddd;">text-background-colour</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">string</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Background color for the text content area</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Yes</td>
+          </tr>
+          <tr style="background-color: white;">
+            <td style="padding: 10px; border: 1px solid #ddd;">text-colour</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">string</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Text color for all text content</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Yes</td>
+          </tr>
+          <tr style="background-color: #f8f8f8;">
+            <td style="padding: 10px; border: 1px solid #ddd;">height</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">"short" | "tall"</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Height variant of the banner</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">No (default: "tall")</td>
+          </tr>
+          <tr style="background-color: white;">
+            <td style="padding: 10px; border: 1px solid #ddd;">logo</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">object</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Optional logo object with URL and alt text</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">No</td>
+          </tr>
+          <tr style="background-color: #f8f8f8;">
+            <td style="padding: 10px; border: 1px solid #ddd;">slug</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">string</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Optional slightly smaller text to appear above the main title</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">No (default: "")</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Notes</h2>
+      <ul>
+        <li>The component uses Shadow DOM for style encapsulation</li>
+        <li>Line breaks in the teaser text are automatically converted to <code>&lt;br/&gt;</code> elements</li>
+        <li>Hex color values can be provided with or without the # prefix</li>
+        <li>The focal point controls the positioning of the background image, useful for responsive layouts</li>
+      </ul>
+  </biggive-page-section>
+  </body>
+</html>
