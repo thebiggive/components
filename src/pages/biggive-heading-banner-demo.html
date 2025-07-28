@@ -41,9 +41,10 @@
       height="tall"
     ></biggive-heading-banner>
 
-    <div class="demo-section">
+    <biggive-page-section>
       <h2>Basic Usage</h2>
       <p>The example above shows the basic usage of the heading banner component with a tall height, coral background for text, and custom focal point for the image.</p>
+    </biggive-page-section>
 
 <biggive-heading-banner
   main-title="Double the difference"
@@ -57,6 +58,7 @@
 ></biggive-heading-banner>
       </div>
 
+
     <!-- Example 2: With logo and slug -->
     <biggive-heading-banner
       slug="Small Charity Week"
@@ -67,10 +69,11 @@
       focal-point='{"x": 50, "y": 50}'
       text-background-colour="#2C089B"
       text-colour="#FFFFFF"
-      height="short"
+      height="tall"
       logo='{"url": "https://picsum.photos/id/56/200/200", "alt": "Bokeh"}'
     ></biggive-heading-banner>
 
+  <biggive-page-section>
       <h2>With Logo and Slug</h2>
       <p>This example demonstrates the heading banner with additional optional properties:</p>
       <ul>
@@ -78,7 +81,7 @@
         <li><strong>slug</strong>: A smaller text that appears above the main title</li>
         <li><strong>height</strong>: Set to "short" for a more compact banner</li>
       </ul>
-
+  </biggive-page-section>
 
 <biggive-heading-banner
   slug="Small Charity Week"
@@ -93,7 +96,24 @@
   logo='{"url": "/assets/images/sample-champion.png", "alt": "Sample Logo"}'
 ></biggive-heading-banner>
 
+  <biggive-page-section>
+    <h2>As above but inside a biggive-page-section element</h2>
+    <p>Normally the header would be outside of any section. Putting the header inside a section restricts its width.</p>
 
+    <biggive-heading-banner
+      slug="Small Charity Week"
+      main-title="Support small charities"
+      teaser="Small charities make a big difference in our communities. Support them through our match funding campaigns."
+      main-image-url="https://picsum.photos/id/901/2000/600"
+      background-colour="#F1F1F1"
+      focal-point='{"x": 50, "y": 50}'
+      text-background-colour="#2C089B"
+      text-colour="#FFFFFF"
+      height="short"
+      logo='{"url": "/assets/images/sample-champion.png", "alt": "Sample Logo"}'
+    ></biggive-heading-banner>
+
+  <biggive-page-section>
       <h2>Component Properties</h2>
       <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
         <thead>
@@ -175,5 +195,6 @@
         <li>Hex color values can be provided with or without the # prefix</li>
         <li>The focal point controls the positioning of the background image, useful for responsive layouts</li>
       </ul>
+  </biggive-page-section>
   </body>
 </html>
