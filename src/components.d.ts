@@ -882,23 +882,22 @@ export namespace Components {
           * Main title text for the banner
          */
         "mainTitle": string;
+        "mainTitleColour": string;
         /**
           * Optional slightly smaller text to appear above the main title
           * @default ''
          */
         "slug"?: string;
+        "slugColour": string;
         /**
           * Optional teaser text that appears below the main title
          */
         "teaser": string;
+        "teaserColour": string;
         /**
           * Background color for the text content area
          */
         "textBackgroundColour": string;
-        /**
-          * Text color for all text content
-         */
-        "textColour": string;
     }
     interface BiggiveHeroImage {
         /**
@@ -3143,23 +3142,22 @@ declare namespace LocalJSX {
           * Main title text for the banner
          */
         "mainTitle": string;
+        "mainTitleColour": string;
         /**
           * Optional slightly smaller text to appear above the main title
           * @default ''
          */
         "slug"?: string;
+        "slugColour": string;
         /**
           * Optional teaser text that appears below the main title
          */
         "teaser": string;
+        "teaserColour": string;
         /**
           * Background color for the text content area
          */
         "textBackgroundColour": string;
-        /**
-          * Text color for all text content
-         */
-        "textColour": string;
     }
     interface BiggiveHeroImage {
         /**

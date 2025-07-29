@@ -22,10 +22,12 @@ It supports different heights and customizable colors.
 | `logo`                              | `logo`                   | Optional logo object with URL and alt text                                      | `string \| undefined \| { url: string; alt?: string \| undefined; }` | `undefined` |
 | `mainImageUrl` _(required)_         | `main-image-url`         | URL for the main banner image                                                   | `string`                                                             | `undefined` |
 | `mainTitle` _(required)_            | `main-title`             | Main title text for the banner                                                  | `string`                                                             | `undefined` |
+| `mainTitleColour` _(required)_      | `main-title-colour`      |                                                                                 | `string`                                                             | `undefined` |
 | `slug`                              | `slug`                   | Optional slightly smaller text to appear above the main title                   | `string \| undefined`                                                | `''`        |
+| `slugColour` _(required)_           | `slug-colour`            |                                                                                 | `string`                                                             | `undefined` |
 | `teaser` _(required)_               | `teaser`                 | Optional teaser text that appears below the main title                          | `string`                                                             | `undefined` |
+| `teaserColour` _(required)_         | `teaser-colour`          |                                                                                 | `string`                                                             | `undefined` |
 | `textBackgroundColour` _(required)_ | `text-background-colour` | Background color for the text content area                                      | `string`                                                             | `undefined` |
-| `textColour` _(required)_           | `text-colour`            | Text color for all text content                                                 | `string`                                                             | `undefined` |
 
 
 ----------------------------------------------
