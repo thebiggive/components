@@ -53,10 +53,11 @@ export class BiggiveHeadingBanner {
    */
   @Prop() textBackgroundColour!: string;
 
-  /**
-   * Text color for all text content
-   */
-  @Prop() textColour!: string;
+  @Prop() slugColour!: string;
+
+  @Prop() mainTitleColour!: string;
+
+  @Prop() teaserColour!: string;
 
   /**
    * Height variant of the banner
@@ -102,7 +103,9 @@ export class BiggiveHeadingBanner {
     // Ensure color values have # prefix if they're hex colors without it
     const bgColor = this.backgroundColour.startsWith('#') ? this.backgroundColour : `#${this.backgroundColour}`;
     const textBgColor = this.textBackgroundColour.startsWith('#') ? this.textBackgroundColour : `#${this.textBackgroundColour}`;
-    const txtColor = this.textColour.startsWith('#') ? this.textColour : `#${this.textColour}`;
+    const slugColour = this.slugColour.startsWith('#') ? this.slugColour : `#${this.slugColour}`;
+    const mainTitleColour = this.mainTitleColour.startsWith('#') ? this.mainTitleColour : `#${this.mainTitleColour}`;
+    const teaserColour = this.teaserColour.startsWith('#') ? this.teaserColour : `#${this.teaserColour}`;
 
     const logo = this.getParsedLogo();
     return (
@@ -128,7 +131,6 @@ export class BiggiveHeadingBanner {
             class="content-wrap"
             style={{
               'background-color': textBgColor,
-              'color': txtColor,
             }}
           >
             {logo ? (
@@ -137,11 +139,36 @@ export class BiggiveHeadingBanner {
               </div>
             ) : null}
 
-            {this.slug != undefined ? <div class="slug">{this.slug}</div> : null}
+            {this.slug != undefined ? (
+              <div
+                style={{
+                  color: slugColour,
+                }}
+                class="slug"
+              >
+                {this.slug}
+              </div>
+            ) : null}
 
-            <h1 class="main-title">{this.mainTitle}</h1>
+            <h1
+              style={{
+                color: mainTitleColour,
+              }}
+              class="main-title"
+            >
+              {this.mainTitle}
+            </h1>
 
-            {this.teaser != undefined ? <div class="teaser">{teaserLines}</div> : null}
+            {this.teaser != undefined ? (
+              <div
+                class="teaser"
+                style={{
+                  color: teaserColour,
+                }}
+              >
+                {teaserLines}
+              </div>
+            ) : null}
           </div>
 
           <img
