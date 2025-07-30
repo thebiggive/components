@@ -877,7 +877,7 @@ export namespace Components {
         /**
           * URL for the main banner image
          */
-        "mainImageUrl": string;
+        "mainImageUrl": string | null;
         /**
           * Main title text for the banner
          */
@@ -3137,7 +3137,7 @@ declare namespace LocalJSX {
         /**
           * URL for the main banner image
          */
-        "mainImageUrl": string;
+        "mainImageUrl": string | null;
         /**
           * Main title text for the banner
          */
