@@ -30,7 +30,7 @@ export class BiggiveHeadingBanner {
   /**
    * URL for the main banner image
    */
-  @Prop() mainImageUrl!: string;
+  @Prop() mainImageUrl!: string | null;
 
   /**
    * Focal point for the image positioning
@@ -118,14 +118,16 @@ export class BiggiveHeadingBanner {
           'background-color': bgColor,
         }}
       >
-        <img
-          class="background"
-          src={this.mainImageUrl}
-          alt=""
-          style={{
-            'object-position': `${this.getParsedFocalPoint().x}% ${this.getParsedFocalPoint().y}%`,
-          }}
-        />
+        {typeof this.mainImageUrl === 'string' && this.mainImageUrl !== '' ? (
+          <img
+            class="background"
+            src={this.mainImageUrl}
+            alt=""
+            style={{
+              'object-position': `${this.getParsedFocalPoint().x}% ${this.getParsedFocalPoint().y}%`,
+            }}
+          />
+        ) : null}
         <div class="sleeve">
           <div
             class="content-wrap"
@@ -171,14 +173,16 @@ export class BiggiveHeadingBanner {
             ) : null}
           </div>
 
-          <img
-            class="stacked"
-            src={this.mainImageUrl}
-            alt=""
-            style={{
-              'object-position': `${this.getParsedFocalPoint().x}% ${this.getParsedFocalPoint().y}%`,
-            }}
-          />
+          {typeof this.mainImageUrl === 'string' && this.mainImageUrl !== '' ? (
+            <img
+              class="stacked"
+              src={this.mainImageUrl}
+              alt=""
+              style={{
+                'object-position': `${this.getParsedFocalPoint().x}% ${this.getParsedFocalPoint().y}%`,
+              }}
+            />
+          ) : null}
         </div>
       </div>
     );
