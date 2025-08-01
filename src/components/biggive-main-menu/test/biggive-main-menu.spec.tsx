@@ -111,7 +111,7 @@ const getExpectedHtml = (pageKnowsAboutAppWideRedirect: boolean): string => `
                         </a>
                       </li>
                       <li>
-                        <a class="icon-earth-raise" href="https://read-the-blog-here.biggive.org/green-match-fund">
+                        <a class="icon-earth-raise" href="https://read-the-blog-here.biggive.org/earth-raise">
                           Earth Raise
                         </a>
                       </li>
