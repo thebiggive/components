@@ -101,11 +101,13 @@ export class BiggiveHeadingBanner {
     const teaserLines = this.lineBreakToBr(this.teaser);
 
     // Ensure color values have # prefix if they're hex colors without it
-    const bgColor = this.backgroundColour.startsWith('#') ? this.backgroundColour : `#${this.backgroundColour}`;
-    const textBgColor = this.textBackgroundColour.startsWith('#') ? this.textBackgroundColour : `#${this.textBackgroundColour}`;
-    const slugColour = this.slugColour.startsWith('#') ? this.slugColour : `#${this.slugColour}`;
-    const mainTitleColour = this.mainTitleColour.startsWith('#') ? this.mainTitleColour : `#${this.mainTitleColour}`;
-    const teaserColour = this.teaserColour.startsWith('#') ? this.teaserColour : `#${this.teaserColour}`;
+    // not sure how but it seems we're sometimes doing at least an intiial render before the colour props are populated,
+    // so using null-safe navigation to avoid a crash here.
+    const bgColor = this.backgroundColour?.startsWith('#') ? this.backgroundColour : `#${this.backgroundColour}`;
+    const textBgColor = this.textBackgroundColour?.startsWith('#') ? this.textBackgroundColour : `#${this.textBackgroundColour}`;
+    const slugColour = this.slugColour?.startsWith('#') ? this.slugColour : `#${this.slugColour}`;
+    const mainTitleColour = this.mainTitleColour?.startsWith('#') ? this.mainTitleColour : `#${this.mainTitleColour}`;
+    const teaserColour = this.teaserColour?.startsWith('#') ? this.teaserColour : `#${this.teaserColour}`;
 
     const logo = this.getParsedLogo();
     return (
