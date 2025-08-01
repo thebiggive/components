@@ -125,8 +125,8 @@ export class BiggiveFooter {
                   </a>
                 </li>
                 <li>
-                  <a href={makeURL('Blog', this.blogUrlPrefix, 'green-match-fund')} class="icon-green">
-                    Green Match Fund
+                  <a href={makeURL('Blog', this.blogUrlPrefix, 'green-match-fund')} class="icon-earth-raise">
+                    Earth Raise
                   </a>
                 </li>
                 <li>
