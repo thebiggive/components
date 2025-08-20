@@ -157,7 +157,13 @@ export class BiggiveCampaignCard {
                 )}
               </div>
             )}
-            {this.isEmpty(this.progressBarCounter) ? null : (
+            {this.isEmpty(this.progressBarCounter) ? (
+              // We don't have a progress bar to show in this case, so the following is just functioning as a spacer to
+              // keep layout consistent. Counter must be non-null to make bar display.
+              <div class="progress-bar-wrap" style={{ visibility: 'hidden' }}>
+                <biggive-progress-bar counter={0} colour-scheme="primary"></biggive-progress-bar>
+              </div>
+            ) : (
               <div class="progress-bar-wrap">
                 <biggive-progress-bar counter={this.progressBarCounter} colour-scheme="primary"></biggive-progress-bar>
               </div>

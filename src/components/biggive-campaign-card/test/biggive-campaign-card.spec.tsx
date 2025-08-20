@@ -91,6 +91,9 @@ describe('biggive-campaign-card', () => {
                  By
                </div>
              </div>
+             <div class="progress-bar-wrap" style="visibility: hidden;">
+              <biggive-progress-bar colour-scheme="primary" counter="0"></biggive-progress-bar>
+             </div>
            </div>
            <div class="button-wrap">
              <biggive-button colour-scheme="primary" full-width="true" label="Donate now"></biggive-button>
