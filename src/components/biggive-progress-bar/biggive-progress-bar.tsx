@@ -18,17 +18,15 @@ export class BiggiveProgressBar {
   /**
    * Percentage to show + use for CSS width; round before input if desired
    */
-  @Prop() counter?: number | null = 100;
+  @Prop() counter?: number | null = null;
 
   render() {
-    if (this.counter === null || this.counter === undefined) {
-      return null;
-    }
+    const visibility = typeof this.counter === 'number' ? 'visible' : 'hidden';
 
     return (
-      <div class={'progress-bar progress-bar-' + this.colourScheme + ' space-below-' + this.spaceBelow}>
+      <div style={{ visibility: visibility }} class={'progress-bar progress-bar-' + this.colourScheme + ' space-below-' + this.spaceBelow}>
         <div class="slider">
-          <div class="progress" style={{ width: `${Math.min(this.counter, 100)}%` }}></div>
+          <div class="progress" style={{ width: `${Math.min(this.counter ?? 0, 100)}%` }}></div>
         </div>
         <div class="counter">{this.counter}%</div>
       </div>

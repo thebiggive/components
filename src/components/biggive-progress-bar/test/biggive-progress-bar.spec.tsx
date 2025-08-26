@@ -10,7 +10,7 @@ describe('biggive-progress-bar', () => {
     expect(page.root).toEqualHtml(`
       <biggive-progress-bar colour-scheme="primary" counter="100">
         <mock:shadow-root>
-          <div class="progress-bar progress-bar-primary space-below-0">
+          <div class="progress-bar progress-bar-primary space-below-0" style="visibility: visible;">
             <div class="slider">
               <div class="progress" style="width: 100%;"></div>
             </div>
