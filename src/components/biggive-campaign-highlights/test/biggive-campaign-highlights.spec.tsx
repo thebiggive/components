@@ -28,7 +28,7 @@ describe('biggive-campaign-highlights', () => {
                 </div>
               </div>
               <div class="progress-bar-wrap">
-                <biggive-progress-bar colour-scheme="primary" counter="100"></biggive-progress-bar>
+                <biggive-progress-bar colour-scheme="primary"></biggive-progress-bar>
               </div>
               <div class="stat-wrap"></div>
             </div>

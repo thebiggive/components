@@ -44,7 +44,7 @@ export class BiggiveCampaignHighlights {
   /**
    * Progress bar percentage
    */
-  @Prop() progressBarCounter: number = 100;
+  @Prop() progressBarCounter: number | undefined = undefined;
 
   /**
    * Primary stat icon

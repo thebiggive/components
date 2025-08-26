@@ -631,9 +631,9 @@ export namespace Components {
         "primaryStatText": string;
         /**
           * Progress bar percentage
-          * @default 100
+          * @default undefined
          */
-        "progressBarCounter": number;
+        "progressBarCounter": number | undefined;
         /**
           * Amount for the secondary figure, formatted with currency symbol
          */
@@ -1374,7 +1374,7 @@ export namespace Components {
         "colourScheme": string;
         /**
           * Percentage to show + use for CSS width; round before input if desired
-          * @default 100
+          * @default null
          */
         "counter"?: number | null;
         /**
@@ -2879,9 +2879,9 @@ declare namespace LocalJSX {
         "primaryStatText"?: string;
         /**
           * Progress bar percentage
-          * @default 100
+          * @default undefined
          */
-        "progressBarCounter"?: number;
+        "progressBarCounter"?: number | undefined;
         /**
           * Amount for the secondary figure, formatted with currency symbol
          */
@@ -3634,7 +3634,7 @@ declare namespace LocalJSX {
         "colourScheme"?: string;
         /**
           * Percentage to show + use for CSS width; round before input if desired
-          * @default 100
+          * @default null
          */
         "counter"?: number | null;
         /**

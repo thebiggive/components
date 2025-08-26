@@ -10,7 +10,7 @@
 | Property       | Attribute       | Description                                                           | Type                          | Default     |
 | -------------- | --------------- | --------------------------------------------------------------------- | ----------------------------- | ----------- |
 | `colourScheme` | `colour-scheme` | Colour Scheme                                                         | `string`                      | `'primary'` |
-| `counter`      | `counter`       | Percentage to show + use for CSS width; round before input if desired | `null \| number \| undefined` | `100`       |
+| `counter`      | `counter`       | Percentage to show + use for CSS width; round before input if desired | `null \| number \| undefined` | `null`      |
 | `spaceBelow`   | `space-below`   | Space below component                                                 | `number`                      | `0`         |
 
 
