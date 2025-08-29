@@ -21,7 +21,9 @@ export class BiggiveProgressBar {
   @Prop() counter?: number | null = null;
 
   render() {
-    const visibility = typeof this.counter === 'number' ? 'visible' : 'hidden';
+    // important to use 'inherit' below rather than visible as the parent element may be hidden, in which case
+    // this should not show up.
+    const visibility = typeof this.counter === 'number' ? 'inherit' : 'hidden';
 
     return (
       <div style={{ visibility: visibility }} class={'progress-bar progress-bar-' + this.colourScheme + ' space-below-' + this.spaceBelow}>
