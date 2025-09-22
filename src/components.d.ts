@@ -277,6 +277,10 @@ export namespace Components {
          */
         "charityUrl": string;
         /**
+          * Alt-text for image, or null if the author has not supplied an alt-text. Should always be a string (but may be empty) when authoring new content.
+         */
+        "imageAlt": string | null;
+        /**
           * Full URL of a image.
           * @default ''
          */
@@ -2516,6 +2520,10 @@ declare namespace LocalJSX {
           * @deprecated We should stop passing this soon, and will link to charity URLs alongside socials.
          */
         "charityUrl"?: string;
+        /**
+          * Alt-text for image, or null if the author has not supplied an alt-text. Should always be a string (but may be empty) when authoring new content.
+         */
+        "imageAlt": string | null;
         /**
           * Full URL of a image.
           * @default ''
