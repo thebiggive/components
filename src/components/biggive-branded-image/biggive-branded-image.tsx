@@ -16,6 +16,12 @@ export class BiggiveBrandedImage {
   @Prop() imageUrl: string = '';
 
   /**
+   * Alt-text for image, or null if the author has not supplied an alt-text. Should always be a string
+   * (but may be empty) when authoring new content.
+   */
+  @Prop() imageAlt!: string | null;
+
+  /**
    * Full URL of the logo.
    */
   @Prop() logoUrl: string = '';
@@ -50,9 +56,7 @@ export class BiggiveBrandedImage {
       <div class={'container space-below-' + this.spaceBelow}>
         {<div class="slug">{this.slug}</div>}
         {this.imageUrl !== undefined && this.imageUrl !== null ? (
-          <div class="image-wrap">
-            <img src={this.imageUrl} role="presentation" />
-          </div>
+          <div class="image-wrap">{this.imageAlt === null ? <img src={this.imageUrl} /> : <img src={this.imageUrl} alt={this.imageAlt} />}</div>
         ) : null}
         {this.logoUrl !== undefined && this.logoUrl !== null ? <div class="logo-wrap" style={{ 'background-image': "url('" + this.logoUrl + "')" }}></div> : null}
 
