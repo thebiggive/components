@@ -10,6 +10,8 @@ updates:
     schedule:
       interval: "daily"
     ignore:
+      - dependency-name: "@stencil/sass"
+        versions: [">=3.0.13"]
       - dependency-name: storybook
         update-types: ["version-update:semver-major"]
       - dependency-name: "@storybook/addon-actions"
