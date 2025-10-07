@@ -14,17 +14,17 @@ updates:
         versions: [">=3.0.13"]
       - dependency-name: storybook
         update-types: ["version-update:semver-major"]
-      - dependency-name: storybook/addon-actions
+      - dependency-name: "@storybook/addon-actions"
         update-types: ["version-update:semver-major"]
-      - dependency-name: storybook/addon-essentials
+      - dependency-name: "@storybook/addon-essentials"
         update-types: ["version-update:semver-major"]
-      - dependency-name: storybook/addon-interactions
+      - dependency-name: "@storybook/addon-interactions"
         update-types: ["version-update:semver-major"]
-      - dependency-name: storybook/addon-links
+      - dependency-name: "@storybook/addon-links"
         update-types: ["version-update:semver-major"]
-      - dependency-name: storybook/html
+      - dependency-name: "@storybook/html"
         update-types: ["version-update:semver-major"]
-      - dependency-name: storybook/html-webpack5
+      - dependency-name: "@storybook/html-webpack5"
         update-types: ["version-update:semver-major"]
     groups:
       all-dependencies:
