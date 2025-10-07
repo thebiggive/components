@@ -281,6 +281,10 @@ export namespace Components {
          */
         "imageAlt": string | null;
         /**
+          * Image height as a percentage of width. If set used to set height in CSS without the need to wait for the image to load, avoiding layout shift further down the page.
+         */
+        "imageHeightPercent": number | null;
+        /**
           * Full URL of a image.
           * @default ''
          */
@@ -2524,6 +2528,10 @@ declare namespace LocalJSX {
           * Alt-text for image, or null if the author has not supplied an alt-text. Should always be a string (but may be empty) when authoring new content.
          */
         "imageAlt": string | null;
+        /**
+          * Image height as a percentage of width. If set used to set height in CSS without the need to wait for the image to load, avoiding layout shift further down the page.
+         */
+        "imageHeightPercent": number | null;
         /**
           * Full URL of a image.
           * @default ''
