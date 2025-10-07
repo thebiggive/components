@@ -12,6 +12,8 @@ updates:
     ignore:
       - dependency-name: "@chromatic-com/storybook"
         update-types: ["version-update:semver-major"]
+      - dependency-name: "eslint-plugin-storybook"
+        update-types: ["version-update:semver-major"]
       - dependency-name: "@stencil/sass"
         versions: [">=3.0.13"]
       - dependency-name: storybook
