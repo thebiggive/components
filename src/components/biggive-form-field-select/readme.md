@@ -18,7 +18,7 @@
 | `selectedLabel`        | `selected-label`         |                                                                                               | `null \| string`                                | `undefined`  |
 | `selectedOptionColour` | `selected-option-colour` |                                                                                               | `"blue" \| "inherit"`                           | `'blue'`     |
 | `selectedValue`        | `selected-value`         |                                                                                               | `null \| string`                                | `undefined`  |
-| `selectionChanged`     | `selection-changed`      |                                                                                               | `(value: string) => void`                       | `undefined`  |
+| `selectionChanged`     | --                       |                                                                                               | `(value: string) => void`                       | `undefined`  |
 | `spaceBelow`           | `space-below`            | Space below component                                                                         | `number`                                        | `0`          |
 
 

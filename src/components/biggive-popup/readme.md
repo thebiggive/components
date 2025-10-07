@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property              | Attribute               | Description                                                                            | Type         | Default    |
-| --------------------- | ----------------------- | -------------------------------------------------------------------------------------- | ------------ | ---------- |
-| `modalClosedCallback` | `modal-closed-callback` | Function to execute when the modal is closed, whether by the user or programmatically. | `() => void` | `() => {}` |
+| Property              | Attribute | Description                                                                            | Type         | Default    |
+| --------------------- | --------- | -------------------------------------------------------------------------------------- | ------------ | ---------- |
+| `modalClosedCallback` | --        | Function to execute when the modal is closed, whether by the user or programmatically. | `() => void` | `() => {}` |
 
 
 ## Methods
