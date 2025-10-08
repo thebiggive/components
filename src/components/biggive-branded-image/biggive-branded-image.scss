@@ -8,6 +8,7 @@
 .container {
   @include standard-font();
   position: relative;
+  container-type: inline-size;
   .slug {
     text-align: center;
     font-weight: bold;
