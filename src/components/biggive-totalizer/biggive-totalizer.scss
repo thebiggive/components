@@ -77,7 +77,9 @@
 @media screen and (max-width: $screen-tablet-max) {
   .container {
     .main-message-wrap {
-      @include font-size-medium();
+      font-size: 15px;
+      line-height: 20px;
+      max-width: 42%;
       padding: $spacer-2;
     }
   }
