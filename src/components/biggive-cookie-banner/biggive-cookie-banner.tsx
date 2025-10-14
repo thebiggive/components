@@ -80,20 +80,20 @@ export class BiggiveCookieBanner {
   }
 
   private handleChoosePrefencesClick = () => {
-    const elementById = this.el.shadowRoot?.getElementById('cookie-preferences-popup') as HTMLBiggivePopupElement;
-    elementById.openFromOutside();
+    const elementById = this.el.shadowRoot?.getElementById('cookie-preferences-popup') as HTMLBiggivePopupElement | null;
+    elementById?.openFromOutside();
   };
 
   private handleAcceptSelectedCookies = () => {
-    const elementById = this.el.shadowRoot?.getElementById('cookie-preferences-popup') as HTMLBiggivePopupElement;
-    elementById.closeFromOutside();
+    const elementById = this.el.shadowRoot?.getElementById('cookie-preferences-popup') as HTMLBiggivePopupElement | null;
+    elementById?.closeFromOutside();
 
     const analyticsAndTestingRadio = this.el.shadowRoot?.getElementById('a-and-t-on') as HTMLInputElement;
     const thirdPartyRadio = this.el.shadowRoot?.getElementById('third-party-on') as HTMLInputElement;
 
     this.cookieBannerSavePreferencesSelected.emit({ analyticsAndTesting: analyticsAndTestingRadio.checked, thirdParty: thirdPartyRadio.checked });
 
-    elementById.closeFromOutside();
+    elementById?.closeFromOutside();
   };
 
   /**
@@ -102,8 +102,8 @@ export class BiggiveCookieBanner {
   private handleRejectAllClicked = () => {
     this.cookieBannerSavePreferencesSelected.emit({ analyticsAndTesting: false, thirdParty: false });
 
-    const elementById = this.el.shadowRoot?.getElementById('cookie-preferences-popup') as HTMLBiggivePopupElement;
-    elementById.closeFromOutside();
+    const elementById = this.el.shadowRoot?.getElementById('cookie-preferences-popup') as HTMLBiggivePopupElement | null;
+    elementById?.closeFromOutside();
   };
 
   private handleAcceptAllClick = () => {
