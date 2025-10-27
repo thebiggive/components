@@ -121,11 +121,6 @@ const getExpectedHtml = (pageKnowsAboutAppWideRedirect: boolean): string => `
                         </a>
                       </li>
                       <li>
-                        <a class="icon-mental-health" href="https://read-the-blog-here.biggive.org/kind2mind/">
-                          Kind²Mind
-                        </a>
-                      </li>
-                      <li>
                         <a class="icon-arts-impact" href="https://read-the-blog-here.biggive.org/artsforimpact/">
                           Arts for Impact
                         </a>

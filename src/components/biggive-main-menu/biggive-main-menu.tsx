@@ -267,11 +267,6 @@ export class BiggiveMainMenu {
                             </a>
                           </li>
                           <li>
-                            <a href={makeURL('Blog', this.blogUrlPrefix, 'kind2mind/')} class="icon-mental-health">
-                              Kind²Mind
-                            </a>
-                          </li>
-                          <li>
                             <a href={makeURL('Blog', this.blogUrlPrefix, 'artsforimpact/')} class="icon-arts-impact">
                               Arts for Impact
                             </a>

@@ -140,11 +140,6 @@ export class BiggiveFooter {
                   </a>
                 </li>
                 <li>
-                  <a href={makeURL('Blog', this.blogUrlPrefix, 'kind2mind/')} class="icon-mental-health">
-                    Kind²Mind
-                  </a>
-                </li>
-                <li>
                   <a href={makeURL('Blog', this.blogUrlPrefix, 'artsforimpact')} class="icon-arts">
                     Arts for Impact
                   </a>
