@@ -128,17 +128,18 @@ export class BiggiveHeadingBanner {
 
     let teaserBlock = null;
     if (this.teaser != undefined) {
-      teaserBlock = this.targetUrl === undefined ? (
-        <div class="teaser" style={{ color: teaserColour }}>
-          {teaserLines}
-        </div>
-      ) : (
-        <a href={this.targetUrl} class="banner-link">
+      teaserBlock =
+        this.targetUrl === undefined ? (
           <div class="teaser" style={{ color: teaserColour }}>
             {teaserLines}
           </div>
-        </a>
-      );
+        ) : (
+          <a href={this.targetUrl} class="banner-link">
+            <div class="teaser" style={{ color: teaserColour }}>
+              {teaserLines}
+            </div>
+          </a>
+        );
     }
 
     return (
