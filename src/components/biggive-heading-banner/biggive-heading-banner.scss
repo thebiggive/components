@@ -27,7 +27,7 @@
     transform: translateX(-50%);
     bottom: 0;
     display: none;
-    @media (min-width: 450px) {
+    @media (min-width: #{$screen-tablet-max}) {
       display: block;
       bottom: initial;
       height: 100%;
@@ -47,22 +47,20 @@
   box-sizing: border-box;
   height: 100%;
 
-  @media (min-width: #{$screen-mobile-max}) {
+  @media (min-width: #{$screen-tablet-max}) {
     flex-direction: column;
-  }
-
-  @media (min-width: #{$screen-mobile-max + 30px}) {
-    // adding 30px to standard breakpoint to match padding.
     padding-left: 20px;
     align-items: start;
     height: 600px;
+
+    .short & {
+      height: 400px;
+    }
   }
 }
 
-@media (min-width: #{$screen-mobile-small + 30px}) {
-  .short .sleeve {
-    height: 400px;
-  }
+.banner-link {
+  text-decoration: none;
 }
 
 .content-wrap {
@@ -73,17 +71,14 @@
   padding-bottom: 30px;
   box-sizing: border-box;
   width: 100%;
-  max-width: 450px;
+  max-width: $screen-tablet-max;
 
-  @media (min-width: #{$screen-mobile-small}) {
+  @media (min-width: #{$screen-tablet-max}) {
     margin-bottom: auto;
     margin-top: auto;
-    padding-top: 40px;
-  }
-
-  @media (min-width: #{$screen-mobile-small + 30px}) {
-    padding-top: 30px;
     margin-left: 0;
+    padding-top: 30px;
+    max-width: 40%;
   }
 }
 
@@ -92,7 +87,7 @@ img.stacked {
   height: 100%;
   object-fit: cover;
 
-  @media (min-width: #{$screen-mobile-small}) {
+  @media (min-width: #{$screen-tablet-max}) {
     display: none;
   }
 }
