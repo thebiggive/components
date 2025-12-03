@@ -12,6 +12,8 @@ import { Component, h, Prop } from '@stencil/core';
   shadow: true,
 })
 export class BiggiveHeadingBanner {
+  @Prop() targetUrl?: string;
+
   /**
    * Optional logo object with URL and alt text
    */
@@ -110,6 +112,36 @@ export class BiggiveHeadingBanner {
     const teaserColour = this.teaserColour?.startsWith('#') ? this.teaserColour : `#${this.teaserColour}`;
 
     const logo = this.getParsedLogo();
+
+    const mainTitle =
+      this.targetUrl === undefined ? (
+        <h1 style={{ color: mainTitleColour }} class="main-title">
+          {this.mainTitle}
+        </h1>
+      ) : (
+        <a href={this.targetUrl} class="banner-link">
+          <h1 style={{ color: mainTitleColour }} class="main-title">
+            {this.mainTitle}
+          </h1>
+        </a>
+      );
+
+    let teaserBlock = null;
+    if (this.teaser != undefined) {
+      teaserBlock =
+        this.targetUrl === undefined ? (
+          <div class="teaser" style={{ color: teaserColour }}>
+            {teaserLines}
+          </div>
+        ) : (
+          <a href={this.targetUrl} class="banner-link">
+            <div class="teaser" style={{ color: teaserColour }}>
+              {teaserLines}
+            </div>
+          </a>
+        );
+    }
+
     return (
       <div
         class={{
@@ -154,25 +186,9 @@ export class BiggiveHeadingBanner {
               </div>
             ) : null}
 
-            <h1
-              style={{
-                color: mainTitleColour,
-              }}
-              class="main-title"
-            >
-              {this.mainTitle}
-            </h1>
+            {mainTitle}
 
-            {this.teaser != undefined ? (
-              <div
-                class="teaser"
-                style={{
-                  color: teaserColour,
-                }}
-              >
-                {teaserLines}
-              </div>
-            ) : null}
+            {teaserBlock}
           </div>
 
           {typeof this.mainImageUrl === 'string' && this.mainImageUrl !== '' ? (

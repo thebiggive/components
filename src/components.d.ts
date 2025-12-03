@@ -897,6 +897,7 @@ export namespace Components {
          */
         "slug"?: string;
         "slugColour": string;
+        "targetUrl"?: string;
         /**
           * Optional teaser text that appears below the main title
          */
@@ -3165,6 +3166,7 @@ declare namespace LocalJSX {
          */
         "slug"?: string;
         "slugColour": string;
+        "targetUrl"?: string;
         /**
           * Optional teaser text that appears below the main title
          */
