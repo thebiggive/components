@@ -1,6 +1,7 @@
 import { angularOutputTarget } from '@stencil/angular-output-target';
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
+import typescript from '@rollup/plugin-typescript';
 
 export const config: Config = {
   namespace: 'BigGive',
@@ -14,6 +15,7 @@ export const config: Config = {
       ]
     })
   ],
+  rollupPlugins: { before: [typescript()] },
   outputTargets: [
     angularOutputTarget({
       componentCorePackage: '@biggive/components/dist',
@@ -30,14 +32,14 @@ export const config: Config = {
       copy: [
         { src: 'assets/fonts', warn: true },
         { src: 'assets/images', warn: true },
-        { src: 'pages', warn: true  },
+        { src: 'pages', warn: true },
       ],
     },
     // While in real apps we only use non-standalone Angular module from `angularOutputTarget` and bootstrap-everything
     // loader from `dist`, we also need `dist-custom-elements` for Storybook previews to work.
     {
       type: 'dist-custom-elements', // Uses default `dist/components`.
-      customElementsExportBehavior: 'single-export-module'
+      customElementsExportBehavior: 'single-export-module',
     },
     {
       type: 'docs-readme',
@@ -45,11 +47,11 @@ export const config: Config = {
     {
       type: 'www',
       serviceWorker: null, // disable service workers
-        copy: [
+      copy: [
         { src: 'assets/fonts', warn: true },
         { src: 'assets/images', warn: true },
-        { src: 'pages', warn: true  },
-        ],
+        { src: 'pages', warn: true },
+      ],
     },
   ],
   devServer: {

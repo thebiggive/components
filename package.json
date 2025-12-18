@@ -41,6 +41,7 @@
     "@fortawesome/pro-duotone-svg-icons": "^6.6.0",
     "@fortawesome/pro-regular-svg-icons": "^6.6.0",
     "@fortawesome/pro-solid-svg-icons": "^6.6.0",
+    "@rollup/plugin-typescript": "^12.3.0",
     "@stencil/core": "^4.35.1"
   },
   "devDependencies": {
