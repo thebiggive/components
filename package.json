@@ -68,7 +68,7 @@
     "lint-staged": "^16.0.0",
     "prettier": "^3.1.1",
     "puppeteer": "^24.32.0",
-    "storybook": "^8.1.6"
+    "storybook": "^8.6.15"
   },
   "engines": {
     "node": ">=22.12"
