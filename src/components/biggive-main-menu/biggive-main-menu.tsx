@@ -178,7 +178,6 @@ export class BiggiveMainMenu {
         <div class="row row-top">
           <div class="social-icon-wrap">
             <biggive-social-icon service="Facebook" url="https://www.facebook.com/BigGive.org" background-colour="tertiary" icon-colour="black"></biggive-social-icon>
-            <biggive-social-icon service="Twitter" url="https://x.com/BigGive" background-colour="tertiary" icon-colour="black"></biggive-social-icon>
             <biggive-social-icon service="LinkedIn" url="https://uk.linkedin.com/company/big-give" background-colour="tertiary" icon-colour="black"></biggive-social-icon>
             <biggive-social-icon
               service="YouTube"
@@ -343,7 +342,6 @@ export class BiggiveMainMenu {
               </div>
               <div class="mobile-social-icon-wrap mobile-only">
                 <biggive-social-icon service="Facebook" url="https://www.facebook.com/BigGive.org" background-colour="tertiary" icon-colour="black"></biggive-social-icon>
-                <biggive-social-icon service="Twitter" url="https://x.com/BigGive" background-colour="tertiary" icon-colour="black"></biggive-social-icon>
                 <biggive-social-icon service="LinkedIn" url="https://uk.linkedin.com/company/big-give" background-colour="tertiary" icon-colour="black"></biggive-social-icon>
                 <biggive-social-icon
                   service="YouTube"

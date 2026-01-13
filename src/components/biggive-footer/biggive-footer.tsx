@@ -254,7 +254,6 @@ export class BiggiveFooter {
                   icon-colour="black"
                   wide={true}
                 ></biggive-social-icon>
-                <biggive-social-icon service="Twitter" url="https://x.com/BigGive" background-colour="tertiary" icon-colour="black" wide={true}></biggive-social-icon>
                 <biggive-social-icon
                   service="LinkedIn"
                   url="https://uk.linkedin.com/company/big-give"

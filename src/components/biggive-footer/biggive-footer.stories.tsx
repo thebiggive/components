@@ -29,7 +29,6 @@ const Template = () => `
         </ul>
         <div slot="social-icons">
         <biggive-social-icon service="Facebook" url="https://www.facebook.com" background-colour="tertiary" icon-colour="black"></biggive-social-icon>
-        <biggive-social-icon service="Twitter" url="https://x.com" background-colour="tertiary" icon-colour="black"></biggive-social-icon>
         <biggive-social-icon service="LinkedIn" url="https://www.linkedin.com" background-colour="tertiary" icon-colour="black"></biggive-social-icon>
         <biggive-social-icon service="YouTube" url="https://www.youtube.com" background-colour="tertiary" icon-colour="black"></biggive-social-icon>
         <biggive-social-icon service="Instagram" url="https://www.instagram.com" background-colour="tertiary" icon-colour="black"></biggive-social-icon>
