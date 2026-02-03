@@ -4,8 +4,8 @@
   "_comment": "Version number below is automatically replaced during CircleCI build.",
   "version": "0.0.1",
   "peerDependencies": {
-    "@angular/common": "^19.0.0||^20.0.0",
-    "@angular/core": "^19.0.0||^20.0.0",
+    "@angular/common": "^20.0.0||^21.0.0",
+    "@angular/core": "^20.0.0||^21.0.0",
     "@biggive/components": ">=202506181023.0.0"
   },
   "dependencies": {
