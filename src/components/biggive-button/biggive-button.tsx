@@ -89,7 +89,17 @@ export class BiggiveButton {
           href={href}
           target={this.openInNewTab ? '_blank' : '_self'}
           id={this.buttonId}
-          class={'button button-' + this.colourScheme + ' full-width-' + this.fullWidth.toString() + ' size-' + this.size + ' rounded-' + this.rounded.toString()}
+          class={
+            'button button-' +
+            this.colourScheme +
+            ' full-width-' +
+            this.fullWidth.toString() +
+            ' size-' +
+            this.size +
+            ' rounded-' +
+            this.rounded.toString() +
+            (href === '#' ? ' no-op-link' : '')
+          }
         >
           <span onClick={this.disabled ? () => {} : this.handleButtonClick}>{this.label}</span>
         </a>
