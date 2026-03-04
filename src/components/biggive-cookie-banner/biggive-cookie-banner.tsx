@@ -179,7 +179,7 @@ export class BiggiveCookieBanner {
                 rounded={false}
                 centered={false}
                 button-id="accept-selected-button"
-                onClick={this.handleAcceptSelectedCookies}
+                onDoButtonClick={this.handleAcceptSelectedCookies}
               ></biggive-button>
             </form>
 
@@ -202,7 +202,7 @@ export class BiggiveCookieBanner {
 
         <div class="button-group">
           <biggive-button
-            onClick={this.handleAcceptAllClick}
+            onDoButtonClick={this.handleAcceptAllClick}
             space-below="0"
             colour-scheme="secondary"
             is-past-campaign="false"
@@ -217,7 +217,7 @@ export class BiggiveCookieBanner {
           ></biggive-button>
 
           <biggive-button
-            onClick={this.handleRejectAllClicked}
+            onDoButtonClick={this.handleRejectAllClicked}
             space-below="0"
             colour-scheme="grey-light"
             is-past-campaign="false"
@@ -232,7 +232,7 @@ export class BiggiveCookieBanner {
           ></biggive-button>
 
           <biggive-button
-            onClick={this.handleChoosePrefencesClick}
+            onDoButtonClick={this.handleChoosePrefencesClick}
             space-below="0"
             colour-scheme="grey-light"
             is-past-campaign="false"

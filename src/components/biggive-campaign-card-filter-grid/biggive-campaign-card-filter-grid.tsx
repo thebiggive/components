@@ -314,12 +314,12 @@ export class BiggiveCampaignCardFilterGrid {
                   onKeyDown={this.handleEnterPressed}
                 />
               </div>
-              <biggive-button onClick={this.handleSearchButtonPressed} label={this.buttonText} />
+              <biggive-button onDoButtonClick={this.handleSearchButtonPressed} label={this.buttonText} />
             </div>
           </div>
           <div class="sort-filter-wrap">
             <div class="filter-wrap">
-              <biggive-button class="filter" colourScheme="primary" onClick={this.handleFilterButtonClick} label="Filter" fullWidth={true} space-below="0"></biggive-button>
+              <biggive-button class="filter" colourScheme="primary" onDoButtonClick={this.handleFilterButtonClick} label="Filter" fullWidth={true} space-below="0"></biggive-button>
               <biggive-popup id="filter-popup">
                 <h4 class="space-above-0 space-below-3 text-colour-primary">Filters</h4>
                 <div class="select-wrapper-1">
@@ -365,7 +365,7 @@ export class BiggiveCampaignCardFilterGrid {
                 </div>
 
                 <div class="align-right">
-                  <biggive-button label="Apply filters" onClick={this.handleApplyFilterButtonClick} />
+                  <biggive-button label="Apply filters" onDoButtonClick={this.handleApplyFilterButtonClick} />
                 </div>
               </biggive-popup>
             </div>
