@@ -55,8 +55,9 @@ export class BiggiveMainMenu {
     mobileMenu!.style.left = '0';
   };
 
-  private logOut = () => {
+  private logOut = (event: any) => {
     this.logoutClicked.emit();
+    event.preventDefault();
   };
 
   private closeMobileMenu = () => {
