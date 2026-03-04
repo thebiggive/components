@@ -75,10 +75,16 @@ export class BiggiveButton {
   };
 
   private handleButtonClick = (event: MouseEvent) => {
-    if (this.disabled || this.isNoOpUrl()) {
+    if (this.disabled) {
       event.preventDefault();
       event.stopPropagation();
       return;
+    }
+
+    if (this.isNoOpUrl()) {
+      event.preventDefault();
+      event.stopPropagation();
+      // Don't return, so apps can still use the custom event if appropriate.
     }
 
     this.doButtonClick.emit({ event: event, url: this.url || '' });
@@ -101,7 +107,7 @@ export class BiggiveButton {
       <div class={'container space-below-' + this.spaceBelow + ' centered-' + this.centered + ' ' + this.siteDesign + (this.disabled ? ' disabled' : '')}>
         {isNoOpLink ? (
           <button type="button" aria-disabled={this.disabled} disabled={this.disabled} id={this.buttonId} class={buttonClass} onClick={this.handleButtonClick}>
-            <span>{this.label}</span>
+            {this.label}
           </button>
         ) : (
           <a
@@ -114,7 +120,7 @@ export class BiggiveButton {
             class={buttonClass}
             onClick={this.handleButtonClick}
           >
-            <span>{this.label}</span>
+            {this.label}
           </a>
         )}
       </div>
