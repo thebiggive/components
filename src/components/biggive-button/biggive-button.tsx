@@ -70,39 +70,59 @@ export class BiggiveButton {
    */
   @Prop() disabled = false;
 
-  private handleButtonClick = (event: any) => {
-    this.doButtonClick.emit({ event: event, url: event.target.parentElement.href });
+  private isNoOpUrl = (): boolean => {
+    return this.url === undefined || this.url.trim() === '' || this.url === '#';
+  };
+
+  private handleButtonClick = (event: MouseEvent) => {
+    if (this.disabled) {
+      event.preventDefault();
+      event.stopPropagation();
+      return;
+    }
+
+    if (this.isNoOpUrl()) {
+      event.preventDefault();
+      event.stopPropagation();
+      // Don't return, so apps can still use the custom event if appropriate.
+    }
+
+    this.doButtonClick.emit({ event: event, url: this.url || '' });
   };
 
   render() {
-    // We always want to have a href so that browsers will see this as a link and allow clicking with keybard.
-    // If there's no or an empty href then it isn't possible to click by keyboard and we would have to handle keyboard
-    // interaction separately.
-    const href = this.url || '#';
+    const isNoOpLink = this.isNoOpUrl();
+    const buttonClass =
+      'button button-' +
+      this.colourScheme +
+      ' full-width-' +
+      this.fullWidth.toString() +
+      ' size-' +
+      this.size +
+      ' rounded-' +
+      this.rounded.toString() +
+      (isNoOpLink ? ' no-op-link' : '');
 
     return (
       <div class={'container space-below-' + this.spaceBelow + ' centered-' + this.centered + ' ' + this.siteDesign + (this.disabled ? ' disabled' : '')}>
-        <a
-          pointer-events={this.disabled ? 'none' : 'auto'}
-          aria-disabled={this.disabled}
-          role="button"
-          href={href}
-          target={this.openInNewTab ? '_blank' : '_self'}
-          id={this.buttonId}
-          class={
-            'button button-' +
-            this.colourScheme +
-            ' full-width-' +
-            this.fullWidth.toString() +
-            ' size-' +
-            this.size +
-            ' rounded-' +
-            this.rounded.toString() +
-            (href === '#' ? ' no-op-link' : '')
-          }
-        >
-          <span onClick={this.disabled ? () => {} : this.handleButtonClick}>{this.label}</span>
-        </a>
+        {isNoOpLink ? (
+          <button type="button" aria-disabled={this.disabled} disabled={this.disabled} id={this.buttonId} class={buttonClass} onClick={this.handleButtonClick}>
+            {this.label}
+          </button>
+        ) : (
+          <a
+            pointer-events={this.disabled ? 'none' : 'auto'}
+            aria-disabled={this.disabled}
+            role="button"
+            href={this.url}
+            target={this.openInNewTab ? '_blank' : '_self'}
+            id={this.buttonId}
+            class={buttonClass}
+            onClick={this.handleButtonClick}
+          >
+            {this.label}
+          </a>
+        )}
       </div>
     );
   }
