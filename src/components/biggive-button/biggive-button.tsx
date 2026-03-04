@@ -78,7 +78,7 @@ export class BiggiveButton {
     // We always want to have a href so that browsers will see this as a link and allow clicking with keybard.
     // If there's no or an empty href then it isn't possible to click by keyboard and we would have to handle keyboard
     // interaction separately.
-    const href = this.url || 'javascript:void(0);';
+    const href = this.url || '#';
 
     return (
       <div class={'container space-below-' + this.spaceBelow + ' centered-' + this.centered + ' ' + this.siteDesign + (this.disabled ? ' disabled' : '')}>

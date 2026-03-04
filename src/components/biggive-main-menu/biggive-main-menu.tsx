@@ -148,7 +148,7 @@ export class BiggiveMainMenu {
                 <a href={makeURL('Donate', this.donateUrlPrefix, 'my-account')}>Your details</a>
               </li>
               <li>
-                <a href="javascript:void(0)" onClick={this.logOut}>
+                <a href="#" onClick={this.logOut}>
                   Log out
                 </a>
               </li>
