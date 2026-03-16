@@ -225,46 +225,48 @@ nav {
 }
 
 @media (hover: hover) {
-  /* when hover is supported */
-  .row-top {
-    .nav-secondary {
-      li {
-        a {
-          &:hover {
-            border-bottom-color: $colour-white;
-            color: $colour-white;
+  @media (min-width: $screen-large) {
+    /* when hover is supported */
+    .row-top {
+      .nav-secondary {
+        li {
+          a {
+            &:hover {
+              border-bottom-color: $colour-white;
+              color: $colour-white;
+            }
           }
         }
       }
     }
-  }
 
-  nav {
-    .navbar {
-      .nav-links {
-        .links {
-          li {
-            .sub-menu {
-              .more {
-                &:hover {
-                  .sub-sub-menu {
-                    display: block;
+    nav {
+      .navbar {
+        .nav-links {
+          .links {
+            li {
+              .sub-menu {
+                .more {
+                  &:hover {
+                    .sub-sub-menu {
+                      display: block;
+                    }
                   }
                 }
               }
-            }
 
-            &:hover {
-              .sub-menu-arrow {
-                transform: rotate(90deg);
-              }
+              &:hover {
+                .sub-menu-arrow {
+                  transform: rotate(90deg);
+                }
 
-              .sub-menu {
-                display: block;
-                background-color: white;
-
-                .sub-sub-menu {
+                .sub-menu {
+                  display: block;
                   background-color: white;
+
+                  .sub-sub-menu {
+                    background-color: white;
+                  }
                 }
               }
             }
