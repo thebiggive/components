@@ -30,13 +30,13 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v4-dependencies-with-chrome-{{ checksum "package-lock.json" }}
+            - v5-dependencies-with-chrome-{{ checksum "package-lock.json" }}
       - run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 npm install --quiet
       - save_cache:
           paths:
             - node_modules
             - /home/circleci/.cache/puppeteer
-          key: v4-dependencies-with-chrome-{{ checksum "package-lock.json" }}
+          key: v5-dependencies-with-chrome-{{ checksum "package-lock.json" }}
       - run: npm run build && git diff; git diff-index --quiet HEAD -- || (git status && exit 1); # Checks that npm run didn't change any files. If it did changes must be commited.
       - run: npm run lint
       - run: npm run test
@@ -50,12 +50,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v4-dependencies-{{ checksum "package-lock.json" }}
+            - v5-dependencies-{{ checksum "package-lock.json" }}
       - run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 npm install --quiet
       - save_cache:
           paths:
             - node_modules
-          key: v4-dependencies-{{ checksum "package-lock.json" }}
+          key: v5-dependencies-{{ checksum "package-lock.json" }}
       - run:
           name: Build components
           command: npm run build
@@ -81,18 +81,18 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v4-dependencies-{{ checksum "package-lock.json" }}
+            - v5-dependencies-{{ checksum "package-lock.json" }}
       # This is technically "wrong" but generally we would only expect updates inside
       # the Angular project iff there is one in the outer one. And we deliberately don't
       # check in an inner lockfile so can't use it for hash comparison.
       - restore_cache:
           keys:
-            - v4-angular-dependencies-{{ checksum "package-lock.json" }}
+            - v5-angular-dependencies-{{ checksum "package-lock.json" }}
       - run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 npm install --quiet
       - save_cache:
           paths:
             - node_modules
-          key: v4-dependencies-{{ checksum "package-lock.json" }}
+          key: v5-dependencies-{{ checksum "package-lock.json" }}
       - run: ./scripts/create-version.sh
       - run: npm run build
       - run:
@@ -105,7 +105,7 @@ jobs:
       - save_cache:
           paths:
             - angular/node_modules
-          key: v4-angular-dependencies-{{ checksum "package-lock.json" }}
+          key: v5-angular-dependencies-{{ checksum "package-lock.json" }}
       - run:
           name: Build Angular components
           command: cd angular && npm run build
