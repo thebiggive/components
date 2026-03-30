@@ -1,5 +1,7 @@
 export class VideoService {
   static getEmbedHtml(url: string, title: string | null) {
+    url = this.replacePageURLwithEmbedURL(url);
+
     if (url.match(/youtube\.com/g)) {
       return `<iframe loading="lazy" src="${url}"></iframe>`;
     } else if (url.match(/player\.vimeo\.com/g)) {
@@ -8,5 +10,21 @@ export class VideoService {
     } else {
       return `<video controls src="${url}"></video>`;
     }
+  }
+
+  /**
+   * If the user supplied a URL to view a page video in a page on youtube or vimeo,
+   * we replace it with the URL to the related embedabble iframe.
+   */
+  private static replacePageURLwithEmbedURL(url: string) {
+    let YoutubeMatch: RegExpMatchArray | null = null;
+    let VimeoMatch: RegExpMatchArray | null = null;
+
+    if ((YoutubeMatch = url.match(/youtube.com\/watch\?v=([a-zA-Z0-9]+)/))) {
+      url = `https://youtube\.com/embed/${YoutubeMatch[1]}`;
+    } else if ((VimeoMatch = url.match(/vimeo.com\/([0-9]+)/))) {
+      url = `https://player\.vimeo\.com/video/${VimeoMatch[1]}`;
+    }
+    return url;
   }
 }
