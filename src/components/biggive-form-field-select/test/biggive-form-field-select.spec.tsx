@@ -15,7 +15,7 @@ describe('biggive-form-field-select', () => {
       <biggive-form-field-select options="[{&quot;value&quot;: &quot;optionOne&quot;, &quot;label&quot;: &quot;Option one&quot;},{&quot;value&quot;: &quot;optionTwo&quot;, &quot;label&quot;: &quot;Option two&quot;}]" prompt="What would you like?" select-element-id="some-id">
         <mock:shadow-root>
           <div class="selectWrapper">
-            <label htmlfor="some-id">
+            <label for="some-id">
               <div class="prompt">What would you like?</div>
               </label>
               <div class="dropdown select-style-bordered space-below-0">
