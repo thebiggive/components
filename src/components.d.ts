@@ -2267,6 +2267,8 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    type OneOf<K extends string, PropT, AttrT = PropT> = { [P in K]: PropT } & { [P in `attr:${K}` | `prop:${K}`]?: never } | { [P in `attr:${K}`]: AttrT } & { [P in K | `prop:${K}`]?: never } | { [P in `prop:${K}`]: PropT } & { [P in K | `attr:${K}`]?: never };
+
     interface BiggiveAccordion {
         /**
           * @default 'primary'
@@ -4013,139 +4015,632 @@ declare namespace LocalJSX {
         "onLogoutClicked"?: (event: PhilcoMainMenuCustomEvent<void>) => void;
         "philcoUrlPrefix"?: string;
     }
+
+    interface BiggiveAccordionAttributes {
+        "spaceBelow": spacingOption;
+        "textColour": brandColour;
+        "headingColour": brandColour;
+    }
+    interface BiggiveAccordionEntryAttributes {
+        "heading": string;
+    }
+    interface BiggiveArticleCardAttributes {
+        "spaceBelow": spacingOption;
+        "backgroundColour": brandColour;
+        "backgroundImageUrl": string;
+        "slug": string;
+        "slugColour": brandColour;
+        "date": string;
+        "dateColour": brandColour;
+        "mainTitle": string;
+        "mainTitleColour": brandColour;
+        "mainImageUrl": string;
+        "mainImageAltText": string;
+        "image1Url": string;
+        "image1AltText": string;
+        "image2Url": string;
+        "image2AltText": string;
+        "imageLabel": string;
+        "imageLabelColour": brandColour;
+        "buttonLabel": string;
+        "buttonUrl": string;
+        "buttonColour": brandColour;
+        "clipBottomLeftCorner": boolean;
+        "clipTopRightCorner": boolean;
+    }
+    interface BiggiveBasicCardAttributes {
+        "spaceBelow": spacingOption;
+        "siteDesign": 'biggive' | 'philco';
+        "backgroundColour": brandColour;
+        "backgroundImageUrl": string;
+        "cardColour": brandColour;
+        "textColour": brandColour;
+        "mainImageUrl": string;
+        "mainImageAltText": string;
+        "mainTitle": string;
+        "subtitle": string;
+        "author": string;
+        "date": string;
+        "teaser": string;
+        "icon": boolean;
+        "iconColour": brandColour;
+        "buttonAlign": string;
+        "buttonStyle": string;
+        "buttonLabel": string;
+        "buttonUrl": string;
+        "buttonColourScheme": string;
+        "clipBottomLeftCorner": boolean;
+        "clipTopRightCorner": boolean;
+        "headingLevel": 1 | 2 | 3 | 4 | 5 | 6;
+        "addAnimation": boolean;
+    }
+    interface BiggiveBiographyCardAttributes {
+        "spaceBelow": spacingOption;
+        "borderWidth": spacingOption;
+        "imageUrl": string;
+        "imageStyle": 'cover' | 'contain';
+        "textColour": brandColour;
+        "backgroundColour": brandColour;
+        "fullName": string;
+        "jobTitle": string;
+        "textAlign": 'center' | 'left' | 'right';
+        "ratio": '1,1' | '1,1.5' | '1,2';
+        "circle": boolean;
+        "circleColour": 'light' | 'dark';
+        "rounded": boolean;
+        "url": string;
+    }
+    interface BiggiveBoxedContentAttributes {
+        "spaceBelow": number;
+        "verticalPadding": number;
+        "horizontalPadding": number;
+        "backgroundColour": string;
+        "shadow": boolean;
+    }
+    interface BiggiveBrandedImageAttributes {
+        "spaceBelow": number;
+        "imageUrl": string;
+        "imageHeightPercent": number | null;
+        "imageAlt": string | null;
+        "logoUrl": string;
+        "slug": string;
+        "charityName": string;
+        "charityLocation": string;
+        "charityUrl": string;
+    }
+    interface BiggiveButtonAttributes {
+        "spaceBelow": number;
+        "colourScheme": brandColour;
+        "label": string;
+        "url": string | undefined;
+        "openInNewTab": boolean;
+        "fullWidth": boolean;
+        "size": string;
+        "rounded": boolean;
+        "centered": boolean;
+        "buttonId": undefined | string;
+        "siteDesign": 'biggive' | 'philco';
+        "disabled": boolean;
+    }
+    interface BiggiveCallToActionAttributes {
+        "spaceAbove": number;
+        "spaceBelow": number;
+        "defaultTextColour": string;
+        "slugSize": number;
+        "slugColour": string;
+        "slug": string;
+        "mainTitleColour": string;
+        "mainTitleSize": number;
+        "mainTitle": string;
+        "subtitleSize": number;
+        "subtitleColour": string;
+        "subtitle": string;
+        "teaserColour": string;
+        "teaser": string;
+        "primaryButtonUrl": string;
+        "primaryButtonLabel": string;
+        "primaryButtonColourScheme": string;
+        "secondaryButtonUrl": string;
+        "secondaryButtonLabel": string;
+        "secondaryButtonColourScheme": string;
+    }
+    interface BiggiveCampaignCardAttributes {
+        "spaceBelow": number;
+        "campaignType": string;
+        "banner": string;
+        "campaignTitle": string;
+        "organisationName": string;
+        "primaryFigureLabel": string | null;
+        "primaryFigureAmount": string | null;
+        "secondaryFigureLabel": string | null;
+        "secondaryFigureAmount": string | null;
+        "progressBarCounter": number | null;
+        "donateButtonLabel": string;
+        "donateButtonUrl": string;
+        "donateButtonColourScheme": string;
+        "moreInfoButtonLabel": string;
+        "moreInfoButtonUrl": string;
+        "moreInfoButtonColourScheme": string;
+        "isFutureCampaign": boolean;
+        "isPastCampaign": boolean;
+        "datetime": string;
+    }
+    interface BiggiveCampaignCardFilterGridAttributes {
+        "spaceBelow": number;
+        "intro": string;
+        "searchText": string | null;
+        "placeholderText": string;
+        "buttonText": string;
+        "categoryOptions": string | Record<string, string> | string[];
+        "beneficiaryOptions": string | Record<string, string> | string[];
+        "locationOptions": string | Record<string, string> | string[];
+        "selectedSortByOption": sortOptionLabel;
+        "selectedFilterCategory": string | null;
+        "selectedFilterBeneficiary": string | null;
+        "selectedFilterLocation": string | null;
+    }
+    interface BiggiveCampaignHighlightsAttributes {
+        "spaceBelow": number;
+        "banner": string;
+        "campaignTitle": string;
+        "primaryFigureLabel": string;
+        "primaryFigureAmount": string;
+        "secondaryFigureLabel": string;
+        "secondaryFigureAmount": string;
+        "progressBarCounter": number | undefined;
+        "primaryStatIcon": string;
+        "primaryStatText": string;
+        "secondaryStatIcon": string;
+        "secondaryStatText": string;
+        "championName": string;
+        "championUrl": string;
+    }
+    interface BiggiveContainerCardAttributes {
+        "spaceBelow": spacingOption;
+        "backgroundColour": brandColour;
+        "backgroundImageUrl": string;
+        "cardColour": brandColour;
+        "textColour": brandColour;
+        "clipBottomLeftCorner": boolean;
+        "clipTopRightCorner": boolean;
+        "headingLevel": 1 | 2 | 3 | 4 | 5 | 6;
+    }
+    interface BiggiveCookieBannerAttributes {
+        "autoOpenPreferences": boolean;
+        "blogUriPrefix": string;
+    }
+    interface BiggiveFooterAttributes {
+        "headingLevel": 1 | 2 | 3 | 4 | 5 | 6;
+        "donateUrlPrefix": string;
+        "blogUrlPrefix": string | undefined;
+        "experienceUrlPrefix": string | undefined;
+        "smallCharityWeekEnabled": boolean;
+        "usePresetFooter": boolean;
+    }
+    interface BiggiveFormFieldSelectAttributes {
+        "prompt": string | null;
+        "selectedValue": string | null;
+        "selectedLabel": string | null;
+        "options": string | Array<{ label: string; value: string }>;
+        "selectStyle": 'bordered' | 'underlined';
+        "backgroundColour": 'white' | 'grey';
+        "selectedOptionColour": 'inherit' | 'blue';
+        "selectElementId": string | undefined;
+        "spaceBelow": number;
+        "placeholder": string | undefined;
+    }
+    interface BiggiveFormattedTextAttributes {
+        "spaceBelow": number;
+        "defaultTextColour": brandColour | undefined;
+        "maxWidth": number;
+        "siteDesign": 'biggive' | 'philco';
+    }
+    interface BiggiveGridAttributes {
+        "spaceBelow": number;
+        "columnCount": number;
+        "spaceBetween": boolean;
+        "columnGap": spacingOption;
+    }
+    interface BiggiveHeadingAttributes {
+        "spaceAbove": spacingOption;
+        "spaceBelow": spacingOption;
+        "colour": brandColour;
+        "htmlElement": headingTag;
+        "size": headingSize;
+        "align": string;
+        "text": string;
+        "icon": boolean;
+        "iconColour": brandColour;
+        "siteDesign": 'biggive' | 'philco';
+    }
+    interface BiggiveHeadingBannerAttributes {
+        "targetUrl": string;
+        "logo": { url: string; alt?: string } | string;
+        "slug": string;
+        "mainTitle": string;
+        "mainImageUrl": string | null;
+        "focalPoint": string | { x: number; y: number };
+        "teaser": string;
+        "backgroundColour": string;
+        "textBackgroundColour": string;
+        "slugColour": string;
+        "mainTitleColour": string;
+        "teaserColour": string;
+        "height": 'short' | 'tall';
+    }
+    interface BiggiveHeroImageAttributes {
+        "spaceBelow": spacingOption;
+        "colourScheme": brandColour;
+        "slug": string;
+        "slugColour": brandColour;
+        "logo": string;
+        "logoHeight": 1|2|3|4|5|6|7|8|9|10;
+        "logoAltText": string;
+        "mainImage": string|null;
+        "mainImageShape": 'triangle'|'rectangle';
+        "mainImageAlignHorizontal": string;
+        "mainImageAlignVertical": string;
+        "mainTitle": string;
+        "mainTitleColour": brandColour;
+        "teaser": string|undefined;
+        "teaserColour": brandColour;
+        "buttonUrl": string;
+        "buttonLabel": string;
+        "buttonColourScheme": brandColour;
+    }
+    interface BiggiveIconButtonAttributes {
+        "spaceBelow": spacingOption;
+        "backgroundColour": brandColour;
+        "backgroundPadding": spacingOption;
+        "text": string;
+        "textColour": brandColour;
+        "icon": string;
+        "url": string;
+        "openInNewTab": boolean;
+        "size": 'small' | 'medium' | 'large' | 'x-large' | 'xx-large';
+        "arrow": boolean;
+        "arrowColour": brandColour;
+        "circle": boolean;
+        "shadow": boolean;
+        "centered": boolean;
+        "rounded": boolean;
+        "buttonId": undefined | string;
+    }
+    interface BiggiveImageAttributes {
+        "spaceAbove": number;
+        "spaceBelow": number;
+        "imageUrl": string;
+        "imageAltText": string;
+        "width": number;
+        "height": number;
+        "sizeUnit": string;
+    }
+    interface BiggiveImageButtonAttributes {
+        "spaceBelow": spacingOption;
+        "backgroundColour": brandColour;
+        "backgroundPadding": spacingOption;
+        "text": string;
+        "textColour": brandColour;
+        "imageUrl": string;
+        "imageStyle": string;
+        "url": string;
+        "openInNewTab": boolean;
+        "size": 'small' | 'medium' | 'large' | 'x-large' | 'xx-large';
+        "arrow": boolean;
+        "arrowColour": brandColour;
+        "circle": boolean;
+        "shadow": boolean;
+        "centered": boolean;
+        "rounded": boolean;
+        "buttonId": undefined | string;
+    }
+    interface BiggiveImageCardAttributes {
+        "spaceBelow": spacingOption;
+        "backgroundColour": brandColour;
+        "mainImageUrl": string;
+        "mainImageAltText": string;
+        "textAlign": 'left' | 'center' | 'right';
+        "teaser": string;
+        "teaserColour": brandColour;
+        "buttonAlign": string;
+        "buttonStyle": string;
+        "buttonLabel": string;
+        "buttonUrl": string;
+        "buttonColourScheme": string;
+        "clipBottomLeftCorner": boolean;
+        "clipTopRightCorner": boolean;
+        "addAnimation": boolean;
+    }
+    interface BiggiveImageFeatureAttributes {
+        "spaceBelow": number;
+        "defaultTextColour": string;
+        "imageUrl": string;
+        "imageAltText": string;
+        "slug": string;
+        "slugColour": string;
+        "mainTitle": string;
+        "mainTitleColour": string;
+        "teaser": string;
+        "teaserColour": string;
+        "buttonUrl": string;
+        "buttonLabel": string;
+        "buttonColourScheme": string;
+    }
+    interface BiggiveMainMenuAttributes {
+        "blogUrlPrefix": string;
+        "donateUrlPrefix": string;
+        "experienceUrlPrefix": string;
+        "smallCharityWeekEnabled": boolean;
+        "someCampaignHasHomePageRedirect": boolean;
+        "isLoggedIn": boolean;
+    }
+    interface BiggiveMiscIconAttributes {
+        "backgroundColour": string;
+        "iconColour": string;
+        "icon": string;
+        "url": string;
+    }
+    interface BiggiveNavGroupAttributes {
+        "inline": boolean;
+    }
+    interface BiggiveNavItemAttributes {
+        "url": string;
+        "label": string;
+        "iconColour": string;
+    }
+    interface BiggivePageColumnsAttributes {
+        "spaceBelow": number;
+    }
+    interface BiggivePageSectionAttributes {
+        "spaceBelow": number;
+        "sectionStyleTop": sectionStyle;
+        "sectionStyleBottom": sectionStyle;
+        "colourScheme": string;
+        "maxWidth": number;
+        "primaryFullBleed": boolean;
+    }
+    interface BiggiveProgressBarAttributes {
+        "spaceBelow": number;
+        "colourScheme": string;
+        "counter": number | null;
+    }
+    interface BiggiveQuoteAttributes {
+        "spaceBelow": spacingOption;
+        "defaultTextColour": brandColour;
+        "quote": string;
+        "attribution": string;
+        "quoteIconColour": brandColour;
+        "siteDesign": 'biggive' | 'philco';
+    }
+    interface BiggiveSheetAttributes {
+        "sheetId": string;
+        "backgroundColour": brandColour;
+        "textColour": brandColour;
+    }
+    interface BiggiveSocialIconAttributes {
+        "service": 'Facebook' | 'Instagram' | 'LinkedIn' | 'Twitter' | 'Web' | 'Whatsapp' | 'YouTube';
+        "labelPrefix": string;
+        "backgroundColour": string;
+        "iconColour": string;
+        "wide": boolean;
+        "url": string;
+    }
+    interface BiggiveTabAttributes {
+        "tabTitle": string;
+    }
+    interface BiggiveTabbedContentAttributes {
+        "spaceBelow": spacingOption;
+        "textColour": brandColour;
+        "selectedTextColour": brandColour;
+        "navigationHighlightColour": brandColour;
+        "selectedNavigationHighlightColour": brandColour;
+        "buttonBackgroundColour": brandColour;
+        "buttonIconColour": brandColour;
+    }
+    interface BiggiveTableAttributes {
+        "spaceBelow": spacingOption;
+        "headerTextColour": brandColour;
+        "headerBackgroundColour": brandColour;
+        "bodyTextColour": brandColour;
+        "bodyBackgroundColour": brandColour;
+    }
+    interface BiggiveTextInputAttributes {
+        "currency": 'GBP' | 'USD' | undefined;
+        "spaceBelow": number;
+        "selectStyle": 'bordered' | 'underlined';
+        "siteDesign": 'biggive' | 'philco';
+    }
+    interface BiggiveTimelineAttributes {
+        "spaceBelow": spacingOption;
+        "textColour": brandColour;
+        "selectedTextColour": brandColour;
+        "navigationHighlightColour": brandColour;
+        "selectedNavigationHighlightColour": brandColour;
+        "buttonBackgroundColour": brandColour;
+        "buttonIconColour": brandColour;
+        "entryBackgroundColour": brandColour;
+        "entryHighlightColour": brandColour;
+        "entryDateColour": brandColour;
+        "entryTitleColour": brandColour;
+        "entryTextColour": brandColour;
+    }
+    interface BiggiveTimelineEntryAttributes {
+        "date": string;
+        "heading": string;
+    }
+    interface BiggiveTotalizerAttributes {
+        "spaceBelow": number;
+        "primaryColour": string;
+        "primaryTextColour": string;
+        "secondaryColour": string;
+        "secondaryTextColour": string;
+        "mainMessage": string;
+    }
+    interface BiggiveTotalizerTickerItemAttributes {
+        "figure": string;
+        "label": string;
+    }
+    interface BiggiveVideoAttributes {
+        "spaceAbove": number;
+        "spaceBelow": number;
+        "videoUrl": string;
+    }
+    interface BiggiveVideoFeatureAttributes {
+        "spaceAbove": number;
+        "spaceBelow": number;
+        "defaultTextColour": string;
+        "videoUrl": string;
+        "slug": string;
+        "slugColour": string;
+        "mainTitle": string;
+        "mainTitleColour": string;
+        "teaser": string;
+        "teaserColour": string;
+        "buttonUrl": string;
+        "buttonLabel": string;
+        "buttonColourScheme": string;
+    }
+    interface PhilcoFooterAttributes {
+        "headingLevel": 1 | 2 | 3 | 4 | 5 | 6;
+        "philcoUrlPrefix": string;
+    }
+    interface PhilcoMainMenuAttributes {
+        "philcoUrlPrefix": string;
+    }
+
     interface IntrinsicElements {
-        "biggive-accordion": BiggiveAccordion;
-        "biggive-accordion-entry": BiggiveAccordionEntry;
-        "biggive-article-card": BiggiveArticleCard;
+        "biggive-accordion": Omit<BiggiveAccordion, keyof BiggiveAccordionAttributes> & { [K in keyof BiggiveAccordion & keyof BiggiveAccordionAttributes]?: BiggiveAccordion[K] } & { [K in keyof BiggiveAccordion & keyof BiggiveAccordionAttributes as `attr:${K}`]?: BiggiveAccordionAttributes[K] } & { [K in keyof BiggiveAccordion & keyof BiggiveAccordionAttributes as `prop:${K}`]?: BiggiveAccordion[K] };
+        "biggive-accordion-entry": Omit<BiggiveAccordionEntry, keyof BiggiveAccordionEntryAttributes> & { [K in keyof BiggiveAccordionEntry & keyof BiggiveAccordionEntryAttributes]?: BiggiveAccordionEntry[K] } & { [K in keyof BiggiveAccordionEntry & keyof BiggiveAccordionEntryAttributes as `attr:${K}`]?: BiggiveAccordionEntryAttributes[K] } & { [K in keyof BiggiveAccordionEntry & keyof BiggiveAccordionEntryAttributes as `prop:${K}`]?: BiggiveAccordionEntry[K] };
+        "biggive-article-card": Omit<BiggiveArticleCard, keyof BiggiveArticleCardAttributes> & { [K in keyof BiggiveArticleCard & keyof BiggiveArticleCardAttributes]?: BiggiveArticleCard[K] } & { [K in keyof BiggiveArticleCard & keyof BiggiveArticleCardAttributes as `attr:${K}`]?: BiggiveArticleCardAttributes[K] } & { [K in keyof BiggiveArticleCard & keyof BiggiveArticleCardAttributes as `prop:${K}`]?: BiggiveArticleCard[K] };
         "biggive-back-to-top": BiggiveBackToTop;
-        "biggive-basic-card": BiggiveBasicCard;
-        "biggive-biography-card": BiggiveBiographyCard;
-        "biggive-boxed-content": BiggiveBoxedContent;
-        "biggive-branded-image": BiggiveBrandedImage;
-        "biggive-button": BiggiveButton;
-        "biggive-call-to-action": BiggiveCallToAction;
-        "biggive-campaign-card": BiggiveCampaignCard;
-        "biggive-campaign-card-filter-grid": BiggiveCampaignCardFilterGrid;
-        "biggive-campaign-highlights": BiggiveCampaignHighlights;
-        "biggive-container-card": BiggiveContainerCard;
-        "biggive-cookie-banner": BiggiveCookieBanner;
-        "biggive-footer": BiggiveFooter;
+        "biggive-basic-card": Omit<BiggiveBasicCard, keyof BiggiveBasicCardAttributes> & { [K in keyof BiggiveBasicCard & keyof BiggiveBasicCardAttributes]?: BiggiveBasicCard[K] } & { [K in keyof BiggiveBasicCard & keyof BiggiveBasicCardAttributes as `attr:${K}`]?: BiggiveBasicCardAttributes[K] } & { [K in keyof BiggiveBasicCard & keyof BiggiveBasicCardAttributes as `prop:${K}`]?: BiggiveBasicCard[K] };
+        "biggive-biography-card": Omit<BiggiveBiographyCard, keyof BiggiveBiographyCardAttributes> & { [K in keyof BiggiveBiographyCard & keyof BiggiveBiographyCardAttributes]?: BiggiveBiographyCard[K] } & { [K in keyof BiggiveBiographyCard & keyof BiggiveBiographyCardAttributes as `attr:${K}`]?: BiggiveBiographyCardAttributes[K] } & { [K in keyof BiggiveBiographyCard & keyof BiggiveBiographyCardAttributes as `prop:${K}`]?: BiggiveBiographyCard[K] };
+        "biggive-boxed-content": Omit<BiggiveBoxedContent, keyof BiggiveBoxedContentAttributes> & { [K in keyof BiggiveBoxedContent & keyof BiggiveBoxedContentAttributes]?: BiggiveBoxedContent[K] } & { [K in keyof BiggiveBoxedContent & keyof BiggiveBoxedContentAttributes as `attr:${K}`]?: BiggiveBoxedContentAttributes[K] } & { [K in keyof BiggiveBoxedContent & keyof BiggiveBoxedContentAttributes as `prop:${K}`]?: BiggiveBoxedContent[K] };
+        "biggive-branded-image": Omit<BiggiveBrandedImage, keyof BiggiveBrandedImageAttributes> & { [K in keyof BiggiveBrandedImage & keyof BiggiveBrandedImageAttributes]?: BiggiveBrandedImage[K] } & { [K in keyof BiggiveBrandedImage & keyof BiggiveBrandedImageAttributes as `attr:${K}`]?: BiggiveBrandedImageAttributes[K] } & { [K in keyof BiggiveBrandedImage & keyof BiggiveBrandedImageAttributes as `prop:${K}`]?: BiggiveBrandedImage[K] } & OneOf<"imageHeightPercent", BiggiveBrandedImage["imageHeightPercent"], BiggiveBrandedImageAttributes["imageHeightPercent"]> & OneOf<"imageAlt", BiggiveBrandedImage["imageAlt"], BiggiveBrandedImageAttributes["imageAlt"]>;
+        "biggive-button": Omit<BiggiveButton, keyof BiggiveButtonAttributes> & { [K in keyof BiggiveButton & keyof BiggiveButtonAttributes]?: BiggiveButton[K] } & { [K in keyof BiggiveButton & keyof BiggiveButtonAttributes as `attr:${K}`]?: BiggiveButtonAttributes[K] } & { [K in keyof BiggiveButton & keyof BiggiveButtonAttributes as `prop:${K}`]?: BiggiveButton[K] };
+        "biggive-call-to-action": Omit<BiggiveCallToAction, keyof BiggiveCallToActionAttributes> & { [K in keyof BiggiveCallToAction & keyof BiggiveCallToActionAttributes]?: BiggiveCallToAction[K] } & { [K in keyof BiggiveCallToAction & keyof BiggiveCallToActionAttributes as `attr:${K}`]?: BiggiveCallToActionAttributes[K] } & { [K in keyof BiggiveCallToAction & keyof BiggiveCallToActionAttributes as `prop:${K}`]?: BiggiveCallToAction[K] };
+        "biggive-campaign-card": Omit<BiggiveCampaignCard, keyof BiggiveCampaignCardAttributes> & { [K in keyof BiggiveCampaignCard & keyof BiggiveCampaignCardAttributes]?: BiggiveCampaignCard[K] } & { [K in keyof BiggiveCampaignCard & keyof BiggiveCampaignCardAttributes as `attr:${K}`]?: BiggiveCampaignCardAttributes[K] } & { [K in keyof BiggiveCampaignCard & keyof BiggiveCampaignCardAttributes as `prop:${K}`]?: BiggiveCampaignCard[K] };
+        "biggive-campaign-card-filter-grid": Omit<BiggiveCampaignCardFilterGrid, keyof BiggiveCampaignCardFilterGridAttributes> & { [K in keyof BiggiveCampaignCardFilterGrid & keyof BiggiveCampaignCardFilterGridAttributes]?: BiggiveCampaignCardFilterGrid[K] } & { [K in keyof BiggiveCampaignCardFilterGrid & keyof BiggiveCampaignCardFilterGridAttributes as `attr:${K}`]?: BiggiveCampaignCardFilterGridAttributes[K] } & { [K in keyof BiggiveCampaignCardFilterGrid & keyof BiggiveCampaignCardFilterGridAttributes as `prop:${K}`]?: BiggiveCampaignCardFilterGrid[K] };
+        "biggive-campaign-highlights": Omit<BiggiveCampaignHighlights, keyof BiggiveCampaignHighlightsAttributes> & { [K in keyof BiggiveCampaignHighlights & keyof BiggiveCampaignHighlightsAttributes]?: BiggiveCampaignHighlights[K] } & { [K in keyof BiggiveCampaignHighlights & keyof BiggiveCampaignHighlightsAttributes as `attr:${K}`]?: BiggiveCampaignHighlightsAttributes[K] } & { [K in keyof BiggiveCampaignHighlights & keyof BiggiveCampaignHighlightsAttributes as `prop:${K}`]?: BiggiveCampaignHighlights[K] };
+        "biggive-container-card": Omit<BiggiveContainerCard, keyof BiggiveContainerCardAttributes> & { [K in keyof BiggiveContainerCard & keyof BiggiveContainerCardAttributes]?: BiggiveContainerCard[K] } & { [K in keyof BiggiveContainerCard & keyof BiggiveContainerCardAttributes as `attr:${K}`]?: BiggiveContainerCardAttributes[K] } & { [K in keyof BiggiveContainerCard & keyof BiggiveContainerCardAttributes as `prop:${K}`]?: BiggiveContainerCard[K] };
+        "biggive-cookie-banner": Omit<BiggiveCookieBanner, keyof BiggiveCookieBannerAttributes> & { [K in keyof BiggiveCookieBanner & keyof BiggiveCookieBannerAttributes]?: BiggiveCookieBanner[K] } & { [K in keyof BiggiveCookieBanner & keyof BiggiveCookieBannerAttributes as `attr:${K}`]?: BiggiveCookieBannerAttributes[K] } & { [K in keyof BiggiveCookieBanner & keyof BiggiveCookieBannerAttributes as `prop:${K}`]?: BiggiveCookieBanner[K] } & OneOf<"blogUriPrefix", BiggiveCookieBanner["blogUriPrefix"], BiggiveCookieBannerAttributes["blogUriPrefix"]>;
+        "biggive-footer": Omit<BiggiveFooter, keyof BiggiveFooterAttributes> & { [K in keyof BiggiveFooter & keyof BiggiveFooterAttributes]?: BiggiveFooter[K] } & { [K in keyof BiggiveFooter & keyof BiggiveFooterAttributes as `attr:${K}`]?: BiggiveFooterAttributes[K] } & { [K in keyof BiggiveFooter & keyof BiggiveFooterAttributes as `prop:${K}`]?: BiggiveFooter[K] };
         "biggive-form": BiggiveForm;
-        "biggive-form-field-select": BiggiveFormFieldSelect;
-        "biggive-formatted-text": BiggiveFormattedText;
-        "biggive-grid": BiggiveGrid;
-        "biggive-heading": BiggiveHeading;
-        "biggive-heading-banner": BiggiveHeadingBanner;
-        "biggive-hero-image": BiggiveHeroImage;
-        "biggive-icon-button": BiggiveIconButton;
-        "biggive-image": BiggiveImage;
-        "biggive-image-button": BiggiveImageButton;
-        "biggive-image-card": BiggiveImageCard;
-        "biggive-image-feature": BiggiveImageFeature;
-        "biggive-main-menu": BiggiveMainMenu;
-        "biggive-misc-icon": BiggiveMiscIcon;
-        "biggive-nav-group": BiggiveNavGroup;
-        "biggive-nav-item": BiggiveNavItem;
+        "biggive-form-field-select": Omit<BiggiveFormFieldSelect, keyof BiggiveFormFieldSelectAttributes> & { [K in keyof BiggiveFormFieldSelect & keyof BiggiveFormFieldSelectAttributes]?: BiggiveFormFieldSelect[K] } & { [K in keyof BiggiveFormFieldSelect & keyof BiggiveFormFieldSelectAttributes as `attr:${K}`]?: BiggiveFormFieldSelectAttributes[K] } & { [K in keyof BiggiveFormFieldSelect & keyof BiggiveFormFieldSelectAttributes as `prop:${K}`]?: BiggiveFormFieldSelect[K] } & OneOf<"prompt", BiggiveFormFieldSelect["prompt"], BiggiveFormFieldSelectAttributes["prompt"]> & OneOf<"options", BiggiveFormFieldSelect["options"], BiggiveFormFieldSelectAttributes["options"]>;
+        "biggive-formatted-text": Omit<BiggiveFormattedText, keyof BiggiveFormattedTextAttributes> & { [K in keyof BiggiveFormattedText & keyof BiggiveFormattedTextAttributes]?: BiggiveFormattedText[K] } & { [K in keyof BiggiveFormattedText & keyof BiggiveFormattedTextAttributes as `attr:${K}`]?: BiggiveFormattedTextAttributes[K] } & { [K in keyof BiggiveFormattedText & keyof BiggiveFormattedTextAttributes as `prop:${K}`]?: BiggiveFormattedText[K] };
+        "biggive-grid": Omit<BiggiveGrid, keyof BiggiveGridAttributes> & { [K in keyof BiggiveGrid & keyof BiggiveGridAttributes]?: BiggiveGrid[K] } & { [K in keyof BiggiveGrid & keyof BiggiveGridAttributes as `attr:${K}`]?: BiggiveGridAttributes[K] } & { [K in keyof BiggiveGrid & keyof BiggiveGridAttributes as `prop:${K}`]?: BiggiveGrid[K] };
+        "biggive-heading": Omit<BiggiveHeading, keyof BiggiveHeadingAttributes> & { [K in keyof BiggiveHeading & keyof BiggiveHeadingAttributes]?: BiggiveHeading[K] } & { [K in keyof BiggiveHeading & keyof BiggiveHeadingAttributes as `attr:${K}`]?: BiggiveHeadingAttributes[K] } & { [K in keyof BiggiveHeading & keyof BiggiveHeadingAttributes as `prop:${K}`]?: BiggiveHeading[K] };
+        "biggive-heading-banner": Omit<BiggiveHeadingBanner, keyof BiggiveHeadingBannerAttributes> & { [K in keyof BiggiveHeadingBanner & keyof BiggiveHeadingBannerAttributes]?: BiggiveHeadingBanner[K] } & { [K in keyof BiggiveHeadingBanner & keyof BiggiveHeadingBannerAttributes as `attr:${K}`]?: BiggiveHeadingBannerAttributes[K] } & { [K in keyof BiggiveHeadingBanner & keyof BiggiveHeadingBannerAttributes as `prop:${K}`]?: BiggiveHeadingBanner[K] } & OneOf<"mainTitle", BiggiveHeadingBanner["mainTitle"], BiggiveHeadingBannerAttributes["mainTitle"]> & OneOf<"mainImageUrl", BiggiveHeadingBanner["mainImageUrl"], BiggiveHeadingBannerAttributes["mainImageUrl"]> & OneOf<"focalPoint", BiggiveHeadingBanner["focalPoint"], BiggiveHeadingBannerAttributes["focalPoint"]> & OneOf<"teaser", BiggiveHeadingBanner["teaser"], BiggiveHeadingBannerAttributes["teaser"]> & OneOf<"backgroundColour", BiggiveHeadingBanner["backgroundColour"], BiggiveHeadingBannerAttributes["backgroundColour"]> & OneOf<"textBackgroundColour", BiggiveHeadingBanner["textBackgroundColour"], BiggiveHeadingBannerAttributes["textBackgroundColour"]> & OneOf<"slugColour", BiggiveHeadingBanner["slugColour"], BiggiveHeadingBannerAttributes["slugColour"]> & OneOf<"mainTitleColour", BiggiveHeadingBanner["mainTitleColour"], BiggiveHeadingBannerAttributes["mainTitleColour"]> & OneOf<"teaserColour", BiggiveHeadingBanner["teaserColour"], BiggiveHeadingBannerAttributes["teaserColour"]>;
+        "biggive-hero-image": Omit<BiggiveHeroImage, keyof BiggiveHeroImageAttributes> & { [K in keyof BiggiveHeroImage & keyof BiggiveHeroImageAttributes]?: BiggiveHeroImage[K] } & { [K in keyof BiggiveHeroImage & keyof BiggiveHeroImageAttributes as `attr:${K}`]?: BiggiveHeroImageAttributes[K] } & { [K in keyof BiggiveHeroImage & keyof BiggiveHeroImageAttributes as `prop:${K}`]?: BiggiveHeroImage[K] };
+        "biggive-icon-button": Omit<BiggiveIconButton, keyof BiggiveIconButtonAttributes> & { [K in keyof BiggiveIconButton & keyof BiggiveIconButtonAttributes]?: BiggiveIconButton[K] } & { [K in keyof BiggiveIconButton & keyof BiggiveIconButtonAttributes as `attr:${K}`]?: BiggiveIconButtonAttributes[K] } & { [K in keyof BiggiveIconButton & keyof BiggiveIconButtonAttributes as `prop:${K}`]?: BiggiveIconButton[K] };
+        "biggive-image": Omit<BiggiveImage, keyof BiggiveImageAttributes> & { [K in keyof BiggiveImage & keyof BiggiveImageAttributes]?: BiggiveImage[K] } & { [K in keyof BiggiveImage & keyof BiggiveImageAttributes as `attr:${K}`]?: BiggiveImageAttributes[K] } & { [K in keyof BiggiveImage & keyof BiggiveImageAttributes as `prop:${K}`]?: BiggiveImage[K] };
+        "biggive-image-button": Omit<BiggiveImageButton, keyof BiggiveImageButtonAttributes> & { [K in keyof BiggiveImageButton & keyof BiggiveImageButtonAttributes]?: BiggiveImageButton[K] } & { [K in keyof BiggiveImageButton & keyof BiggiveImageButtonAttributes as `attr:${K}`]?: BiggiveImageButtonAttributes[K] } & { [K in keyof BiggiveImageButton & keyof BiggiveImageButtonAttributes as `prop:${K}`]?: BiggiveImageButton[K] };
+        "biggive-image-card": Omit<BiggiveImageCard, keyof BiggiveImageCardAttributes> & { [K in keyof BiggiveImageCard & keyof BiggiveImageCardAttributes]?: BiggiveImageCard[K] } & { [K in keyof BiggiveImageCard & keyof BiggiveImageCardAttributes as `attr:${K}`]?: BiggiveImageCardAttributes[K] } & { [K in keyof BiggiveImageCard & keyof BiggiveImageCardAttributes as `prop:${K}`]?: BiggiveImageCard[K] };
+        "biggive-image-feature": Omit<BiggiveImageFeature, keyof BiggiveImageFeatureAttributes> & { [K in keyof BiggiveImageFeature & keyof BiggiveImageFeatureAttributes]?: BiggiveImageFeature[K] } & { [K in keyof BiggiveImageFeature & keyof BiggiveImageFeatureAttributes as `attr:${K}`]?: BiggiveImageFeatureAttributes[K] } & { [K in keyof BiggiveImageFeature & keyof BiggiveImageFeatureAttributes as `prop:${K}`]?: BiggiveImageFeature[K] };
+        "biggive-main-menu": Omit<BiggiveMainMenu, keyof BiggiveMainMenuAttributes> & { [K in keyof BiggiveMainMenu & keyof BiggiveMainMenuAttributes]?: BiggiveMainMenu[K] } & { [K in keyof BiggiveMainMenu & keyof BiggiveMainMenuAttributes as `attr:${K}`]?: BiggiveMainMenuAttributes[K] } & { [K in keyof BiggiveMainMenu & keyof BiggiveMainMenuAttributes as `prop:${K}`]?: BiggiveMainMenu[K] };
+        "biggive-misc-icon": Omit<BiggiveMiscIcon, keyof BiggiveMiscIconAttributes> & { [K in keyof BiggiveMiscIcon & keyof BiggiveMiscIconAttributes]?: BiggiveMiscIcon[K] } & { [K in keyof BiggiveMiscIcon & keyof BiggiveMiscIconAttributes as `attr:${K}`]?: BiggiveMiscIconAttributes[K] } & { [K in keyof BiggiveMiscIcon & keyof BiggiveMiscIconAttributes as `prop:${K}`]?: BiggiveMiscIcon[K] };
+        "biggive-nav-group": Omit<BiggiveNavGroup, keyof BiggiveNavGroupAttributes> & { [K in keyof BiggiveNavGroup & keyof BiggiveNavGroupAttributes]?: BiggiveNavGroup[K] } & { [K in keyof BiggiveNavGroup & keyof BiggiveNavGroupAttributes as `attr:${K}`]?: BiggiveNavGroupAttributes[K] } & { [K in keyof BiggiveNavGroup & keyof BiggiveNavGroupAttributes as `prop:${K}`]?: BiggiveNavGroup[K] };
+        "biggive-nav-item": Omit<BiggiveNavItem, keyof BiggiveNavItemAttributes> & { [K in keyof BiggiveNavItem & keyof BiggiveNavItemAttributes]?: BiggiveNavItem[K] } & { [K in keyof BiggiveNavItem & keyof BiggiveNavItemAttributes as `attr:${K}`]?: BiggiveNavItemAttributes[K] } & { [K in keyof BiggiveNavItem & keyof BiggiveNavItemAttributes as `prop:${K}`]?: BiggiveNavItem[K] };
         "biggive-page-column": BiggivePageColumn;
-        "biggive-page-columns": BiggivePageColumns;
-        "biggive-page-section": BiggivePageSection;
+        "biggive-page-columns": Omit<BiggivePageColumns, keyof BiggivePageColumnsAttributes> & { [K in keyof BiggivePageColumns & keyof BiggivePageColumnsAttributes]?: BiggivePageColumns[K] } & { [K in keyof BiggivePageColumns & keyof BiggivePageColumnsAttributes as `attr:${K}`]?: BiggivePageColumnsAttributes[K] } & { [K in keyof BiggivePageColumns & keyof BiggivePageColumnsAttributes as `prop:${K}`]?: BiggivePageColumns[K] };
+        "biggive-page-section": Omit<BiggivePageSection, keyof BiggivePageSectionAttributes> & { [K in keyof BiggivePageSection & keyof BiggivePageSectionAttributes]?: BiggivePageSection[K] } & { [K in keyof BiggivePageSection & keyof BiggivePageSectionAttributes as `attr:${K}`]?: BiggivePageSectionAttributes[K] } & { [K in keyof BiggivePageSection & keyof BiggivePageSectionAttributes as `prop:${K}`]?: BiggivePageSection[K] };
         "biggive-popup": BiggivePopup;
-        "biggive-progress-bar": BiggiveProgressBar;
-        "biggive-quote": BiggiveQuote;
-        "biggive-sheet": BiggiveSheet;
-        "biggive-social-icon": BiggiveSocialIcon;
-        "biggive-tab": BiggiveTab;
-        "biggive-tabbed-content": BiggiveTabbedContent;
-        "biggive-table": BiggiveTable;
-        "biggive-text-input": BiggiveTextInput;
-        "biggive-timeline": BiggiveTimeline;
-        "biggive-timeline-entry": BiggiveTimelineEntry;
-        "biggive-totalizer": BiggiveTotalizer;
-        "biggive-totalizer-ticker-item": BiggiveTotalizerTickerItem;
-        "biggive-video": BiggiveVideo;
-        "biggive-video-feature": BiggiveVideoFeature;
-        "philco-footer": PhilcoFooter;
-        "philco-main-menu": PhilcoMainMenu;
+        "biggive-progress-bar": Omit<BiggiveProgressBar, keyof BiggiveProgressBarAttributes> & { [K in keyof BiggiveProgressBar & keyof BiggiveProgressBarAttributes]?: BiggiveProgressBar[K] } & { [K in keyof BiggiveProgressBar & keyof BiggiveProgressBarAttributes as `attr:${K}`]?: BiggiveProgressBarAttributes[K] } & { [K in keyof BiggiveProgressBar & keyof BiggiveProgressBarAttributes as `prop:${K}`]?: BiggiveProgressBar[K] };
+        "biggive-quote": Omit<BiggiveQuote, keyof BiggiveQuoteAttributes> & { [K in keyof BiggiveQuote & keyof BiggiveQuoteAttributes]?: BiggiveQuote[K] } & { [K in keyof BiggiveQuote & keyof BiggiveQuoteAttributes as `attr:${K}`]?: BiggiveQuoteAttributes[K] } & { [K in keyof BiggiveQuote & keyof BiggiveQuoteAttributes as `prop:${K}`]?: BiggiveQuote[K] };
+        "biggive-sheet": Omit<BiggiveSheet, keyof BiggiveSheetAttributes> & { [K in keyof BiggiveSheet & keyof BiggiveSheetAttributes]?: BiggiveSheet[K] } & { [K in keyof BiggiveSheet & keyof BiggiveSheetAttributes as `attr:${K}`]?: BiggiveSheetAttributes[K] } & { [K in keyof BiggiveSheet & keyof BiggiveSheetAttributes as `prop:${K}`]?: BiggiveSheet[K] };
+        "biggive-social-icon": Omit<BiggiveSocialIcon, keyof BiggiveSocialIconAttributes> & { [K in keyof BiggiveSocialIcon & keyof BiggiveSocialIconAttributes]?: BiggiveSocialIcon[K] } & { [K in keyof BiggiveSocialIcon & keyof BiggiveSocialIconAttributes as `attr:${K}`]?: BiggiveSocialIconAttributes[K] } & { [K in keyof BiggiveSocialIcon & keyof BiggiveSocialIconAttributes as `prop:${K}`]?: BiggiveSocialIcon[K] } & OneOf<"service", BiggiveSocialIcon["service"], BiggiveSocialIconAttributes["service"]>;
+        "biggive-tab": Omit<BiggiveTab, keyof BiggiveTabAttributes> & { [K in keyof BiggiveTab & keyof BiggiveTabAttributes]?: BiggiveTab[K] } & { [K in keyof BiggiveTab & keyof BiggiveTabAttributes as `attr:${K}`]?: BiggiveTabAttributes[K] } & { [K in keyof BiggiveTab & keyof BiggiveTabAttributes as `prop:${K}`]?: BiggiveTab[K] };
+        "biggive-tabbed-content": Omit<BiggiveTabbedContent, keyof BiggiveTabbedContentAttributes> & { [K in keyof BiggiveTabbedContent & keyof BiggiveTabbedContentAttributes]?: BiggiveTabbedContent[K] } & { [K in keyof BiggiveTabbedContent & keyof BiggiveTabbedContentAttributes as `attr:${K}`]?: BiggiveTabbedContentAttributes[K] } & { [K in keyof BiggiveTabbedContent & keyof BiggiveTabbedContentAttributes as `prop:${K}`]?: BiggiveTabbedContent[K] };
+        "biggive-table": Omit<BiggiveTable, keyof BiggiveTableAttributes> & { [K in keyof BiggiveTable & keyof BiggiveTableAttributes]?: BiggiveTable[K] } & { [K in keyof BiggiveTable & keyof BiggiveTableAttributes as `attr:${K}`]?: BiggiveTableAttributes[K] } & { [K in keyof BiggiveTable & keyof BiggiveTableAttributes as `prop:${K}`]?: BiggiveTable[K] };
+        "biggive-text-input": Omit<BiggiveTextInput, keyof BiggiveTextInputAttributes> & { [K in keyof BiggiveTextInput & keyof BiggiveTextInputAttributes]?: BiggiveTextInput[K] } & { [K in keyof BiggiveTextInput & keyof BiggiveTextInputAttributes as `attr:${K}`]?: BiggiveTextInputAttributes[K] } & { [K in keyof BiggiveTextInput & keyof BiggiveTextInputAttributes as `prop:${K}`]?: BiggiveTextInput[K] };
+        "biggive-timeline": Omit<BiggiveTimeline, keyof BiggiveTimelineAttributes> & { [K in keyof BiggiveTimeline & keyof BiggiveTimelineAttributes]?: BiggiveTimeline[K] } & { [K in keyof BiggiveTimeline & keyof BiggiveTimelineAttributes as `attr:${K}`]?: BiggiveTimelineAttributes[K] } & { [K in keyof BiggiveTimeline & keyof BiggiveTimelineAttributes as `prop:${K}`]?: BiggiveTimeline[K] };
+        "biggive-timeline-entry": Omit<BiggiveTimelineEntry, keyof BiggiveTimelineEntryAttributes> & { [K in keyof BiggiveTimelineEntry & keyof BiggiveTimelineEntryAttributes]?: BiggiveTimelineEntry[K] } & { [K in keyof BiggiveTimelineEntry & keyof BiggiveTimelineEntryAttributes as `attr:${K}`]?: BiggiveTimelineEntryAttributes[K] } & { [K in keyof BiggiveTimelineEntry & keyof BiggiveTimelineEntryAttributes as `prop:${K}`]?: BiggiveTimelineEntry[K] };
+        "biggive-totalizer": Omit<BiggiveTotalizer, keyof BiggiveTotalizerAttributes> & { [K in keyof BiggiveTotalizer & keyof BiggiveTotalizerAttributes]?: BiggiveTotalizer[K] } & { [K in keyof BiggiveTotalizer & keyof BiggiveTotalizerAttributes as `attr:${K}`]?: BiggiveTotalizerAttributes[K] } & { [K in keyof BiggiveTotalizer & keyof BiggiveTotalizerAttributes as `prop:${K}`]?: BiggiveTotalizer[K] };
+        "biggive-totalizer-ticker-item": Omit<BiggiveTotalizerTickerItem, keyof BiggiveTotalizerTickerItemAttributes> & { [K in keyof BiggiveTotalizerTickerItem & keyof BiggiveTotalizerTickerItemAttributes]?: BiggiveTotalizerTickerItem[K] } & { [K in keyof BiggiveTotalizerTickerItem & keyof BiggiveTotalizerTickerItemAttributes as `attr:${K}`]?: BiggiveTotalizerTickerItemAttributes[K] } & { [K in keyof BiggiveTotalizerTickerItem & keyof BiggiveTotalizerTickerItemAttributes as `prop:${K}`]?: BiggiveTotalizerTickerItem[K] };
+        "biggive-video": Omit<BiggiveVideo, keyof BiggiveVideoAttributes> & { [K in keyof BiggiveVideo & keyof BiggiveVideoAttributes]?: BiggiveVideo[K] } & { [K in keyof BiggiveVideo & keyof BiggiveVideoAttributes as `attr:${K}`]?: BiggiveVideoAttributes[K] } & { [K in keyof BiggiveVideo & keyof BiggiveVideoAttributes as `prop:${K}`]?: BiggiveVideo[K] };
+        "biggive-video-feature": Omit<BiggiveVideoFeature, keyof BiggiveVideoFeatureAttributes> & { [K in keyof BiggiveVideoFeature & keyof BiggiveVideoFeatureAttributes]?: BiggiveVideoFeature[K] } & { [K in keyof BiggiveVideoFeature & keyof BiggiveVideoFeatureAttributes as `attr:${K}`]?: BiggiveVideoFeatureAttributes[K] } & { [K in keyof BiggiveVideoFeature & keyof BiggiveVideoFeatureAttributes as `prop:${K}`]?: BiggiveVideoFeature[K] };
+        "philco-footer": Omit<PhilcoFooter, keyof PhilcoFooterAttributes> & { [K in keyof PhilcoFooter & keyof PhilcoFooterAttributes]?: PhilcoFooter[K] } & { [K in keyof PhilcoFooter & keyof PhilcoFooterAttributes as `attr:${K}`]?: PhilcoFooterAttributes[K] } & { [K in keyof PhilcoFooter & keyof PhilcoFooterAttributes as `prop:${K}`]?: PhilcoFooter[K] };
+        "philco-main-menu": Omit<PhilcoMainMenu, keyof PhilcoMainMenuAttributes> & { [K in keyof PhilcoMainMenu & keyof PhilcoMainMenuAttributes]?: PhilcoMainMenu[K] } & { [K in keyof PhilcoMainMenu & keyof PhilcoMainMenuAttributes as `attr:${K}`]?: PhilcoMainMenuAttributes[K] } & { [K in keyof PhilcoMainMenu & keyof PhilcoMainMenuAttributes as `prop:${K}`]?: PhilcoMainMenu[K] };
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "biggive-accordion": LocalJSX.BiggiveAccordion & JSXBase.HTMLAttributes<HTMLBiggiveAccordionElement>;
-            "biggive-accordion-entry": LocalJSX.BiggiveAccordionEntry & JSXBase.HTMLAttributes<HTMLBiggiveAccordionEntryElement>;
-            "biggive-article-card": LocalJSX.BiggiveArticleCard & JSXBase.HTMLAttributes<HTMLBiggiveArticleCardElement>;
-            "biggive-back-to-top": LocalJSX.BiggiveBackToTop & JSXBase.HTMLAttributes<HTMLBiggiveBackToTopElement>;
-            "biggive-basic-card": LocalJSX.BiggiveBasicCard & JSXBase.HTMLAttributes<HTMLBiggiveBasicCardElement>;
-            "biggive-biography-card": LocalJSX.BiggiveBiographyCard & JSXBase.HTMLAttributes<HTMLBiggiveBiographyCardElement>;
-            "biggive-boxed-content": LocalJSX.BiggiveBoxedContent & JSXBase.HTMLAttributes<HTMLBiggiveBoxedContentElement>;
-            "biggive-branded-image": LocalJSX.BiggiveBrandedImage & JSXBase.HTMLAttributes<HTMLBiggiveBrandedImageElement>;
-            "biggive-button": LocalJSX.BiggiveButton & JSXBase.HTMLAttributes<HTMLBiggiveButtonElement>;
-            "biggive-call-to-action": LocalJSX.BiggiveCallToAction & JSXBase.HTMLAttributes<HTMLBiggiveCallToActionElement>;
-            "biggive-campaign-card": LocalJSX.BiggiveCampaignCard & JSXBase.HTMLAttributes<HTMLBiggiveCampaignCardElement>;
-            "biggive-campaign-card-filter-grid": LocalJSX.BiggiveCampaignCardFilterGrid & JSXBase.HTMLAttributes<HTMLBiggiveCampaignCardFilterGridElement>;
-            "biggive-campaign-highlights": LocalJSX.BiggiveCampaignHighlights & JSXBase.HTMLAttributes<HTMLBiggiveCampaignHighlightsElement>;
-            "biggive-container-card": LocalJSX.BiggiveContainerCard & JSXBase.HTMLAttributes<HTMLBiggiveContainerCardElement>;
-            "biggive-cookie-banner": LocalJSX.BiggiveCookieBanner & JSXBase.HTMLAttributes<HTMLBiggiveCookieBannerElement>;
+            "biggive-accordion": LocalJSX.IntrinsicElements["biggive-accordion"] & JSXBase.HTMLAttributes<HTMLBiggiveAccordionElement>;
+            "biggive-accordion-entry": LocalJSX.IntrinsicElements["biggive-accordion-entry"] & JSXBase.HTMLAttributes<HTMLBiggiveAccordionEntryElement>;
+            "biggive-article-card": LocalJSX.IntrinsicElements["biggive-article-card"] & JSXBase.HTMLAttributes<HTMLBiggiveArticleCardElement>;
+            "biggive-back-to-top": LocalJSX.IntrinsicElements["biggive-back-to-top"] & JSXBase.HTMLAttributes<HTMLBiggiveBackToTopElement>;
+            "biggive-basic-card": LocalJSX.IntrinsicElements["biggive-basic-card"] & JSXBase.HTMLAttributes<HTMLBiggiveBasicCardElement>;
+            "biggive-biography-card": LocalJSX.IntrinsicElements["biggive-biography-card"] & JSXBase.HTMLAttributes<HTMLBiggiveBiographyCardElement>;
+            "biggive-boxed-content": LocalJSX.IntrinsicElements["biggive-boxed-content"] & JSXBase.HTMLAttributes<HTMLBiggiveBoxedContentElement>;
+            "biggive-branded-image": LocalJSX.IntrinsicElements["biggive-branded-image"] & JSXBase.HTMLAttributes<HTMLBiggiveBrandedImageElement>;
+            "biggive-button": LocalJSX.IntrinsicElements["biggive-button"] & JSXBase.HTMLAttributes<HTMLBiggiveButtonElement>;
+            "biggive-call-to-action": LocalJSX.IntrinsicElements["biggive-call-to-action"] & JSXBase.HTMLAttributes<HTMLBiggiveCallToActionElement>;
+            "biggive-campaign-card": LocalJSX.IntrinsicElements["biggive-campaign-card"] & JSXBase.HTMLAttributes<HTMLBiggiveCampaignCardElement>;
+            "biggive-campaign-card-filter-grid": LocalJSX.IntrinsicElements["biggive-campaign-card-filter-grid"] & JSXBase.HTMLAttributes<HTMLBiggiveCampaignCardFilterGridElement>;
+            "biggive-campaign-highlights": LocalJSX.IntrinsicElements["biggive-campaign-highlights"] & JSXBase.HTMLAttributes<HTMLBiggiveCampaignHighlightsElement>;
+            "biggive-container-card": LocalJSX.IntrinsicElements["biggive-container-card"] & JSXBase.HTMLAttributes<HTMLBiggiveContainerCardElement>;
+            "biggive-cookie-banner": LocalJSX.IntrinsicElements["biggive-cookie-banner"] & JSXBase.HTMLAttributes<HTMLBiggiveCookieBannerElement>;
             /**
              * Should be contained in a `<footer/>` or similar so that the page has appropriate
              * landmarks.
              */
-            "biggive-footer": LocalJSX.BiggiveFooter & JSXBase.HTMLAttributes<HTMLBiggiveFooterElement>;
-            "biggive-form": LocalJSX.BiggiveForm & JSXBase.HTMLAttributes<HTMLBiggiveFormElement>;
-            "biggive-form-field-select": LocalJSX.BiggiveFormFieldSelect & JSXBase.HTMLAttributes<HTMLBiggiveFormFieldSelectElement>;
-            "biggive-formatted-text": LocalJSX.BiggiveFormattedText & JSXBase.HTMLAttributes<HTMLBiggiveFormattedTextElement>;
-            "biggive-grid": LocalJSX.BiggiveGrid & JSXBase.HTMLAttributes<HTMLBiggiveGridElement>;
-            "biggive-heading": LocalJSX.BiggiveHeading & JSXBase.HTMLAttributes<HTMLBiggiveHeadingElement>;
+            "biggive-footer": LocalJSX.IntrinsicElements["biggive-footer"] & JSXBase.HTMLAttributes<HTMLBiggiveFooterElement>;
+            "biggive-form": LocalJSX.IntrinsicElements["biggive-form"] & JSXBase.HTMLAttributes<HTMLBiggiveFormElement>;
+            "biggive-form-field-select": LocalJSX.IntrinsicElements["biggive-form-field-select"] & JSXBase.HTMLAttributes<HTMLBiggiveFormFieldSelectElement>;
+            "biggive-formatted-text": LocalJSX.IntrinsicElements["biggive-formatted-text"] & JSXBase.HTMLAttributes<HTMLBiggiveFormattedTextElement>;
+            "biggive-grid": LocalJSX.IntrinsicElements["biggive-grid"] & JSXBase.HTMLAttributes<HTMLBiggiveGridElement>;
+            "biggive-heading": LocalJSX.IntrinsicElements["biggive-heading"] & JSXBase.HTMLAttributes<HTMLBiggiveHeadingElement>;
             /**
              * Heading banner component for use as a page header.
              * This component provides a banner with a background image, optional logo, and text content.
              * It supports different heights and customizable colors.
              */
-            "biggive-heading-banner": LocalJSX.BiggiveHeadingBanner & JSXBase.HTMLAttributes<HTMLBiggiveHeadingBannerElement>;
-            "biggive-hero-image": LocalJSX.BiggiveHeroImage & JSXBase.HTMLAttributes<HTMLBiggiveHeroImageElement>;
-            "biggive-icon-button": LocalJSX.BiggiveIconButton & JSXBase.HTMLAttributes<HTMLBiggiveIconButtonElement>;
-            "biggive-image": LocalJSX.BiggiveImage & JSXBase.HTMLAttributes<HTMLBiggiveImageElement>;
-            "biggive-image-button": LocalJSX.BiggiveImageButton & JSXBase.HTMLAttributes<HTMLBiggiveImageButtonElement>;
-            "biggive-image-card": LocalJSX.BiggiveImageCard & JSXBase.HTMLAttributes<HTMLBiggiveImageCardElement>;
-            "biggive-image-feature": LocalJSX.BiggiveImageFeature & JSXBase.HTMLAttributes<HTMLBiggiveImageFeatureElement>;
-            "biggive-main-menu": LocalJSX.BiggiveMainMenu & JSXBase.HTMLAttributes<HTMLBiggiveMainMenuElement>;
-            "biggive-misc-icon": LocalJSX.BiggiveMiscIcon & JSXBase.HTMLAttributes<HTMLBiggiveMiscIconElement>;
-            "biggive-nav-group": LocalJSX.BiggiveNavGroup & JSXBase.HTMLAttributes<HTMLBiggiveNavGroupElement>;
-            "biggive-nav-item": LocalJSX.BiggiveNavItem & JSXBase.HTMLAttributes<HTMLBiggiveNavItemElement>;
-            "biggive-page-column": LocalJSX.BiggivePageColumn & JSXBase.HTMLAttributes<HTMLBiggivePageColumnElement>;
-            "biggive-page-columns": LocalJSX.BiggivePageColumns & JSXBase.HTMLAttributes<HTMLBiggivePageColumnsElement>;
-            "biggive-page-section": LocalJSX.BiggivePageSection & JSXBase.HTMLAttributes<HTMLBiggivePageSectionElement>;
-            "biggive-popup": LocalJSX.BiggivePopup & JSXBase.HTMLAttributes<HTMLBiggivePopupElement>;
-            "biggive-progress-bar": LocalJSX.BiggiveProgressBar & JSXBase.HTMLAttributes<HTMLBiggiveProgressBarElement>;
-            "biggive-quote": LocalJSX.BiggiveQuote & JSXBase.HTMLAttributes<HTMLBiggiveQuoteElement>;
-            "biggive-sheet": LocalJSX.BiggiveSheet & JSXBase.HTMLAttributes<HTMLBiggiveSheetElement>;
+            "biggive-heading-banner": LocalJSX.IntrinsicElements["biggive-heading-banner"] & JSXBase.HTMLAttributes<HTMLBiggiveHeadingBannerElement>;
+            "biggive-hero-image": LocalJSX.IntrinsicElements["biggive-hero-image"] & JSXBase.HTMLAttributes<HTMLBiggiveHeroImageElement>;
+            "biggive-icon-button": LocalJSX.IntrinsicElements["biggive-icon-button"] & JSXBase.HTMLAttributes<HTMLBiggiveIconButtonElement>;
+            "biggive-image": LocalJSX.IntrinsicElements["biggive-image"] & JSXBase.HTMLAttributes<HTMLBiggiveImageElement>;
+            "biggive-image-button": LocalJSX.IntrinsicElements["biggive-image-button"] & JSXBase.HTMLAttributes<HTMLBiggiveImageButtonElement>;
+            "biggive-image-card": LocalJSX.IntrinsicElements["biggive-image-card"] & JSXBase.HTMLAttributes<HTMLBiggiveImageCardElement>;
+            "biggive-image-feature": LocalJSX.IntrinsicElements["biggive-image-feature"] & JSXBase.HTMLAttributes<HTMLBiggiveImageFeatureElement>;
+            "biggive-main-menu": LocalJSX.IntrinsicElements["biggive-main-menu"] & JSXBase.HTMLAttributes<HTMLBiggiveMainMenuElement>;
+            "biggive-misc-icon": LocalJSX.IntrinsicElements["biggive-misc-icon"] & JSXBase.HTMLAttributes<HTMLBiggiveMiscIconElement>;
+            "biggive-nav-group": LocalJSX.IntrinsicElements["biggive-nav-group"] & JSXBase.HTMLAttributes<HTMLBiggiveNavGroupElement>;
+            "biggive-nav-item": LocalJSX.IntrinsicElements["biggive-nav-item"] & JSXBase.HTMLAttributes<HTMLBiggiveNavItemElement>;
+            "biggive-page-column": LocalJSX.IntrinsicElements["biggive-page-column"] & JSXBase.HTMLAttributes<HTMLBiggivePageColumnElement>;
+            "biggive-page-columns": LocalJSX.IntrinsicElements["biggive-page-columns"] & JSXBase.HTMLAttributes<HTMLBiggivePageColumnsElement>;
+            "biggive-page-section": LocalJSX.IntrinsicElements["biggive-page-section"] & JSXBase.HTMLAttributes<HTMLBiggivePageSectionElement>;
+            "biggive-popup": LocalJSX.IntrinsicElements["biggive-popup"] & JSXBase.HTMLAttributes<HTMLBiggivePopupElement>;
+            "biggive-progress-bar": LocalJSX.IntrinsicElements["biggive-progress-bar"] & JSXBase.HTMLAttributes<HTMLBiggiveProgressBarElement>;
+            "biggive-quote": LocalJSX.IntrinsicElements["biggive-quote"] & JSXBase.HTMLAttributes<HTMLBiggiveQuoteElement>;
+            "biggive-sheet": LocalJSX.IntrinsicElements["biggive-sheet"] & JSXBase.HTMLAttributes<HTMLBiggiveSheetElement>;
             /**
              * Used to indicate and link to a charity's social page, or their own web site.
              */
-            "biggive-social-icon": LocalJSX.BiggiveSocialIcon & JSXBase.HTMLAttributes<HTMLBiggiveSocialIconElement>;
-            "biggive-tab": LocalJSX.BiggiveTab & JSXBase.HTMLAttributes<HTMLBiggiveTabElement>;
-            "biggive-tabbed-content": LocalJSX.BiggiveTabbedContent & JSXBase.HTMLAttributes<HTMLBiggiveTabbedContentElement>;
-            "biggive-table": LocalJSX.BiggiveTable & JSXBase.HTMLAttributes<HTMLBiggiveTableElement>;
+            "biggive-social-icon": LocalJSX.IntrinsicElements["biggive-social-icon"] & JSXBase.HTMLAttributes<HTMLBiggiveSocialIconElement>;
+            "biggive-tab": LocalJSX.IntrinsicElements["biggive-tab"] & JSXBase.HTMLAttributes<HTMLBiggiveTabElement>;
+            "biggive-tabbed-content": LocalJSX.IntrinsicElements["biggive-tabbed-content"] & JSXBase.HTMLAttributes<HTMLBiggiveTabbedContentElement>;
+            "biggive-table": LocalJSX.IntrinsicElements["biggive-table"] & JSXBase.HTMLAttributes<HTMLBiggiveTableElement>;
             /**
              * Initially developed for use within the new donate stepper design. Currently has a hard-coded background
              * of $colour-grey-background, intened to appear transparent when used on a page with a matching background.
              * Please ensure input is styled as width: 100%.
              * Requires slots `label` and `input`.
              */
-            "biggive-text-input": LocalJSX.BiggiveTextInput & JSXBase.HTMLAttributes<HTMLBiggiveTextInputElement>;
-            "biggive-timeline": LocalJSX.BiggiveTimeline & JSXBase.HTMLAttributes<HTMLBiggiveTimelineElement>;
-            "biggive-timeline-entry": LocalJSX.BiggiveTimelineEntry & JSXBase.HTMLAttributes<HTMLBiggiveTimelineEntryElement>;
-            "biggive-totalizer": LocalJSX.BiggiveTotalizer & JSXBase.HTMLAttributes<HTMLBiggiveTotalizerElement>;
-            "biggive-totalizer-ticker-item": LocalJSX.BiggiveTotalizerTickerItem & JSXBase.HTMLAttributes<HTMLBiggiveTotalizerTickerItemElement>;
-            "biggive-video": LocalJSX.BiggiveVideo & JSXBase.HTMLAttributes<HTMLBiggiveVideoElement>;
-            "biggive-video-feature": LocalJSX.BiggiveVideoFeature & JSXBase.HTMLAttributes<HTMLBiggiveVideoFeatureElement>;
+            "biggive-text-input": LocalJSX.IntrinsicElements["biggive-text-input"] & JSXBase.HTMLAttributes<HTMLBiggiveTextInputElement>;
+            "biggive-timeline": LocalJSX.IntrinsicElements["biggive-timeline"] & JSXBase.HTMLAttributes<HTMLBiggiveTimelineElement>;
+            "biggive-timeline-entry": LocalJSX.IntrinsicElements["biggive-timeline-entry"] & JSXBase.HTMLAttributes<HTMLBiggiveTimelineEntryElement>;
+            "biggive-totalizer": LocalJSX.IntrinsicElements["biggive-totalizer"] & JSXBase.HTMLAttributes<HTMLBiggiveTotalizerElement>;
+            "biggive-totalizer-ticker-item": LocalJSX.IntrinsicElements["biggive-totalizer-ticker-item"] & JSXBase.HTMLAttributes<HTMLBiggiveTotalizerTickerItemElement>;
+            "biggive-video": LocalJSX.IntrinsicElements["biggive-video"] & JSXBase.HTMLAttributes<HTMLBiggiveVideoElement>;
+            "biggive-video-feature": LocalJSX.IntrinsicElements["biggive-video-feature"] & JSXBase.HTMLAttributes<HTMLBiggiveVideoFeatureElement>;
             /**
              * Should be contained in a `<footer/>` or similar so that the page has appropriate
              * landmarks.
              */
-            "philco-footer": LocalJSX.PhilcoFooter & JSXBase.HTMLAttributes<HTMLPhilcoFooterElement>;
-            "philco-main-menu": LocalJSX.PhilcoMainMenu & JSXBase.HTMLAttributes<HTMLPhilcoMainMenuElement>;
+            "philco-footer": LocalJSX.IntrinsicElements["philco-footer"] & JSXBase.HTMLAttributes<HTMLPhilcoFooterElement>;
+            "philco-main-menu": LocalJSX.IntrinsicElements["philco-main-menu"] & JSXBase.HTMLAttributes<HTMLPhilcoMainMenuElement>;
         }
     }
 }
