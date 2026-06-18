@@ -28,19 +28,14 @@
   margin-bottom: 0.1rem;
 }
 
-@mixin font-size-xx-small() {
-  font-size: 9px;
-  line-height: 11px;
-}
-
 @mixin font-size-x-small() {
-  font-size: 11px;
-  line-height: 14px;
+  font-size: 13px;
+  line-height: 17px;
 }
 
 @mixin font-size-small() {
-  font-size: 13px;
-  line-height: 17px;
+  font-size: 16px;
+  line-height: 22px;
 }
 
 @mixin font-size-medium() {
