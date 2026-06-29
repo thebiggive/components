@@ -52,6 +52,18 @@ export class BiggiveCampaignCardFilterGrid {
   }>;
 
   /**
+   * This event `doSearchAndFilterUpdate` event is emitted and propogates to the parent
+   * component which handles it
+   */
+  @Event({
+    eventName: 'doGetLocationFromBrowser',
+    bubbles: true,
+    cancelable: true,
+    composed: true,
+  })
+  doGetLocationFromBrowser: EventEmitter<void>;
+
+  /**
    * Typically on non-negligible scroll away from the search area.
    */
   @Method() async unfocusInputs() {
@@ -129,6 +141,25 @@ export class BiggiveCampaignCardFilterGrid {
    */
   @Prop({ mutable: true }) selectedFilterLocation: string | null = null;
 
+  /**
+   * Allow donors to select campaigns near to themselves.
+   */
+  @Prop() enableSearchByLocation: boolean = false;
+
+  /**
+   * Allow donors to select campaigns/charities near to themselves.
+   */
+  @Prop() offerNearMeOption: boolean;
+
+  /**
+   * Incidates that the component is currently fetching the browser location
+   */
+  @Prop() fetchingLocation = false;
+
+  /**
+   * Selected location around which donor is looking for campaigns
+   */
+  @Prop() location: GeolocationPosition | undefined = undefined;
   /**
    * State variable - causes re-render on change
    */
@@ -213,6 +244,11 @@ export class BiggiveCampaignCardFilterGrid {
     if (this.hasSearchTerm()) {
       this.selectedSortByOption = 'Relevance';
     }
+  };
+
+  private handleNearMeButtonPressed = () => {
+    this.unfocusTextInput();
+    this.doGetLocationFromBrowser.emit();
   };
 
   private handleSearchTextChanged = (event: any) => {
@@ -318,6 +354,17 @@ export class BiggiveCampaignCardFilterGrid {
             </div>
           </div>
           <div class="sort-filter-wrap">
+            {this.enableSearchByLocation && this.offerNearMeOption && (
+              <biggive-button
+                class="filter"
+                colourScheme="primary"
+                onDoButtonClick={this.handleNearMeButtonPressed}
+                label={this.fetchingLocation ? 'Fetching location...' : 'Charities near me'}
+                disabled={!this.fetchingLocation}
+                fullWidth={true}
+                space-below="0"
+              ></biggive-button>
+            )}
             <div class="filter-wrap">
               <biggive-button class="filter" colourScheme="primary" onDoButtonClick={this.handleFilterButtonClick} label="Filter" fullWidth={true} space-below="0"></biggive-button>
               <biggive-popup id="filter-popup">

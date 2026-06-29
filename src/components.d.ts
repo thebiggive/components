@@ -557,14 +557,33 @@ export namespace Components {
          */
         "categoryOptions": string | Record<string, string> | string[];
         /**
+          * Allow donors to select campaigns near to themselves.
+          * @default false
+         */
+        "enableSearchByLocation": boolean;
+        /**
+          * Incidates that the component is currently fetching the browser location
+          * @default false
+         */
+        "fetchingLocation": boolean;
+        /**
           * Intro
           * @default 'Find a charity or project'
          */
         "intro": string;
         /**
+          * Selected location around which donor is looking for campaigns
+          * @default undefined
+         */
+        "location": GeolocationPosition | undefined;
+        /**
           * JSON array of location key/values, or takes a stringified equiavalent (for Storybook)
          */
         "locationOptions": string | Record<string, string> | string[];
+        /**
+          * Allow donors to select campaigns/charities near to themselves.
+         */
+        "offerNearMeOption": boolean;
         /**
           * Defines the text displayed as the placeholder in the input field before the user types anything
           * @default 'Search'
@@ -1874,6 +1893,7 @@ declare global {
     filterBeneficiary: string | null;
     filterLocation: string | null;
   };
+        "doGetLocationFromBrowser": void;
     }
     interface HTMLBiggiveCampaignCardFilterGridElement extends Components.BiggiveCampaignCardFilterGrid, HTMLStencilElement {
         addEventListener<K extends keyof HTMLBiggiveCampaignCardFilterGridElementEventMap>(type: K, listener: (this: HTMLBiggiveCampaignCardFilterGridElement, ev: BiggiveCampaignCardFilterGridCustomEvent<HTMLBiggiveCampaignCardFilterGridElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2810,14 +2830,37 @@ declare namespace LocalJSX {
          */
         "categoryOptions"?: string | Record<string, string> | string[];
         /**
+          * Allow donors to select campaigns near to themselves.
+          * @default false
+         */
+        "enableSearchByLocation"?: boolean;
+        /**
+          * Incidates that the component is currently fetching the browser location
+          * @default false
+         */
+        "fetchingLocation"?: boolean;
+        /**
           * Intro
           * @default 'Find a charity or project'
          */
         "intro"?: string;
         /**
+          * Selected location around which donor is looking for campaigns
+          * @default undefined
+         */
+        "location"?: GeolocationPosition | undefined;
+        /**
           * JSON array of location key/values, or takes a stringified equiavalent (for Storybook)
          */
         "locationOptions"?: string | Record<string, string> | string[];
+        /**
+          * Allow donors to select campaigns/charities near to themselves.
+         */
+        "offerNearMeOption"?: boolean;
+        /**
+          * This event `doSearchAndFilterUpdate` event is emitted and propogates to the parent component which handles it
+         */
+        "onDoGetLocationFromBrowser"?: (event: BiggiveCampaignCardFilterGridCustomEvent<void>) => void;
         /**
           * This event `doSearchAndFilterUpdate` event is emitted and propogates to the parent component which handles it
          */
@@ -4178,6 +4221,9 @@ declare namespace LocalJSX {
         "selectedFilterCategory": string | null;
         "selectedFilterBeneficiary": string | null;
         "selectedFilterLocation": string | null;
+        "enableSearchByLocation": boolean;
+        "offerNearMeOption": boolean;
+        "fetchingLocation": boolean;
     }
     interface BiggiveCampaignHighlightsAttributes {
         "spaceBelow": number;
