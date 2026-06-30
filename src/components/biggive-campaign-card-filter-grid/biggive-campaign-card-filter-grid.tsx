@@ -360,7 +360,7 @@ export class BiggiveCampaignCardFilterGrid {
                 colourScheme="primary"
                 onDoButtonClick={this.handleNearMeButtonPressed}
                 label={this.fetchingLocation ? 'Fetching location...' : 'Charities near me'}
-                disabled={!this.fetchingLocation}
+                disabled={this.fetchingLocation}
                 fullWidth={true}
                 space-below="0"
               ></biggive-button>
