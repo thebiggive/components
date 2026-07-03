@@ -7,13 +7,11 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { spacingOption } from "./globals/spacing-option";
 import { brandColour } from "./globals/brand-colour";
-import { sortOptionLabel } from "./components/biggive-campaign-card-filter-grid/biggive-campaign-card-filter-grid";
 import { headingTag } from "./globals/heading-tag";
 import { headingSize } from "./globals/heading-size";
 import { sectionStyle } from "./components/biggive-page-section/biggive-page-section-prop-types";
 export { spacingOption } from "./globals/spacing-option";
 export { brandColour } from "./globals/brand-colour";
-export { sortOptionLabel } from "./components/biggive-campaign-card-filter-grid/biggive-campaign-card-filter-grid";
 export { headingTag } from "./globals/heading-tag";
 export { headingSize } from "./globals/heading-size";
 export { sectionStyle } from "./components/biggive-page-section/biggive-page-section-prop-types";
@@ -541,87 +539,6 @@ export namespace Components {
           * @default 4
          */
         "spaceBelow": number;
-    }
-    interface BiggiveCampaignCardFilterGrid {
-        /**
-          * JSON array of beneficiary key/values, or takes a stringified equiavalent (for Storybook)
-         */
-        "beneficiaryOptions": string | Record<string, string> | string[];
-        /**
-          * Defines the text on the search button
-          * @default 'Search'
-         */
-        "buttonText": string;
-        /**
-          * JSON array of category key/values, or takes a stringified equiavalent (for Storybook)
-         */
-        "categoryOptions": string | Record<string, string> | string[];
-        /**
-          * Allow donors to select campaigns near to themselves.
-          * @default false
-         */
-        "enableSearchByLocation": boolean;
-        /**
-          * Incidates that the component is currently fetching the browser location
-          * @default false
-         */
-        "fetchingLocation": boolean;
-        /**
-          * Intro
-          * @default 'Find a charity or project'
-         */
-        "intro": string;
-        /**
-          * Selected location around which donor is looking for campaigns
-          * @default undefined
-         */
-        "location": GeolocationPosition | undefined;
-        /**
-          * JSON array of location key/values, or takes a stringified equiavalent (for Storybook)
-         */
-        "locationOptions": string | Record<string, string> | string[];
-        /**
-          * Allow donors to select campaigns/charities near to themselves.
-         */
-        "offerNearMeOption": boolean;
-        /**
-          * Defines the text displayed as the placeholder in the input field before the user types anything
-          * @default 'Search'
-         */
-        "placeholderText": string;
-        /**
-          * Optional search text prop. Useful for pre-populating the search field when the page is loaded with a search term already existing in the URL. This can happen when sharing links, or if a donor goes to a campaign page after searching, and then returns to the search results. In such a case, the search box text will clear, unless we use this prop to populate it on rendering. DON-652.
-          * @default null
-         */
-        "searchText": string | null;
-        /**
-          * For injecting the chosen beneficiary to filter by, as per the comment above for `selectedSortByOption`.
-          * @default null
-         */
-        "selectedFilterBeneficiary": string | null;
-        /**
-          * For injecting the chosen category to filter by, as per the comment above for `selectedSortByOption`.
-          * @default null
-         */
-        "selectedFilterCategory": string | null;
-        /**
-          * For injecting the chosen location to filter by, as per the comment above for `selectedSortByOption`.
-          * @default null
-         */
-        "selectedFilterLocation": string | null;
-        /**
-          * This helps us inject a pre-selected dropdown value from outside of this component. This is especially helpful for the Meta campaign and Explore pages, where searching by text wipes out previous sort options and re-uses Relevance, or where one of those two pages is loaded directly with URL parameters - in such a scenario the dropdown shows that it's pre-selected. DON-558.
-         */
-        "selectedSortByOption": sortOptionLabel;
-        /**
-          * Space below component
-          * @default 0
-         */
-        "spaceBelow": number;
-        /**
-          * Typically on non-negligible scroll away from the search area.
-         */
-        "unfocusInputs": () => Promise<void>;
     }
     interface BiggiveCampaignHighlights {
         /**
@@ -1772,10 +1689,6 @@ export interface BiggiveCampaignCardCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLBiggiveCampaignCardElement;
 }
-export interface BiggiveCampaignCardFilterGridCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLBiggiveCampaignCardFilterGridElement;
-}
 export interface BiggiveCookieBannerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLBiggiveCookieBannerElement;
@@ -1884,30 +1797,6 @@ declare global {
     var HTMLBiggiveCampaignCardElement: {
         prototype: HTMLBiggiveCampaignCardElement;
         new (): HTMLBiggiveCampaignCardElement;
-    };
-    interface HTMLBiggiveCampaignCardFilterGridElementEventMap {
-        "doSearchAndFilterUpdate": {
-    searchText: string | null;
-    sortBy: string | null;
-    filterCategory: string | null;
-    filterBeneficiary: string | null;
-    filterLocation: string | null;
-  };
-        "doGetLocationFromBrowser": void;
-    }
-    interface HTMLBiggiveCampaignCardFilterGridElement extends Components.BiggiveCampaignCardFilterGrid, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLBiggiveCampaignCardFilterGridElementEventMap>(type: K, listener: (this: HTMLBiggiveCampaignCardFilterGridElement, ev: BiggiveCampaignCardFilterGridCustomEvent<HTMLBiggiveCampaignCardFilterGridElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLBiggiveCampaignCardFilterGridElementEventMap>(type: K, listener: (this: HTMLBiggiveCampaignCardFilterGridElement, ev: BiggiveCampaignCardFilterGridCustomEvent<HTMLBiggiveCampaignCardFilterGridElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLBiggiveCampaignCardFilterGridElement: {
-        prototype: HTMLBiggiveCampaignCardFilterGridElement;
-        new (): HTMLBiggiveCampaignCardFilterGridElement;
     };
     interface HTMLBiggiveCampaignHighlightsElement extends Components.BiggiveCampaignHighlights, HTMLStencilElement {
     }
@@ -2243,7 +2132,6 @@ declare global {
         "biggive-button": HTMLBiggiveButtonElement;
         "biggive-call-to-action": HTMLBiggiveCallToActionElement;
         "biggive-campaign-card": HTMLBiggiveCampaignCardElement;
-        "biggive-campaign-card-filter-grid": HTMLBiggiveCampaignCardFilterGridElement;
         "biggive-campaign-highlights": HTMLBiggiveCampaignHighlightsElement;
         "biggive-container-card": HTMLBiggiveContainerCardElement;
         "biggive-cookie-banner": HTMLBiggiveCookieBannerElement;
@@ -2812,97 +2700,6 @@ declare namespace LocalJSX {
         /**
           * Space below component
           * @default 4
-         */
-        "spaceBelow"?: number;
-    }
-    interface BiggiveCampaignCardFilterGrid {
-        /**
-          * JSON array of beneficiary key/values, or takes a stringified equiavalent (for Storybook)
-         */
-        "beneficiaryOptions"?: string | Record<string, string> | string[];
-        /**
-          * Defines the text on the search button
-          * @default 'Search'
-         */
-        "buttonText"?: string;
-        /**
-          * JSON array of category key/values, or takes a stringified equiavalent (for Storybook)
-         */
-        "categoryOptions"?: string | Record<string, string> | string[];
-        /**
-          * Allow donors to select campaigns near to themselves.
-          * @default false
-         */
-        "enableSearchByLocation"?: boolean;
-        /**
-          * Incidates that the component is currently fetching the browser location
-          * @default false
-         */
-        "fetchingLocation"?: boolean;
-        /**
-          * Intro
-          * @default 'Find a charity or project'
-         */
-        "intro"?: string;
-        /**
-          * Selected location around which donor is looking for campaigns
-          * @default undefined
-         */
-        "location"?: GeolocationPosition | undefined;
-        /**
-          * JSON array of location key/values, or takes a stringified equiavalent (for Storybook)
-         */
-        "locationOptions"?: string | Record<string, string> | string[];
-        /**
-          * Allow donors to select campaigns/charities near to themselves.
-         */
-        "offerNearMeOption"?: boolean;
-        /**
-          * This event `doSearchAndFilterUpdate` event is emitted and propogates to the parent component which handles it
-         */
-        "onDoGetLocationFromBrowser"?: (event: BiggiveCampaignCardFilterGridCustomEvent<void>) => void;
-        /**
-          * This event `doSearchAndFilterUpdate` event is emitted and propogates to the parent component which handles it
-         */
-        "onDoSearchAndFilterUpdate"?: (event: BiggiveCampaignCardFilterGridCustomEvent<{
-    searchText: string | null;
-    sortBy: string | null;
-    filterCategory: string | null;
-    filterBeneficiary: string | null;
-    filterLocation: string | null;
-  }>) => void;
-        /**
-          * Defines the text displayed as the placeholder in the input field before the user types anything
-          * @default 'Search'
-         */
-        "placeholderText"?: string;
-        /**
-          * Optional search text prop. Useful for pre-populating the search field when the page is loaded with a search term already existing in the URL. This can happen when sharing links, or if a donor goes to a campaign page after searching, and then returns to the search results. In such a case, the search box text will clear, unless we use this prop to populate it on rendering. DON-652.
-          * @default null
-         */
-        "searchText"?: string | null;
-        /**
-          * For injecting the chosen beneficiary to filter by, as per the comment above for `selectedSortByOption`.
-          * @default null
-         */
-        "selectedFilterBeneficiary"?: string | null;
-        /**
-          * For injecting the chosen category to filter by, as per the comment above for `selectedSortByOption`.
-          * @default null
-         */
-        "selectedFilterCategory"?: string | null;
-        /**
-          * For injecting the chosen location to filter by, as per the comment above for `selectedSortByOption`.
-          * @default null
-         */
-        "selectedFilterLocation"?: string | null;
-        /**
-          * This helps us inject a pre-selected dropdown value from outside of this component. This is especially helpful for the Meta campaign and Explore pages, where searching by text wipes out previous sort options and re-uses Relevance, or where one of those two pages is loaded directly with URL parameters - in such a scenario the dropdown shows that it's pre-selected. DON-558.
-         */
-        "selectedSortByOption"?: sortOptionLabel;
-        /**
-          * Space below component
-          * @default 0
          */
         "spaceBelow"?: number;
     }
@@ -4208,23 +4005,6 @@ declare namespace LocalJSX {
         "isPastCampaign": boolean;
         "datetime": string;
     }
-    interface BiggiveCampaignCardFilterGridAttributes {
-        "spaceBelow": number;
-        "intro": string;
-        "searchText": string | null;
-        "placeholderText": string;
-        "buttonText": string;
-        "categoryOptions": string | Record<string, string> | string[];
-        "beneficiaryOptions": string | Record<string, string> | string[];
-        "locationOptions": string | Record<string, string> | string[];
-        "selectedSortByOption": sortOptionLabel;
-        "selectedFilterCategory": string | null;
-        "selectedFilterBeneficiary": string | null;
-        "selectedFilterLocation": string | null;
-        "enableSearchByLocation": boolean;
-        "offerNearMeOption": boolean;
-        "fetchingLocation": boolean;
-    }
     interface BiggiveCampaignHighlightsAttributes {
         "spaceBelow": number;
         "banner": string;
@@ -4566,7 +4346,6 @@ declare namespace LocalJSX {
         "biggive-button": Omit<BiggiveButton, keyof BiggiveButtonAttributes> & { [K in keyof BiggiveButton & keyof BiggiveButtonAttributes]?: BiggiveButton[K] } & { [K in keyof BiggiveButton & keyof BiggiveButtonAttributes as `attr:${K}`]?: BiggiveButtonAttributes[K] } & { [K in keyof BiggiveButton & keyof BiggiveButtonAttributes as `prop:${K}`]?: BiggiveButton[K] };
         "biggive-call-to-action": Omit<BiggiveCallToAction, keyof BiggiveCallToActionAttributes> & { [K in keyof BiggiveCallToAction & keyof BiggiveCallToActionAttributes]?: BiggiveCallToAction[K] } & { [K in keyof BiggiveCallToAction & keyof BiggiveCallToActionAttributes as `attr:${K}`]?: BiggiveCallToActionAttributes[K] } & { [K in keyof BiggiveCallToAction & keyof BiggiveCallToActionAttributes as `prop:${K}`]?: BiggiveCallToAction[K] };
         "biggive-campaign-card": Omit<BiggiveCampaignCard, keyof BiggiveCampaignCardAttributes> & { [K in keyof BiggiveCampaignCard & keyof BiggiveCampaignCardAttributes]?: BiggiveCampaignCard[K] } & { [K in keyof BiggiveCampaignCard & keyof BiggiveCampaignCardAttributes as `attr:${K}`]?: BiggiveCampaignCardAttributes[K] } & { [K in keyof BiggiveCampaignCard & keyof BiggiveCampaignCardAttributes as `prop:${K}`]?: BiggiveCampaignCard[K] };
-        "biggive-campaign-card-filter-grid": Omit<BiggiveCampaignCardFilterGrid, keyof BiggiveCampaignCardFilterGridAttributes> & { [K in keyof BiggiveCampaignCardFilterGrid & keyof BiggiveCampaignCardFilterGridAttributes]?: BiggiveCampaignCardFilterGrid[K] } & { [K in keyof BiggiveCampaignCardFilterGrid & keyof BiggiveCampaignCardFilterGridAttributes as `attr:${K}`]?: BiggiveCampaignCardFilterGridAttributes[K] } & { [K in keyof BiggiveCampaignCardFilterGrid & keyof BiggiveCampaignCardFilterGridAttributes as `prop:${K}`]?: BiggiveCampaignCardFilterGrid[K] };
         "biggive-campaign-highlights": Omit<BiggiveCampaignHighlights, keyof BiggiveCampaignHighlightsAttributes> & { [K in keyof BiggiveCampaignHighlights & keyof BiggiveCampaignHighlightsAttributes]?: BiggiveCampaignHighlights[K] } & { [K in keyof BiggiveCampaignHighlights & keyof BiggiveCampaignHighlightsAttributes as `attr:${K}`]?: BiggiveCampaignHighlightsAttributes[K] } & { [K in keyof BiggiveCampaignHighlights & keyof BiggiveCampaignHighlightsAttributes as `prop:${K}`]?: BiggiveCampaignHighlights[K] };
         "biggive-container-card": Omit<BiggiveContainerCard, keyof BiggiveContainerCardAttributes> & { [K in keyof BiggiveContainerCard & keyof BiggiveContainerCardAttributes]?: BiggiveContainerCard[K] } & { [K in keyof BiggiveContainerCard & keyof BiggiveContainerCardAttributes as `attr:${K}`]?: BiggiveContainerCardAttributes[K] } & { [K in keyof BiggiveContainerCard & keyof BiggiveContainerCardAttributes as `prop:${K}`]?: BiggiveContainerCard[K] };
         "biggive-cookie-banner": Omit<BiggiveCookieBanner, keyof BiggiveCookieBannerAttributes> & { [K in keyof BiggiveCookieBanner & keyof BiggiveCookieBannerAttributes]?: BiggiveCookieBanner[K] } & { [K in keyof BiggiveCookieBanner & keyof BiggiveCookieBannerAttributes as `attr:${K}`]?: BiggiveCookieBannerAttributes[K] } & { [K in keyof BiggiveCookieBanner & keyof BiggiveCookieBannerAttributes as `prop:${K}`]?: BiggiveCookieBanner[K] } & OneOf<"blogUriPrefix", BiggiveCookieBanner["blogUriPrefix"], BiggiveCookieBannerAttributes["blogUriPrefix"]>;
@@ -4624,7 +4403,6 @@ declare module "@stencil/core" {
             "biggive-button": LocalJSX.IntrinsicElements["biggive-button"] & JSXBase.HTMLAttributes<HTMLBiggiveButtonElement>;
             "biggive-call-to-action": LocalJSX.IntrinsicElements["biggive-call-to-action"] & JSXBase.HTMLAttributes<HTMLBiggiveCallToActionElement>;
             "biggive-campaign-card": LocalJSX.IntrinsicElements["biggive-campaign-card"] & JSXBase.HTMLAttributes<HTMLBiggiveCampaignCardElement>;
-            "biggive-campaign-card-filter-grid": LocalJSX.IntrinsicElements["biggive-campaign-card-filter-grid"] & JSXBase.HTMLAttributes<HTMLBiggiveCampaignCardFilterGridElement>;
             "biggive-campaign-highlights": LocalJSX.IntrinsicElements["biggive-campaign-highlights"] & JSXBase.HTMLAttributes<HTMLBiggiveCampaignHighlightsElement>;
             "biggive-container-card": LocalJSX.IntrinsicElements["biggive-container-card"] & JSXBase.HTMLAttributes<HTMLBiggiveContainerCardElement>;
             "biggive-cookie-banner": LocalJSX.IntrinsicElements["biggive-cookie-banner"] & JSXBase.HTMLAttributes<HTMLBiggiveCookieBannerElement>;
