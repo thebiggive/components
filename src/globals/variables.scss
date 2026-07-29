@@ -1,6 +1,7 @@
 @use './philco-variables.scss';
 
 @use "sass:map";
+@use "sass:math";
 // Should only be used for Sass variables, mixins and functions; not contain any CSS.
 // https://github.com/ionic-team/stencil-sass#inject-globals-sass-paths
 // @see brand-colour variables in src/globals/brand-colour.ts, this and that should be updated together.
@@ -14,7 +15,7 @@ $screen-tablet-max: 768px;
 $screen-large: 968px;
 $screen-desktop-max: 1200px;
 
-$aspect-ratio-banners: percentage(0.30555); // 0.30555 is approx 352 / 1152
+$aspect-ratio-banners: math.percentage(0.30555); // 0.30555 is approx 352 / 1152
 
 $colour-primary-blue: #2C089B;
 $colour-secondary-green: #2AF135;

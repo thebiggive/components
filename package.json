@@ -71,7 +71,7 @@
     "storybook": "^8.6.15"
   },
   "engines": {
-    "node": ">=22.12"
+    "node": ">=24.18"
   },
   "license": "MIT"
 }
