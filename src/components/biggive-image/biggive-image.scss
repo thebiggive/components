@@ -1,10 +1,12 @@
-@include image-alignment();
-@include spacers();
+@use '../../globals/mixins.scss';
+
+@include mixins.image-alignment();
+@include mixins.spacers();
 
 :host {
   display: contents;
 }
 
 .container {
-  @include standard-font();
+  @include mixins.standard-font();
 }

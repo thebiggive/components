@@ -1,5 +1,8 @@
-@include spacers();
-@include text-colours();
+@use '../../globals/mixins.scss';
+@use '../../globals/variables.scss';
+
+@include mixins.spacers();
+@include mixins.text-colours();
 
 :host {
   display: contents;
@@ -10,7 +13,7 @@
 }
 
 .container {
-  @include standard-font();
+  @include mixins.standard-font();
   position: relative;
 
   .navigation {
@@ -40,7 +43,7 @@
       }
     }
     .sleeve {
-      border-bottom: 1px solid $colour-grey-light;
+      border-bottom: 1px solid variables.$colour-grey-light;
       overflow: hidden;
       ul {
         margin: 0;
@@ -64,7 +67,7 @@
     }
   }
 
-  @each $key, $colour in $brandColours {
+  @each $key, $colour in variables.$brandColours {
     &.text-colour-#{$key} .navigation li { color: $colour; }
     &.navigation-highlight-colour-#{$key} .navigation ul {border-color: $colour; }
     &.selected-text-colour-#{$key} .navigation li.selected { color: $colour; border-color: $colour; }

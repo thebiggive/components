@@ -1,19 +1,22 @@
-@include backgrounds();
-@include fills();
-@include spacers();
-@include text-colours();
+@use '../../globals/mixins.scss';
+@use '../../globals/variables.scss';
+
+@include mixins.backgrounds();
+@include mixins.fills();
+@include mixins.spacers();
+@include mixins.text-colours();
 
 :host {
   display: contents;
 }
 
 .container {
-  @include standard-font();
+  @include mixins.standard-font();
   position: relative;
   text-align: center;
   background-size: cover;
   background-position: center center;
-  padding: $spacer-2;
+  padding: variables.$spacer-2;
   height: 100%;
   white-space: pre-wrap;
   box-shadow: 0px 0px 30px rgb(0 0 0 / 20%);
@@ -22,7 +25,7 @@
     text-decoration: none;
   }
   .sleeve {
-    padding: $spacer-2;
+    padding: variables.$spacer-2;
     height: 100%;
     box-sizing: border-box;
     transition: all 1s ease-in-out;
@@ -33,13 +36,13 @@
     height: calc(100% + 60px);
   }
   &.clip-bottom-left-corner-false.clip-top-right-corner-true {
-      @include corner-clip-medium-top-right();
+      @include mixins.corner-clip-medium-top-right();
   }
   &.clip-bottom-left-corner-true.clip-top-right-corner-false {
-      @include corner-clip-medium-bottom-left();
+      @include mixins.corner-clip-medium-bottom-left();
   }
   &.clip-bottom-left-corner-true.clip-top-right-corner-true {
-      @include corner-clip-medium-bottom-left-top-right();
+      @include mixins.corner-clip-medium-bottom-left-top-right();
   }
 
   .icon {
@@ -50,11 +53,11 @@
   }
   .title {
     // these have to be the heading level passed in based on order of headings, but in terms of design we want it look like H3.
-    @include heading-3();
-    margin-bottom: $spacer-3;
+    @include mixins.heading-3();
+    margin-bottom: variables.$spacer-3;
   }
   .teaser {
-    margin-bottom: $spacer-3;
+    margin-bottom: variables.$spacer-3;
   }
   .main-image-container {
     margin-bottom: 15px;

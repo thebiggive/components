@@ -1,43 +1,46 @@
-@include image-alignment();
-@include text-colours();
+@use '../../globals/mixins.scss';
+@use '../../globals/variables.scss';
+
+@include mixins.image-alignment();
+@include mixins.text-colours();
 
 :host {
   display: contents;
 }
 
 .container {
-  @include standard-font();
+  @include mixins.standard-font();
   position: relative;
   .sleeve {
-    @include flex-container-row();
+    @include mixins.flex-container-row();
     .content-wrap {
-      width: calc(40% - $spacer-3);
+      width: calc(40% - variables.$spacer-3);
       position: relative;
       z-index: 1;
       .slug {
-        @include heading-4;
+        @include mixins.heading-4;
         margin: 0;
         padding: 0;
       }
       h2 {
-        @include heading-2;
-         margin: 0 0 $spacer-3 0;
+        @include mixins.heading-2;
+         margin: 0 0 variables.$spacer-3 0;
         padding: 0;
       }
       .teaser {
-        margin: 0 0 $spacer-5 0;
+        margin: 0 0 variables.$spacer-5 0;
         padding: 0;
       }
     }
   
     .graphic-wrap {
-      width: calc(60% - $spacer-3);
+      width: calc(60% - variables.$spacer-3);
     }
   }
 }
 
 
-@media screen and (max-width: $screen-mobile-max) {
+@media screen and (max-width: variables.$screen-mobile-max) {
   .container {
     .sleeve {
       flex-wrap: wrap;
@@ -46,7 +49,7 @@
     }
     .graphic-wrap {
       width: 100%;
-      margin-bottom: $spacer-3;
+      margin-bottom: variables.$spacer-3;
       order: -1;
     }
   }

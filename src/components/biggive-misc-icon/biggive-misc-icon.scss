@@ -1,15 +1,18 @@
-@include backgrounds();
-@include fills();
+@use '../../globals/mixins.scss';
+@use '../../globals/variables.scss';
+
+@include mixins.backgrounds();
+@include mixins.fills();
 
 :host {
   display: contents;
 }
 
 .misc-icon-item {
-  @include icon-large();
+  @include mixins.icon-large();
 
-  @media screen and (max-width: $screen-mobile-max) {
-    @include icon-medium();
+  @media screen and (max-width: variables.$screen-mobile-max) {
+    @include mixins.icon-medium();
     margin: auto;
 
     a {

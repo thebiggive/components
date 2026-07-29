@@ -1,9 +1,11 @@
+@use '../../globals/mixins.scss';
+
 :host {
   display: contents;
 }
 
 .popup {
-  @include popup();
+  @include mixins.popup();
   &[data-visible=true] {
     display: block;
   }

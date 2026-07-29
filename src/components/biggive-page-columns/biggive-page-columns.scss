@@ -1,29 +1,32 @@
-@include spacers();
+@use '../../globals/mixins.scss';
+@use '../../globals/variables.scss';
+
+@include mixins.spacers();
 
 :host {
   display: contents;
 }
 
 .columns {
-  @include section-container();
+  @include mixins.section-container();
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;  
   .column-primary {
-    width: calc(66.6% - $spacer-3);
+    width: calc(66.6% - variables.$spacer-3);
     box-sizing: border-box;
   }
   .column-secondary {
-    width: calc(33.4% - $spacer-3);
+    width: calc(33.4% - variables.$spacer-3);
     box-sizing: border-box;
   }
 }
 
-@media screen and (max-width: $screen-tablet-max) {
+@media screen and (max-width: variables.$screen-tablet-max) {
   .columns {
     .column-primary {
       width: 100%;
-      margin-bottom: $spacer-3;
+      margin-bottom: variables.$spacer-3;
     }
     .column-secondary {
       width: 100%;

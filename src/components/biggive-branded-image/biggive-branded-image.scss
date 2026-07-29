@@ -1,20 +1,23 @@
-@include image-alignment();
-@include spacers();
+@use '../../globals/mixins.scss';
+@use '../../globals/variables.scss';
+
+@include mixins.image-alignment();
+@include mixins.spacers();
 
 :host {
   display: contents;
 }
 
 .container {
-  @include standard-font();
+  @include mixins.standard-font();
   position: relative;
   container-type: inline-size;
   .slug {
     text-align: center;
     font-weight: bold;
-    background-color: $colour-secondary-green;
-    color: $colour-black;
-    padding: $spacer-1 $spacer-3;
+    background-color: variables.$colour-secondary-green;
+    color: variables.$colour-black;
+    padding: variables.$spacer-1 variables.$spacer-3;
     width: 100%;
     margin: -17px auto 17px auto;
     transform: translateY(50%);
@@ -37,12 +40,12 @@
     background-repeat: no-repeat;
     background-color: #FFFFFF;
 
-    @media screen and (max-width: $screen-tablet-max) {
+    @media screen and (max-width: variables.$screen-tablet-max) {
       width: 100px;
       height: 100px;
     }
 
-    @media screen and (max-width: $screen-mobile-max) {
+    @media screen and (max-width: variables.$screen-mobile-max) {
       width: 70px;
       height: 70px;
       margin-top: 20px;
@@ -50,7 +53,7 @@
   }
 
   #charityName {
-    color: $colour-primary-blue;
+    color: variables.$colour-primary-blue;
     display: block;
     margin-bottom: 5px;
     width: fit-content; // so link doesn't go full width
@@ -59,15 +62,15 @@
   #charityName, .charity-info {
     font-size: 17px;
 
-    @media screen and (max-width: $screen-tablet-max) {
+    @media screen and (max-width: variables.$screen-tablet-max) {
       font-size: 16px;
     }
 
-    @media screen and (max-width: $screen-mobile-max) {
+    @media screen and (max-width: variables.$screen-mobile-max) {
       font-size: 15px;
     }
 
-    @media screen and (max-width: $screen-mobile-small) {
+    @media screen and (max-width: variables.$screen-mobile-small) {
       font-size: 14px;
     }
   }

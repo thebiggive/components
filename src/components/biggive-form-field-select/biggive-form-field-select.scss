@@ -1,4 +1,7 @@
-@include spacers();
+@use '../../globals/mixins.scss';
+@use '../../globals/variables.scss';
+
+@include mixins.spacers();
 
 // Includes CSS taken from https://moderncss.dev/custom-select-styles-with-pure-css/
 
@@ -24,11 +27,11 @@ select {
   line-height: inherit;
   outline: none;
   display: grid;
-  background-color: $colour-white;
+  background-color: variables.$colour-white;
   align-items: center;
 }
 select.grey {
-  background-color: $colour-grey-background;
+  background-color: variables.$colour-grey-background;
 }
 .selectWrapper {
   position: relative;
@@ -38,29 +41,29 @@ select.grey {
   z-index: 2;
   font-size: small;
   top: -1em;
-  background-color: $colour-white;
+  background-color: variables.$colour-white;
   left: 4em;
   padding-left: 1em;
   padding-right: 1em;
-  color: $colour-primary-blue;
+  color: variables.$colour-primary-blue;
 }
 .prompt.grey {
-  background-color: $colour-grey-background;
+  background-color: variables.$colour-grey-background;
 }
 
 .dropdown {
-  @include standard-font();
+  @include mixins.standard-font();
   position: relative;
   text-align: left;
   &.select-style-bordered {
     .sleeve {
-      @include font-size-medium();
+      @include mixins.font-size-medium();
       padding: 2px;
       position: relative;
-      background-color: $colour-primary-blue;
-      @include corner-clip-small-top-right();
+      background-color: variables.$colour-primary-blue;
+      @include mixins.corner-clip-small-top-right();
       select {
-        color: $colour-primary-blue;
+        color: variables.$colour-primary-blue;
         display: block;
         position: relative;
         padding: 10px 80px 10px 10px;
@@ -76,7 +79,7 @@ select.grey {
               0 100%      /* bottom left */
           );
         span.placeholder.grey {
-          background-color: $colour-grey-background;
+          background-color: variables.$colour-grey-background;
         }
       }
       div.arrow {
@@ -94,12 +97,12 @@ select.grey {
       }
     }
     .sleeve:focus-within {
-      background-color: $colour-secondary-green;
+      background-color: variables.$colour-secondary-green;
     }
   }
   &.select-style-underlined {
     .sleeve {
-      @include dropdown-underlined();
+      @include mixins.dropdown-underlined();
     }
   }
   &.inherit-colour select{
@@ -123,5 +126,5 @@ select.grey {
   margin-top: 0;
 }
 .options.grey {
-  background-color: $colour-grey-background;
+  background-color: variables.$colour-grey-background;
 }

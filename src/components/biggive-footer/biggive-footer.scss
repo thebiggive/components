@@ -1,10 +1,13 @@
+@use '../../globals/mixins.scss';
+@use '../../globals/variables.scss';
+
 :host {
   display: contents;
 }
 
 .footer {
-  @include standard-font();
-  color: $colour-white;
+  @include mixins.standard-font();
+  color: variables.$colour-white;
 }
 
 nav {
@@ -12,10 +15,10 @@ nav {
   margin: 0;
   padding: 0;
   .heading {
-    @include heading-5();
-    border-bottom: 1px solid $colour-white;
-    padding-bottom: $spacer-2;
-    margin-bottom: $spacer-2;
+    @include mixins.heading-5();
+    border-bottom: 1px solid variables.$colour-white;
+    padding-bottom: variables.$spacer-2;
+    margin-bottom: variables.$spacer-2;
   }
   ul {
     margin: 0;
@@ -24,13 +27,13 @@ nav {
       margin: 0;
       padding: 0;
       list-style-type: none;
-      margin-top: $spacer-3;
+      margin-top: variables.$spacer-3;
     }
   }
 }
 
 nav ul li a {
-  color: $colour-white;
+  color: variables.$colour-white;
   text-decoration: none;
   // target all classes prefixed with 'icon-' so we don't repeat code
   &[class^='icon-'],
@@ -75,8 +78,8 @@ nav ul li a {
 }
 
 .row-logo {
-  background-color: $colour-primary-blue;
-  padding: $spacer-3 $spacer-6;
+  background-color: variables.$colour-primary-blue;
+  padding: variables.$spacer-3 variables.$spacer-6;
   .logo {
     height: 75px;
     width: 87px;
@@ -84,14 +87,14 @@ nav ul li a {
 }
 
 .row-top {
-  background-color: $colour-primary-blue;
-  padding: 0 $spacer-6 $spacer-6 $spacer-6;
+  background-color: variables.$colour-primary-blue;
+  padding: 0 variables.$spacer-6 variables.$spacer-6 variables.$spacer-6;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 
   .button-wrap {
-    margin-top: $spacer-6;
+    margin-top: variables.$spacer-6;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -100,9 +103,9 @@ nav ul li a {
 }
 
 .footer .row-bottom {
-  background-color: $colour-black;
-  padding: $spacer-6 $spacer-6 $spacer-3 $spacer-6;
-  border-top: 1px solid $colour-white;
+  background-color: variables.$colour-black;
+  padding: variables.$spacer-6 variables.$spacer-6 variables.$spacer-3 variables.$spacer-6;
+  border-top: 1px solid variables.$colour-white;
 
   .fr-logo {
     width: 135px;
@@ -114,7 +117,7 @@ nav ul li a {
     align-items: center;
     justify-content: space-between;
 
-    @media screen and (max-width: $screen-tablet-max) {
+    @media screen and (max-width: variables.$screen-tablet-max) {
       flex-direction: column;
     }
   }
@@ -123,7 +126,7 @@ nav ul li a {
     text-align: right;
     flex-grow: 1;
 
-    @media screen and (max-width: $screen-tablet-max) {
+    @media screen and (max-width: variables.$screen-tablet-max) {
       text-align: center;
     }
   }
@@ -136,7 +139,7 @@ nav ul li a {
       margin-left: 0;
     }
 
-    @media screen and (max-width: $screen-tablet-max) {
+    @media screen and (max-width: variables.$screen-tablet-max) {
       display: block;
       width: 100%;
       margin-left: 0;
@@ -144,16 +147,16 @@ nav ul li a {
   }
 
   .social-icon-wrap {
-    border-top: 1px solid $colour-white;
-    padding-top: $spacer-4;
-    margin-top: $spacer-4;
+    border-top: 1px solid variables.$colour-white;
+    padding-top: variables.$spacer-4;
+    margin-top: variables.$spacer-4;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: $spacer-4;
+    margin-bottom: variables.$spacer-4;
 
     .social-icon-item {
-      margin: 0 $spacer-3;
+      margin: 0 variables.$spacer-3;
     }
   }
 
@@ -162,21 +165,21 @@ nav ul li a {
   }
 }
 
-@media screen and (max-width: $screen-tablet-max) {
+@media screen and (max-width: variables.$screen-tablet-max) {
   .row-top {
-    padding: $spacer-3;
+    padding: variables.$spacer-3;
   }
 }
 
-@media screen and (max-width: $screen-tablet-max) {
+@media screen and (max-width: variables.$screen-tablet-max) {
   nav {
     width: 100%;
     margin-right: 0;
-    margin-bottom: $spacer-4;
+    margin-bottom: variables.$spacer-4;
   }
 
   .row-logo {
-    padding: $spacer-4 $spacer-3 0 $spacer-3;
+    padding: variables.$spacer-4 variables.$spacer-3 0 variables.$spacer-3;
     .logo {
       height: 50px;
       width: 58px;
@@ -184,7 +187,7 @@ nav ul li a {
   }
 
   .row-top {
-    padding-left: $spacer-3;
+    padding-left: variables.$spacer-3;
 
     .button-wrap * {
       width: 100% !important;

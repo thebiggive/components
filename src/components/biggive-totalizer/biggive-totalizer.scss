@@ -1,10 +1,13 @@
-@include backgrounds();
-@include spacers();
-@include text-colours();
+@use '../../globals/mixins.scss';
+@use '../../globals/variables.scss';
+
+@include mixins.backgrounds();
+@include mixins.spacers();
+@include mixins.text-colours();
 
 :host {
   display: contents;
-  @include standard-font();
+  @include mixins.standard-font();
 
   --ticker-end-left: -200%;
 }
@@ -28,17 +31,17 @@
   .main-message-wrap {
     position: absolute;
     z-index: 1;
-    padding: $spacer-2 $spacer-4;
+    padding: variables.$spacer-2 variables.$spacer-4;
     left: 0;
     top: 0;
-    @include font-size-large();
+    @include mixins.font-size-large();
     font-weight: 600;
     max-width: 33.3%;
   }
 
   .ticker-wrap {
-    @include font-size-medium();
-    padding: calc($spacer-2 - 4px) $spacer-4 $spacer-2 0;
+    @include mixins.font-size-medium();
+    padding: calc(variables.$spacer-2 - 4px) variables.$spacer-4 variables.$spacer-2 0;
     min-height: 17px;
     overflow: hidden;
     position: relative;
@@ -74,13 +77,13 @@
   }
 }
 
-@media screen and (max-width: $screen-tablet-max) {
+@media screen and (max-width: variables.$screen-tablet-max) {
   .container {
     .main-message-wrap {
       font-size: 15px;
       line-height: 20px;
       max-width: 42%;
-      padding: $spacer-2;
+      padding: variables.$spacer-2;
     }
   }
 }

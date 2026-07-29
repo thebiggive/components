@@ -44,8 +44,9 @@ export class BiggiveBrandedImage {
 
   /**
    * Charity location
+   * @deprecated
    */
-  @Prop() charityLocation: string;
+  @Prop() charityLocation?: string;
 
   /**
    * Link to the charity's website
@@ -77,7 +78,6 @@ export class BiggiveBrandedImage {
         {this.logoUrl !== undefined && this.logoUrl !== null ? <div class="logo-wrap" style={{ 'background-image': "url('" + this.logoUrl + "')" }}></div> : null}
 
         {this.charityName !== undefined && this.charityName !== null ? <h3 class="title">{this.charityName}</h3> : null}
-        {this.charityLocation !== undefined && this.charityLocation !== null ? <div class="charity-info">{this.charityLocation}</div> : null}
       </div>
     );
   }

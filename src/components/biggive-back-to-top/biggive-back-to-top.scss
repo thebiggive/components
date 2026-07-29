@@ -1,11 +1,14 @@
+@use '../../globals/mixins.scss';
+@use '../../globals/variables.scss';
+
 :host {
   display: contents;
 }
 
 
 .container {
-  @include standard-font();
-  margin: $spacer-4 0;
+  @include mixins.standard-font();
+  margin: variables.$spacer-4 0;
   text-align: center;
   a {
     display: inline-block;

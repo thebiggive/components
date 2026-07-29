@@ -1,19 +1,23 @@
-@include image-alignment();
-@include spacers();
-@include text-colours();
+@use '../../globals/mixins.scss';
+@use '../../globals/philco-variables.scss';
+@use '../../globals/variables.scss';
+
+@include mixins.image-alignment();
+@include mixins.spacers();
+@include mixins.text-colours();
 
 :host {
   display: contents;
 }
 
 .container {
-  @include all-round-shadow();
-  @include standard-font();
+  @include mixins.all-round-shadow();
+  @include mixins.standard-font();
   height: 100%;
   background-color: white;
   &.philco {
-    @include philco-body-font();
-    line-height: $philco-standard-body-line-height;
+    @include mixins.philco-body-font();
+    line-height: philco-variables.$philco-standard-body-line-height;
     background-color: transparent;
     .image-wrap {
       overflow: hidden;
@@ -27,10 +31,10 @@
   margin-left: auto;
   margin-right: auto;
   max-width: 600px;
-  padding: $spacer-6;
+  padding: variables.$spacer-6;
   .image-wrap {
     text-align: center;
-    margin-bottom: $spacer-3;
+    margin-bottom: variables.$spacer-3;
     svg {
       height: 30px;
       width: auto;
@@ -38,25 +42,25 @@
     }
   }
   .quote {
-    margin-bottom: $spacer-4;
+    margin-bottom: variables.$spacer-4;
   }
 
-  @each $key, $colour in $brandColours {
+  @each $key, $colour in variables.$brandColours {
     &.quote-icon-colour-#{$key} .image-wrap path { fill: $colour; }
   }
 
 
-  @media screen and (max-width: $screen-tablet-max) {
-    padding: $spacer-5;
+  @media screen and (max-width: variables.$screen-tablet-max) {
+    padding: variables.$spacer-5;
     svg {
       width: 40px;
       height: 40px;
     }
   }
 
-  @media screen and (max-width: $screen-mobile-max) {
-    padding: $spacer-4;
-    @include font-size-small();
+  @media screen and (max-width: variables.$screen-mobile-max) {
+    padding: variables.$spacer-4;
+    @include mixins.font-size-small();
 
     svg {
       width: 30px;
@@ -64,12 +68,12 @@
     }
   }
 
-  @media screen and (max-width: $screen-mobile-small) {
-    padding: $spacer-3;
+  @media screen and (max-width: variables.$screen-mobile-small) {
+    padding: variables.$spacer-3;
   }
 
   &.philco .attribution {
     font-weight: bolder;
-    color: $colour-philco-gray-70;
+    color: philco-variables.$colour-philco-gray-70;
   }
 }

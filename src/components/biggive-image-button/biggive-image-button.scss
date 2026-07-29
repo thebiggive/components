@@ -1,13 +1,16 @@
-@include backgrounds();
-@include text-colours();
-@include spacers();
+@use '../../globals/mixins.scss';
+@use '../../globals/variables.scss';
+
+@include mixins.backgrounds();
+@include mixins.text-colours();
+@include mixins.spacers();
 
 :host {
   display: contents;
 }
 
 .container {
-  @include standard-font();
+  @include mixins.standard-font();
   a {
     display: block;
     text-decoration: none;
@@ -24,29 +27,29 @@
   &.rounded-true {
     border-radius: 10px;
   }
-  &.background-padding-1 { padding: $spacer-1; }
-  &.background-padding-2 { padding: $spacer-2; }
-  &.background-padding-3 { padding: $spacer-3; }
-  &.background-padding-4 { padding: $spacer-4; }
-  &.background-padding-5 { padding: $spacer-5; }
-  &.background-padding-6 { padding: $spacer-6; }
+  &.background-padding-1 { padding: variables.$spacer-1; }
+  &.background-padding-2 { padding: variables.$spacer-2; }
+  &.background-padding-3 { padding: variables.$spacer-3; }
+  &.background-padding-4 { padding: variables.$spacer-4; }
+  &.background-padding-5 { padding: variables.$spacer-5; }
+  &.background-padding-6 { padding: variables.$spacer-6; }
 
   .sleeve {
     display: flex;
     .text-wrap {
       margin: auto 0;
       text-decoration: none;
-      &.text-padding-1 { padding: 0 $spacer-1; }
-      &.text-padding-2 { padding: 0 $spacer-2; }
-      &.text-padding-3 { padding: 0 $spacer-3; }
-      &.text-padding-4 { padding: 0 $spacer-4; }
-      &.text-padding-5 { padding: 0 $spacer-5; }
-      &.text-padding-6 { padding: 0 $spacer-6; }
+      &.text-padding-1 { padding: 0 variables.$spacer-1; }
+      &.text-padding-2 { padding: 0 variables.$spacer-2; }
+      &.text-padding-3 { padding: 0 variables.$spacer-3; }
+      &.text-padding-4 { padding: 0 variables.$spacer-4; }
+      &.text-padding-5 { padding: 0 variables.$spacer-5; }
+      &.text-padding-6 { padding: 0 variables.$spacer-6; }
     }
 
     .arrow-wrap {
       margin: auto 0 auto auto;
-      @each $key, $colour in $brandColours {
+      @each $key, $colour in variables.$brandColours {
         &.arrow-colour-#{$key} .arrow-wrap svg path { stroke: $colour; }
       }
     }

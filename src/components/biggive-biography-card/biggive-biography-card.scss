@@ -1,7 +1,10 @@
-@include image-alignment();
-@include spacers();
-@include backgrounds();
-@include text-colours();
+@use '../../globals/mixins.scss';
+@use '../../globals/variables.scss';
+
+@include mixins.image-alignment();
+@include mixins.spacers();
+@include mixins.backgrounds();
+@include mixins.text-colours();
 
 :host {
   display: block;
@@ -9,7 +12,7 @@
 
 .container {
 
-  @each $key, $colour in $brandColours {
+  @each $key, $colour in variables.$brandColours {
     &.background-colour-#{$key} .image-wrap { background-color: $colour; }
   }
 
@@ -39,18 +42,18 @@
   .sleeve {
 
 
-    @each $key, $colour in $brandColours {
+    @each $key, $colour in variables.$brandColours {
 
-      &.border-width-1.border-colour-#{$key} { border: $spacer-1 solid $colour; }
-      &.border-width-2.border-colour-#{$key} { border: $spacer-2 solid $colour; }
-      &.border-width-3.border-colour-#{$key} { border: $spacer-3 solid $colour; }
-      &.border-width-4.border-colour-#{$key} { border: $spacer-4 solid $colour; }
-      &.border-width-5.border-colour-#{$key} { border: $spacer-5 solid $colour; }
-      &.border-width-6.border-colour-#{$key} { border: $spacer-6 solid $colour; }
+      &.border-width-1.border-colour-#{$key} { border: variables.$spacer-1 solid $colour; }
+      &.border-width-2.border-colour-#{$key} { border: variables.$spacer-2 solid $colour; }
+      &.border-width-3.border-colour-#{$key} { border: variables.$spacer-3 solid $colour; }
+      &.border-width-4.border-colour-#{$key} { border: variables.$spacer-4 solid $colour; }
+      &.border-width-5.border-colour-#{$key} { border: variables.$spacer-5 solid $colour; }
+      &.border-width-6.border-colour-#{$key} { border: variables.$spacer-6 solid $colour; }
     }
 
 
-    margin-bottom: $spacer-2;
+    margin-bottom: variables.$spacer-2;
 
     &.circle-true {
       overflow: hidden;
@@ -72,28 +75,28 @@
       }
 
       &[data-ratio="1,1"] { padding-bottom: 100%; }
-      &[data-ratio="1,1"].border-width-1 { padding-bottom: calc(100% - ( $spacer-1 * 2 )); }
-      &[data-ratio="1,1"].border-width-2 { padding-bottom: calc(100% - ( $spacer-2 * 2 )); }
-      &[data-ratio="1,1"].border-width-3 { padding-bottom: calc(100% - ( $spacer-3 * 2 )); }
-      &[data-ratio="1,1"].border-width-4 { padding-bottom: calc(100% - ( $spacer-4 * 2 )); }
-      &[data-ratio="1,1"].border-width-5 { padding-bottom: calc(100% - ( $spacer-5 * 2 )); }
-      &[data-ratio="1,1"].border-width-6 { padding-bottom: calc(100% - ( $spacer-6 * 2 )); }
+      &[data-ratio="1,1"].border-width-1 { padding-bottom: calc(100% - ( variables.$spacer-1 * 2 )); }
+      &[data-ratio="1,1"].border-width-2 { padding-bottom: calc(100% - ( variables.$spacer-2 * 2 )); }
+      &[data-ratio="1,1"].border-width-3 { padding-bottom: calc(100% - ( variables.$spacer-3 * 2 )); }
+      &[data-ratio="1,1"].border-width-4 { padding-bottom: calc(100% - ( variables.$spacer-4 * 2 )); }
+      &[data-ratio="1,1"].border-width-5 { padding-bottom: calc(100% - ( variables.$spacer-5 * 2 )); }
+      &[data-ratio="1,1"].border-width-6 { padding-bottom: calc(100% - ( variables.$spacer-6 * 2 )); }
 
       &[data-ratio="1,1.5"] { padding-bottom: 150%; }
-      &[data-ratio="1,1.5"].border-width-1 { padding-bottom: calc(150% - ( $spacer-1 * 2 )); }
-      &[data-ratio="1,1.5"].border-width-2 { padding-bottom: calc(150% - ( $spacer-2 * 2 )); }
-      &[data-ratio="1,1.5"].border-width-3 { padding-bottom: calc(150% - ( $spacer-3 * 2 )); }
-      &[data-ratio="1,1.5"].border-width-4 { padding-bottom: calc(150% - ( $spacer-4 * 2 )); }
-      &[data-ratio="1,1.5"].border-width-5 { padding-bottom: calc(150% - ( $spacer-5 * 2 )); }
-      &[data-ratio="1,1.5"].border-width-6 { padding-bottom: calc(150% - ( $spacer-6 * 2 )); }
+      &[data-ratio="1,1.5"].border-width-1 { padding-bottom: calc(150% - ( variables.$spacer-1 * 2 )); }
+      &[data-ratio="1,1.5"].border-width-2 { padding-bottom: calc(150% - ( variables.$spacer-2 * 2 )); }
+      &[data-ratio="1,1.5"].border-width-3 { padding-bottom: calc(150% - ( variables.$spacer-3 * 2 )); }
+      &[data-ratio="1,1.5"].border-width-4 { padding-bottom: calc(150% - ( variables.$spacer-4 * 2 )); }
+      &[data-ratio="1,1.5"].border-width-5 { padding-bottom: calc(150% - ( variables.$spacer-5 * 2 )); }
+      &[data-ratio="1,1.5"].border-width-6 { padding-bottom: calc(150% - ( variables.$spacer-6 * 2 )); }
 
       &[data-ratio="1,2"] { padding-bottom: 200%; }
-      &[data-ratio="1,2"].border-width-1 { padding-bottom: calc(200% - ( $spacer-1 * 2 )); }
-      &[data-ratio="1,2"].border-width-2 { padding-bottom: calc(200% - ( $spacer-2 * 2 )); }
-      &[data-ratio="1,2"].border-width-3 { padding-bottom: calc(200% - ( $spacer-3 * 2 )); }
-      &[data-ratio="1,2"].border-width-4 { padding-bottom: calc(200% - ( $spacer-4 * 2 )); }
-      &[data-ratio="1,2"].border-width-5 { padding-bottom: calc(200% - ( $spacer-5 * 2 )); }
-      &[data-ratio="1,2"].border-width-6 { padding-bottom: calc(200% - ( $spacer-6 * 2 )); }
+      &[data-ratio="1,2"].border-width-1 { padding-bottom: calc(200% - ( variables.$spacer-1 * 2 )); }
+      &[data-ratio="1,2"].border-width-2 { padding-bottom: calc(200% - ( variables.$spacer-2 * 2 )); }
+      &[data-ratio="1,2"].border-width-3 { padding-bottom: calc(200% - ( variables.$spacer-3 * 2 )); }
+      &[data-ratio="1,2"].border-width-4 { padding-bottom: calc(200% - ( variables.$spacer-4 * 2 )); }
+      &[data-ratio="1,2"].border-width-5 { padding-bottom: calc(200% - ( variables.$spacer-5 * 2 )); }
+      &[data-ratio="1,2"].border-width-6 { padding-bottom: calc(200% - ( variables.$spacer-6 * 2 )); }
 
 
 

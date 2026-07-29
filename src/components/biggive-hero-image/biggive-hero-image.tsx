@@ -3,7 +3,7 @@ import {Component, h, Prop} from '@stencil/core';
 import {brandColour} from '../../globals/brand-colour';
 import {spacingOption} from '../../globals/spacing-option';
 
-
+// @todo deprecated ?
 @Component({
   tag: 'biggive-hero-image',
   styleUrl: 'biggive-hero-image.scss',

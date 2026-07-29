@@ -1,4 +1,8 @@
-@include spacers();
+@use '../../globals/mixins.scss';
+@use '../../globals/philco-variables.scss';
+@use '../../globals/variables.scss';
+
+@include mixins.spacers();
 
 :host {
   display: contents;
@@ -9,19 +13,19 @@
   position: relative;
   text-align: center;
   .sleeve {
-    @include section-container();
-    padding: $spacer-4;
+    @include mixins.section-container();
+    padding: variables.$spacer-4;
 
-    @media screen and (max-width: $screen-desktop-max) {
-      // similar to e.g. biggive-hero-image which was set to use $spacer-3 first.
-      padding: $spacer-3;
+    @media screen and (max-width: variables.$screen-desktop-max) {
+      // similar to e.g. biggive-hero-image which was set to use variables.$spacer-3 first.
+      padding: variables.$spacer-3;
     }
   }
 }
 
 .container.full-bleed {
   // from https://stackoverflow.com/questions/22083157/extend-background-color-of-header-beyond-container-with-css
-  box-shadow: 0 0 0 100vmax $colour-primary-blue;
+  box-shadow: 0 0 0 100vmax variables.$colour-primary-blue;
   clip-path: inset(0 -100vmax);
 }
 
@@ -62,24 +66,24 @@
   text-align: left;
 }
 
-.container.max-width-10 .sleeve { @include max-width-10(); }
-.container.max-width-15 .sleeve { @include max-width-15(); }
-.container.max-width-20 .sleeve { @include max-width-20(); }
-.container.max-width-25 .sleeve { @include max-width-25(); }
-.container.max-width-30 .sleeve { @include max-width-30(); }
-.container.max-width-35 .sleeve { @include max-width-35(); }
-.container.max-width-40 .sleeve { @include max-width-40(); }
-.container.max-width-45 .sleeve { @include max-width-45(); }
-.container.max-width-50 .sleeve { @include max-width-50(); }
-.container.max-width-55 .sleeve { @include max-width-55(); }
-.container.max-width-60 .sleeve { @include max-width-60(); }
-.container.max-width-65 .sleeve { @include max-width-65(); }
-.container.max-width-70 .sleeve { @include max-width-70(); }
-.container.max-width-75 .sleeve { @include max-width-75(); }
-.container.max-width-80 .sleeve { @include max-width-80(); }
-.container.max-width-85 .sleeve { @include max-width-85(); }
-.container.max-width-90 .sleeve { @include max-width-90(); }
-.container.max-width-95 .sleeve { @include max-width-95(); }
+.container.max-width-10 .sleeve { @include mixins.max-width-10(); }
+.container.max-width-15 .sleeve { @include mixins.max-width-15(); }
+.container.max-width-20 .sleeve { @include mixins.max-width-20(); }
+.container.max-width-25 .sleeve { @include mixins.max-width-25(); }
+.container.max-width-30 .sleeve { @include mixins.max-width-30(); }
+.container.max-width-35 .sleeve { @include mixins.max-width-35(); }
+.container.max-width-40 .sleeve { @include mixins.max-width-40(); }
+.container.max-width-45 .sleeve { @include mixins.max-width-45(); }
+.container.max-width-50 .sleeve { @include mixins.max-width-50(); }
+.container.max-width-55 .sleeve { @include mixins.max-width-55(); }
+.container.max-width-60 .sleeve { @include mixins.max-width-60(); }
+.container.max-width-65 .sleeve { @include mixins.max-width-65(); }
+.container.max-width-70 .sleeve { @include mixins.max-width-70(); }
+.container.max-width-75 .sleeve { @include mixins.max-width-75(); }
+.container.max-width-80 .sleeve { @include mixins.max-width-80(); }
+.container.max-width-85 .sleeve { @include mixins.max-width-85(); }
+.container.max-width-90 .sleeve { @include mixins.max-width-90(); }
+.container.max-width-95 .sleeve { @include mixins.max-width-95(); }
 
 
 
@@ -94,18 +98,18 @@
   bottom: 0;
 }
 
-@each $brand, $colour in $brandColours {
+@each $brand, $colour in variables.$brandColours {
   .container.background-color-#{$brand}:before,
   .container.background-color-#{$brand}:after,
   .container.background-color-#{$brand} .sleeve:before,
   .container.background-color-#{$brand} .sleeve {
     background-color: $colour;
     @if $brand == 'white' or $brand == 'grey-extra-light' or $brand == 'grey-light' {
-      color: $colour-black;
+      color: variables.$colour-black;
     } @else if $brand == 'philco-white' {
-      color: $colour-philco-gray-90;
+      color: philco-variables.$colour-philco-gray-90;
     } @else {
-      color: $colour-white;
+      color: variables.$colour-white;
     }
   }
 }

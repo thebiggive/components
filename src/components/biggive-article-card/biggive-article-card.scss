@@ -1,7 +1,10 @@
-@include backgrounds();
-@include image-alignment();
-@include spacers();
-@include text-colours();
+@use '../../globals/mixins.scss';
+@use '../../globals/variables.scss';
+
+@include mixins.backgrounds();
+@include mixins.image-alignment();
+@include mixins.spacers();
+@include mixins.text-colours();
 
 :host {
   display: contents;
@@ -14,15 +17,15 @@
 .container {
   height: 100%;
   width: 100%;
-  @include standard-font();
+  @include mixins.standard-font();
   position: relative;
   text-align: left;
-  @include lower-shadow();
+  @include mixins.lower-shadow();
   .sleeve {
     height: 100%;
     box-sizing: border-box;
     background-size: cover;
-    padding:  $spacer-3 $spacer-3 $spacer-2 $spacer-3;
+    padding:  variables.$spacer-3 variables.$spacer-3 variables.$spacer-2 variables.$spacer-3;
     .content-wrap {
       height: 100%;
       display: flex;
@@ -30,19 +33,19 @@
     }
   }
   .meta {
-    margin-bottom: $spacer-2;
+    margin-bottom: variables.$spacer-2;
   }
   .meta .slug {
-    @include font-size-small();
-    margin-bottom: $spacer-1;
+    @include mixins.font-size-small();
+    margin-bottom: variables.$spacer-1;
   }
   .meta .date {
-    @include font-size-small();
-    margin-bottom: $spacer-1;
+    @include mixins.font-size-small();
+    margin-bottom: variables.$spacer-1;
   }
   h3 {
-    @include heading-4();
-    padding-bottom: $spacer-3;
+    @include mixins.heading-4();
+    padding-bottom: variables.$spacer-3;
     margin-bottom: auto;
     a,
     a:hover {
@@ -58,7 +61,7 @@
   }
   .image-group {
     display: flex;
-    margin-bottom: $spacer-3;
+    margin-bottom: variables.$spacer-3;
     .image-container {
       margin-right: 15px;
       .image-wrap {
@@ -67,7 +70,7 @@
         height: 60px;
         background-size: cover;
         background-position: center center;
-        margin-bottom: $spacer-1;
+        margin-bottom: variables.$spacer-1;
         img {
           display: none;
         }
@@ -75,27 +78,27 @@
     }
   }
   .image-label {
-    @include font-size-x-small();
+    @include mixins.font-size-x-small();
   }
 
 
   .clip-bottom-left-corner-false.clip-top-right-corner-true {
 
-      @include corner-clip-medium-top-right();
+      @include mixins.corner-clip-medium-top-right();
 
   }
   .clip-bottom-left-corner-true.clip-top-right-corner-false {
-      @include corner-clip-medium-bottom-left();
+      @include mixins.corner-clip-medium-bottom-left();
   }
 
   .clip-bottom-left-corner-true.clip-top-right-corner-true {
-      @include corner-clip-medium-bottom-left-top-right();
+      @include mixins.corner-clip-medium-bottom-left-top-right();
 
   }
 
 
 
-  @each $key, $colour in $brandColours {
+  @each $key, $colour in variables.$brandColours {
     .main-title-colour-#{$key} h3 { color: $colour; }
     .slug-colour-#{$key} .slug { color: $colour; }
     .date-colour-#{$key} .date { color: $colour; }

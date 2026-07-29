@@ -1,22 +1,25 @@
-@include backgrounds();
-@include fills();
-@include spacers();
-@include text-colours();
+@use '../../globals/mixins.scss';
+@use '../../globals/variables.scss';
+
+@include mixins.backgrounds();
+@include mixins.fills();
+@include mixins.spacers();
+@include mixins.text-colours();
 
 :host {
   display: contents;
 }
 
 .container {
-  @include standard-font();
+  @include mixins.standard-font();
   position: relative;
   background-size: cover;
   background-position: center center;
-  padding: $spacer-3;
+  padding: variables.$spacer-3;
   height: 100%;
   white-space: pre-wrap;
   .sleeve {
-    padding: $spacer-5 $spacer-3;
+    padding: variables.$spacer-5 variables.$spacer-3;
     height: 100%;
     box-sizing: border-box;
     transition: all 1s ease-in-out;
@@ -27,6 +30,6 @@
     height: calc(100% + 60px);
   }
     .sleeve {
-      @include corner-clip-medium-bottom-left();
+      @include mixins.corner-clip-medium-bottom-left();
   }
 }

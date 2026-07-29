@@ -1,19 +1,22 @@
-@include spacers();
+@use '../../globals/mixins.scss';
+@use '../../globals/variables.scss';
+
+@include mixins.spacers();
 
 :host {
   display: block;
-  margin-bottom: $spacer-1;
-  @include standard-font();
+  margin-bottom: variables.$spacer-1;
+  @include mixins.standard-font();
 }
 
 .progress-bar {
-    @include progress-bar();
+    @include mixins.progress-bar();
 }
 
 .progress-bar-primary {
-    @include progress-bar-primary();
+    @include mixins.progress-bar-primary();
 }
 
 .progress-bar-secondary {
-    @include progress-bar-secondary();
+    @include mixins.progress-bar-secondary();
 }

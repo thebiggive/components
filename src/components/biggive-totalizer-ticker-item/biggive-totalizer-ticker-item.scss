@@ -1,7 +1,9 @@
+@use '../../globals/variables.scss';
+
 :host {
   display: inline-flex;
 }
 
 .ticker-item {
-  margin-right: $spacer-4;
+  margin-right: variables.$spacer-4;
 }

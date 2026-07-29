@@ -1,11 +1,13 @@
-@include spacers();
+@use '../../globals/mixins.scss';
+
+@include mixins.spacers();
 
 :host {
   display: contents;
 }
 
 .video-wrap {
-  @include video-wrap();
+  @include mixins.video-wrap();
 }
 
 .video-wrap.youtube {
@@ -13,6 +15,6 @@
 }
 
 .container {
-  @include standard-font();
+  @include mixins.standard-font();
 }
 

@@ -1,10 +1,13 @@
-@include backgrounds();
-@include text-colours();
-@include fills();
+@use '../../globals/mixins.scss';
+@use '../../globals/variables.scss';
+
+@include mixins.backgrounds();
+@include mixins.text-colours();
+@include mixins.fills();
 
 :host {
   display: contents;
-  @include standard-font();
+  @include mixins.standard-font();
 }
 
 
@@ -45,7 +48,7 @@
       display: flex;
       font-size: 14px;
       .svg-wrap {
-        @each $key, $colour in $brandColours {
+        @each $key, $colour in variables.$brandColours {
           &.colour-#{$key} svg path { fill: $colour; }
         }
         display: flex;
@@ -98,7 +101,7 @@
 }
 
 
-@media screen and (max-width: $screen-tablet-max) {
+@media screen and (max-width: variables.$screen-tablet-max) {
   .container {
     .header {
       padding: 15px;
@@ -114,7 +117,7 @@
   }
 }
 
-@media screen and (max-width: $screen-mobile-max) {
+@media screen and (max-width: variables.$screen-mobile-max) {
   .container {
     .header {
       padding: 15px;
