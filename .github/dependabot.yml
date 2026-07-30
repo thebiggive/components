@@ -26,6 +26,8 @@ updates:
         # this and we'll have to change how tests run anyway. So stick with v24 for now.
       - dependency-name: "puppeteer"
         versions: [">=25.0.0"]
+      - dependency-name: "@stencil/core"
+        versions: [">=4.43.3"]
       - dependency-name: storybook
         update-types: ["version-update:semver-major"]
       - dependency-name: "@storybook/addon-actions"
