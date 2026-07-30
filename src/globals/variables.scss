@@ -1,4 +1,7 @@
+@use './philco-variables.scss';
+
 @use "sass:map";
+@use "sass:math";
 // Should only be used for Sass variables, mixins and functions; not contain any CSS.
 // https://github.com/ionic-team/stencil-sass#inject-globals-sass-paths
 // @see brand-colour variables in src/globals/brand-colour.ts, this and that should be updated together.
@@ -12,7 +15,7 @@ $screen-tablet-max: 768px;
 $screen-large: 968px;
 $screen-desktop-max: 1200px;
 
-$aspect-ratio-banners: percentage(0.30555); // 0.30555 is approx 352 / 1152
+$aspect-ratio-banners: math.percentage(0.30555); // 0.30555 is approx 352 / 1152
 
 $colour-primary-blue: #2C089B;
 $colour-secondary-green: #2AF135;
@@ -76,14 +79,14 @@ $brandColours: (
     "grey-medium": $colour-grey-medium,
     "grey-dark": $colour-grey-dark,
 
-    "philco-orange": $colour-philco-orange,
-    "philco-gray-90": $colour-philco-gray-90,
-    "philco-gray-70": $colour-philco-gray-70,
-    "philco-white": $colour-philco-white,
-    "philco-success-green": $colour-philco-success-green,
-    "philco-error-coral": $colour-philco-error-coral,
-    "philco-gray-30": $colour-philco-gray-30,
-    "philco-gray-20": $colour-philco-gray-20,
+    "philco-orange": philco-variables.$colour-philco-orange,
+    "philco-gray-90": philco-variables.$colour-philco-gray-90,
+    "philco-gray-70": philco-variables.$colour-philco-gray-70,
+    "philco-white": philco-variables.$colour-philco-white,
+    "philco-success-green": philco-variables.$colour-philco-success-green,
+    "philco-error-coral": philco-variables.$colour-philco-error-coral,
+    "philco-gray-30": philco-variables.$colour-philco-gray-30,
+    "philco-gray-20": philco-variables.$colour-philco-gray-20,
 );
 
 $spacer-0: 0;

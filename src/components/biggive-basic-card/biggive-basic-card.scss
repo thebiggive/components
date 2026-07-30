@@ -1,48 +1,52 @@
-@include backgrounds();
-@include borders();
-@include fills();
-@include spacers();
-@include text-colours();
+@use '../../globals/mixins.scss';
+@use '../../globals/philco-variables.scss';
+@use '../../globals/variables.scss';
+
+@include mixins.backgrounds();
+@include mixins.borders();
+@include mixins.fills();
+@include mixins.spacers();
+@include mixins.text-colours();
 
 :host {
   display: contents;
 }
 
 .container {
-  @include standard-font();
+  @include mixins.standard-font();
   position: relative;
   text-align: center;
   background-size: cover;
   background-position: center center;
-  padding: $spacer-4;
+  padding: variables.$spacer-4;
   &.philco {
-    @include philco-body-font();
-    line-height: $philco-standard-body-line-height;
+    @include mixins.philco-body-font();
+    line-height: philco-variables.$philco-standard-body-line-height;
     border-bottom: 12px;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
     padding: 0;
     text-align: left;
     height: auto;
-    box-shadow: 0 0 24px 0 $colour-philco-gray-30;
+    box-shadow: 0 0 24px 0 philco-variables.$colour-philco-gray-30;
 
     .title {
-      @include philco-heading-font();
-      @include font-size-large();
+      @include mixins.philco-heading-font();
+      @include mixins.font-size-large();
       margin-top: 0;
-      margin-bottom: $spacer-2;
+      margin-bottom: variables.$spacer-2;
       text-transform: uppercase;
     }
 
     .subtitle {
-      @include philco-subhead-font();
-      color: $colour-philco-gray-70;
+      @include mixins.philco-subhead-font();
+      color: philco-variables.$colour-philco-gray-70;
       .divider {
-        color: $colour-philco-orange;
+        color: philco-variables.$colour-philco-orange;
       }
     }
 
-    border-top: 12px solid $colour-philco-orange;
+    border-top: 12px solid philco-variables.$colour-philco-orange;
   }
   height: 100%;
   white-space: pre-wrap;
@@ -51,7 +55,7 @@
     text-decoration: none;
   }
   .sleeve {
-    padding: $spacer-4;
+    padding: variables.$spacer-4;
     height: 100%;
     box-sizing: border-box;
     transition: all 1s ease-in-out;
@@ -63,17 +67,17 @@
   }
   &.clip-bottom-left-corner-false.clip-top-right-corner-true {
     .sleeve {
-      @include corner-clip-medium-top-right();
+      @include mixins.corner-clip-medium-top-right();
     }
   }
   &.clip-bottom-left-corner-true.clip-top-right-corner-false {
     .sleeve {
-      @include corner-clip-medium-bottom-left();
+      @include mixins.corner-clip-medium-bottom-left();
     }
   }
   &.clip-bottom-left-corner-true.clip-top-right-corner-true {
     .sleeve {
-      @include corner-clip-medium-bottom-left-top-right();
+      @include mixins.corner-clip-medium-bottom-left-top-right();
     }
   }
 
@@ -85,11 +89,11 @@
   }
   .title {
     // these have to be the heading level passed in based on order of headings, but in terms of design we want it look like H3.
-    @include heading-3();
-    margin-bottom: $spacer-3;
+    @include mixins.heading-3();
+    margin-bottom: variables.$spacer-3;
   }
   .subtitle {
-    margin-bottom: $spacer-3;
+    margin-bottom: variables.$spacer-3;
   }
   .main-image-container {
     margin-bottom: 15px;

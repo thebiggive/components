@@ -4,15 +4,9 @@ import { sass } from '@stencil/sass';
 
 export const config: Config = {
   namespace: 'BigGive',
+  globalStyle: 'src/globals/global.scss',
   plugins: [
-    sass({
-      injectGlobalPaths: [
-        'src/globals/philco-variables.scss',
-        'src/globals/variables.scss',
-        'src/globals/mixins.scss',
-        'src/globals/global.scss'
-      ]
-    })
+    sass()
   ],
   outputTargets: [
     angularOutputTarget({

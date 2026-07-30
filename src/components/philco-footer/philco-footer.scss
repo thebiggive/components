@@ -1,11 +1,15 @@
+@use '../../globals/mixins.scss';
+@use '../../globals/philco-variables.scss';
+@use '../../globals/variables.scss';
+
 :host {
   display: contents;
 }
 
 .footer {
-  @include philco-body-font();
-  line-height: $philco-standard-body-line-height;
-  color: $colour-philco-gray-90;
+  @include mixins.philco-body-font();
+  line-height: philco-variables.$philco-standard-body-line-height;
+  color: philco-variables.$colour-philco-gray-90;
 }
 
 nav {
@@ -13,12 +17,12 @@ nav {
   margin: 0;
   padding: 0;
   .heading {
-    @include philco-heading-font();
-    @include font-size-large();
+    @include mixins.philco-heading-font();
+    @include mixins.font-size-large();
     text-transform: uppercase;
-    border-bottom: 1px solid $colour-philco-gray-90;
-    padding-bottom: $spacer-2;
-    margin-bottom: $spacer-2;
+    border-bottom: 1px solid philco-variables.$colour-philco-gray-90;
+    padding-bottom: variables.$spacer-2;
+    margin-bottom: variables.$spacer-2;
   }
   ul {
     margin: 0;
@@ -33,32 +37,32 @@ nav {
 }
 
 nav ul li a {
-  color: $colour-philco-gray-90;
+  color: philco-variables.$colour-philco-gray-90;
   text-decoration: none;
 }
 
 .row-logo {
-  background-color: $colour-philco-white;
-  padding: 100px $spacer-6 0 $spacer-6;
+  background-color: philco-variables.$colour-philco-white;
+  padding: 100px variables.$spacer-6 0 variables.$spacer-6;
   img {
     height: 34px;
   }
 }
 
 .row-top {
-  background-color: $colour-philco-white;
-  // $icon-size-large happens to be approx. the UA-default top heading margin that we relied upon last.
-  padding: $icon-size-large $spacer-6 $spacer-6 $spacer-6;
+  background-color: philco-variables.$colour-philco-white;
+  // variables.$icon-size-large happens to be approx. the UA-default top heading margin that we relied upon last.
+  padding: variables.$icon-size-large variables.$spacer-6 variables.$spacer-6 variables.$spacer-6;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .footer .row-bottom {
-  background-color: $colour-black;
-  color: $colour-philco-white;
-  padding: $spacer-6 $spacer-6 $spacer-3 $spacer-6;
-  border-top: 1px solid $colour-white;
+  background-color: variables.$colour-black;
+  color: philco-variables.$colour-philco-white;
+  padding: variables.$spacer-6 variables.$spacer-6 variables.$spacer-3 variables.$spacer-6;
+  border-top: 1px solid variables.$colour-white;
 
   .postscript-wrap {
     display: flex;
@@ -66,7 +70,7 @@ nav ul li a {
     align-items: center;
     justify-content: space-between;
 
-    @media screen and (max-width: $screen-tablet-max) {
+    @media screen and (max-width: variables.$screen-tablet-max) {
       flex-direction: column;
     }
   }
@@ -74,9 +78,9 @@ nav ul li a {
   .nav.nav-postscript {
     text-align: right;
     flex-grow: 1;
-    color: $colour-philco-white;
+    color: philco-variables.$colour-philco-white;
 
-    @media screen and (max-width: $screen-tablet-max) {
+    @media screen and (max-width: variables.$screen-tablet-max) {
       text-align: center;
     }
   }
@@ -89,28 +93,28 @@ nav ul li a {
       margin-left: 0;
     }
 
-    @media screen and (max-width: $screen-tablet-max) {
+    @media screen and (max-width: variables.$screen-tablet-max) {
       display: block;
       width: 100%;
       margin-left: 0;
     }
 
     a {
-      color: $colour-philco-white;
+      color: philco-variables.$colour-philco-white;
     }
   }
 
   .social-icon-wrap {
-    border-top: 1px solid $colour-white;
-    padding-top: $spacer-4;
-    margin-top: $spacer-4;
+    border-top: 1px solid variables.$colour-white;
+    padding-top: variables.$spacer-4;
+    margin-top: variables.$spacer-4;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: $spacer-4;
+    margin-bottom: variables.$spacer-4;
 
     .social-icon-item {
-      margin: 0 $spacer-3;
+      margin: 0 variables.$spacer-3;
     }
   }
 
@@ -119,18 +123,18 @@ nav ul li a {
   }
 }
 
-@media screen and (max-width: $screen-tablet-max) {
+@media screen and (max-width: variables.$screen-tablet-max) {
   .row-logo {
-    padding: $spacer-5 $spacer-3 $spacer-3 $spacer-3;
+    padding: variables.$spacer-5 variables.$spacer-3 variables.$spacer-3 variables.$spacer-3;
   }
 
   .row-top {
-    padding: $spacer-4 $spacer-3 $spacer-3 $spacer-3;
+    padding: variables.$spacer-4 variables.$spacer-3 variables.$spacer-3 variables.$spacer-3;
   }
 
   nav {
     width: 100%;
     margin-right: 0;
-    margin-bottom: $spacer-4;
+    margin-bottom: variables.$spacer-4;
   }
 }

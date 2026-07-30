@@ -1,14 +1,17 @@
-@include headings-biggive();
-@include spacers();
-@include text-colours();
+@use '../../globals/mixins.scss';
+@use '../../globals/variables.scss';
+
+@include mixins.headings-biggive();
+@include mixins.spacers();
+@include mixins.text-colours();
 
 :host {
   display: contents;
-  @include standard-font();
+  @include mixins.standard-font();
 }
 
 .container {
-  @include section-container();
+  @include mixins.section-container();
   position: relative;
   text-align: center;
 }
@@ -20,21 +23,21 @@
     padding: 0;
   }
   h2 {
-    margin: 0 0 $spacer-1 0;
+    margin: 0 0 variables.$spacer-1 0;
     padding: 0;
   }
   .subtitle {
-    margin: 0 0 $spacer-1 0;
+    margin: 0 0 variables.$spacer-1 0;
     padding: 0;
   }
   .teaser {
-    margin: $spacer-3 auto $spacer-3 auto;
+    margin: variables.$spacer-3 auto variables.$spacer-3 auto;
     max-width: 400px;
     padding: 0;
   }
 }
 
-@media screen and (max-width: $screen-mobile-max) {
+@media screen and (max-width: variables.$screen-mobile-max) {
   .content-wrap {
     text-align: right
   }

@@ -1,15 +1,18 @@
-@include backgrounds();
-@include fills();
+@use '../../globals/mixins.scss';
+@use '../../globals/variables.scss';
+
+@include mixins.backgrounds();
+@include mixins.fills();
 
 :host {
   display: contents;
-  @include standard-font();
+  @include mixins.standard-font();
 }
 
 
 .container {
 
-  @each $key, $colour in $brandColours {
+  @each $key, $colour in variables.$brandColours {
     &.header-text-colour-#{$key} thead { color: $colour; }
     &.header-background-colour-#{$key} thead { background-color: $colour; }
     &.body-text-colour-#{$key} tbody { color: $colour; }

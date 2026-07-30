@@ -1,10 +1,13 @@
+@use '../../globals/mixins.scss';
+@use '../../globals/variables.scss';
+
 :host {
   display: contents;
-  @include standard-font();
+  @include mixins.standard-font();
 }
 
-@include spacers();
-@include text-colours();
+@include mixins.spacers();
+@include mixins.text-colours();
 
 .banner {
   font-size: 17px;
@@ -27,7 +30,7 @@
     transform: translateX(-50%);
     bottom: 0;
     display: none;
-    @media (min-width: #{$screen-tablet-max}) {
+    @media (min-width: #{variables.$screen-tablet-max}) {
       display: block;
       bottom: initial;
       height: 100%;
@@ -47,7 +50,7 @@
   box-sizing: border-box;
   height: 100%;
 
-  @media (min-width: #{$screen-tablet-max}) {
+  @media (min-width: #{variables.$screen-tablet-max}) {
     flex-direction: column;
     padding-left: 20px;
     align-items: start;
@@ -71,9 +74,9 @@
   padding-bottom: 30px;
   box-sizing: border-box;
   width: 100%;
-  max-width: $screen-tablet-max;
+  max-width: variables.$screen-tablet-max;
 
-  @media (min-width: #{$screen-tablet-max}) {
+  @media (min-width: #{variables.$screen-tablet-max}) {
     margin-bottom: auto;
     margin-top: auto;
     margin-left: 0;
@@ -87,7 +90,7 @@ img.stacked {
   height: 100%;
   object-fit: cover;
 
-  @media (min-width: #{$screen-tablet-max}) {
+  @media (min-width: #{variables.$screen-tablet-max}) {
     display: none;
   }
 }

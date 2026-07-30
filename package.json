@@ -49,7 +49,7 @@
     "@eslint/js": "^9.19.0",
     "@stencil-community/eslint-plugin": "~0.10.0",
     "@stencil/angular-output-target": "^1.1.0",
-    "@stencil/sass": "3.0.12",
+    "@stencil/sass": "^3.0.12",
     "@storybook/addon-actions": "^8.1.6",
     "@storybook/addon-essentials": "^8.1.6",
     "@storybook/addon-interactions": "^8.1.6",
@@ -71,7 +71,7 @@
     "storybook": "^8.6.15"
   },
   "engines": {
-    "node": ">=22.12"
+    "node": ">=24.18"
   },
   "license": "MIT"
 }

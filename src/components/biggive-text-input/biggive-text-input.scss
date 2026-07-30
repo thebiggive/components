@@ -1,4 +1,8 @@
-@include spacers();
+@use '../../globals/mixins.scss';
+@use '../../globals/philco-variables.scss';
+@use '../../globals/variables.scss';
+
+@include mixins.spacers();
 
 :host {
   display: contents;
@@ -20,40 +24,40 @@
     font-size: small;
     top: 1em;
     left: 4em;
-    color: $colour-primary-blue;
+    color: variables.$colour-primary-blue;
     max-width: calc(100% - 10em);
     display: inline-block;
 
     > span {
       padding-left: 1em;
       padding-right: 1em;
-      background-color: $colour-grey-background;
+      background-color: variables.$colour-grey-background;
     }
   }
 
 
   &.philco .prompt {
-    color: $colour-philco-gray-90;
+    color: philco-variables.$colour-philco-gray-90;
 
     > span {
-      background-color: $colour-philco-white;
+      background-color: philco-variables.$colour-philco-white;
     }
   }
 
-  @include standard-font();
+  @include mixins.standard-font();
   position: relative;
   text-align: left;
   &.select-style-bordered.biggive{
     .sleeve {
-      @include font-size-large();
+      @include mixins.font-size-large();
       font-weight: bolder;
       padding: 2px;
       position: relative;
-      background-color: $colour-primary-blue;
-      @include corner-clip-small-top-right();
+      background-color: variables.$colour-primary-blue;
+      @include mixins.corner-clip-small-top-right();
       .inner-sleeve {
-        background-color: $colour-grey-background;
-        color: $colour-primary-blue;
+        background-color: variables.$colour-grey-background;
+        color: variables.$colour-primary-blue;
         display: block;
         position: relative;
         padding: 10px 30px 10px 10px;
@@ -82,13 +86,13 @@
           }
       }
       &.focused {
-        background-color: $colour-secondary-green;
+        background-color: variables.$colour-secondary-green;
       }
     }
   }
   &.select-style-bordered.philco {
     .inner-sleeve {
-      border: 2px solid $colour-philco-gray-90;
+      border: 2px solid philco-variables.$colour-philco-gray-90;
       border-radius: 6px;
       padding: 12px;
     }

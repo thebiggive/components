@@ -1,10 +1,12 @@
+@use '../../globals/mixins.scss';
+
 :host {
   display: contents;
 }
 
 
 li {
-  @include standard-font();
+  @include mixins.standard-font();
   list-style-type: none;
   padding: 0;
   margin: 0;

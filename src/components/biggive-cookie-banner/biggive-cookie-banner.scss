@@ -1,7 +1,10 @@
-@include backgrounds();
-@include fills();
-@include spacers();
-@include text-colours();
+@use '../../globals/mixins.scss';
+@use '../../globals/variables.scss';
+
+@include mixins.backgrounds();
+@include mixins.fills();
+@include mixins.spacers();
+@include mixins.text-colours();
 
 :host {
   display: contents;
@@ -13,8 +16,8 @@ h2:first-child {
 }
 
 div.cooke-consent-container {
-  @include standard-font();
-  @include font-size-small();
+  @include mixins.standard-font();
+  @include mixins.font-size-small();
   border-radius: 10px;
   background: white;
   border: 1px solid black;
@@ -30,13 +33,13 @@ div.button-group {
   flex-direction: column;
   gap: 1em;
 
-  @media screen and (min-width: $screen-mobile-medium) {
+  @media screen and (min-width: variables.$screen-mobile-medium) {
     flex-direction: row-reverse;
   }
 }
 
 biggive-popup {
-  @include font-size-medium();
+  @include mixins.font-size-medium();
   div.content {
     max-height: 95vh;
     overflow: auto;

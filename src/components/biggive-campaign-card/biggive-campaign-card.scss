@@ -1,5 +1,8 @@
-@include image-alignment();
-@include spacers();
+@use '../../globals/mixins.scss';
+@use '../../globals/variables.scss';
+
+@include mixins.image-alignment();
+@include mixins.spacers();
 
 :host {
   display: contents;
@@ -10,9 +13,9 @@
 }
 
 .container {
-  @include flex-container-column();
-  @include standard-font();
-  @include lower-shadow();
+  @include mixins.flex-container-column();
+  @include mixins.standard-font();
+  @include mixins.lower-shadow();
   margin-right: 10px;
   margin-left: 10px;
 
@@ -20,17 +23,17 @@
 
   position: relative;
   height: 100%;
-  background-color: $colour-white;
-  padding: $spacer-3;
+  background-color: variables.$colour-white;
+  padding: variables.$spacer-3;
   box-sizing: border-box;
   .sleeve {
-    @include flex-container-column();
+    @include mixins.flex-container-column();
     height: 100%;
     .above-button-wrap {
       // we want all the height variation to be inside this element, so that the button is always at the same position
       // right at the bottom of the card.
       flex-grow: 1;
-      @include flex-container-column();
+      @include mixins.flex-container-column();
       .title-wrap {
         // and specifically we want the spare height to go under the charity name.
         flex-grow: 1;
@@ -45,16 +48,16 @@
     text-align: center;
     font-weight: bold;
     span {
-      background-color: $colour-secondary-green;
-      color: $colour-black;
-      padding: $spacer-1 $spacer-3;
+      background-color: variables.$colour-secondary-green;
+      color: variables.$colour-black;
+      padding: variables.$spacer-1 variables.$spacer-3;
       display: inline-block;
     }
   }
   .banner {
     top: 0;
     margin-top: 19px;
-    padding-bottom: $aspect-ratio-banners;
+    padding-bottom: variables.$aspect-ratio-banners;
     background-color: #F1F1F1;
     background-size: contain;
     background-repeat: no-repeat;
@@ -63,41 +66,41 @@
     }
   }
   h3 {
-    @include heading-4();
+    @include mixins.heading-4();
   }
   .button {
     display: block;
   }
   .organisation-name {
-    margin-bottom: $spacer-4;
-    color: $colour-primary-blue;
+    margin-bottom: variables.$spacer-4;
+    color: variables.$colour-primary-blue;
   }
   .meta-wrap {
-    @include flex-container-row();
+    @include mixins.flex-container-row();
     margin-top: auto;
-    margin-bottom: $spacer-3;
+    margin-bottom: variables.$spacer-3;
     .meta-item {
-      width: calc( 50% - $spacer-3 );
+      width: calc( 50% - variables.$spacer-3 );
       .label {
-        @include font-size-x-small();
+        @include mixins.font-size-x-small();
         display: block;
       }
       .text {
-        @include heading-3();
+        @include mixins.heading-3();
         display: block;
       }
       &:last-child {
         text-align: right;
         .text {
-          color: $colour-primary-blue;
+          color: variables.$colour-primary-blue;
         }
       }
     }
   }
   .progress-bar-wrap {
-    padding-bottom: $spacer-2;
-    margin-bottom: $spacer-2;
-    border-bottom: 1px solid $colour-grey-light;
+    padding-bottom: variables.$spacer-2;
+    margin-bottom: variables.$spacer-2;
+    border-bottom: 1px solid variables.$colour-grey-light;
   }
 
   .msg-wrapper {
@@ -112,7 +115,7 @@
     p {
       text-align: center;
 
-      @media screen and (max-width: $screen-desktop-max) {
+      @media screen and (max-width: variables.$screen-desktop-max) {
         font-size: 15px;
       }
     }

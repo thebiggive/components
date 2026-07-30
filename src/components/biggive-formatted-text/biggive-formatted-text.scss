@@ -1,5 +1,7 @@
-@include spacers();
-@include text-colours();
+@use '../../globals/mixins.scss';
+
+@include mixins.spacers();
+@include mixins.text-colours();
 
 :host {
   display: block;
@@ -7,11 +9,11 @@
 
 .container {
   &.biggive {
-    @include headings-biggive();
+    @include mixins.headings-biggive();
   }
 
   &.philco {
-    @include headings-philco();
+    @include mixins.headings-philco();
   }
 
   img {
@@ -22,23 +24,23 @@
     color: inherit;
     text-decoration: underline;
   }
-  &.max-width-10 .sleeve { @include max-width-10(); }
-  &.max-width-15 .sleeve { @include max-width-15(); }
-  &.max-width-20 .sleeve { @include max-width-20(); }
-  &.max-width-25 .sleeve { @include max-width-25(); }
-  &.max-width-30 .sleeve { @include max-width-30(); }
-  &.max-width-35 .sleeve { @include max-width-35(); }
-  &.max-width-40 .sleeve { @include max-width-40(); }
-  &.max-width-45 .sleeve { @include max-width-45(); }
-  &.max-width-50 .sleeve { @include max-width-50(); }
-  &.max-width-55 .sleeve { @include max-width-55(); }
-  &.max-width-60 .sleeve { @include max-width-60(); }
-  &.max-width-65 .sleeve { @include max-width-65(); }
-  &.max-width-70 .sleeve { @include max-width-70(); }
-  &.max-width-75 .sleeve { @include max-width-75(); }
-  &.max-width-80 .sleeve { @include max-width-80(); }
-  &.max-width-85 .sleeve { @include max-width-85(); }
-  &.max-width-90 .sleeve { @include max-width-90(); }
-  &.max-width-95 .sleeve { @include max-width-95(); }
+  &.max-width-10 .sleeve { @include mixins.max-width-10(); }
+  &.max-width-15 .sleeve { @include mixins.max-width-15(); }
+  &.max-width-20 .sleeve { @include mixins.max-width-20(); }
+  &.max-width-25 .sleeve { @include mixins.max-width-25(); }
+  &.max-width-30 .sleeve { @include mixins.max-width-30(); }
+  &.max-width-35 .sleeve { @include mixins.max-width-35(); }
+  &.max-width-40 .sleeve { @include mixins.max-width-40(); }
+  &.max-width-45 .sleeve { @include mixins.max-width-45(); }
+  &.max-width-50 .sleeve { @include mixins.max-width-50(); }
+  &.max-width-55 .sleeve { @include mixins.max-width-55(); }
+  &.max-width-60 .sleeve { @include mixins.max-width-60(); }
+  &.max-width-65 .sleeve { @include mixins.max-width-65(); }
+  &.max-width-70 .sleeve { @include mixins.max-width-70(); }
+  &.max-width-75 .sleeve { @include mixins.max-width-75(); }
+  &.max-width-80 .sleeve { @include mixins.max-width-80(); }
+  &.max-width-85 .sleeve { @include mixins.max-width-85(); }
+  &.max-width-90 .sleeve { @include mixins.max-width-90(); }
+  &.max-width-95 .sleeve { @include mixins.max-width-95(); }
 }
 

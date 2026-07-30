@@ -1,3 +1,7 @@
+@use '../../globals/mixins.scss';
+@use '../../globals/philco-variables.scss';
+@use '../../globals/variables.scss';
+
 :host {
   display: block !important;
 }
@@ -11,7 +15,7 @@
 }
 
 * {
-  @include philco-body-font();
+  @include mixins.philco-body-font();
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -23,18 +27,18 @@
 }
 
 .row-top {
-  padding: $spacer-2 $spacer-4;
-  background-color: $colour-primary-blue;
+  padding: variables.$spacer-2 variables.$spacer-4;
+  background-color: variables.$colour-primary-blue;
   display: flex;
-  max-height: $icon-size-large + 2 * $spacer-2;
+  max-height: variables.$icon-size-large + 2 * variables.$spacer-2;
 }
 
 nav {
   top: 0;
   left: 0;
   width: 100%;
-  height: $nav-height-desktop;
-  background: $colour-philco-gray-90;
+  height: variables.$nav-height-desktop;
+  background: philco-variables.$colour-philco-gray-90;
   z-index: 99;
   box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
 
@@ -46,11 +50,11 @@ nav {
     justify-content: space-between;
     margin: auto;
     padding: 0 50px;
-    background-color: $colour-philco-gray-90;
-    color: $colour-philco-white;
+    background-color: philco-variables.$colour-philco-gray-90;
+    color: philco-variables.$colour-philco-white;
 
     .nav-links {
-      line-height: $nav-height-desktop;
+      line-height: variables.$nav-height-desktop;
       height: 100%;
 
       .sidebar-logo {
@@ -72,7 +76,7 @@ nav {
             height: 100%;
             text-decoration: none;
             white-space: nowrap;
-            color: $colour-philco-white;
+            color: philco-variables.$colour-philco-white;
             font-size: 17px;
             font-weight: 500;
           }
@@ -92,7 +96,7 @@ nav {
 
       a {
         font-size: 30px;
-        color: $colour-philco-white;
+        color: philco-variables.$colour-philco-white;
         text-decoration: none;
         font-weight: 600;
         display: grid;
@@ -111,7 +115,7 @@ nav {
   }
 }
 
-@media (max-width: $screen-large) {
+@media (max-width: variables.$screen-large) {
   .mobile-only {
     display: block !important;
   }
@@ -148,7 +152,7 @@ nav {
         display: block;
         max-width: 450px;
         width: 100%;
-        background: $colour-philco-gray-90;
+        background: philco-variables.$colour-philco-gray-90;
         line-height: 40px;
         padding: 20px;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);

@@ -263,8 +263,9 @@ export namespace Components {
     interface BiggiveBrandedImage {
         /**
           * Charity location
+          * @deprecated
          */
-        "charityLocation": string;
+        "charityLocation"?: string;
         /**
           * Charity name
          */
@@ -2424,6 +2425,7 @@ declare namespace LocalJSX {
     interface BiggiveBrandedImage {
         /**
           * Charity location
+          * @deprecated
          */
         "charityLocation"?: string;
         /**

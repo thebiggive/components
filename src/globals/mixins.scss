@@ -1,3 +1,6 @@
+@use './philco-variables.scss';
+@use './variables.scss';
+
 // Should only be used for Sass variables, mixins and functions; not contain any CSS.
 // https://github.com/ionic-team/stencil-sass#inject-globals-sass-paths
 
@@ -10,7 +13,7 @@
 
 @mixin philco-subhead-font() {
   font-family: 'Bitter', serif;
-  line-height: $philco-standard-body-line-height;
+  line-height: philco-variables.$philco-standard-body-line-height;
 }
 
 @mixin philco-body-font() {
@@ -210,9 +213,9 @@
 }
 
 @mixin section-container() {
-  max-width: $screen-desktop-max;
-  padding-left: $spacer-3;
-  padding-right: $spacer-3;
+  max-width: variables.$screen-desktop-max;
+  padding-left: variables.$spacer-3;
+  padding-right: variables.$spacer-3;
   margin-left: auto;
   margin-right: auto;
 }
@@ -237,16 +240,16 @@
 
 @mixin icon-hoverable() {
   &:hover {
-    background-color: $colour-white;
+    background-color: variables.$colour-white;
     svg {
-      fill: $colour-black;
+      fill: variables.$colour-black;
     }
   }
 }
 
 @mixin icon-large() {
-  width: $icon-size-large;
-  height: $icon-size-large;
+  width: variables.$icon-size-large;
+  height: variables.$icon-size-large;
   overflow: hidden;
   border-radius: 50%;
   text-align: center;
@@ -255,18 +258,18 @@
   margin-right: 10px;
 
   // These colours do not currently use an `each` loop because some have black fill, some have white fill and some have grey fill.
-  &.colour-scheme-primary {background-color: $colour-primary-blue; svg {fill: $colour-white;}}
-  &.colour-scheme-secondary {background-color: $colour-secondary-green; svg {fill: $colour-black;}}
-  &.colour-scheme-tertiary {background-color: $colour-tertiary-coral; svg {fill: $colour-black;}}
-  &.colour-scheme-mhf-turquoise {background-color: $colour-brand-mhf-turquoise; svg {fill: $colour-black;}}
-  &.colour-scheme-brand-grey {background-color: $colour-brand-grey; svg {fill: $colour-black;}}
-  &.colour-scheme-brand-afa-pink {background-color: $colour-brand-afa-pink; svg {fill: $colour-black;}}
-  &.colour-scheme-white {background-color: $colour-white; svg {fill: $colour-black;}}
-  &.colour-scheme-black {background-color: $colour-black; svg {fill: $colour-white;}}
-  &.colour-scheme-black {background-color: $colour-grey-extra-light; svg {fill: $colour-grey-extra-light;}}
-  &.colour-scheme-black {background-color: $colour-grey-light; svg {fill: $colour-grey-light;}}
-  &.colour-scheme-black {background-color: $colour-grey-medium; svg {fill: $colour-grey-medium;}}
-  &.colour-scheme-black {background-color: $colour-grey-dark; svg {fill: $colour-grey-dark;}}
+  &.colour-scheme-primary {background-color: variables.$colour-primary-blue; svg {fill: variables.$colour-white;}}
+  &.colour-scheme-secondary {background-color: variables.$colour-secondary-green; svg {fill: variables.$colour-black;}}
+  &.colour-scheme-tertiary {background-color: variables.$colour-tertiary-coral; svg {fill: variables.$colour-black;}}
+  &.colour-scheme-mhf-turquoise {background-color: variables.$colour-brand-mhf-turquoise; svg {fill: variables.$colour-black;}}
+  &.colour-scheme-brand-grey {background-color: variables.$colour-brand-grey; svg {fill: variables.$colour-black;}}
+  &.colour-scheme-brand-afa-pink {background-color: variables.$colour-brand-afa-pink; svg {fill: variables.$colour-black;}}
+  &.colour-scheme-white {background-color: variables.$colour-white; svg {fill: variables.$colour-black;}}
+  &.colour-scheme-black {background-color: variables.$colour-black; svg {fill: variables.$colour-white;}}
+  &.colour-scheme-black {background-color: variables.$colour-grey-extra-light; svg {fill: variables.$colour-grey-extra-light;}}
+  &.colour-scheme-black {background-color: variables.$colour-grey-light; svg {fill: variables.$colour-grey-light;}}
+  &.colour-scheme-black {background-color: variables.$colour-grey-medium; svg {fill: variables.$colour-grey-medium;}}
+  &.colour-scheme-black {background-color: variables.$colour-grey-dark; svg {fill: variables.$colour-grey-dark;}}
 
   a {
     display: grid;
@@ -300,19 +303,19 @@
     &:before {
       content: '';
       @include absolute-fill();
-      background-color: $colour-grey-light;
+      background-color: variables.$colour-grey-light;
       border-radius: 4px;
     }
     .progress {
       position: relative;
       border-radius: 4px;
-      background-color: $colour-black;
+      background-color: variables.$colour-black;
       height: 8px;
     }
   }
   .counter {
     font-weight: 700;
-    color: $colour-black;
+    color: variables.$colour-black;
     font-size: 14px;
     line-height: 18px;
   }
@@ -321,36 +324,36 @@
 @mixin progress-bar-primary {
   .slider {
     .progress {
-      background-color: $colour-primary-blue;
+      background-color: variables.$colour-primary-blue;
     }
   }
   .counter {
-    color: $colour-primary-blue;
+    color: variables.$colour-primary-blue;
   }
 }
 
 @mixin progress-bar-secondary {
   .slider {
     .progress {
-      background-color: $colour-secondary-green;
+      background-color: variables.$colour-secondary-green;
     }
   }
   .counter {
-    color: $colour-secondary-green;
+    color: variables.$colour-secondary-green;
   }
 }
 
 @mixin input-text {
   @include standard-font();
-  color: $colour-black;
-  padding: $spacer-1 $spacer-2;
+  color: variables.$colour-black;
+  padding: variables.$spacer-1 variables.$spacer-2;
   box-sizing: border-box;
   width: 100%;
   &:focus {
     outline: 0;
   }
   &::placeholder {
-    color: $colour-grey-dark;
+    color: variables.$colour-grey-dark;
   }
 }
 
@@ -358,9 +361,9 @@
   @include font-size-medium();
   padding: 1px;
   position: relative;
-  border-bottom: 1px solid $colour-primary-blue;
+  border-bottom: 1px solid variables.$colour-primary-blue;
   select {
-    color: $colour-primary-blue;
+    color: variables.$colour-primary-blue;
     display: block;
     position: relative;
     padding: 10px 80px 10px 10px;
@@ -384,17 +387,17 @@
   @include font-size-medium();
   padding: 10px 30px;
   border-radius: 5px;
-  border: 1px solid $colour-black;
-  background-color: $colour-black;
-  color: $colour-white;
+  border: 1px solid variables.$colour-black;
+  background-color: variables.$colour-black;
+  color: variables.$colour-white;
   display: inline-block;
   text-decoration: none;
   text-align: center;
   transition: all ease-in-out 0.5s;
   cursor: pointer;
   &:hover {
-    background-color: $colour-white;
-    color: $colour-black;
+    background-color: variables.$colour-white;
+    color: variables.$colour-black;
   }
 }
 
@@ -427,7 +430,7 @@
   height: 0;
   border-style: inset;
   border-width: $height $width 0 $width;
-  border-color: $colour-secondary-green transparent transparent transparent;
+  border-color: variables.$colour-secondary-green transparent transparent transparent;
   float: left;
   transform: rotate(360deg);
 
@@ -440,7 +443,7 @@
     width: $width;
     height: $width;
     margin: 0;
-    color: $colour-primary-blue;
+    color: variables.$colour-primary-blue;
     font-size: $text-size;
   }
 }
@@ -540,20 +543,20 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: $spacer-3;
+  padding: variables.$spacer-3;
   background-color: rgba(0,0,0,0.75);
   transition: all 0.5s ease-in-out;
   .sleeve {
     position: relative;
     max-width: 600px;
-    padding: $spacer-4;
+    padding: variables.$spacer-4;
     box-sizing: border-box;
     position: relative;
     margin-left: auto;
     margin-right: auto;
     top: 50%;
     transform: translateY(-50%);
-    background-color: $colour-white;
+    background-color: variables.$colour-white;
     text-align: left;
   }
   .header {
@@ -561,9 +564,9 @@
       width: 25px;
       height: 25px;
       position: absolute;
-      top: $spacer-2;
-      right: $spacer-2;
-      background-color: $colour-primary-blue;
+      top: variables.$spacer-2;
+      right: variables.$spacer-2;
+      background-color: variables.$colour-primary-blue;
       background-image: url(/assets/images/cross.svg?1);
       background-size: 50% 50%;
       background-position: center center;
@@ -598,7 +601,7 @@
 }
 
 @mixin backgrounds {
-  @each $brand, $colour in $brandColours {
+  @each $brand, $colour in variables.$brandColours {
     .background-colour-hover-#{$brand}:hover,
     .background-colour-#{$brand} {
       background-color: $colour;
@@ -607,7 +610,7 @@
 }
 
 @mixin borders {
-  @each $brand, $colour in $brandColours {
+  @each $brand, $colour in variables.$brandColours {
     .border-colour-#{$brand} {
       border-color: $colour;
     }
@@ -616,7 +619,7 @@
 
 
 @mixin fills {
-  @each $brand, $colour in $brandColours {
+  @each $brand, $colour in variables.$brandColours {
     .fill-#{$brand} {
       fill: $colour;
     }
@@ -675,23 +678,23 @@
 
 @mixin spacers {
   .space-above-0 { margin-top: 0; }
-  .space-above-1 { margin-top: $spacer-1; }
-  .space-above-2 { margin-top: $spacer-2; }
-  .space-above-3 { margin-top: $spacer-3; }
-  .space-above-4 { margin-top: $spacer-4; }
-  .space-above-5 { margin-top: $spacer-5; }
-  .space-above-6 { margin-top: $spacer-6; }
+  .space-above-1 { margin-top: variables.$spacer-1; }
+  .space-above-2 { margin-top: variables.$spacer-2; }
+  .space-above-3 { margin-top: variables.$spacer-3; }
+  .space-above-4 { margin-top: variables.$spacer-4; }
+  .space-above-5 { margin-top: variables.$spacer-5; }
+  .space-above-6 { margin-top: variables.$spacer-6; }
   .space-below-0 { margin-bottom: 0; }
-  .space-below-1 { margin-bottom: $spacer-1; }
-  .space-below-2 { margin-bottom: $spacer-2; }
-  .space-below-3 { margin-bottom: $spacer-3; }
-  .space-below-4 { margin-bottom: $spacer-4; }
-  .space-below-5 { margin-bottom: $spacer-5; }
-  .space-below-6 { margin-bottom: $spacer-6; }
+  .space-below-1 { margin-bottom: variables.$spacer-1; }
+  .space-below-2 { margin-bottom: variables.$spacer-2; }
+  .space-below-3 { margin-bottom: variables.$spacer-3; }
+  .space-below-4 { margin-bottom: variables.$spacer-4; }
+  .space-below-5 { margin-bottom: variables.$spacer-5; }
+  .space-below-6 { margin-bottom: variables.$spacer-6; }
 }
 
 @mixin text-colours {
-  @each $brand, $colour in $brandColours {
+  @each $brand, $colour in variables.$brandColours {
     .text-colour-hover-#{$brand}:hover,
     .text-colour-#{$brand}{
         color: $colour;

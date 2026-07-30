@@ -1,23 +1,26 @@
-@include backgrounds();
-@include fills();
+@use '../../globals/mixins.scss';
+@use '../../globals/variables.scss';
+
+@include mixins.backgrounds();
+@include mixins.fills();
 
 :host {
   display: contents;
 }
 
 .social-icon-item {
-  @include icon-large();
-  @include icon-hoverable();
+  @include mixins.icon-large();
+  @include mixins.icon-hoverable();
 
   &.wide {
     margin-right: 30px;
   }
 
-  @media screen and (max-width: $screen-mobile-max) {
-    @include icon-medium();
+  @media screen and (max-width: variables.$screen-mobile-max) {
+    @include mixins.icon-medium();
 
     &.wide {
-      @include icon-medium();
+      @include mixins.icon-medium();
     }
   }
 }

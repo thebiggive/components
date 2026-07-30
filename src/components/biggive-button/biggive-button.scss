@@ -1,4 +1,8 @@
-@include spacers();
+@use '../../globals/mixins.scss';
+@use '../../globals/philco-variables.scss';
+@use '../../globals/variables.scss';
+
+@include mixins.spacers();
 
 :host {
   display: contents;
@@ -18,88 +22,88 @@
 }
 
 .button {
-    @include button();
+    @include mixins.button();
     &.size-small {
-      @include button-small();
+      @include mixins.button-small();
     }
 
     &.button.rounded-true {
-      @include button-rounded();
+      @include mixins.button-rounded();
     }
 }
 
-@each $brand, $colour in $brandColours {
+@each $brand, $colour in variables.$brandColours {
   .button-#{$brand} {
-    color: $colour-white; // may be overridden by following rules. Later CSS rules have priority.
+    color: variables.$colour-white; // may be overridden by following rules. Later CSS rules have priority.
     background-color: $colour;
     border-color: $colour;
     &:hover {
       color: $colour;
-      background-color: $colour-white; // may be overriden by following rules
+      background-color: variables.$colour-white; // may be overriden by following rules
     }
   }
 }
 
 .button-secondary {
-  color: $colour-black;
+  color: variables.$colour-black;
   &:hover {
-    color: $colour-black;
-    background-color: $colour-white;
-    border-color: $colour-black;
+    color: variables.$colour-black;
+    background-color: variables.$colour-white;
+    border-color: variables.$colour-black;
   }
 }
 
 .button-brand-grey {
-  color: $colour-white;
+  color: variables.$colour-white;
   &:hover {
-    background-color: $colour-black;
+    background-color: variables.$colour-black;
   }
 }
 
 .button-brand-mhf-turquoise {
   &:hover {
-    background-color: $colour-black;
+    background-color: variables.$colour-black;
   }
 }
 
 .button-brand-afa-pink {
   &:hover {
-    background-color: $colour-black;
+    background-color: variables.$colour-black;
   }
 }
 
 .button-white {
-  color: $colour-primary-blue;
+  color: variables.$colour-primary-blue;
   &:hover {
-    color: $colour-black;
-    background-color: $colour-secondary-green;
+    color: variables.$colour-black;
+    background-color: variables.$colour-secondary-green;
   }
 }
 
 .button-philco-gray-90 {
-  @include font-size-philco-medium();
-  color: $colour-philco-white;
+  @include mixins.font-size-philco-medium();
+  color: philco-variables.$colour-philco-white;
   &:hover {
-    color: $colour-philco-gray-90;
-    background-color: $colour-philco-orange;
+    color: philco-variables.$colour-philco-gray-90;
+    background-color: philco-variables.$colour-philco-orange;
   }
 }
 
 .button-philco-orange {
-  @include font-size-philco-medium();
-  color: $colour-philco-gray-90;
+  @include mixins.font-size-philco-medium();
+  color: philco-variables.$colour-philco-gray-90;
   &:hover {
-    color: $colour-philco-white;
-    background-color: $colour-philco-gray-90;
+    color: philco-variables.$colour-philco-white;
+    background-color: philco-variables.$colour-philco-gray-90;
   }
 }
 
 .button-philco-white {
-  @include font-size-philco-medium();
-  color: $colour-philco-gray-90;
+  @include mixins.font-size-philco-medium();
+  color: philco-variables.$colour-philco-gray-90;
   &:hover {
-    color: $colour-philco-gray-90 !important;
-    background-color: $colour-philco-orange !important;
+    color: philco-variables.$colour-philco-gray-90 !important;
+    background-color: philco-variables.$colour-philco-orange !important;
   }
 }
 
@@ -109,54 +113,54 @@
 
 .container.disabled.philco .button {
   cursor: not-allowed;
-  background-color: $colour-philco-gray-30 !important;
+  background-color: philco-variables.$colour-philco-gray-30 !important;
 
-  color: $colour-philco-white;
+  color: philco-variables.$colour-philco-white;
   &:hover {
-    background-color: $colour-philco-gray-30;
-    color: $colour-philco-white;
+    background-color: philco-variables.$colour-philco-gray-30;
+    color: philco-variables.$colour-philco-white;
   }
 }
 
 .button-black {
-  color: $colour-white;
+  color: variables.$colour-white;
   &:hover {
-    background-color: $colour-white;
+    background-color: variables.$colour-white;
   }
 }
 
 .button-grey-extra-light {
-  color: $colour-black;
+  color: variables.$colour-black;
   &:hover {
-    background-color: $colour-black;
+    background-color: variables.$colour-black;
   }
 }
 
 .button-grey-light {
-  color: $colour-black;
+  color: variables.$colour-black;
   &:hover {
-    background-color: $colour-black;
+    background-color: variables.$colour-black;
   }}
 
 .button-grey-medium {
-  color: $colour-white;
+  color: variables.$colour-white;
   &:hover {
-    background-color: $colour-white;
+    background-color: variables.$colour-white;
   }
 }
 
 .button-grey-dark {
-  color: $colour-white;
+  color: variables.$colour-white;
   &:hover {
-    background-color: $colour-white;
+    background-color: variables.$colour-white;
   }
 }
 
 .button-rounded {
-    @include button-rounded();
+    @include mixins.button-rounded();
  }
 
- @each $brand, $colour in $brandColours {
+ @each $brand, $colour in variables.$brandColours {
     .button-clear-#{$brand} {
         color: $colour;
         background-color: transparent;

@@ -1,8 +1,10 @@
+@use '../../globals/mixins.scss';
+
 :host {
   display: contents;
 }
 
 
 .container {
-  @include standard-font();
+  @include mixins.standard-font();
 }
