@@ -100,7 +100,9 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=$NPM_PUBLISH_AUTH_TOKEN" > ~/components/.npmrc
       - run:
           name: Publish core components to npm
-          command: npm publish --access=public
+          command: |
+            export NPM_ID_TOKEN=$(circleci run oidc get --claims '{"aud": "npm:registry.npmjs.org" }')
+            npm publish --access public
       - run: cd angular && npm install
       - save_cache:
           paths:
@@ -114,7 +116,10 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=$NPM_PUBLISH_AUTH_TOKEN" > ~/components/angular/dist/components/.npmrc
       - run:
           name: Publish Angular components to npm
-          command: cd angular/dist/components && npm publish --access=public
+          command: |
+            cd angular/dist/components &&
+            export NPM_ID_TOKEN=$(circleci run oidc get --claims '{"aud": "npm:registry.npmjs.org" }')
+            npm publish --access public
 
 workflows:
   build-and-maybe-publish:
@@ -144,7 +149,6 @@ workflows:
           context:
             - docker-hub-creds
             - jira
-            - npm-publish
           post-steps:
             - jira/notify:
                 pipeline_id: << pipeline.id >>
