@@ -96,9 +96,6 @@ jobs:
       - run: ./scripts/create-version.sh
       - run: npm run build
       - run:
-          name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_PUBLISH_AUTH_TOKEN" > ~/components/.npmrc
-      - run:
           name: Publish core components to npm
           command: |
             export NPM_ID_TOKEN=$(circleci run oidc get --claims '{"aud": "npm:registry.npmjs.org" }')
@@ -111,9 +108,6 @@ jobs:
       - run:
           name: Build Angular components
           command: cd angular && npm run build
-      - run:
-          name: Authenticate with registry in Angular components output directory
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_PUBLISH_AUTH_TOKEN" > ~/components/angular/dist/components/.npmrc
       - run:
           name: Publish Angular components to npm
           command: |
