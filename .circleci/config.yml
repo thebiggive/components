@@ -63,8 +63,8 @@ jobs:
           name: Build Storybook
           command: npm run build-storybook
       - aws-cli/setup:
-          aws_access_key_id: AWS_ACCESS_KEY_ID
-          aws_secret_access_key: AWS_SECRET_ACCESS_KEY
+          role_arn: ${AWS_ROLE_ARN}
+          region: ${AWS_REGION}
       - aws-s3/sync:
           from: src/assets
           to: 's3://tbg-production-component-library/assets'
