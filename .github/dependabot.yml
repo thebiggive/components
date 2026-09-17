@@ -26,6 +26,9 @@ updates:
         # this and we'll have to change how tests run anyway. So stick with v24 for now.
       - dependency-name: "puppeteer"
         versions: [">=25.0.0"]
+        # 1.5.0 stops re-exporting types, breaking Angular compat
+      - dependency-name: "@stencil/angular-output-target"
+        versions: [ ">=1.5.0" ]
       - dependency-name: storybook
         update-types: ["version-update:semver-major"]
       - dependency-name: "@storybook/addon-actions"
