@@ -22,6 +22,16 @@ landmarks.
 | `usePresetFooter`         | `use-preset-footer`          | Conditionally render footer menu: hard-coded (preset) when set to true, dynamic (slot-based) when set to false              | `boolean`                    | `false`     |
 
 
+## Slots
+
+| Slot                    | Description |
+| ----------------------- | ----------- |
+| `"nav-primary-title"`   |             |
+| `"nav-secondary-title"` |             |
+| `"nav-tertiary-title"`  |             |
+| `"social-icons"`        |             |
+
+
 ## Dependencies
 
 ### Depends on

@@ -24,6 +24,14 @@ Requires slots `label` and `input`.
 | `spaceBelow`  | `space-below`  |                                                      | `number`                      | `0`          |
 
 
+## Slots
+
+| Slot      | Description |
+| --------- | ----------- |
+| `"input"` |             |
+| `"label"` |             |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

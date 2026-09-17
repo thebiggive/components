@@ -18,6 +18,13 @@
 | `textColour`                        | `text-colour`                          |             | `"black" \| "brand-afa-pink" \| "brand-c4c-orange" \| "brand-cc-red" \| "brand-emf-yellow" \| "brand-er-dark-blue" \| "brand-er-dark-green" \| "brand-er-green" \| "brand-er-teal" \| "brand-gmf-green" \| "brand-grey" \| "brand-mhf-turquoise" \| "brand-scw-magenta" \| "brand-wgmf-purple" \| "clear-black" \| "clear-primary" \| "clear-secondary" \| "clear-tertiary" \| "clear-white" \| "grey-dark" \| "grey-extra-light" \| "grey-light" \| "grey-medium" \| "philco-error-coral" \| "philco-gray-20" \| "philco-gray-30" \| "philco-gray-70" \| "philco-gray-90" \| "philco-orange" \| "philco-success-green" \| "philco-white" \| "primary" \| "secondary" \| "tertiary" \| "white"` | `'black'`       |
 
 
+## Slots
+
+| Slot | Description      |
+| ---- | ---------------- |
+|      | The default slot |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

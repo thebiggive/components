@@ -16,6 +16,13 @@
 | `verticalPadding`   | `vertical-padding`   | Vertical padding      | `number`  | `3`       |
 
 
+## Slots
+
+| Slot | Description      |
+| ---- | ---------------- |
+|      | The default slot |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

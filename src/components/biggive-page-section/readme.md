@@ -17,6 +17,13 @@
 | `spaceBelow`         | `space-below`          | Space below component                                                                                                       | `number`  | `0`          |
 
 
+## Slots
+
+| Slot | Description      |
+| ---- | ---------------- |
+|      | The default slot |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
