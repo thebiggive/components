@@ -15,6 +15,13 @@ A simple flexbox grid of anything!
 | `spaceBetween` | `space-between` | Deprecated - should use columGap Instead | `boolean`                         | `false` |
 
 
+## Slots
+
+| Slot | Description      |
+| ---- | ---------------- |
+|      | The default slot |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
