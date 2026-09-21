@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Element, Prop, h } from '@stencil/core';
 import { VideoService } from '../../util/video';
 
 @Component({
@@ -7,6 +7,8 @@ import { VideoService } from '../../util/video';
   shadow: true,
 })
 export class BiggiveVideo {
+  @Element() host: HTMLBiggiveVideoElement;
+
   /**
    * Space above component
    */
@@ -26,5 +28,9 @@ export class BiggiveVideo {
         <div class="video-wrap" innerHTML={VideoService.getEmbedHtml(this.videoUrl, null)}></div>
       </div>
     );
+  }
+
+  componentDidRender() {
+    void VideoService.initializeVimeoPlayer(this.host);
   }
 }
