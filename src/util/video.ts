@@ -6,9 +6,20 @@ export class VideoService {
       return `<iframe loading="lazy" src="${url}"></iframe>`;
     } else if (url.match(/player\.vimeo\.com/g)) {
       const titlePart = title !== null && title.length > 0 ? ` title="${title}"` : '';
-      return `<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="${url}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;dnt=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;"${titlePart}></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>`;
+      return `<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="${url}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;dnt=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;"${titlePart}></iframe></div>`;
     } else {
       return `<video controls src="${url}"></video>`;
+    }
+  }
+
+  static async initializeVimeoPlayer(container: HTMLElement) {
+    const iframe = container.querySelector<HTMLIFrameElement>('iframe[src*="player.vimeo.com"]');
+
+    if (iframe !== null && iframe.dataset.vimeoPlayerInitialized !== 'true') {
+      const { default: VimeoPlayer } = await import('@vimeo/player');
+
+      new VimeoPlayer(iframe);
+      iframe.dataset.vimeoPlayerInitialized = 'true';
     }
   }
 
