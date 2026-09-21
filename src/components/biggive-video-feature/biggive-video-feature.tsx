@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Element, Prop, h } from '@stencil/core';
 import { VideoService } from '../../util/video';
 
 @Component({
@@ -7,6 +7,8 @@ import { VideoService } from '../../util/video';
   shadow: true,
 })
 export class BiggiveVideoFeature {
+  @Element() host: HTMLBiggiveVideoFeatureElement;
+
   /**
    * Space above component
    */
@@ -92,5 +94,9 @@ export class BiggiveVideoFeature {
         </div>
       </div>
     );
+  }
+
+  componentDidRender() {
+    void VideoService.initializeVimeoPlayer(this.host);
   }
 }
