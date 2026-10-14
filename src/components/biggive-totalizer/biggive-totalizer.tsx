@@ -6,7 +6,10 @@ import { Component, Element, Prop, h } from '@stencil/core';
   shadow: true,
 })
 export class BiggiveTotalizer {
+  private lastItemsWidth: number = 0;
   private lastWrapperWidth: number = 0;
+  private resizeObserver: ResizeObserver | null = null;
+  private resizeListener: (() => void) | null = null;
 
   @Element() host: HTMLBiggiveTotalizerElement;
   /**
@@ -39,85 +42,82 @@ export class BiggiveTotalizer {
   @Prop() mainMessage: string;
 
   private setSpeed(itemsWidth: number, containerWidth: number) {
-    if (containerWidth === this.lastWrapperWidth) {
+    if (itemsWidth <= 0 || containerWidth <= 0) {
+      return;
+    }
+
+    if (itemsWidth === this.lastItemsWidth && containerWidth === this.lastWrapperWidth) {
       // Some browsers fire 'resize' overzealously on scroll; we don't want to cause extra paints if nothing
       // relevant changed.
       return;
     }
 
-    let sleeves: HTMLDivElement[] = [];
-    for (const ii in [1, 2, 3, 4]) {
-      const sleeve = this.host.shadowRoot?.querySelector('.ticker-wrap #sleeve_' + ii) as HTMLDivElement | null;
-      if (sleeve) {
-        sleeves.push(sleeve);
-        // Restart the animation(s) on window resize to reduce the chance of jankiness.
-        // https://stackoverflow.com/a/45036752/2803757
-        sleeve.style.animationName = 'none';
-      }
-    }
-
+    this.lastItemsWidth = itemsWidth;
     this.lastWrapperWidth = containerWidth;
 
-    if (sleeves.length === 0) {
-      console.log('sleeves missing, skipping setSpeed()');
-      return;
-    }
+    const sleeveWidth = Math.max(containerWidth, itemsWidth);
+    const totalTravelDistance = 2 * sleeveWidth;
+    const duration = Math.max(1, Math.round(totalTravelDistance / 120));
 
-    // We've seen the initial calculation exclude the ~30px per set of values end padding before,
-    // and it's safe to err on the side of more copies to reduce the chance of abrupt early loop
-    // ends, so we add a buffer of 40px to the calculation when deciding how many copies to use.
-    // const sleeveCount = Math.max(1, Math.min(4, Math.ceil((2 * (40 + itemsWidth)) / containerWidth)));
-    // TODO Ultimately we'd like to get multiple copies working, or simplify. This
-    // has proven very hard to iterate on pending a fix for DON-867 because
-    // there is Angular-specific behaviour breaking the contents of copies.
-    const sleeveCount = 1;
-    this.host.style.setProperty('--ticker-end-left', `-${(sleeveCount + 1) * 100}%`);
-
-    const duration = Math.round((itemsWidth / 30) * sleeveCount);
-
-    for (let ii = 1; ii <= sleeveCount; ii++) {
-      const sleeve = sleeves[ii - 1];
-      if (sleeve) {
-        sleeve.style.animationDuration = duration + 's';
-        // https://stackoverflow.com/a/45847760
-        sleeve.style.animationDelay = (duration / (sleeveCount - 1)) * (ii - 1) + 's';
-        sleeve.style.display = 'inline-flex';
-        sleeve.style.animationName = 'ticker';
-      }
-    }
+    this.host.style.setProperty('--ticker-duration', `${duration}s`);
   }
 
+  private updateSpeed = () => {
+    const wrapper = this.host.shadowRoot?.querySelector('.ticker-wrap') as HTMLDivElement | null;
+    const tickerItemsWrapper = this.host.querySelector(`[slot="ticker-items"]`) as HTMLDivElement | null;
+
+    if (tickerItemsWrapper && wrapper) {
+      this.setSpeed(tickerItemsWrapper.scrollWidth || tickerItemsWrapper.clientWidth, wrapper.clientWidth);
+    }
+  };
+
   componentDidLoad() {
-    const wrapper = this.host.shadowRoot?.querySelector('.ticker-wrap') as HTMLDivElement;
+    const wrapper = this.host.shadowRoot?.querySelector('.ticker-wrap') as HTMLDivElement | null;
+    const tickerItemsWrapper = this.host.querySelector(`[slot="ticker-items"]`) as HTMLDivElement | null;
+    const slot = this.host.shadowRoot?.querySelector('slot[name="ticker-items"]') as HTMLSlotElement | null;
 
-    const tickerItemsInternalWrapper: HTMLDivElement | null = this.host.querySelector(`[slot="ticker-items"]`);
-    const sleeve1: HTMLDivElement | null | undefined = this.host.shadowRoot?.querySelector('.ticker-wrap #sleeve_1');
-    const sleeve2: HTMLDivElement | null | undefined = this.host.shadowRoot?.querySelector('.ticker-wrap #sleeve_2');
-    const sleeve3: HTMLDivElement | null | undefined = this.host.shadowRoot?.querySelector('.ticker-wrap #sleeve_3');
-    const sleeve4: HTMLDivElement | null | undefined = this.host.shadowRoot?.querySelector('.ticker-wrap #sleeve_4');
-
-    if (!tickerItemsInternalWrapper || !sleeve1) {
-      console.log('tickerItemsInternalWrapper or sleeve1 is missing, skipping totalizer animation setup');
-      return;
+    // React to Angular projected content changes
+    if (slot) {
+      slot.addEventListener('slotchange', () => {
+        const currentTickerItemsWrapper = this.host.querySelector(`[slot="ticker-items"]`) as HTMLDivElement | null;
+        if (currentTickerItemsWrapper && this.resizeObserver) {
+          this.resizeObserver.observe(currentTickerItemsWrapper);
+        }
+        this.updateSpeed();
+      });
     }
 
-    // Deep clone [all children of] the ticker items internal wrapper and append them, so the ticker can show items without
-    // a blank break. Sleeve 2 and up will animate on delays per https://stackoverflow.com/a/45847760.
-    setTimeout(() => {
-      sleeve2 && sleeve2.appendChild(tickerItemsInternalWrapper.cloneNode(true));
-      sleeve3 && sleeve3.appendChild(tickerItemsInternalWrapper.cloneNode(true));
-      sleeve4 && sleeve4.appendChild(tickerItemsInternalWrapper.cloneNode(true));
-    }, 800);
+    // React to size changes from font loading, content updates, or viewport resize
+    if (typeof ResizeObserver !== 'undefined') {
+      this.resizeObserver = new ResizeObserver(() => this.updateSpeed());
+      if (wrapper) {
+        this.resizeObserver.observe(wrapper);
+      }
+      if (tickerItemsWrapper) {
+        this.resizeObserver.observe(tickerItemsWrapper);
+      }
+    }
 
-    setTimeout(() => {
-      // In Angular contexts, it seems like we need to leave a little time before the calculations work.
-      // Not totally clear why yet.
-      this.setSpeed(tickerItemsInternalWrapper.clientWidth, wrapper.clientWidth);
-    }, 300);
+    // Ensure web fonts are loaded before computing final dimensions
+    if (typeof document !== 'undefined' && 'fonts' in document && 'ready' in document.fonts) {
+      void document.fonts.ready.then(() => this.updateSpeed());
+    }
 
-    window.addEventListener('resize', () => {
-      this.setSpeed(tickerItemsInternalWrapper.clientWidth, wrapper.clientWidth);
-    });
+    this.resizeListener = () => this.updateSpeed();
+    window.addEventListener('resize', this.resizeListener);
+
+    this.updateSpeed();
+  }
+
+  disconnectedCallback() {
+    if (this.resizeObserver) {
+      this.resizeObserver.disconnect();
+      this.resizeObserver = null;
+    }
+    if (this.resizeListener) {
+      window.removeEventListener('resize', this.resizeListener);
+      this.resizeListener = null;
+    }
   }
 
   render() {

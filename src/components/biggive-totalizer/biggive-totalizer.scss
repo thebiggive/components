@@ -10,6 +10,7 @@
   @include mixins.standard-font();
 
   --ticker-end-left: -200%;
+  --ticker-duration: 20s;
 }
 
 @keyframes ticker {
@@ -59,8 +60,8 @@
       animation-iteration-count: infinite;
       animation-timing-function: linear;
       animation-name: ticker;
-      // TS overrides the specific timings once the width of ticker elements is known.
-      animation-duration: 10s;
+      // TS overrides the specific timings via --ticker-duration once the width of ticker elements is known.
+      animation-duration: var(--ticker-duration, 20s);
 
       @media (prefers-reduced-motion) {
         animation-name: none !important; // Turn off movement when needed for a11y.
