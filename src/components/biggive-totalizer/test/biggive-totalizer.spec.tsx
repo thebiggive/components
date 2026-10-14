@@ -35,4 +35,62 @@ describe('biggive-totalizer', () => {
       </biggive-totalizer>
     `);
   });
+
+  it('calculates duration for constant physical velocity when items are wider than container', async () => {
+    const page = await newSpecPage({
+      components: [BiggiveTotalizer],
+      html: `<biggive-totalizer></biggive-totalizer>`,
+    });
+
+    const instance = page.rootInstance as any;
+    // itemsWidth = 600, containerWidth = 400 => sleeveWidth = 600 => totalTravelDistance = 1200 => duration = 10s
+    instance.setSpeed(600, 400);
+    expect(page.root?.style.getPropertyValue('--ticker-duration')).toBe('10s');
+  });
+
+  it('calculates duration for constant physical velocity when container is wider than items', async () => {
+    const page = await newSpecPage({
+      components: [BiggiveTotalizer],
+      html: `<biggive-totalizer></biggive-totalizer>`,
+    });
+
+    const instance = page.rootInstance as any;
+    // itemsWidth = 100, containerWidth = 400 => sleeveWidth = 400 => totalTravelDistance = 800 => duration = 7s (~6.67 rounded)
+    instance.setSpeed(100, 400);
+    expect(page.root?.style.getPropertyValue('--ticker-duration')).toBe('7s');
+  });
+
+  it('ignores zero or negative dimensions without modifying duration property', async () => {
+    const page = await newSpecPage({
+      components: [BiggiveTotalizer],
+      html: `<biggive-totalizer></biggive-totalizer>`,
+    });
+
+    const instance = page.rootInstance as any;
+    instance.setSpeed(0, 400);
+    expect(page.root?.style.getPropertyValue('--ticker-duration')).toBe('');
+
+    instance.setSpeed(400, 0);
+    expect(page.root?.style.getPropertyValue('--ticker-duration')).toBe('');
+  });
+
+  it('cleans up observers and listeners on disconnectedCallback', async () => {
+    const page = await newSpecPage({
+      components: [BiggiveTotalizer],
+      html: `<biggive-totalizer></biggive-totalizer>`,
+    });
+
+    const instance = page.rootInstance as any;
+    const disconnectSpy = jest.fn();
+    instance.resizeObserver = { disconnect: disconnectSpy };
+
+    const removeEventListenerSpy = jest.spyOn(window, 'removeEventListener');
+
+    instance.disconnectedCallback();
+
+    expect(disconnectSpy).toHaveBeenCalled();
+    expect(removeEventListenerSpy).toHaveBeenCalledWith('resize', expect.any(Function));
+
+    removeEventListenerSpy.mockRestore();
+  });
 });
