@@ -10,10 +10,11 @@
 
 .container {
   font-family: inherit;
-  a {
+  a, button, .button {
     display: inline-block;
     &.full-width-true {
       display: block;
+      width: 100%;
     }
   }
   &.centered-true {
