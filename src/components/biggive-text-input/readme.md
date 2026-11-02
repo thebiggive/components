@@ -16,12 +16,13 @@ Requires slots `label` and `input`.
 
 ## Properties
 
-| Property      | Attribute      | Description                                          | Type                          | Default      |
-| ------------- | -------------- | ---------------------------------------------------- | ----------------------------- | ------------ |
-| `currency`    | `currency`     | ISO-4217 currency code if input is for a money value | `"GBP" \| "USD" \| undefined` | `undefined`  |
-| `selectStyle` | `select-style` |                                                      | `"bordered" \| "underlined"`  | `'bordered'` |
-| `siteDesign`  | `site-design`  |                                                      | `"biggive" \| "philco"`       | `'biggive'`  |
-| `spaceBelow`  | `space-below`  |                                                      | `number`                      | `0`          |
+| Property           | Attribute           | Description                                                                   | Type                          | Default      |
+| ------------------ | ------------------- | ----------------------------------------------------------------------------- | ----------------------------- | ------------ |
+| `backgroundColour` | `background-colour` | Must match background of containing element, or unintended shape will appear. | `"grey" \| "white"`           | `'grey'`     |
+| `currency`         | `currency`          | ISO-4217 currency code if input is for a money value                          | `"GBP" \| "USD" \| undefined` | `undefined`  |
+| `selectStyle`      | `select-style`      |                                                                               | `"bordered" \| "underlined"`  | `'bordered'` |
+| `siteDesign`       | `site-design`       |                                                                               | `"biggive" \| "philco"`       | `'biggive'`  |
+| `spaceBelow`       | `space-below`       |                                                                               | `number`                      | `0`          |
 
 
 ## Slots

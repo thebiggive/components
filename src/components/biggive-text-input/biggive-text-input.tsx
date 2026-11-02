@@ -23,11 +23,15 @@ export class BiggiveTextInput {
   @Prop() spaceBelow: number = 0;
   @Prop() selectStyle: 'bordered' | 'underlined' = 'bordered';
   @Prop() siteDesign: 'biggive' | 'philco' = 'biggive';
+  /**
+   * Must match background of containing element, or unintended shape will appear.
+   */
+  @Prop() backgroundColour: 'white' | 'grey' = 'grey';
 
   render() {
     const currencySymbol = this.currency === 'GBP' ? '£' : this.currency === 'USD' ? '$' : undefined;
     return (
-      <div class={'text-input space-below-' + this.spaceBelow + ' select-style-' + this.selectStyle + ' ' + this.siteDesign}>
+      <div class={'text-input space-below-' + this.spaceBelow + ' select-style-' + this.selectStyle + ' ' + this.siteDesign + ' background-colour-' + this.backgroundColour}>
         <div class="prompt">
           <span>
             <slot name="label" />
