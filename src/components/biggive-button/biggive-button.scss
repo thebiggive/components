@@ -7,11 +7,11 @@
 :host {
   display: contents;
 }
-
 .container {
   font-family: inherit;
   a, button, .button {
     display: inline-block;
+    box-sizing: border-box;
     &.full-width-true {
       display: block;
       width: 100%;
