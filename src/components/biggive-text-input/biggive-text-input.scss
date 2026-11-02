@@ -35,6 +35,14 @@
     }
   }
 
+  &.background-colour-white .prompt > span {
+    background-color: variables.$colour-white;
+  }
+
+  &.background-colour-grey .prompt > span {
+    background-color: variables.$colour-grey-background;
+  }
+
 
   &.philco .prompt {
     color: philco-variables.$colour-philco-gray-90;
@@ -88,6 +96,14 @@
       &.focused {
         background-color: variables.$colour-secondary-green;
       }
+    }
+
+    &.background-colour-white .sleeve .inner-sleeve {
+      background-color: variables.$colour-white;
+    }
+
+    &.background-colour-grey .sleeve .inner-sleeve {
+      background-color: variables.$colour-grey-background;
     }
   }
   &.select-style-bordered.philco {

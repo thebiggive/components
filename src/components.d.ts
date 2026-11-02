@@ -1470,6 +1470,11 @@ export namespace Components {
      */
     interface BiggiveTextInput {
         /**
+          * Must match background of containing element, or unintended shape will appear.
+          * @default 'grey'
+         */
+        "backgroundColour": 'white' | 'grey';
+        /**
           * ISO-4217 currency code if input is for a money value
          */
         "currency": 'GBP' | 'USD' | undefined;
@@ -3646,6 +3651,11 @@ declare namespace LocalJSX {
      */
     interface BiggiveTextInput {
         /**
+          * Must match background of containing element, or unintended shape will appear.
+          * @default 'grey'
+         */
+        "backgroundColour"?: 'white' | 'grey';
+        /**
           * ISO-4217 currency code if input is for a money value
          */
         "currency"?: 'GBP' | 'USD' | undefined;
@@ -4277,6 +4287,7 @@ declare namespace LocalJSX {
         "spaceBelow": number;
         "selectStyle": 'bordered' | 'underlined';
         "siteDesign": 'biggive' | 'philco';
+        "backgroundColour": 'white' | 'grey';
     }
     interface BiggiveTimelineAttributes {
         "spaceBelow": spacingOption;
