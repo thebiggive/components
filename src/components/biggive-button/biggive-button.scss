@@ -54,6 +54,15 @@
   }
 }
 
+.button-primary-outline {
+  color: variables.$colour-primary-blue;
+  border-color: variables.$colour-primary-blue;
+  &:hover {
+    color: variables.$colour-white;
+    background-color: variables.$colour-primary-blue;
+  }
+}
+
 .button-brand-grey {
   color: variables.$colour-white;
   &:hover {
