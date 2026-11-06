@@ -4,6 +4,7 @@
  */
 export const brandColours = [
   'primary', // blue
+  'primary-outline', // white with blue outline, for buttons
   'secondary', // green
   'tertiary', // coral
   'white',
