@@ -10,6 +10,7 @@
 .container {
   font-family: inherit;
   a, button, .button {
+    font-family: inherit;
     display: inline-block;
     box-sizing: border-box;
     &.full-width-true {
