@@ -36,11 +36,7 @@ updates:
         update-types: ["version-update:semver-major"]
       - dependency-name: "@storybook/addon-links"
         update-types: ["version-update:semver-major"]
-      - dependency-name: "@storybook/addon-webpack5-compiler-swc"
-        update-types: ["version-update:semver-major"]
       - dependency-name: "@storybook/html"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "@storybook/html-webpack5"
         update-types: ["version-update:semver-major"]
     groups:
       all-dependencies:
