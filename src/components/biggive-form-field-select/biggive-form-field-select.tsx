@@ -36,11 +36,25 @@ export class BiggiveFormFieldSelect {
    */
   @Prop() selectElementId: string | undefined;
 
+  private defaultSelectId = 'select-' + this.getRandomInt().toString();
+
   private doOptionSelectCompletedHandler = (event: any) => {
     const value = event.target.value;
     this.selectedValue = value;
-    this.selectedLabel = event.target.label;
-    this.selectionChanged(value);
+
+    const select = event.target as HTMLSelectElement;
+    const selectedOption = select.options && select.selectedIndex >= 0 ? select.options[select.selectedIndex] : undefined;
+    if (selectedOption) {
+      this.selectedLabel = selectedOption.text ?? selectedOption.label ?? null;
+    } else {
+      const formattedOptions = this.formatOptions(this.options);
+      const matchedOption = formattedOptions.find(opt => opt.value === value);
+      this.selectedLabel = matchedOption ? matchedOption.label : null;
+    }
+
+    if (typeof this.selectionChanged === 'function') {
+      this.selectionChanged(value);
+    }
   };
 
   /**
@@ -66,8 +80,8 @@ export class BiggiveFormFieldSelect {
       console.error('options undefined');
       options = [];
     }
-    // Give the select a random id so we can reference it from a label
-    const selectId = this.selectElementId || 'select-' + this.getRandomInt().toString();
+    // Give the select an id so we can reference it from a label
+    const selectId = this.selectElementId || this.defaultSelectId;
 
     return (
       <div class="selectWrapper">
