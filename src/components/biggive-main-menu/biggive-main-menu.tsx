@@ -97,12 +97,21 @@ export class BiggiveMainMenu {
       // the subMenuLink is a sibling element to the actual sub-menu
       const subMenuLink = subMenuElement.parentElement?.querySelector('a');
 
-      subMenuLink!.onclick = () => {
+      const toggleSubMenu = (event: Event) => {
+        event.preventDefault();
+        event.stopPropagation();
         const subMenuArrow = subMenuLink!.querySelector('.sub-menu-arrow');
         closeAllSubMenus({ except: subMenuLink! });
         subMenuArrow!.classList.toggle('transform-90');
         subMenuElement.classList.toggle('display-sub-menu');
       };
+
+      subMenuLink!.addEventListener('click', toggleSubMenu);
+      subMenuLink!.addEventListener('touchend', event => {
+        // Prevent the subsequent synthetic 'click' from firing, as we handle it here
+        event.preventDefault();
+        toggleSubMenu(event);
+      });
     });
 
     const subSubMenuElements = this.host.shadowRoot!.querySelectorAll<HTMLElement>('.sub-sub-menu');
@@ -115,11 +124,20 @@ export class BiggiveMainMenu {
       // the subSubMenuLink is a sibling element to the actual sub-sub-menu
       const subSubMenuLink = subSubMenuElement!.parentElement!.querySelector('a');
 
-      subSubMenuLink!.onclick = () => {
+      const toggleSubSubMenu = (event: Event) => {
+        event.preventDefault();
+        event.stopPropagation();
         const subMenuArrow = subSubMenuLink!.querySelector('.sub-sub-menu-arrow');
         subMenuArrow!.classList.toggle('transform-90');
         subSubMenuElement.classList.toggle('display-sub-menu');
       };
+
+      subSubMenuLink!.addEventListener('click', toggleSubSubMenu);
+      subSubMenuLink!.addEventListener('touchend', event => {
+        // Prevent the subsequent synthetic 'click' from firing, as we handle it here
+        event.preventDefault();
+        toggleSubSubMenu(event);
+      });
     });
   }
 
