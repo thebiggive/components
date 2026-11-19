@@ -1,4 +1,4 @@
-import { Component, Element, Event, EventEmitter, h, Host, Method, Prop } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, h, Host, Method, Prop, Watch } from '@stencil/core';
 import { makeURL } from '../../util/helper-methods';
 
 @Component({
@@ -69,76 +69,117 @@ export class BiggiveMainMenu {
     event.preventDefault();
   }
 
-  componentDidLoad() {
-    this.host.classList.add('fixed');
+  /**
+   * Attaches click/touch handlers to all sub-menu toggle links using event delegation.
+   * Called on componentDidLoad and whenever isLoggedIn changes, so that dynamically
+   * created elements (e.g. "My Account" when logging in after page load) get handlers.
+   */
+  private attachSubMenuHandlers() {
+    const shadowRoot = this.host.shadowRoot!;
 
-    const subMenuElements = this.host.shadowRoot!.querySelectorAll<HTMLElement>('.sub-menu');
-    if (subMenuElements.length === 0) {
-      throw new Error('Missing subMenuElements');
-    }
+    // Use event delegation on stable parent containers so that handlers work even
+    // when child elements are recreated by Stencil re-renders (e.g. when isLoggedIn changes).
+    const linksContainer = shadowRoot.querySelector('#nav-primary');
+    const secondaryNavDesktop = shadowRoot.querySelector('.nav-secondary');
 
-    /**
-     * Closes all the sub-menus except the one exception.
-     */
-    const closeAllSubMenus = ({ except }: { except: HTMLAnchorElement }) => {
-      subMenuElements.forEach(subMenuElement => {
-        const link = subMenuElement.parentElement?.querySelector('a');
+    const handleClick = (event: Event) => {
+      const target = event.target as HTMLElement;
+      const closestLink = target.closest('a');
+      if (!closestLink) return;
 
-        if (link === except) {
-          return;
+      // Check if this link is a sub-menu toggle (has a sub-menu-arrow child)
+      const subMenuArrow = closestLink.querySelector('.sub-menu-arrow');
+      if (!subMenuArrow) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      // Find the sub-menu that is a sibling of this link
+      const subMenu = closestLink.parentElement?.querySelector<HTMLElement>(':scope > .sub-menu');
+      if (!subMenu) return;
+
+      // Close all other sub-menus
+      const allSubMenus = shadowRoot.querySelectorAll<HTMLElement>('.sub-menu');
+      allSubMenus.forEach(sm => {
+        const smLink = sm.parentElement?.querySelector('a');
+        if (smLink !== closestLink) {
+          smLink?.classList.remove('transform-90');
+          sm.classList.remove('display-sub-menu');
         }
-
-        link?.classList.remove('transform-90');
-        subMenuElement.classList.remove('display-sub-menu');
       });
+
+      subMenuArrow.classList.toggle('transform-90');
+      subMenu.classList.toggle('display-sub-menu');
     };
 
-    subMenuElements.forEach(subMenuElement => {
-      // the subMenuLink is a sibling element to the actual sub-menu
-      const subMenuLink = subMenuElement.parentElement?.querySelector('a');
+    const handleTouchEnd = (event: Event) => {
+      const target = event.target as HTMLElement;
+      const closestLink = target.closest('a');
+      if (!closestLink) return;
+      const subMenuArrow = closestLink.querySelector('.sub-menu-arrow');
+      if (!subMenuArrow) return;
 
-      const toggleSubMenu = (event: Event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        const subMenuArrow = subMenuLink!.querySelector('.sub-menu-arrow');
-        closeAllSubMenus({ except: subMenuLink! });
-        subMenuArrow!.classList.toggle('transform-90');
-        subMenuElement.classList.toggle('display-sub-menu');
-      };
+      event.preventDefault();
+      handleClick(event);
+    };
 
-      subMenuLink!.addEventListener('click', toggleSubMenu);
-      subMenuLink!.addEventListener('touchend', event => {
-        // Prevent the subsequent synthetic 'click' from firing, as we handle it here
-        event.preventDefault();
-        toggleSubMenu(event);
-      });
-    });
-
-    const subSubMenuElements = this.host.shadowRoot!.querySelectorAll<HTMLElement>('.sub-sub-menu');
-
-    if (subSubMenuElements.length === 0) {
-      throw new Error('Missing subSubMenuElements');
+    // Attach delegation handlers to stable parent containers
+    if (linksContainer) {
+      linksContainer.addEventListener('click', handleClick);
+      linksContainer.addEventListener('touchend', handleTouchEnd);
+    }
+    if (secondaryNavDesktop) {
+      secondaryNavDesktop.addEventListener('click', handleClick);
+      secondaryNavDesktop.addEventListener('touchend', handleTouchEnd);
     }
 
-    subSubMenuElements.forEach(subSubMenuElement => {
-      // the subSubMenuLink is a sibling element to the actual sub-sub-menu
-      const subSubMenuLink = subSubMenuElement!.parentElement!.querySelector('a');
+    // Handle sub-sub-menus (Match Funding Opportunities) with separate delegation
+    const handleSubSubClick = (event: Event) => {
+      const target = event.target as HTMLElement;
+      const closestLink = target.closest('a');
+      if (!closestLink) return;
 
-      const toggleSubSubMenu = (event: Event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        const subMenuArrow = subSubMenuLink!.querySelector('.sub-sub-menu-arrow');
-        subMenuArrow!.classList.toggle('transform-90');
-        subSubMenuElement.classList.toggle('display-sub-menu');
-      };
+      const subSubMenuArrow = closestLink.querySelector('.sub-sub-menu-arrow');
+      if (!subSubMenuArrow) return;
 
-      subSubMenuLink!.addEventListener('click', toggleSubSubMenu);
-      subSubMenuLink!.addEventListener('touchend', event => {
-        // Prevent the subsequent synthetic 'click' from firing, as we handle it here
-        event.preventDefault();
-        toggleSubSubMenu(event);
-      });
-    });
+      event.preventDefault();
+      event.stopPropagation();
+
+      const subSubMenu = closestLink.parentElement?.querySelector<HTMLElement>(':scope > .sub-sub-menu');
+      if (!subSubMenu) return;
+
+      subSubMenuArrow.classList.toggle('transform-90');
+      subSubMenu.classList.toggle('display-sub-menu');
+    };
+
+    const handleSubSubTouchEnd = (event: Event) => {
+      const target = event.target as HTMLElement;
+      const closestLink = target.closest('a');
+      if (!closestLink) return;
+      const subSubMenuArrow = closestLink.querySelector('.sub-sub-menu-arrow');
+      if (!subSubMenuArrow) return;
+
+      event.preventDefault();
+      handleSubSubClick(event);
+    };
+
+    if (linksContainer) {
+      linksContainer.addEventListener('click', handleSubSubClick);
+      linksContainer.addEventListener('touchend', handleSubSubTouchEnd);
+    }
+  }
+
+  componentDidLoad() {
+    this.host.classList.add('fixed');
+    this.attachSubMenuHandlers();
+  }
+
+  @Watch('isLoggedIn')
+  onIsLoggedInChange() {
+    // When isLoggedIn changes, the "My Account" sub-menu may be created or removed.
+    // Re-attach handlers to ensure dynamically created elements are handled.
+    // Since we use event delegation on stable parents, no re-attachment is needed,
+    // but we keep this watcher in case future changes require it.
   }
 
   private getSecondaryNavLinks(layout: 'desktop' | 'mobile') {
