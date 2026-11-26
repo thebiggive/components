@@ -35,7 +35,7 @@ export class BiggiveFooter {
   private logoRow = (
     <div class="row row-logo">
       <div class="logo">
-        <img src={getAssetPath('/assets/images/biggive-triangle-green.svg')} alt="Big Give" />
+        <img src={getAssetPath('assets/images/biggive-triangle-green.svg')} alt="Big Give" />
       </div>
     </div>
   );
