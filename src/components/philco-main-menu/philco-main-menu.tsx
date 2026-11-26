@@ -52,7 +52,7 @@ export class PhilcoMainMenu {
           <div class="navbar">
             <div class="logo">
               <a href={this.philcoUrlPrefix + homePageLink} aria-label="Home">
-                <img src={getAssetPath('/assets/images/philco/Philcologo-white.png')} alt="PhilCo" />
+                <img src={getAssetPath('assets/images/philco/Philcologo-white.png')} alt="PhilCo" />
               </a>
             </div>
             <biggive-misc-icon class="bx bx-menu" background-colour="transparent" icon-colour="white" icon="MenuOpen" onClick={this.openMobileMenu}></biggive-misc-icon>
